@@ -25,6 +25,7 @@
             type="text/css"
     />
     <link rel="stylesheet" href="{% static 'intro/styles.css' %}"/>
+    <link rel="stylesheet" href="{% static 'intro/fonts.css' %}"/>
 </head>
 
 <body id="root">
@@ -49,7 +50,7 @@
 <div class="pusher">
     <div class="ui inverted vertical masthead center aligned segment"
          style="width: 100vw; height: 100vh;
-                 background-image: url({% static 'intro/bg.png' %}); background-size: cover; background-repeat: no-repeat">
+                 background-image: url({% static 'intro/bg.png' %}); background-size: cover; background-repeat: no-repeat; background-position: center;">
         {#        <img src="{% static 'intro/bg.png' %}" style="height: 100%;width: 100% ">#}
         <div class="ui container">
             <div class="ui large secondary inverted pointing menu">
@@ -68,22 +69,25 @@
 
             </div>
 
-          <div class="center aligned segments" style="width: 25rem; margin-left: auto; margin-right: auto; transform: translate(0, 60vh)">
-            <div class="ui center aligned attached segment" style="background-color: #E8E8E8; color: black; border-radius: 10px; height: 5vh; line-height: 0vh; text-align: center">
+          <div class="ui left aligned huge header" style="color: white; font-size: 10vh; font-family: IRANSans_UltraLight">6th<br>Iranian<br>Geometry<br>Olympiad</div>
+
+
+          <div class="center aligned segments" style="width: 25rem; margin-left: auto; margin-right: auto; transform: translate(0, 5vh)">
+            <div class="ui center aligned attached segment" style="background-color: #E8E8E8; color: black; border-radius: 10px; height: 5vh; line-height: 0.5vh; text-align: center">
               for danesh amozan lab lab lab
             </div>
             <div class="ui center aligned horizontal attached segment segments fingil">
               <div class="ui center aligned attached segment fingil">Tehran &ensp;|&ensp; Mashhad &ensp;|&ensp; Shiraz &ensp;|&ensp; Isfahan &ensp;|&ensp; Tabriz</div>
             </div> 
-            <div class="ui horizontal attached segment segments fingil">
+            <div class="ui horizontal attached segment segments fingil" style="margin-top: -2vh">
               <div class="ui center aligned attached segment fingil">
-                <div class="ui white large circular label" style="color: black;">17 Aug</div>
+                <div class="ui white large circular label" style="color: black; height: 4vh; line-height: 2.5vh; width: 10vh">17 Aug</div>
               </div>
               <div class="ui center aligned attached segment fingil">
-                <div class="ui white large circular label" style="color: black;">13 Sep</div>
+                <div class="ui white large circular label" style="color: black; height: 4vh; line-height: 2.5vh; width: 10vh">13 Sep</div>
               </div>
               <div class="ui center aligned attached segment fingil">
-                <div class="ui white large circular label" style="color: black;">19 Sep</div>
+                <div class="ui white large circular label" style="color: black; height: 4vh; line-height: 2.5vh; width: 10vh">19 Sep</div>
              </div>
             </div>
  
