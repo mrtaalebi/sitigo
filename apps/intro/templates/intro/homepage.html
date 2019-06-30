@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html>
+{% load static %}
+{% load i18n %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+
   <head>
     <meta charset="utf-8" />
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
@@ -146,8 +150,9 @@
       <a class="item">Login</a> <a class="item">Signup</a>
     </div>
     <!--Page Contents-->
-    <div class="pusher">
-      <div class="ui inverted vertical masthead center aligned segment">
+      <div class="ui inverted vertical masthead center aligned segment"
+           style="height: 100vh; width: 100vw;
+           background-image: url({% static 'intro/bg.png' %}); background-repeat: no-repeat; background-size: cover;">
         <div class="ui container">
           <div class="ui large secondary inverted pointing menu">
             <a class="toc item"><i class="sidebar icon"></i></a>
@@ -159,13 +164,13 @@
             </div>
           </div>
         </div>
+          <div  style="margin-top: 100vh">
         <div class="ui text container">
-          <h1 class="ui inverted header">Imagine-a-Company</h1>
-          <h2>Do whatever you want when you want to.</h2>
           <div class="ui huge primary button">
-            Get Started <i class="right arrow icon"></i>
+            {% trans 'register now!' %} <i class="right arrow icon"></i>
           </div>
         </div>
+          </div>
       </div>
       <div class="ui vertical stripe segment">
         <div class="ui middle aligned stackable grid container">
@@ -217,6 +222,43 @@
           </div>
         </div>
       </div>
+
+{#rsources#}
+    <div class="ui vertical stripe quote segment" style="width: 90%; margin-left: 5%">
+        <h1 align="center" style="margin-top: 5%">{%trans 'resources' %}</h1>
+        <p align="center">علاقه‌مندان به شرکت در المپیاد هندسۀ ایران می‌توانند از هر منبعی که سرفصل‌های بالا را پوشش دهد استفاده کنند. با این حال، علاوه بر کتاب‌های درسی، کتاب‌های زیر به عنوان مناسب‌ترین منابع پیشنهاد می‌شوند:</p>
+        <div class="ui equal width stackable internally grid">
+          <div class="center aligned row">
+            <div class="column">
+              <h3>level</h3>
+                <div>
+                    <br>
+                    <h4><i class="book icon"></i>book name</h4>
+                    <p>author</p>
+                </div>
+            </div>
+            <div class="column">
+              <h3>level</h3>
+                <div>
+                    <br>
+                    <h4><i class="book icon"></i>book name</h4>
+                    <p>author</p>
+                </div>
+            </div>
+            <div class="column">
+              <h3>level</h3>
+                <div>
+                    <br>
+                    <h4><i class="book icon"></i>book name</h4>
+                    <p>author</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        <br>
+      </div>
+
+
       <div class="ui vertical stripe segment">
         <div class="ui text container">
           <h3 class="ui header">Breaking The Grid, Grabs Your Attention</h3>
@@ -273,7 +315,6 @@
           </div>
         </div>
       </div>
-    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
     <script>
