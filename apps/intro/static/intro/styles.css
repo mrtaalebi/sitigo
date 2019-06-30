@@ -104,3 +104,24 @@
         }
       }
 
+
+
+@font-face {
+  font-family: "IRANSans_Black";
+  src: url({% static 'intro/fonts/IRANSans_Black.ttf' %}) format("ttf");
+}
+
+.fingil {
+  border-radius: 10px !important;
+  background-color: transparent !important;
+  color: white !important;
+  font-weight: 900 !important;
+  border: 0px !important;
+  font-family: "IRANSans_Black" !important;
+}
+
+.fingil-border {
+  border-radius: 0px !important;
+  border-left: 2px solid white !important;
+  border-right: 2px solid white !important;
+}
