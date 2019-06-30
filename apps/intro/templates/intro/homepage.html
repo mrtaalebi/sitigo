@@ -4,266 +4,288 @@
 {% load i18n %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
 
-  <head>
-    <meta charset="utf-8" />
-    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+<head>
+    <meta charset="utf-8"/>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
     <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no"
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no"
     />
     <meta
-      name="description"
-      content="Semantic-UI-Forest, collection of design, themes and templates for Semantic-UI."
+            name="description"
+            content="Semantic-UI-Forest, collection of design, themes and templates for Semantic-UI."
     />
-    <meta name="keywords" content="Semantic-UI, Theme, Design, Template" />
-    <meta name="author" content="PPType" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="keywords" content="Semantic-UI, Theme, Design, Template"/>
+    <meta name="author" content="PPType"/>
+    <meta name="theme-color" content="#ffffff"/>
     <title>Homepage Template for Semantic-UI</title>
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
-      type="text/css"
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+            type="text/css"
     />
     <link rel="stylesheet" href="{% static 'intro/styles.css' %}"/>
-      </head>
+</head>
 
-  <body id="root">
-    <div class="ui large top fixed hidden menu">
-      <div class="ui container">
+<body id="root">
+<div class="ui large top fixed hidden menu">
+    <div class="ui container">
         <a class="active item">Home</a> <a class="item">Work</a>
         <a class="item">Company</a> <a class="item">Careers</a>
         <div class="right menu">
-          <div class="item"><a class="ui button">Log in</a></div>
-          <div class="item"><a class="ui primary button">Sign Up</a></div>
+            <div class="item"><a class="ui button">Log in</a></div>
+            <div class="item"><a class="ui primary button">Sign Up</a></div>
         </div>
-      </div>
     </div>
-    <!--Sidebar Menu-->
-    <div class="ui vertical inverted sidebar menu">
-      <a class="active item">Home</a> <a class="item">Work</a>
-      <a class="item">Company</a> <a class="item">Careers</a>
-      <a class="item">Login</a> <a class="item">Signup</a>
-    </div>
+</div>
+<!--Sidebar Menu-->
+<div class="ui vertical inverted sidebar menu">
+    <a class="active item">Home</a> <a class="item">Work</a>
+    <a class="item">Company</a> <a class="item">Careers</a>
+    <a class="item">Login</a> <a class="item">Signup</a>
+</div>
 
-    <!--Page Contents-->
-    <div class="pusher">
-      <div class="ui inverted vertical masthead center aligned segment"
-           style="width: 100vw; height: 100vh;
-                  background-image: url({% static 'intro/bg.png' %}); background-size: cover; background-repeat: no-repeat">
+<!--Page Contents-->
+<div class="pusher">
+    <div class="ui inverted vertical masthead center aligned segment"
+         style="width: 100vw; height: 100vh;
+                 background-image: url({% static 'intro/bg.png' %}); background-size: cover; background-repeat: no-repeat">
+        {#        <img src="{% static 'intro/bg.png' %}" style="height: 100%;width: 100% ">#}
         <div class="ui container">
-          <div class="ui large secondary inverted pointing menu">
+            <div class="ui large secondary inverted pointing menu">
 
-            <a class="toc item"><i class="sidebar icon"></i></a>
+                <a class="toc item"><i class="sidebar icon"></i></a>
 
-            <a class="active item">Home</a> 
-            <a class="item">Work</a>
-            <a class="item">Company</a>
-            <a class="item">Careers</a>
+                <a class="active item">Home</a>
+                <a class="item">Work</a>
+                <a class="item">Company</a>
+                <a class="item">Careers</a>
 
-            <div class="right item">
-              <a class="ui inverted button">Log in</a>
-              <a class="ui inverted button">Sign Up</a>
+                <div class="right item">
+                    <a class="ui inverted button">Log in</a>
+                    <a class="ui inverted button">Sign Up</a>
+                </div>
+
             </div>
 
-          </div>
+            <div class="center aligned segments"
+                 style="width: 35%; margin-left: auto; margin-right: auto; transform: translate(0, 60vh)">
+                <div class="ui center aligned attached segment"
+                     style="background-color: white; color: black; border-radius: 10px; height: 5vh; line-height: 0vh; text-align: center">
+                    for danesh amozan lab lab lab
+                </div>
+                <div class="ui center aligned horizontal attached segment segments fingil">
+                    <div class="ui center aligned attached segment fingil">Tehran &ensp;|&ensp; Mashhad &ensp;|&ensp;
+                        Shiraz &ensp;|&ensp; Isfahan &ensp;|&ensp; Tabriz
+                    </div>
+                </div>
+                <div class="ui horizontal attached segment segments fingil">
+                    <div class="ui center aligned attached segment fingil">
+                        <div class="ui white large circular label" style="color: black;">17 Aug</div>
+                    </div>
+                    <div class="ui center aligned attached segment fingil">
+                        <div class="ui white large circular label" style="color: black;">13 Sep</div>
+                    </div>
+                    <div class="ui center aligned attached segment fingil">
+                        <div class="ui white large circular label" style="color: black;">19 Sep</div>
+                    </div>
+                </div>
 
-          <div class="center aligned segments" style="width: 35%; margin-left: auto; margin-right: auto; transform: translate(0, 60vh)">
-            <div class="ui center aligned attached segment" style="background-color: white; color: black; border-radius: 10px; height: 5vh; line-height: 0vh; text-align: center">
-              for danesh amozan lab lab lab
+                <div class="ui horizontal attached segment segments fingil" style="margin-top: -3vh">
+                    <div class="ui center aligned attached segment fingil">
+                        Registration
+                    </div>
+                    <div class="ui center aligned attached segment fingil">
+                        Exam
+                    </div>
+                    <div class="ui center aligned attached segment fingil">
+                        Results
+                    </div>
+                </div>
             </div>
-            <div class="ui center aligned horizontal attached segment segments fingil">
-              <div class="ui center aligned attached segment fingil">Tehran &ensp;|&ensp; Mashhad &ensp;|&ensp; Shiraz &ensp;|&ensp; Isfahan &ensp;|&ensp; Tabriz</div>
-            </div> 
-            <div class="ui horizontal attached segment segments fingil">
-              <div class="ui center aligned attached segment fingil">
-                <div class="ui white large circular label" style="color: black;">17 Aug</div>
-              </div>
-              <div class="ui center aligned attached segment fingil">
-                <div class="ui white large circular label" style="color: black;">13 Sep</div>
-              </div>
-              <div class="ui center aligned attached segment fingil">
-                <div class="ui white large circular label" style="color: black;">19 Sep</div>
-             </div>
-            </div>
- 
-            <div class="ui horizontal attached segment segments fingil" style="margin-top: -3vh">
-              <div class="ui center aligned attached segment fingil">
-                Registration
-              </div>
-              <div class="ui center aligned attached segment fingil">
-                Exam
-              </div>
-              <div class="ui center aligned attached segment fingil">
-                Results
-              </div>
-            </div>
-          </div>
 
-        </div> 
-      </div>
+        </div>
+    </div>
 
-      <div class="ui vertical stripe segment">
+    <div class="ui inverted vertical stripe segment">
         <div class="ui middle aligned stackable grid container">
-          <div class="row">
-            <div class="eight wide column">
-              <h3 class="ui header">We Help Companies and Companions</h3>
-              <p>
-                We can give your company superpowers to do things that they
-                never thought possible. Let us delight your customers and
-                empower your needs...through pure data analytics.
-              </p>
-              <h3 class="ui header">We Make Bananas That Can Dance</h3>
-              <p>
-                Yes that's right, you thought it was the stuff of dreams, but
-                even bananas can be bioengineered.
-              </p>
+            <div class="row">
+                <div class="eight wide column">
+                    <h3 class="ui header" style="color:white;"><i class="inverted red id card outline icon"></i>Introduction
+                    </h3>
+                    <p>
+                        We can give your company superpowers to do things that they
+                        never thought possible. Let us delight your customers and
+                        empower your needs...through pure data analytics.
+                        We can give your company superpowers to do things that they
+                        never thought possible. Let us delight your customers and
+                        empower your needs...through pure data analytics.
+                        We can give your company superpowers to do things that they
+                        never thought possible. Let us delight your customers and
+                        empower your needs...through pure data analytics.
+                    </p>
+                    <h3 class="ui header" style="color:white"><i class="inverted purple check square icon"></i>Targets
+                    </h3>
+                   <p> <ul style="list-style-type: square">
+                        <li> Yes that's right, you thought it was the stuff of dreams, but
+                            even bananas can be bioengineered.
+                        </li>
+                        <li> Yes that's right, you thought it was the stuff of dreams, but
+                            even bananas can be bioengineered.
+                        </li>
+                        <li> Yes that's right, you thought it was the stuff of dreams, but
+                            even bananas can be bioengineered.
+                        </li>
+                    </ul></p>
+                    <h3 class="ui header" style="color:white"><i class="inverted teal flag icon"></i>Participating of
+                    foreign countries </h3>
+                    <p>
+                        Yes that's right, you thought it was the stuff of dreams, but
+                        even bananas can be bioengineered.
+                    </p>
+                </div>
+                <div class="six wide right floated column">
+                    <img
+                            class="ui huge rounded image"
+                            src="{% static 'intro/logo.png' %}"
+                    />
+                </div>
             </div>
-            <div class="six wide right floated column">
-              <img
-                class="ui large bordered rounded image"
-                src="./static/images/wireframe/white-image.png"
-              />
-            </div>
-          </div>
-          <div class="row">
-            <div class="center aligned column">
-              <a class="ui huge button">Check Them Out</a>
-            </div>
-          </div>
+
         </div>
-      </div>
-      <div class="ui vertical stripe quote segment">
+    </div>
+    <div class="ui vertical stripe quote segment">
         <div class="ui equal width stackable internally celled grid">
-          <div class="center aligned row">
-            <div class="column">
-              <h3>"What a Company"</h3>
-              <p>That is what they all say about us</p>
+            <div class="center aligned row">
+                <div class="column">
+                    <h3>"What a Company"</h3>
+                    <p>That is what they all say about us</p>
+                </div>
+                <div class="column">
+                    <h3>"I shouldn't have gone with their competitor."</h3>
+                    <p>
+                        <img
+                                class="ui avatar image"
+                                src="./static/images/avatar/nan.jpg"
+                        />
+                        <b>Nan</b> Chief Fun Officer Acme Toys
+                    </p>
+                </div>
             </div>
-            <div class="column">
-              <h3>"I shouldn't have gone with their competitor."</h3>
-              <p>
-                <img
-                  class="ui avatar image"
-                  src="./static/images/avatar/nan.jpg"
-                />
-                <b>Nan</b> Chief Fun Officer Acme Toys
-              </p>
-            </div>
-          </div>
         </div>
-      </div>
-    
-{#rsources#}
+    </div>
+
+    {#rsources#}
     <div class="ui vertical stripe quote segment" style="width: 90%; margin-left: 5%">
-        <h1 align="center" style="margin-top: 5%">{%trans 'resources' %}</h1>
+        <h1 align="center" style="margin-top: 5%">{% trans 'resources' %}</h1>
         <p align="center">jgjejgej</p>
         <div class="ui equal width stackable internally grid">
-          <div class="center aligned row">
-            <div class="column">
-              <h3>level</h3>
-                <div>
-                    <br>
-                    <h4><i class="book icon"></i>book name</h4>
-                    <p>author</p>
+            <div class="center aligned row">
+                <div class="column">
+                    <h3>level</h3>
+                    <div>
+                        <br>
+                        <h4><i class="book icon"></i>book name</h4>
+                        <p>author</p>
+                    </div>
                 </div>
-            </div>
-            <div class="column">
-              <h3>level</h3>
-                <div>
-                    <br>
-                    <h4><i class="book icon"></i>book name</h4>
-                    <p>author</p>
+                <div class="column">
+                    <h3>level</h3>
+                    <div>
+                        <br>
+                        <h4><i class="book icon"></i>book name</h4>
+                        <p>author</p>
+                    </div>
                 </div>
-            </div>
-            <div class="column">
-              <h3>level</h3>
-                <div>
-                    <br>
-                    <h4><i class="book icon"></i>book name</h4>
-                    <p>author</p>
+                <div class="column">
+                    <h3>level</h3>
+                    <div>
+                        <br>
+                        <h4><i class="book icon"></i>book name</h4>
+                        <p>author</p>
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
         <br>
-      </div>
-
-
-      <div class="ui vertical stripe segment">
-        <div class="ui text container">
-          <h3 class="ui header">Breaking The Grid, Grabs Your Attention</h3>
-          <p>
-            Instead of focusing on content creation and hard work, we have
-            learned how to master the art of doing nothing by providing massive
-            amounts of whitespace and generic content that can seem massive,
-            monolithic and worth your attention.
-          </p>
-          <a class="ui large button">Read More</a>
-          <h4 class="ui horizontal header divider">
-            <a href="#root"> Case Studies</a>
-          </h4>
-          <h3 class="ui header">Did We Tell You About Our Bananas?</h3>
-          <p>
-            Yes I know you probably disregarded the earlier boasts as
-            non-sequitur filler content, but its really true. It took years of
-            gene splicing and combinatory DNA research, but our bananas can
-            really dance.
-          </p>
-          <a class="ui large button">I'm Still Quite Interested</a>
-        </div>
-      </div>
-      <div class="ui inverted vertical footer segment">
-        <div class="ui container">
-          <div
-            class="ui stackable inverted divided equal height stackable grid"
-          >
-            <div class="three wide column">
-              <h4 class="ui inverted header">About</h4>
-              <div class="ui inverted link list">
-                <a class="item" href="#root">Sitemap</a>
-                <a class="item" href="#root">Contact Us</a>
-                <a class="item" href="#root">Religious Ceremonies</a>
-                <a class="item" href="#root">Gazebo Plans</a>
-              </div>
-            </div>
-            <div class="three wide column">
-              <h4 class="ui inverted header">Services</h4>
-              <div class="ui inverted link list">
-                <a class="item" href="#root">Banana Pre-Order</a>
-                <a class="item" href="#root">DNA FAQ</a>
-                <a class="item" href="#root">How To Access</a>
-                <a class="item" href="#root">Favorite X-Men</a>
-              </div>
-            </div>
-            <div class="seven wide column">
-              <h4 class="ui inverted header">Footer Header</h4>
-              <p>
-                Extra space for a call to action inside the footer that could
-                help re-engage users.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
-    <script>
-      $(document).ready(function() {
+
+
+    <div class="ui vertical stripe segment">
+        <div class="ui text container">
+            <h3 class="ui header">Breaking The Grid, Grabs Your Attention</h3>
+            <p>
+                Instead of focusing on content creation and hard work, we have
+                learned how to master the art of doing nothing by providing massive
+                amounts of whitespace and generic content that can seem massive,
+                monolithic and worth your attention.
+            </p>
+            <a class="ui large button">Read More</a>
+            <h4 class="ui horizontal header divider">
+                <a href="#root"> Case Studies</a>
+            </h4>
+            <h3 class="ui header">Did We Tell You About Our Bananas?</h3>
+            <p>
+                Yes I know you probably disregarded the earlier boasts as
+                non-sequitur filler content, but its really true. It took years of
+                gene splicing and combinatory DNA research, but our bananas can
+                really dance.
+            </p>
+            <a class="ui large button">I'm Still Quite Interested</a>
+        </div>
+    </div>
+    <div class="ui inverted vertical footer segment">
+        <div class="ui container">
+            <div
+                    class="ui stackable inverted divided equal height stackable grid"
+            >
+                <div class="three wide column">
+                    <h4 class="ui inverted header">About</h4>
+                    <div class="ui inverted link list">
+                        <a class="item" href="#root">Sitemap</a>
+                        <a class="item" href="#root">Contact Us</a>
+                        <a class="item" href="#root">Religious Ceremonies</a>
+                        <a class="item" href="#root">Gazebo Plans</a>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header">Services</h4>
+                    <div class="ui inverted link list">
+                        <a class="item" href="#root">Banana Pre-Order</a>
+                        <a class="item" href="#root">DNA FAQ</a>
+                        <a class="item" href="#root">How To Access</a>
+                        <a class="item" href="#root">Favorite X-Men</a>
+                    </div>
+                </div>
+                <div class="seven wide column">
+                    <h4 class="ui inverted header">Footer Header</h4>
+                    <p>
+                        Extra space for a call to action inside the footer that could
+                        help re-engage users.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
+<script>
+    $(document).ready(function () {
         // fix menu when passed
         $(".masthead").visibility({
-          once: false,
-          onBottomPassed: function() {
-            $(".fixed.menu").transition("fade in");
-          },
-          onBottomPassedReverse: function() {
-            $(".fixed.menu").transition("fade out");
-          }
+            once: false,
+            onBottomPassed: function () {
+                $(".fixed.menu").transition("fade in");
+            },
+            onBottomPassedReverse: function () {
+                $(".fixed.menu").transition("fade out");
+            }
         });
 
         // create sidebar and attach to menu open
         $(".ui.sidebar").sidebar("attach events", ".toc.item");
-      });
-    </script>
-  </body>
+    });
+</script>
+</body>
 </html>
