@@ -1,3 +1,3 @@
 [submodule "forest-templates"]
 	path = forest-templates
-	url = git@github.com:semantic-ui-forest/forest-templates.git
+	url = https://github.com/semantic-ui-forest/forest-templates.git
