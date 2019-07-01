@@ -1,5 +1,4 @@
 .slideshow-container {
-  max-width: 1000px;
   position: relative;
   margin: auto;
 }
@@ -7,6 +6,23 @@
 /* Hide the images by default */
 .mySlides {
   display: none;
+  padding: 0px;
+  margin: 0px;
+  left: 0px;
+  top: 0px;
+  height: 80vh;
+  width: 100%;
+  background-color: black;
+}
+
+.slide-image {
+    width: 100vw;
+    max-height: 100vh;
+    padding: 0px;
+    margin: 0px;
+    background-position: center;
+    left: 0px;
+    top: 0px;
 }
 
 /* Next & previous buttons */
@@ -15,7 +31,6 @@
   position: absolute;
   top: 50%;
   width: auto;
-  margin-top: -22px;
   padding: 16px;
   color: white;
   font-weight: bold;
@@ -33,6 +48,7 @@
 
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
+  color: #FF695E;
   background-color: rgba(0,0,0,0.8);
 }
 
@@ -40,7 +56,6 @@
 .text {
   color: #f2f2f2;
   font-size: 15px;
-  padding: 8px 12px;
   position: absolute;
   bottom: 8px;
   width: 100%;
