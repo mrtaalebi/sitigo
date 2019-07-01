@@ -41,19 +41,21 @@
         <a class="active item">Home</a> <a class="item">Work</a>
         <a class="item">Company</a> <a class="item">Careers</a>
         <div class="right menu">
-            <a class="fitted mobile-only item popup-link" onclick="document.changeLang.submit();" href="#"
+
+    <a class="fitted mobile-only item popup-link" onclick="document.changeLang.submit();" href="#"
        data-tooltip="{% trans 'Change Language' %}" data-position="left center" data-inverted=""
        style="margin-left: 15px; margin-right: 15px" id="change_lang">
-        <i class="world icon large-icon"></i>
+
+      <i class="world icon large-icon"></i>
     </a>
         {{ LANGUAGE_CODE }}
 
-    <form name="changeLang" action="/i18n/setlang" method="POST">
-        {% csrf_token %}
-    {{ request.path }}
-        <input name="next" type="hidden" value="{{ request.path }}"/>
-        <input type="hidden" name="language" value="{% if LANGUAGE_CODE == "fa" %}en{% else %}fa{% endif %}"/>
-    </form>
+    <form name="changeLang" action="{% url 'set_language' %}" method="POST">
+      {% csrf_token %}
+      <input name="next" type="hidden" value="/"/>
+      <input name="language" type="hidden" value={% if LANGUAGE_CODE == "fa" %}"en"{% else %}"fa"{% endif %}/>
+      <input type="submit">allah</input>
+   </form>
 {#            <div class="item"><a class="ui button">Log in</a></div>#}
 {#            <div class="item"><a class="ui primary button">Sign Up</a></div>#}
         </div>
