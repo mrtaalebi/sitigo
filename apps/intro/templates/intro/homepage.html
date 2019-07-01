@@ -48,7 +48,7 @@
     </a>
         {{ LANGUAGE_CODE }}
 
-    <form name="changeLang" action="/i18n/setlang" method="POST">
+    <form name="changeLang" action="/set_lang/" method="POST">
         {% csrf_token %}
     {{ request.path }}
         <input name="next" type="hidden" value="{{ request.path }}"/>

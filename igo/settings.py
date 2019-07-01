@@ -117,7 +117,7 @@ LANGUAGES = (
     ('fa', _('Persian'))
 )
 
-LANGUAGE_CODE = 'fa'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
