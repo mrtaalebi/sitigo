@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-30 19:34+0000\n"
+"POT-Creation-Date: 2019-07-01 11:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,15 +18,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: apps/intro/templates/intro/homepage.html:176
-msgid "resources"
+#: apps/intro/templates/intro/homepage.html:46
+msgid "Change Language"
+msgstr "تغییر زبان"
+
+#: apps/intro/templates/intro/homepage.html:81
+msgid "Log in"
 msgstr ""
 
-#: igo/settings.py:111
+#: apps/intro/templates/intro/homepage.html:241
+msgid "resources"
+msgstr "منابع"
+
+#: igo/settings.py:114
 msgid "English"
 msgstr ""
 
-#: igo/settings.py:112
+#: igo/settings.py:115
 msgid "Persian"
 msgstr ""
 
