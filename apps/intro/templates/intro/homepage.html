@@ -13,12 +13,17 @@
     />
     <meta
             name="description"
-            content="Semantic-UI-Forest, collection of design, themes and templates for Semantic-UI."
+            content="IGO - Iranian Geometry Olympiad"
     />
-    <meta name="keywords" content="Semantic-UI, Theme, Design, Template"/>
+    <meta name="keywords" content="IGO, igo, geometry, olympiad"/>
     <meta name="author" content="PPType"/>
     <meta name="theme-color" content="#ffffff"/>
-    <title>Homepage Template for Semantic-UI</title>
+    <title>IGO 2019</title>
+    <link
+            rel="shortuct icon"
+            type="image/png"
+            href="{% static 'intro/favicon.png' %}"
+    />
     <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
@@ -53,61 +58,54 @@
 <div class="pusher">
     <div class="ui inverted vertical masthead center aligned segment"
          style="width: 100vw; height: 100vh;
-                 background-image: url({% static 'intro/bg.png' %}); background-size: cover; background-repeat: no-repeat">
-        {#        <img src="{% static 'intro/bg.png' %}" style="height: 100%;width: 100% ">#}
+                 background-image: url({% static 'intro/images/bg.png' %}); background-size: cover; background-repeat: no-repeat; background-position: center;">
         <div class="ui container">
-            <div class="ui large secondary inverted pointing menu">
+          <div class="ui large secondary inverted pointing menu">
+            <a class="toc item"><i class="sidebar icon"></i></a>
+            <a class="active item">Home</a>
+            <a class="item">Work</a>
+            <a class="item">Company</a>
+            <a class="item">Careers</a>
+            <div class="right item">
+              <a class="ui inverted button">Log in</a>
+              <a class="ui inverted button">Sign Up</a>
+            </div>
+          </div>
 
-                <a class="toc item"><i class="sidebar icon"></i></a>
+          <div class="ui left aligned huge header" style="color: white; font-size: 10vh; font-family: IRANSans_Black">6th<br>Iranian<br>Geometry<br>Olympiad</div>
 
-                <a class="active item">Home</a>
-                <a class="item">Work</a>
-                <a class="item">Company</a>
-                <a class="item">Careers</a>
 
-                <div class="right item">
-                    <a class="ui inverted button">Log in</a>
-                    <a class="ui inverted button">Sign Up</a>
-                </div>
-
+          <div class="center aligned segments" style="width: 25rem; margin-left: auto; margin-right: auto; transform: translate(0, 5vh)">
+            <div class="ui center aligned attached segment" style="background-color: #E8E8E8; color: black; border-radius: 10px; height: 5vh; line-height: 0.5vh; text-align: center">
+              for danesh amozan lab lab lab
+            </div>
+            <div class="ui center aligned horizontal attached segment segments fingil">
+              <div class="ui center aligned attached segment fingil">Tehran &ensp;|&ensp; Mashhad &ensp;|&ensp; Shiraz &ensp;|&ensp; Isfahan &ensp;|&ensp; Tabriz</div>
+            </div>
+            <div class="ui horizontal attached segment segments fingil" style="margin-top: -2vh">
+              <div class="ui center aligned attached segment fingil">
+                <div class="ui white large circular label" style="color: black; height: 4vh; line-height: 2.5vh; width: 10vh">17 Aug</div>
+              </div>
+              <div class="ui center aligned attached segment fingil">
+                <div class="ui white large circular label" style="color: black; height: 4vh; line-height: 2.5vh; width: 10vh">13 Sep</div>
+              </div>
+              <div class="ui center aligned attached segment fingil">
+                <div class="ui white large circular label" style="color: black; height: 4vh; line-height: 2.5vh; width: 10vh">19 Sep</div>
+             </div>
             </div>
 
-            <div class="center aligned segments"
-                 style="width: 25rem; margin-left: auto; margin-right: auto; transform: translate(0, 60vh)">
-                <div class="ui center aligned attached segment"
-                     style="background-color: #E8E8E8; color: black; border-radius: 10px; height: 5vh; line-height: 0vh; text-align: center">
-                    for danesh amozan lab lab lab
-                </div>
-                <div class="ui center aligned horizontal attached segment segments fingil">
-                    <div class="ui center aligned attached segment fingil">Tehran &ensp;|&ensp; Mashhad &ensp;|&ensp;
-                        Shiraz &ensp;|&ensp; Isfahan &ensp;|&ensp; Tabriz
-                    </div>
-                </div>
-                <div class="ui horizontal attached segment segments fingil">
-                    <div class="ui center aligned attached segment fingil">
-                        <div class="ui white large circular label" style="color: black;">17 Aug</div>
-                    </div>
-                    <div class="ui center aligned attached segment fingil">
-                        <div class="ui white large circular label" style="color: black;">13 Sep</div>
-                    </div>
-                    <div class="ui center aligned attached segment fingil">
-                        <div class="ui white large circular label" style="color: black;">19 Sep</div>
-                    </div>
-                </div>
-
-                <div class="ui horizontal attached segment segments fingil" style="margin-top: -3vh">
-                    <div class="ui center aligned attached segment fingil">
-                        Registration
-                    </div>
-                    <div class="ui center aligned attached segment fingil">
-                        Exam
-                    </div>
-                    <div class="ui center aligned attached segment fingil">
-                        Results
-                    </div>
-                </div>
+            <div class="ui horizontal attached segment segments fingil" style="margin-top: -3vh">
+              <div class="ui center aligned attached segment fingil">
+                Registration
+              </div>
+              <div class="ui center aligned attached segment fingil">
+                Exam
+              </div>
+              <div class="ui center aligned attached segment fingil">
+                Results
+              </div>
             </div>
-
+          </div>
         </div>
     </div>
 
@@ -153,7 +151,7 @@
                 <div class="six wide right floated column">
                     <img
                             class="ui huge rounded image"
-                            src="{% static 'intro/logo.png' %}"
+                            src="{% static 'intro/images/logo.png' %}"
                     />
                 </div>
             </div>
