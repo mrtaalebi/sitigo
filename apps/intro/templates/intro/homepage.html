@@ -58,7 +58,8 @@
 <div class="pusher">
     <div class="ui inverted vertical masthead center aligned segment"
          style="width: 100vw; height: 100vh;
-                 background-image: url({% static 'intro/images/bg.png' %}); background-size: cover; background-repeat: no-repeat; background-position: center;">
+                 background-image: url({% static 'intro/images/bg.png' %}); background-size: cover; background-repeat: no-repeat; background-position: center;"
+         id="topper">
         <div class="ui container">
           <div class="ui large secondary inverted pointing menu">
             <a class="toc item"><i class="sidebar icon"></i></a>
@@ -72,7 +73,7 @@
             </div>
           </div>
 
-          <div class="ui left aligned huge header" style="color: white; font-size: 10vh; font-family: IRANSans_Black">6th<br>Iranian<br>Geometry<br>Olympiad</div>
+          <div class="ui left aligned huge header" id="title" style="color: white; font-size: 10vh; font-family: IRANSans_Black">6th<br>Iranian<br>Geometry<br>Olympiad</div>
 
 
           <div class="center aligned segments" style="width: 25rem; margin-left: auto; margin-right: auto; transform: translate(0, 5vh)">
@@ -364,7 +365,8 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
-<script src= "{% static 'intro/scripts/slideshow.js' %}"></script>
+<script src={% static 'intro/scripts/slideshow.js' %}></script>
+<script src={% static 'intro/scripts/js.js' %}></script>
 <script>
     $(document).ready(function () {
         // fix menu when passed
