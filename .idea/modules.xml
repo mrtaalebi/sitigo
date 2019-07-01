@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/sitegeo.iml" filepath="$PROJECT_DIR$/.idea/sitegeo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/sitigo.iml" filepath="$PROJECT_DIR$/.idea/sitigo.iml" />
     </modules>
   </component>
 </project>
