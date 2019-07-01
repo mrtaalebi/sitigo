@@ -25,11 +25,11 @@
 
 @font-face {
   font-family: 'IRANSans_Black';
-  src: url({% static 'intro/fonts/WebFonts/fonts/ttf/IRANSansWeb_Black.ttf'%}) format('ttf');
+  src: url({% static 'intro/fonts/WebFonts/fonts/ttf/IRANSansWeb_Black.woff2'%}) format('woff2');
 }
 
 * {
-  font-family: "IRANSans";
+  font-family: "IRANSans" !important;
 }
 
       body {
