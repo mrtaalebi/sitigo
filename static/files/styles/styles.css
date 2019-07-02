@@ -154,6 +154,17 @@
   border-right: 2px solid white !important;
 }
 
+.gingil {
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+.gingily {
+    bottom: 5vh;
+    width: 100%;
+}
+
 @media only screen and (min-width: 768px) {
     .mobile-only {
         display: none !important;

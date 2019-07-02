@@ -5,7 +5,6 @@
 
 /* Hide the images by default */
 .mySlides {
-  display: none;
   padding: 0px;
   margin: 0px;
   left: 0px;
@@ -16,10 +15,8 @@
 
 .slide-image {
     width: 100vw;
-    max-height: 100vh;
     padding: 0px;
     margin: 0px;
-    background-position: center;
     left: 0px;
     top: 0px;
 }
@@ -76,6 +73,7 @@
   height: 15px;
   width: 15px;
   margin: 0 2px;
+  margin-bottom: 20px;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
