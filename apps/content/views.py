@@ -18,16 +18,27 @@ LANGUAGE_QUERY_PARAMETER = 'language'
 
 def age(request):
     prev_ages = list(Age.objects.all().order_by('year'))
-    context = []
+    x = []
     for p_age in prev_ages:
-        context.append({
+        x.append({
+            'id': p_age.id,
             'year': p_age.year,
-            'content': p_age.content,
-            'files': list(p_age.files.all()),
-            'poster': p_age.poster
+            # 'content': p_age.content,
+            # 'files': list(p_age.files.all()),
+            # 'poster': p_age.poster
         })
-    # print(context)
-    return render(request, 'content/age.html', {'prev_ages':context})
+    context = {'prev_ages': x}
+    if request.method == 'POST':
+        active = Age.object.get(id= request.POST['id'])
+        context.update({
+            'active': active
+        })
+    else:
+        context.update({
+            'active': prev_ages[len(prev_ages)-1]
+        })
+    print(context)
+    return render(request, 'content/age.html', context)
 
 
 def doc_dwnldr(request):
