@@ -13,7 +13,7 @@ LANGUAGE_QUERY_PARAMETER = 'language'
 
 
 def homepage(request):
-    print(request.LANGUAGE_CODE)
+    
     return render(request, 'intro/homepage.html')
 
 
