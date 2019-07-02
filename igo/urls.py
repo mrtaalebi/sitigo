@@ -20,7 +20,9 @@ from apps.intro import urls as intro_urls
 from apps.intro.views import set_lang
 
 urlpatterns = [
+    path('set_lang/', set_lang),
     path('admin/', admin.site.urls),
     path('', include(intro_urls)),
-    path('set_lang/', set_lang),
+
 ]
+
