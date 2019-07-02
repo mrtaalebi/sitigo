@@ -21,6 +21,7 @@ class Age(models.Model):
     poster = models.ImageField()
     files = models.ManyToManyField(FileUpload)
     content = RichTextField()
+    year = models.IntegerField()
 
     def save(self, *args, **kwargs):
         if not self.id:
