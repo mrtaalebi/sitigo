@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils.translation import ugettext_lazy as _
 
 # Singleton model HomePageData
 class HomePageData(models.Model):
@@ -14,10 +14,6 @@ class HomePageData(models.Model):
     def delete(self, *args, **kwargs):
         pass
 
-    @classmethond
-    def load(cls):
-        obj, created = cls.objects.get_or_create(pk=1)
-        return obj
 
 
 class Organizer(models.Model):
