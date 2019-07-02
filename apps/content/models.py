@@ -11,3 +11,12 @@ class FileUpload(models.Model):
     name = models.CharField(max_length=50)
     file = RichTextUploadingField()
 
+
+class Age(models.Model):
+    poster = models.ImageField()
+    files = models.ManyToManyField(FileUpload)
+
+
+
+
+
