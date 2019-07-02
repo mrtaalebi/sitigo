@@ -29,19 +29,20 @@ def age(request):
         })
     context = {'prev_ages': x}
     if request.method == 'POST':
-        active = Age.object.get(id= request.POST['id'])
-        context.update({
-            'active': active
-        })
+        active = Age.objects.get(id=request.POST['id'])
     else:
         if len(prev_ages) > 0:
-            context.update({
-                'active': prev_ages[len(prev_ages)-1]
-            })
+            active = prev_ages[len(prev_ages)-1]
         else:
-            context.update({
-                'active': ''
-            })
+            active = None
+    if active is not None:
+        context.update({
+            'id': active.id,
+            'year': active.year,
+            'contenr': active.content,
+            'files': list(active.files.all()),
+            'poster': active.poster
+        })
     print(context)
     return render(request, 'content/age.html', context)
 
