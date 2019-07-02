@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, i18n
 from django.contrib import admin
 from django.urls import path, include
-from apps.intro import urls as intro_urls
+from apps.intro import urls as intro_urls, views
 from apps.intro.views import set_lang
 from apps.content import urls as content_urls
 from apps.contact_us import urls as contact_us_urls
@@ -25,7 +25,7 @@ from igo import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('set_lang/', set_lang),
+    path('set_lang/', views.set_lang),
     path('admin/', admin.site.urls),
     path('content/', include(content_urls)),
     path('intro/', include(intro_urls)),
