@@ -13,17 +13,13 @@
                  background-image: url({% static 'intro/images/bg.png' %}); background-size: cover; background-repeat: no-repeat; background-position: center;"
          id="topper">
         <div class="ui container">
-            <div class="ui large secondary inverted pointing menu">
-                <a class="toc item"><i class="sidebar icon"></i></a>
-                <a class="active item">Home</a>
-                <a class="item">Work</a>
-                <a class="item">Company</a>
-                <a class="item">Careers</a>
-                <div class="right item">
-                    <a class="ui inverted button">Log in</a>
-                    <a class="ui inverted button">Sign Up</a>
-                </div>
-            </div>
+
+
+            {% block navbar %}
+                {% include 'base/main_navbar.html' %}
+            {% endblock %}
+
+
 
             <div class="ui left aligned huge header" id="title"
                  style="color: white; font-size: 10vh; font-family: IRANSans; font-weight: 900">6th<br>Iranian<br>Geometry<br>Olympiad
