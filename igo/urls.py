@@ -18,11 +18,11 @@ from django.contrib import admin
 from django.urls import path, include
 from apps.intro import urls as intro_urls
 from apps.intro.views import set_lang
-
+from apps.content import urls as content_urls
 urlpatterns = [
     path('set_lang/', set_lang),
     path('admin/', admin.site.urls),
-    path('', include(intro_urls)),
-
+    path('content/', include(content_urls)),
+    path('intro/', include(intro_urls)),
 ]
 

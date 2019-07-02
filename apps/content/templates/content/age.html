@@ -1,0 +1,53 @@
+{% extends 'base/base.html' %}
+{% load static i18n %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block extra_header %}
+    <link rel="stylesheet" href="{% static 'intro/slideshow.css' %}"/>
+    <script type="text/javascript">
+        $('.myMenu .item').tab();
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(document).on('click', '.myMenu .item', function (e) {
+                $('.myMenu .item').removeClass('active');
+                $(this).addClass('active');
+            });
+        });
+    </script>
+{% endblock %}
+{% block content %}
+    <div class="ui inverted vertical masthead center aligned segment"
+         style="width: 100vw; height: 100vh;
+                 background-image: url({% static 'intro/images/bg.png' %}); background-size: cover; background-repeat: no-repeat; background-position: center;"
+         id="topper">
+        <div class="ui container">
+            <div class="ui grid">
+                <div class="four wide column">
+                    <div class="ui vertical fluid tabular menu myMenu">
+                        <a class="active item">
+                            Bio
+                        </a>
+                        <a class="item">
+                            Pics
+                        </a>
+                        <a class="item">
+                            Companies
+                        </a>
+                        <a class="item">
+                            Links
+                        </a>
+                    </div>
+                </div>
+                <div class="twelve wide stretched column">
+                    <div class="ui segment">
+                        This is an stretched grid column. This segment will always match the tab height
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock %}
