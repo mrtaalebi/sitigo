@@ -4,17 +4,11 @@
 {% get_current_language as LANGUAGE_CODE %}
 {% block extra_header %}
     <link rel="stylesheet" href="{% static 'intro/slideshow.css' %}"/>
-    <script type="text/javascript">
-        $('.myMenu .item').tab();
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $(document).on('click', '.myMenu .item', function (e) {
-                $('.myMenu .item').removeClass('active');
-                $(this).addClass('active');
-            });
-        });
-    </script>
+    <style>
+        .myMenu > a {
+            background-color: #1f292e !important;
+        }
+    </style>
 {% endblock %}
 {% block content %}
     <div class="ui inverted vertical masthead center aligned segment"
@@ -22,35 +16,74 @@
                  background-image: url({% static 'intro/images/bg.png' %}); background-size: cover; background-repeat: no-repeat; background-position: center;"
          id="topper">
         <div class="ui container">
-             {% block navbar %}
+            {% block navbar %}
                 {% include 'base/main_navbar.html' %}
             {% endblock %}
-            <div class="ui grid">
-                <div class="four wide column">
-                    <div class="ui inverted vertical fluid tabular menu myMenu">
-                        <a class="active item">
-                            Bio
-                        </a>
-                        <a class="item">
-                            Pics
-                        </a>
-                        <a class="item">
-                            Companies
-                        </a>
-                        <a class="item">
-                            Links
-                        </a>
+            {% if not LANGUAGE_BIDI %}
+                <div class="ui grid">
+                    <div class="four wide column">
+                        <div class="ui inverted vertical fluid tabular menu myMenu">
+                            <a class=" item">
+                                Bio {{ LANGUAGE_CODE }}
+                            </a>
+                            <a class="item">
+                                Pics
+                            </a>
+                            <a class="item">
+                                Companies
+                            </a>
+                            <a class="item">
+                                Links
+                            </a>
+                        </div>
+                    </div>
+                    <div class="twelve wide stretched column">
+                        <div class="ui inverted segment" style="background-color: #1f292e">
+                            This is an stretched grid column. This segment will always match the tab height
+                        </div>
                     </div>
                 </div>
-                <div class="twelve wide stretched column">
-                    <div class="ui inverted segment">
-                        This is an stretched grid column. This segment will always match the tab height
+            {% else %}
+                <div class="ui grid">
+                    <div class="twelve wide stretched column">
+                        <div class="ui inverted segment" style="background-color: #1f292e">
+                            This is an stretched grid column. This segment will always match the tab height
+                        </div>
+                    </div>
+                    <div class="four wide column">
+                        <div class="ui inverted vertical fluid right tabular menu myMenu">
+                            <a class="active item">
+                                Bio
+                            </a>
+                            <a class="item">
+                                Pics
+                            </a>
+                            <a class="item">
+                                Companies
+                            </a>
+                            <a class="item">
+                                Links
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            {% endif %}
 
         </div>
+
     </div>
 
-
+    {% block extra_script %}
+        <script>
+            $(document).ready(function () {
+                $(document).on('click', '.myMenu .item', function (e) {
+                    $('.myMenu .item').removeClass('active');
+                    $(this).addClass('active');
+                    $(this).style.backgroundColor = "black";
+                });
+            });
+        </script>
+        <script>
+            $('.myMenu .item').tab();</script>
+    {% endblock %}
 {% endblock %}
