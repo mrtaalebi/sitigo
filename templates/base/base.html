@@ -51,6 +51,7 @@
 
       <i class="world icon huge-icon"></i>
     </a>
+        {{ LANGUAGE_CODE }}
 
     <form name="changeLang" action="/set_lang/" method="POST">
         {% csrf_token %}
@@ -73,7 +74,7 @@
 
       <i class="world icon huge-icon"></i>
     </a>
-
+    {{ language_code }}
     <form name="changeLang" action="/set_lang/" method="POST">
         {% csrf_token %}
         <input name="next" type="hidden" value="{{ request.path }}"/>
