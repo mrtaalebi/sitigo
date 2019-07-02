@@ -1,3 +1,18 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import HomePageData, Organizer, Slide
+
+
+@admin.register(HomePageData)
+class HomePageDataAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Organizer)
+class OrganizerAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Slide)
+class SlideAdmin(admin.ModelAdmin):
+    pass

@@ -1,11 +1,11 @@
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext as _
+
 
 # Singleton model HomePageData
 class HomePageData(models.Model):
 
-    class Meta:
-        abstract = True
+    name = models.CharField(max_length=10, null=False, blank=False, default='asghar')
 
     def save(self, *args, **kwargs):
         self.pk = 1
@@ -13,7 +13,6 @@ class HomePageData(models.Model):
 
     def delete(self, *args, **kwargs):
         pass
-
 
 
 class Organizer(models.Model):
@@ -34,3 +33,6 @@ class Slide(models.Model):
     image = models.ImageField(null=False, blank=False)
 
     home_page_data = models.ManyToManyField('HomePageData', related_name='slides')
+
+
+
