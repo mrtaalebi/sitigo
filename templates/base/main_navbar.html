@@ -17,7 +17,7 @@
         </a>
         {{ LANGUAGE_CODE }}
 
-        <form name="changeLang" action="/set_lang/" method="POST">
+        <form name="changeLang" id="changeLang" action="/set_lang/" method="POST">
             {% csrf_token %}
             <input name="next" type="hidden" value="{{ request.path }}"/>
             <input type="hidden" name="language" value="{% if LANGUAGE_CODE == "fa" %}en{% else %}fa{% endif %}"/>
