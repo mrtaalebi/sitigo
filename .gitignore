@@ -1,6 +1,9 @@
 
+igo/server_setting.pyp
+
 *.sqlite3
 *.idea*
+*.iml*
 
 venv*
 env*
