@@ -1,75 +1,13 @@
-<!DOCTYPE html>
-<html>
-{% load static %}
-{% load i18n %}
+{% extends 'base/base.html' %}
+{% load static i18n %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
 {% get_current_language as LANGUAGE_CODE %}
-
-<head>
-    <meta charset="utf-8"/>
-    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
-    <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no"
-    />
-    <meta
-            name="description"
-            content="IGO - Iranian Geometry Olympiad"
-    />
-    <meta name="keywords" content="IGO, igo, geometry, olympiad"/>
-    <meta name="author" content="PPType"/>
-    <meta name="theme-color" content="#ffffff"/>
-    <title>IGO 2019</title>
-    <link
-            rel="shortuct icon"
-            type="image/png"
-            href="{% static 'intro/favicon.png' %}"
-    />
-    <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
-            type="text/css"
-    />
-    <link rel="stylesheet" href="{% static 'intro/styles.css' %}"/>
+{% block extra_header %}
     <link rel="stylesheet" href="{% static 'intro/slideshow.css' %}"/>
-    <script src="https://unpkg.com/scrollreveal"></script>
-</head>
+{% endblock %}
 
-<body id="root">
-<div class="ui large top fixed hidden menu">
-    <div class="ui container">
-        <a class="active item">Home</a> <a class="item">Work</a>
-        <a class="item">Company</a> <a class="item">Careers</a>
-        <div class="right menu">
 
-    <a class="fitted mobile-only item popup-link" onclick="document.changeLang.submit();" href="#"
-       data-tooltip="{% trans 'Change Language' %}" data-position="left center" data-inverted=""
-       style="margin-left: 15px; margin-right: 15px" id="change_lang">
-
-      <i class="world icon large-icon"></i>
-    </a>
-        {{ LANGUAGE_CODE }}
-
-    <form name="changeLang" action="{% url 'set_language' %}" method="POST">
-      {% csrf_token %}
-      <input name="next" type="hidden" value="/"/>
-      <input name="language" type="hidden" value={% if LANGUAGE_CODE == "fa" %}"en"{% else %}"fa"{% endif %}/>
-      <input type="submit">allah</input>
-   </form>
-{#            <div class="item"><a class="ui button">Log in</a></div>#}
-{#            <div class="item"><a class="ui primary button">Sign Up</a></div>#}
-        </div>
-    </div>
-</div>
-<!--Sidebar Menu-->
-<div class="ui vertical inverted sidebar menu">
-    <a class="active item">Home</a> <a class="item">Work</a>
-    <a class="item">Company</a> <a class="item">Careers</a>
-    <a class="item">Login</a> <a class="item">Signup</a>
-</div>
-
-<!--Page Contents-->
-<div class="pusher">
+{% block content %}
     <div class="ui inverted vertical masthead center aligned segment"
          style="width: 100vw; height: 100vh;
                  background-image: url({% static 'intro/images/bg.png' %}); background-size: cover; background-repeat: no-repeat; background-position: center;"
@@ -330,66 +268,5 @@
         </div>
     </div>
 
-    <div class="ui inverted vertical footer segment" style="background-color: rgb(0,0,0);">
+{% endblock %}
 
-        <div
-                class="ui stackable inverted centered  equal height stackable  grid">
-
-            <div>
-                <div class="ui inverted horizontal link list">
-                    <div class=" item"><a href="mailto:national.igo@gmail.com" style="font-size: 20px"><i
-                            class="inverted orange large envelope icon "></i> national.igo@gmail.com</a></div>
-                    <div class=" item"><a target="_blank" href="https://t.me/igo_official" style="font-size: 20px"><i
-                            class="inverted blue large telegram plane icon"></i> igo_official</a></div>
-                    <div class=" item"><a class="item" target="_blank" style="font-size: 20px"
-                                          href="https://www.instagram.com/igo_official.ir"><i
-                            class="inverted pink large instagram icon"></i>igo_official.ir</a></div>
-                </div>
-            </div>
-
-
-            <form class="ui form" method="post" id="notify">{% csrf_token %}
-                <div class="field">
-                    <div class="ui action input"
-                         style="height: 50px; width: 200px;">
-                        <input type="email" placeholder="{% trans "Email" %}"
-                               style=" "
-                               id="email" name="email">
-                        <button class="ui teal button" type="submit" id="button"
-                                style=" "
-                        >
-                            {% trans 'Subscribe' %}
-                        </button>
-                    </div>
-                </div>
-            </form>
-
-        </div>
-    </div>
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
-<script src={% static 'intro/scripts/slideshow.js' %}></script>
-<script>
-    $(document).ready(function () {
-        // fix menu when passed
-        $(".masthead").visibility({
-            once: false,
-            onBottomPassed: function () {
-                $(".fixed.menu").transition("fade in");
-            },
-            onBottomPassedReverse: function () {
-                $(".fixed.menu").transition("fade out");
-            }
-        });
-
-        // create sidebar and attach to menu open
-        $(".ui.sidebar").sidebar("attach events", ".toc.item");
-    });
-</script>
-<script>
- ScrollReveal().reveal('.faded_class', {delay: 500});
-</script>
-</body>
-</html>
