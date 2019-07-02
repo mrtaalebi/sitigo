@@ -9,12 +9,14 @@
   margin: 0px;
   left: 0px;
   top: 0px;
-  width: 100%;
+  max-width: 100%;
   background-color: black;
+  max-height: 80vh;
 }
 
 .slide-image {
     width: 100vw;
+    max-height: 100%;
     padding: 0px;
     margin: 0px;
     left: 0px;
