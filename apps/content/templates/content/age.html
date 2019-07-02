@@ -22,9 +22,12 @@
                  background-image: url({% static 'intro/images/bg.png' %}); background-size: cover; background-repeat: no-repeat; background-position: center;"
          id="topper">
         <div class="ui container">
+             {% block navbar %}
+                {% include 'base/main_navbar.html' %}
+            {% endblock %}
             <div class="ui grid">
                 <div class="four wide column">
-                    <div class="ui vertical fluid tabular menu myMenu">
+                    <div class="ui inverted vertical fluid tabular menu myMenu">
                         <a class="active item">
                             Bio
                         </a>
@@ -40,7 +43,7 @@
                     </div>
                 </div>
                 <div class="twelve wide stretched column">
-                    <div class="ui segment">
+                    <div class="ui inverted segment">
                         This is an stretched grid column. This segment will always match the tab height
                     </div>
                 </div>
