@@ -26,6 +26,9 @@ class FileUploadAdmin(admin.ModelAdmin):
     form = FileUploadAdmin
     pass
 
+
 @admin.register(Age)
 class AgeAdmin(admin.ModelAdmin):
-    fields = ['poster', 'files']
+    fields = ['poster', 'content', 'files']
+    # inlines = [FileInLine,]
+
