@@ -1,6 +1,10 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
+from PIL import Image
+from io import BytesIO
+from django.core.files.uploadedfile import InMemoryUploadedFile
+import sys
 
 
 class Post(models.Model):
@@ -12,11 +16,22 @@ class FileUpload(models.Model):
     file = RichTextUploadingField()
 
 
+def compress_image(img):
+    image_temp = Image.open(img)
+    output_io_stream = BytesIO()
+    # imageTemproaryResized = image_temp.resize((1020, 573))
+    image_temp.save(output_io_stream, format='JPEG', quality=60)
+    output_io_stream.seek(0)
+    img = InMemoryUploadedFile(output_io_stream, 'ImageField', "%s.jpg" % img.name.split('.')[0],
+                               'image/jpeg', sys.getsizeof(output_io_stream), None)
+    return img
+
+
 class Age(models.Model):
     poster = models.ImageField()
     files = models.ManyToManyField(FileUpload)
 
-
-
-
-
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.poster = self.compress_image(self.poster)
+        super(Age, self).save(*args, **kwargs)
