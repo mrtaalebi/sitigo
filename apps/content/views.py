@@ -34,9 +34,14 @@ def age(request):
             'active': active
         })
     else:
-        context.update({
-            'active': prev_ages[len(prev_ages)-1]
-        })
+        if len(prev_ages) > 0:
+            context.update({
+                'active': prev_ages[len(prev_ages)-1]
+            })
+        else:
+            context.update({
+                'active': ''
+            })
     print(context)
     return render(request, 'content/age.html', context)
 
