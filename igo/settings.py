@@ -43,11 +43,14 @@ INSTALLED_APPS = [
 
     'django_extensions',
 
-    'apps.intro',
-    'apps.content',
-    
     'ckeditor',
     'ckeditor_uploader',
+
+    'captcha',
+
+    'apps.intro',
+    'apps.content',
+    'apps.contact_us',
 ]
 
 
@@ -220,3 +223,6 @@ CKEDITOR_CONFIGS = {
         ]),
     },
 }
+
+
+from .server_settings import * 

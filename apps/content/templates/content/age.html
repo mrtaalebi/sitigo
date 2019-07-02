@@ -8,6 +8,9 @@
         .myMenu > a {
             background-color: #1f292e !important;
         }
+        .mobile_menu :hover{
+            background-color: rgba(0,0,0,0);
+        }
     </style>
 {% endblock %}
 {% block content %}
@@ -19,10 +22,26 @@
             {% block navbar %}
                 {% include 'base/main_navbar.html' %}
             {% endblock %}
-            {% if not LANGUAGE_BIDI %}
-                <div class="ui grid">
-                    <div class="four wide column">
-                        <div class="ui inverted vertical fluid tabular menu myMenu">
+            {% if  LANGUAGE_BIDI %}
+                <div class="ui stackable grid">
+                       <div class="four wide column mobile-only">
+                        <div class="ui inverted pointing fluid stackable menu myMenu" style="border: 0; color: darkred;">
+                            <a class="item mobile_menu">
+                                Bio
+                            </a>
+                            <a class="item">
+                                Pics
+                            </a>
+                            <a class="item">
+                                Companies
+                            </a>
+                            <a class="item">
+                                Links
+                            </a>
+                        </div>
+                    </div>
+                    <div class="four wide column mobile-hidden">
+                        <div class="ui inverted vertical fluid tabular menu myMenu ">
                             <a class=" item">
                                 Bio {{ LANGUAGE_CODE }}
                             </a>
@@ -37,21 +56,55 @@
                             </a>
                         </div>
                     </div>
-                    <div class="twelve wide stretched column">
+
+
+                    <div class="twelve wide centered stretched column">
                         <div class="ui inverted segment" style="background-color: #1f292e">
                             This is an stretched grid column. This segment will always match the tab height
                         </div>
                     </div>
                 </div>
             {% else %}
-                <div class="ui grid">
-                    <div class="twelve wide stretched column">
+                <div class="ui stackable grid">
+                    <div class="four wide column mobile-only">
+                        <div class="ui inverted pointing fluid stackable menu myMenu" style="border: 0; color: darkred;">
+                            <a class="item mobile_menu">
+                                Bio
+                            </a>
+                            <a class="item">
+                                Pics
+                            </a>
+                            <a class="item">
+                                Companies
+                            </a>
+                            <a class="item">
+                                Links
+                            </a>
+                        </div>
+                    </div>
+                    <div class="twelve wide centered stretched column">
                         <div class="ui inverted segment" style="background-color: #1f292e">
                             This is an stretched grid column. This segment will always match the tab height
                         </div>
                     </div>
-                    <div class="four wide column">
-                        <div class="ui inverted vertical fluid right tabular menu myMenu">
+                    <div class="four wide column mobile-hidden">
+                        <div class="ui inverted vertical fluid right  tabular  menu myMenu">
+                            <a class="active item">
+                                Bio
+                            </a>
+                            <a class="item">
+                                Pics
+                            </a>
+                            <a class="item">
+                                Companies
+                            </a>
+                            <a class="item">
+                                Links
+                            </a>
+                        </div>
+                    </div>
+                    <div class="four wide column mobile-only">
+                        <div class="ui secondary pointing fluid stackable menu myMenu">
                             <a class="active item">
                                 Bio
                             </a>
