@@ -20,13 +20,15 @@ class FileUpload(models.Model):
 class Age(models.Model):
     poster = models.ImageField()
     files = models.ManyToManyField(FileUpload)
+    content = RichTextField()
+    year = models.IntegerField()
 
     def save(self, *args, **kwargs):
         if not self.id:
-            self.poster = self.resize_image(self.poster)
+            self.poster = self.resize_poster(self.poster)
         super(Age, self).save(*args, **kwargs)
 
-    def resize_image(self, img):
+    def resize_poster(self, img):
         image_temp = Image.open(img)
         output_io_stream = BytesIO()
         image_temp = image_temp.resize((1000, 1500))

@@ -21,6 +21,9 @@ from apps.intro.views import set_lang
 from apps.content import urls as content_urls
 from apps.contact_us import urls as contact_us_urls
 
+from igo import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('set_lang/', set_lang),
     path('admin/', admin.site.urls),
@@ -29,4 +32,6 @@ urlpatterns = [
     path('contact_us/', include(contact_us_urls)),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

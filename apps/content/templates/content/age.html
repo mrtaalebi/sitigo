@@ -8,6 +8,9 @@
         .myMenu > a {
             background-color: #1f292e !important;
         }
+        .mobile_menu :hover{
+            background-color: rgba(0,0,0,0);
+        }
     </style>
 {% endblock %}
 {% block content %}
@@ -19,10 +22,26 @@
             {% block navbar %}
                 {% include 'base/main_navbar.html' %}
             {% endblock %}
-            {% if not LANGUAGE_BIDI %}
-                <div class="ui grid">
-                    <div class="four wide column">
-                        <div class="ui inverted vertical fluid tabular menu myMenu">
+            {% if  LANGUAGE_BIDI %}
+                <div class="ui stackable grid">
+                       <div class="four wide column mobile-only">
+                        <div class="ui inverted pointing fluid stackable menu myMenu" style="border: 0; color: darkred;">
+                            <a class="item mobile_menu">
+                                Bio
+                            </a>
+                            <a class="item">
+                                Pics
+                            </a>
+                            <a class="item">
+                                Companies
+                            </a>
+                            <a class="item">
+                                Links
+                            </a>
+                        </div>
+                    </div>
+                    <div class="four wide column mobile-hidden">
+                        <div class="ui inverted vertical fluid tabular menu myMenu ">
                             <a class=" item">
                                 Bio {{ LANGUAGE_CODE }}
                             </a>
@@ -37,21 +56,55 @@
                             </a>
                         </div>
                     </div>
-                    <div class="twelve wide stretched column">
+
+
+                    <div class="twelve wide centered stretched column">
                         <div class="ui inverted segment" style="background-color: #1f292e">
                             This is an stretched grid column. This segment will always match the tab height
                         </div>
                     </div>
                 </div>
             {% else %}
-                <div class="ui grid">
-                    <div class="twelve wide stretched column">
+                <div class="ui stackable grid">
+                    <div class="four wide column mobile-only">
+                        <div class="ui inverted pointing fluid stackable menu myMenu" style="border: 0; color: darkred;">
+                            <a class="item mobile_menu">
+                                Bio
+                            </a>
+                            <a class="item">
+                                Pics
+                            </a>
+                            <a class="item">
+                                Companies
+                            </a>
+                            <a class="item">
+                                Links
+                            </a>
+                        </div>
+                    </div>
+                    <div class="twelve wide centered stretched column">
                         <div class="ui inverted segment" style="background-color: #1f292e">
                             This is an stretched grid column. This segment will always match the tab height
                         </div>
                     </div>
-                    <div class="four wide column">
-                        <div class="ui inverted vertical fluid right tabular menu myMenu">
+                    <div class="four wide column mobile-hidden">
+                        <div class="ui inverted vertical fluid right  tabular  menu myMenu">
+                            <a class="active item">
+                                Bio
+                            </a>
+                            <a class="item">
+                                Pics
+                            </a>
+                            <a class="item">
+                                Companies
+                            </a>
+                            <a class="item">
+                                Links
+                            </a>
+                        </div>
+                    </div>
+                    <div class="four wide column mobile-only">
+                        <div class="ui secondary pointing fluid stackable menu myMenu">
                             <a class="active item">
                                 Bio
                             </a>
@@ -72,6 +125,42 @@
         </div>
 
     </div>
+
+
+    {% for p_age in prev_ages %}
+        <p>{{ p_age.content | safe }}</p>
+        <br>
+        {% for file in p_age.files %}
+            <div style="
+                            width: 50%;
+                            height: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            border-left:1px solid #d4d4d5;
+                            font-family: IRANSans
+                            ">
+                        <a href="{{  file.url }}" target="_blank" class="ui link download-hover " style="color: black" onclick="document.downloader.submit();" href="#"
+       data-position="left center" data-inverted=""
+       style="margin-left: 15px; margin-right: 15px" id="change_lang">
+                           <i class="download icon huge"></i>
+                        </a>
+                        {{ file.name }}
+                <form name="downloader" action="/content/download/" method="POST">
+                    {% csrf_token %}
+                    <input name="file_path" type="hidden" value="{{ file.url }}"/>
+                    <input type="hidden" name="original_file_name"
+                           value="{{ file.name }}"/>
+                    <input type="submit"> submit</input>
+                </form>
+            </div>
+        {% endfor %}
+        <br>
+        <img src="{{ p_age.poster.url }}">
+    {% endfor %}
+
+
 
     {% block extra_script %}
         <script>
