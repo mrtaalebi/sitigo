@@ -22,6 +22,7 @@ from apps.intro.views import set_lang
 urlpatterns = [
     path('set_lang/', set_lang),
     path('admin/', admin.site.urls),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     path('', include(intro_urls)),
 
 ]

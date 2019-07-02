@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
 ]
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -216,5 +218,5 @@ CKEDITOR_CONFIGS = {
             'dialogui',
             'elementspath'
         ]),
-    }
+    },
 }
