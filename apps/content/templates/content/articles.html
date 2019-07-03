@@ -28,26 +28,28 @@
                     <div class="four wide column mobile-only">
                         <div class="ui inverted pointing fluid stackable menu myMenu"
                              style="border: 0; color: darkred;">
-                            {% for item in prev_ages %}
-                                {% if active.id == item.id %}
-                                    <a class="active item" onclick="$('#{{ item.id }}').submit();" href="#">
-                                        {{ item.english_name }}
-                                        <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
-                                              method="POST">
-                                            {% csrf_token %}
-                                            <input name="id" type="hidden" value="{{ item.id }}"/>
-                                        </form>
-                                    </a>
-                                {% else %}
+                            {% for item in categories %}
+                                {% if item.lang == "en" %}
+                                    {% if active.id == item.id %}
+                                        <a class="active item" onclick="$('#{{ item.id }}').submit();" href="#">
+                                            {{ item.english_name }}
+                                            <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
+                                                  method="POST">
+                                                {% csrf_token %}
+                                                <input name="id" type="hidden" value="{{ item.id }}"/>
+                                            </form>
+                                        </a>
+                                    {% else %}
 
-                                    <a class="item" onclick="$('#{{ item.id }}').submit();" href="#">
-                                        {{ item.english_name }}
-                                        <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
-                                              method="POST">
-                                            {% csrf_token %}
-                                            <input name="id" type="hidden" value="{{ item.id }}"/>
-                                        </form>
-                                    </a>
+                                        <a class="item" onclick="$('#{{ item.id }}').submit();" href="#">
+                                            {{ item.english_name }}
+                                            <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
+                                                  method="POST">
+                                                {% csrf_token %}
+                                                <input name="id" type="hidden" value="{{ item.id }}"/>
+                                            </form>
+                                        </a>
+                                    {% endif %}
                                 {% endif %}
                             {% endfor %}
                         </div>
@@ -56,7 +58,7 @@
                         <div class="ui inverted vertical fluid tabular menu myMenu ">
                             {% for item in prev_ages %}
                                 {% if active.id == item.id %}
-                                    <a class="active item" onclick="$('#{{ item.id }}').submit();" href="#">
+                                    <a class="active item" onclick="$('{{ item.id }}').submit();" href="#">
                                         {{ item.english_name }}
                                         <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
                                               method="POST">
@@ -66,7 +68,7 @@
                                     </a>
                                 {% else %}
 
-                                    <a class="item" onclick="$('#{{ item.id }}').submit();" href="#">
+                                    <a class="item" onclick="$('{{ item.id }}').submit();" href="#">
                                         {{ item.english_name }}
                                         <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
                                               method="POST">
@@ -93,22 +95,22 @@
                                             {#border-left:1px solid #d4d4d5;#}
                                             font-family: IRANSans
                                             ">
-                                        <a href="{{ file.file.url }}" target="_blank" class="ui link download-hover "
+                                        <a href="{{ file.url }}" target="_blank" class="ui link download-hover "
                                            style="color: black"
-                                           onclick="$('#{{ file.id }}downloader').submit();" href="#"
+                                           onclick="$('#downloader').submit();" href="#"
                                            data-position="left center" data-inverted=""
                                            style="margin-left: 15px; margin-right: 15px" id="change_lang">
                                             <i class="inverted teal download big icon" style="margin: 10px;"></i>
                                         </a>
                                         <br>
-                                        <p align="center"> {{ file.file.name }}</p>
+                                        <p align="center"> {{ file.name }}</p>
 
-                                        <form name="downloader" id="{{ file.id }}downloader" action="/content/download/"
+                                        <form name="downloader" id="downloader" action="/content/download/"
                                               method="POST">
                                             {% csrf_token %}
-                                            <input name="file_path" type="hidden" value="{{ file.file.url }}"/>
+                                            <input name="file_path" type="hidden" value="{{ file.url }}"/>
                                             <input type="hidden" name="original_file_name"
-                                                   value="{{ file.file.name }}"/>
+                                                   value="{{ file.name }}"/>
                                         </form>
                                     </div>
                                 {% endfor %}
@@ -153,7 +155,7 @@
                             <p>
                                 {{ active.persian_content|safe }}
                             </p>
-                            <div class="ui grid" dir="rtl">
+                            <div class="ui grid">
                                 {% for file in active.files %}
                                     <div class="ui centered two wide coloumn" style="
                                             align-items: center;padding: 20px;
@@ -162,20 +164,20 @@
                                             ">
                                         <a href="{{ file.url }}" target="_blank" class="ui link download-hover "
                                            style="color: black"
-                                           onclick="$('#{{ file.id }}downloader').submit();" href="#"
+                                           onclick="$('#downloader').submit();" href="#"
                                            data-position="left center" data-inverted=""
                                            style="margin-left: 15px; margin-right: 15px" id="change_lang">
                                             <i class="inverted teal download big icon" style="margin: 10px;"></i>
                                         </a>
                                         <br>
-                                        <p align="center"> {{ file.file.name }}</p>
+                                        <p align="center"> {{ file.name }}</p>
 
-                                        <form name="downloader" id="{{ file.id }}downloader" action="/content/download/"
+                                        <form name="downloader" id="downloader" action="/content/download/"
                                               method="POST">
                                             {% csrf_token %}
-                                            <input name="file_path" type="hidden" value="{{ file.file.url }}"/>
+                                            <input name="file_path" type="hidden" value="{{ file.url }}"/>
                                             <input type="hidden" name="original_file_name"
-                                                   value="{{ file.file.name }}"/>
+                                                   value="{{ file.name }}"/>
                                         </form>
                                     </div>
                                 {% endfor %}
@@ -185,11 +187,11 @@
                     </div>
                     <div class="four wide column mobile-hidden">
                         <div class="ui inverted vertical fluid right  tabular  menu myMenu">
-                        {%  for item in prev_ages %}
                             {% if active.id == item.id %}
                                 <a class="active item" onclick="$('#{{ item.id }}').submit();" href="#">
                                     {{ item.persian_name }}
-                                    <form id="{{ item.id }}" name="change_active" action="{{ request.path }}" method="POST">
+                                    <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
+                                          method="POST">
                                         {% csrf_token %}
                                         <input name="id" type="hidden" value="{{ item.id }}"/>
                                     </form>
@@ -198,13 +200,13 @@
 
                                 <a class="item" onclick="$('#{{ item.id }}').submit();" href="#">
                                     {{ item.persian_name }}
-                                    <form id="{{ item.id }}" name="change_active" action="{{ request.path }}" method="POST">
+                                    <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
+                                          method="POST">
                                         {% csrf_token %}
                                         <input name="id" type="hidden" value="{{ item.id }}"/>
                                     </form>
                                 </a>
                             {% endif %}
-                        {% endfor %}
                         </div>
                         <img src="{{ active.poster.url }}" style="width: 100% ; height: 100%;">
                     </div>
@@ -215,6 +217,48 @@
         </div>
 
     </div>
+
+    {#    {% for file in active.files %}#}
+    {#        <div style="#}
+    {#                            width: 50%;#}
+    {#                            height: 100%;#}
+    {#                            display: flex;#}
+    {#                            flex-direction: column;#}
+    {#                            justify-content: center;#}
+    {#                            align-items: center;#}
+    {#                            border-left:1px solid #d4d4d5;#}
+    {#                            font-family: IRANSans#}
+    {#                            ">#}
+    {#            <a href="{{ file.url }}" target="_blank" class="ui link download-hover " style="color: black"#}
+    {#               onclick="$('#downloader').submit();" href="#"#}
+    {#               data-position="left center" data-inverted=""#}
+    {#               style="margin-left: 15px; margin-right: 15px" id="change_lang">#}
+    {#                <i class="download icon huge"></i>#}
+    {#            </a>#}
+    {#            {{ file.name }}#}
+    {#            <form name="downloader" id="downloader" action="/content/download/" method="POST">#}
+    {#                {% csrf_token %}#}
+    {#                <input name="file_path" type="hidden" value="{{ file.url }}"/>#}
+    {#                <input type="hidden" name="original_file_name"#}
+    {#                       value="{{ file.name }}"/>#}
+    {#            </form>#}
+    {#        </div>#}
+    {#    {% endfor %}#}
+
+
+    {#    form baray taghir dadn active, value ro meghdar bede#}
+    {#    <form nam="change_active" action="{{ request.path }}" method="POST">#}
+    {#        {% csrf_token %}#}
+    {#        <input name="id" type="hidden" value="    "/>#}
+    {#    </form>#}
+    {##}
+    {##}
+    {#    <br>#}
+    {#    <img src="{{ active.poster.url }}">#}
+    {#    <p>{{ active.persian_content | safe }}</p>#}
+    {#    <p>{{ active.english_content | safe }}</p>#}
+    {##}
+
 
 
     {% block extra_script %}
