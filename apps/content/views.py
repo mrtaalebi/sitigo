@@ -31,6 +31,7 @@ def age(request):
         })
     context = {'prev_ages': x}
     if request.method == 'POST':
+        print(request.POST)
         active = Age.objects.get(id=request.POST.get('id', 1))
     else:
         if len(prev_ages) > 0:
