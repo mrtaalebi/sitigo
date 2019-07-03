@@ -23,39 +23,33 @@
             {% block navbar %}
                 {% include 'base/main_navbar.html' %}
             {% endblock %}
-            {% if  LANGUAGE_BIDI %}
+            {% if not  LANGUAGE_BIDI %}
                 <div class="ui stackable grid">
                     <div class="four wide column mobile-only">
                         <div class="ui inverted pointing fluid stackable menu myMenu"
                              style="border: 0; color: darkred;">
-                            <a class="item mobile_menu">
-                                Bio
-                            </a>
-                            <a class="item">
-                                Pics
-                            </a>
-                            <a class="item">
-                                Companies
-                            </a>
-                            <a class="item">
-                                Links
-                            </a>
+                            {% for item in prev_ages %}
+                                <a class="item" onclick="$('#age_form').submit();" href="#">
+                                    {{ item.name }}
+                                    <form id="age_form" name="change_active" action="{{ request.path }}" method="POST">
+                                        {% csrf_token %}
+                                        <input name="id" type="hidden" value="    "/>
+                                    </form>
+                                </a>
+                            {% endfor %}
                         </div>
                     </div>
                     <div class="four wide column mobile-hidden">
                         <div class="ui inverted vertical fluid tabular menu myMenu ">
-                            <a class=" item">
-                                Bio {{ LANGUAGE_CODE }}
-                            </a>
-                            <a class="item">
-                                Pics
-                            </a>
-                            <a class="item">
-                                Companies
-                            </a>
-                            <a class="item">
-                                Links
-                            </a>
+                            {% for item in prev_ages %}
+                                <a class="item" onclick="$('#age_form').submit();" href="#">
+                                    {{  item.name}}
+                                    <form id="age_form" name="change_active" action="{{ request.path }}" method="POST">
+                                        {% csrf_token %}
+                                        <input name="id" type="hidden" value="    "/>
+                                    </form>
+                                </a>
+                            {% endfor %}
                         </div>
                     </div>
 
@@ -167,7 +161,8 @@
 
     <br>
     <img src="{{ active.poster.url }}">
-
+    <p>{{  active.persian_content | safe }}</p>
+    <p>{{ active.english_content | safe }}</p>
 
 
 

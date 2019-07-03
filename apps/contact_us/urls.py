@@ -6,6 +6,6 @@ from apps.contact_us import views
 app_name = "contact_us"
 
 urlpatterns = [
-    path('', views.contact_us),
+    url(r'', views.contact_us, name='contact_us'),
 ]
 

@@ -1,7 +1,7 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 
-from django.core.validators import RegexValidator
+import pycountry
 
 from django.utils.translation import ugettext, ugettext_lazy as _
 
@@ -13,12 +13,11 @@ class ContactInfo(models.Model):
             )
 
     name = models.CharField(max_length=50, null=False, blank=False)
-    country = models.CharField(max_length=50, null=False, blank=False, default='ran, Islamic Republic of')
+    country = models.CharField(max_length=50, null=False, blank=False, default='IRN', choices=[(i.alpha_3, i.name) for i in pycountry.countries])
     school_uni = models.CharField(max_length=50, null=False, blank=False)
     study_grade = models.CharField(max_length=50, choices=study_grade_choices, null=False, blank=False)
 
-    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,19}$', message="Phone number must be entered in the format with region code: '+999999999'. Up to 18 digits allowed.")
-    phone_number = models.CharField(validators=[phone_regex], max_length=20, blank=True)
+    phone_number = models.CharField(max_length=20, blank=True)
 
     email = models.EmailField(max_length=50, null=False, blank=False)
 

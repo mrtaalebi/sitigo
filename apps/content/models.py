@@ -18,9 +18,12 @@ class FileUpload(models.Model):
 
 
 class Age(models.Model):
+    persian_name = models.CharField(max_length=400, default='a') #todo ino bardar
+    english_name = models.CharField(max_length=400, default='a')
     poster = models.ImageField()
     files = models.ManyToManyField(FileUpload)
-    content = RichTextField()
+    persian_content = RichTextField()
+    english_content = RichTextField()
     year = models.IntegerField()
 
     def save(self, *args, **kwargs):
