@@ -38,7 +38,7 @@
 
 </head>
 
-<body id="root">
+<body id="root" dir="{% if LANGUAGE_CODE == "fa"%}rtl {% else %} ltr {% endif %}">
 <div class="ui large top fixed hidden menu">
     <div class="ui container">
         <a class="active item">Home</a> <a class="item">Work</a>

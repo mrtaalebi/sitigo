@@ -23,14 +23,14 @@
             {% block navbar %}
                 {% include 'base/main_navbar.html' %}
             {% endblock %}
-            {% if  LANGUAGE_BIDI %}
+            {% if not  LANGUAGE_BIDI %}
                 <div class="ui stackable grid">
                     <div class="four wide column mobile-only">
                         <div class="ui inverted pointing fluid stackable menu myMenu"
                              style="border: 0; color: darkred;">
                             {% for item in prev_ages %}
                                 <a class="item" onclick="$('#age_form').submit();" href="#">
-                                    {% item.name %}
+                                    {{ item.name }}
                                     <form id="age_form" name="change_active" action="{{ request.path }}" method="POST">
                                         {% csrf_token %}
                                         <input name="id" type="hidden" value="    "/>
@@ -43,7 +43,7 @@
                         <div class="ui inverted vertical fluid tabular menu myMenu ">
                             {% for item in prev_ages %}
                                 <a class="item" onclick="$('#age_form').submit();" href="#">
-                                    {% item.name %}
+                                    {{  item.name}}
                                     <form id="age_form" name="change_active" action="{{ request.path }}" method="POST">
                                         {% csrf_token %}
                                         <input name="id" type="hidden" value="    "/>
