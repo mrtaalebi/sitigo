@@ -12,6 +12,7 @@ from django.utils.translation import (
     LANGUAGE_SESSION_KEY, check_for_language, )
 
 from apps.content.models import Age
+from igo.settings import BASE_DIR
 
 LANGUAGE_QUERY_PARAMETER = 'language'
 
@@ -52,18 +53,18 @@ def age(request):
 
 
 def doc_dwnldr(request):
-    print(request)
     file_path = request.POST['file_path']
-    print(file_path)
     original_filename = request.POST['original_file_name']
-    fp = open(file_path, 'rb')
+    x = os.path.abspath(os.path.join(settings.MEDIA_ROOT, original_filename))
+    print(x)
+    fp = open(x, 'rb')
     response = HttpResponse(fp.read())
     fp.close()
-    type, encoding = mimetypes.guess_type(original_filename)
+    type, encoding = mimetypes.guess_type(x)
     if type is None:
         type = 'application/octet-stream'
     response['Content-Type'] = type
-    response['Content-Length'] = str(os.stat(file_path).st_size)
+    response['Content-Length'] = str(os.stat(x).st_size)
     if encoding is not None:
         response['Content-Encoding'] = encoding
 
@@ -77,6 +78,6 @@ def doc_dwnldr(request):
         filename_header = ''
     else:
         # For others like Firefox, we follow RFC2231 (encoding extension in HTTP headers).
-        filename_header = 'filename*=UTF-8\'\'%s' % urllib.quote(original_filename.encode('utf-8'))
+        filename_header = 'filename*=UTF-8\'\'%s' % original_filename
     response['Content-Disposition'] = 'attachment; ' + filename_header
     return response
