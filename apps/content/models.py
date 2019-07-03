@@ -49,9 +49,13 @@ class Category(models.Model):
         ('en', _('english'))
     )
     language = models.CharField(choices=LANG_CHOICES, max_length=128, default='fa')
-    name = models.CharField(max_length=400)
+    name = models.CharField(max_length=400, unique=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Article(models.Model):
-    category = models.ForeignKey(Category)
-    file = models.ForeignKey(FileUpload)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    file = models.ForeignKey(FileUpload, on_delete=models.CASCADE)
+
