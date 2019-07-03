@@ -5,6 +5,7 @@ from PIL import Image
 from io import BytesIO
 from django.core.files.uploadedfile import InMemoryUploadedFile
 import sys
+from django.utils.translation import ugettext_lazy as _
 
 
 class Post(models.Model):
@@ -40,3 +41,21 @@ class Age(models.Model):
         img = InMemoryUploadedFile(output_io_stream, 'ImageField', "%s.jpg" % img.name.split('.')[0],
                                    'image/jpeg', sys.getsizeof(output_io_stream), None)
         return img
+
+
+class Category(models.Model):
+    LANG_CHOICES = (
+        ('fa', _('persian')),
+        ('en', _('english'))
+    )
+    language = models.CharField(choices=LANG_CHOICES, max_length=128, default='fa')
+    name = models.CharField(max_length=400, unique=True)
+
+    def __str__(self):
+        return self.name
+
+
+class Article(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    file = models.ForeignKey(FileUpload, on_delete=models.CASCADE)
+
