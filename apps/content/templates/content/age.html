@@ -33,7 +33,7 @@
                                     {{ item.english_name }}
                                     <form id="age_form" name="change_active" action="{{ request.path }}" method="POST">
                                         {% csrf_token %}
-                                        <input name="id" type="hidden" value="    "/>
+                                        <input name="id" type="hidden" value="{{ item.id }}"/>
                                     </form>
                                 </a>
                             {% endfor %}
@@ -46,7 +46,7 @@
                                     {{ item.english_name }}
                                     <form id="age_form" name="change_active" action="{{ request.path }}" method="POST">
                                         {% csrf_token %}
-                                        <input name="id" type="hidden" value="    "/>
+                                        <input name="id" type="hidden" value="{{ item.id }}"/>
                                     </form>
                                 </a>
                             {% endfor %}
@@ -70,7 +70,7 @@
                                     {{ item.persian_name }}
                                     <form id="age_form" name="change_active" action="{{ request.path }}" method="POST">
                                         {% csrf_token %}
-                                        <input name="id" type="hidden" value="    "/>
+                                        <input name="id" type="hidden" value="  {{ item.id }}  "/>
                                     </form>
                                 </a>
                             {% endfor %}
@@ -88,7 +88,7 @@
                                     {{ item.english_name }}
                                     <form id="age_form" name="change_active" action="{{ request.path }}" method="POST">
                                         {% csrf_token %}
-                                        <input name="id" type="hidden" value="    "/>
+                                        <input name="id" type="hidden" value=" {{ item.id }}   "/>
                                     </form>
                                 </a>
                             {% endfor %}
