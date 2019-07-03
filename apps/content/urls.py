@@ -6,5 +6,5 @@ from apps.content import views
 app_name = "content"
 urlpatterns = [
     url(r'$', views.age),
-    url(r'download/', views.doc_dwnldr)
+    url(r'download/', views.doc_dwnldr, name='download')
 ]
