@@ -90,10 +90,10 @@
                                 {% for file in active.files %}
                                     <div class="ui centered two wide coloumn" style="
                                             align-items: center;padding: 20px;
-                                            {#border-left:1px solid #d4d4d5;#}
+                                            border-left:1px solid #d4d4d5;
                                             font-family: IRANSans
                                             ">
-                                        <a href="{{ file.url }}" target="_blank" class="ui link download-hover "
+                                        <a href="{{ file.file.url }}" target="_blank" class="ui link download-hover "
                                            style="color: black"
                                            onclick="$('#downloader').submit();" href="#"
                                            data-position="left center" data-inverted=""
@@ -101,14 +101,14 @@
                                             <i class="inverted teal download big icon" style="margin: 10px;"></i>
                                         </a>
                                         <br>
-                                        <p align="center"> {{ file.name }}</p>
+                                        <p align="center"> {{ file.file.name }}</p>
 
                                         <form name="downloader" id="downloader" action="/content/download/"
                                               method="POST">
                                             {% csrf_token %}
-                                            <input name="file_path" type="hidden" value="{{ file.url }}"/>
+                                            <input name="file_path" type="hidden" value="{{ file.file.url }}"/>
                                             <input type="hidden" name="original_file_name"
-                                                   value="{{ file.name }}"/>
+                                                   value="{{ file.file.name }}"/>
                                         </form>
                                     </div>
                                 {% endfor %}
@@ -157,7 +157,7 @@
                                 {% for file in active.files %}
                                     <div class="ui centered two wide coloumn" style="
                                             align-items: center;padding: 20px;
-                                            {#border-left:1px solid #d4d4d5;#}
+                                            border-left:1px solid #d4d4d5;
                                             font-family: IRANSans
                                             ">
                                         <a href="{{ file.url }}" target="_blank" class="ui link download-hover "
@@ -168,14 +168,14 @@
                                             <i class="inverted teal download big icon" style="margin: 10px;"></i>
                                         </a>
                                         <br>
-                                        <p align="center"> {{ file.name }}</p>
+                                        <p align="center"> {{ file.file.name }}</p>
 
                                         <form name="downloader" id="downloader" action="/content/download/"
                                               method="POST">
                                             {% csrf_token %}
-                                            <input name="file_path" type="hidden" value="{{ file.url }}"/>
+                                            <input name="file_path" type="hidden" value="{{ file.file.url }}"/>
                                             <input type="hidden" name="original_file_name"
-                                                   value="{{ file.name }}"/>
+                                                   value="{{ file.file.name }}"/>
                                         </form>
                                     </div>
                                 {% endfor %}
@@ -213,48 +213,6 @@
         </div>
 
     </div>
-
-    {#    {% for file in active.files %}#}
-    {#        <div style="#}
-    {#                            width: 50%;#}
-    {#                            height: 100%;#}
-    {#                            display: flex;#}
-    {#                            flex-direction: column;#}
-    {#                            justify-content: center;#}
-    {#                            align-items: center;#}
-    {#                            border-left:1px solid #d4d4d5;#}
-    {#                            font-family: IRANSans#}
-    {#                            ">#}
-    {#            <a href="{{ file.url }}" target="_blank" class="ui link download-hover " style="color: black"#}
-    {#               onclick="$('#downloader').submit();" href="#"#}
-    {#               data-position="left center" data-inverted=""#}
-    {#               style="margin-left: 15px; margin-right: 15px" id="change_lang">#}
-    {#                <i class="download icon huge"></i>#}
-    {#            </a>#}
-    {#            {{ file.name }}#}
-    {#            <form name="downloader" id="downloader" action="/content/download/" method="POST">#}
-    {#                {% csrf_token %}#}
-    {#                <input name="file_path" type="hidden" value="{{ file.url }}"/>#}
-    {#                <input type="hidden" name="original_file_name"#}
-    {#                       value="{{ file.name }}"/>#}
-    {#            </form>#}
-    {#        </div>#}
-    {#    {% endfor %}#}
-
-
-    {#    form baray taghir dadn active, value ro meghdar bede#}
-    {#    <form nam="change_active" action="{{ request.path }}" method="POST">#}
-    {#        {% csrf_token %}#}
-    {#        <input name="id" type="hidden" value="    "/>#}
-    {#    </form>#}
-    {##}
-    {##}
-    {#    <br>#}
-    {#    <img src="{{ active.poster.url }}">#}
-    {#    <p>{{ active.persian_content | safe }}</p>#}
-    {#    <p>{{ active.english_content | safe }}</p>#}
-    {##}
-
 
 
     {% block extra_script %}

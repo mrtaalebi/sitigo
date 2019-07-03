@@ -1,5 +1,5 @@
 from django import forms
-from captcha.fields import ReCaptchaField
+# from captcha.fields import ReCaptchaField
 
 from .models import ContactInfo
 

@@ -27,7 +27,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^set_lang/', set_lang),
     url(r'^admin/', admin.site.urls),
-    url(r'^content/', include(content_urls), name='content'),
+    url(r'^content/', include(content_urls)),
     url(r'^intro/', include(intro_urls)),
     url(r'^contact_us/', include(contact_us_urls)),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
