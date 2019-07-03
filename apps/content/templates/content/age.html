@@ -16,7 +16,7 @@
 {% endblock %}
 {% block content %}
     <div class="ui inverted vertical masthead center aligned segment"
-         style="width: 100vw; height: 100vh;
+         style="
                  background-image: url({% static 'intro/images/bg.png' %}); background-size: cover; background-repeat: no-repeat; background-position: center;"
          id="topper">
         <div class="ui container">
@@ -30,22 +30,24 @@
                              style="border: 0; color: darkred;">
                             {% for item in prev_ages %}
                                 {% if active.id == item.id %}
-                                <a class="active item" onclick="$('#age_form').submit();" href="#">
-                                    {{ item.english_name }}
-                                    <form id="age_form" name="change_active" action="{{ request.path }}" method="POST">
-                                        {% csrf_token %}
-                                        <input name="id" type="hidden" value="{{ item.id }}"/>
-                                    </form>
-                                </a>
+                                    <a class="active item" onclick="$('{{ item.id }}').submit();" href="#">
+                                        {{ item.english_name }}
+                                        <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
+                                              method="POST">
+                                            {% csrf_token %}
+                                            <input name="id" type="hidden" value="{{ item.id }}"/>
+                                        </form>
+                                    </a>
                                 {% else %}
 
-                                <a class="item" onclick="$('#age_form').submit();" href="#">
-                                    {{ item.english_name }}
-                                    <form id="age_form" name="change_active" action="{{ request.path }}" method="POST">
-                                        {% csrf_token %}
-                                        <input name="id" type="hidden" value="{{ item.id }}"/>
-                                    </form>
-                                </a>
+                                    <a class="item" onclick="$('#{{ item.id }}').submit();" href="#">
+                                        {{ item.english_name }}
+                                        <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
+                                              method="POST">
+                                            {% csrf_token %}
+                                            <input name="id" type="hidden" value="{{ item.id }}"/>
+                                        </form>
+                                    </a>
                                 {% endif %}
                             {% endfor %}
                         </div>
@@ -53,26 +55,29 @@
                     <div class="four wide column mobile-hidden">
                         <div class="ui inverted vertical fluid tabular menu myMenu ">
                             {% for item in prev_ages %}
-                             {% if active.id == item.id %}
-                                <a class="active item" onclick="$('#age_form').submit();" href="#">
-                                    {{ item.english_name }}
-                                    <form id="age_form" name="change_active" action="{{ request.path }}" method="POST">
-                                        {% csrf_token %}
-                                        <input name="id" type="hidden" value="{{ item.id }}"/>
-                                    </form>
-                                </a>
+                                {% if active.id == item.id %}
+                                    <a class="active item" onclick="$('{{ item.id }}').submit();" href="#">
+                                        {{ item.english_name }}
+                                        <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
+                                              method="POST">
+                                            {% csrf_token %}
+                                            <input name="id" type="hidden" value="{{ item.id }}"/>
+                                        </form>
+                                    </a>
                                 {% else %}
 
-                                <a class="item" onclick="$('#age_form').submit();" href="#">
-                                    {{ item.english_name }}
-                                    <form id="age_form" name="change_active" action="{{ request.path }}" method="POST">
-                                        {% csrf_token %}
-                                        <input name="id" type="hidden" value="{{ item.id }}"/>
-                                    </form>
-                                </a>
+                                    <a class="item" onclick="$('{{ item.id }}').submit();" href="#">
+                                        {{ item.english_name }}
+                                        <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
+                                              method="POST">
+                                            {% csrf_token %}
+                                            <input name="id" type="hidden" value="{{ item.id }}"/>
+                                        </form>
+                                    </a>
                                 {% endif %}
                             {% endfor %}
                         </div>
+                        <img src="{{ active.poster.url }}" style="width: 100% ; height: 80%;">
                     </div>
 
 
@@ -82,30 +87,31 @@
 
                             <p>    {{ active.english_content|safe }}</p>
                             <div class="ui grid">
-                            {% for file in active.files %}
-                                <div class="ui centered two wide coloumn" style="
-                            align-items: center;padding: 20px;
-                            {#border-left:1px solid #d4d4d5;#}
-                            font-family: IRANSans
-                            " >
-                                    <a href="{{ file.url }}" target="_blank" class="ui link download-hover "
-                                       style="color: black"
-                                       onclick="$('#downloader').submit();" href="#"
-                                       data-position="left center" data-inverted=""
-                                       style="margin-left: 15px; margin-right: 15px" id="change_lang">
-                                        <i class="inverted teal download big icon" style="margin: 10px;"></i>
-                                    </a>
-                                    <br>
-                                    <p align="center"> {{ file.name }}</p>
+                                {% for file in active.files %}
+                                    <div class="ui centered two wide coloumn" style="
+                                            align-items: center;padding: 20px;
+                                            {#border-left:1px solid #d4d4d5;#}
+                                            font-family: IRANSans
+                                            ">
+                                        <a href="{{ file.url }}" target="_blank" class="ui link download-hover "
+                                           style="color: black"
+                                           onclick="$('#downloader').submit();" href="#"
+                                           data-position="left center" data-inverted=""
+                                           style="margin-left: 15px; margin-right: 15px" id="change_lang">
+                                            <i class="inverted teal download big icon" style="margin: 10px;"></i>
+                                        </a>
+                                        <br>
+                                        <p align="center"> {{ file.name }}</p>
 
-                                    <form name="downloader" id="downloader" action="/content/download/" method="POST">
-                                        {% csrf_token %}
-                                        <input name="file_path" type="hidden" value="{{ file.url }}"/>
-                                        <input type="hidden" name="original_file_name"
-                                               value="{{ file.name }}"/>
-                                    </form>
-                                </div>
-                            {% endfor %}
+                                        <form name="downloader" id="downloader" action="/content/download/"
+                                              method="POST">
+                                            {% csrf_token %}
+                                            <input name="file_path" type="hidden" value="{{ file.url }}"/>
+                                            <input type="hidden" name="original_file_name"
+                                                   value="{{ file.name }}"/>
+                                        </form>
+                                    </div>
+                                {% endfor %}
                             </div>
 
                         </div>
@@ -117,23 +123,25 @@
                         <div class="ui inverted pointing fluid stackable menu myMenu"
                              style="border: 0; color: darkred;">
                             {% for item in prev_ages %}
-                               {% if active.id == item.id %}
-                                <a class="active item" onclick="$('#age_form').submit();" href="#">
-                                    {{ item.persian_name }}
-                                    <form id="age_form" name="change_active" action="{{ request.path }}" method="POST">
-                                        {% csrf_token %}
-                                        <input name="id" type="hidden" value="{{ item.id }}"/>
-                                    </form>
-                                </a>
+                                {% if active.id == item.id %}
+                                    <a class="active item" onclick="$('#age_form').submit();" href="#">
+                                        {{ item.persian_name }}
+                                        <form id="age_form" name="change_active" action="{{ request.path }}"
+                                              method="POST">
+                                            {% csrf_token %}
+                                            <input name="id" type="hidden" value="{{ item.id }}"/>
+                                        </form>
+                                    </a>
                                 {% else %}
 
-                                <a class="item" onclick="$('#age_form').submit();" href="#">
-                                    {{ item.persian_name }}
-                                    <form id="age_form" name="change_active" action="{{ request.path }}" method="POST">
-                                        {% csrf_token %}
-                                        <input name="id" type="hidden" value="{{ item.id }}"/>
-                                    </form>
-                                </a>
+                                    <a class="item" onclick="$('#age_form').submit();" href="#">
+                                        {{ item.persian_name }}
+                                        <form id="age_form" name="change_active" action="{{ request.path }}"
+                                              method="POST">
+                                            {% csrf_token %}
+                                            <input name="id" type="hidden" value="{{ item.id }}"/>
+                                        </form>
+                                    </a>
                                 {% endif %}
                             {% endfor %}
 
@@ -149,7 +157,7 @@
                     </div>
                     <div class="four wide column mobile-hidden">
                         <div class="ui inverted vertical fluid right  tabular  menu myMenu">
-                         {% if active.id == item.id %}
+                            {% if active.id == item.id %}
                                 <a class="active item" onclick="$('#age_form').submit();" href="#">
                                     {{ item.perain_name }}
                                     <form id="age_form" name="change_active" action="{{ request.path }}" method="POST">
@@ -157,7 +165,7 @@
                                         <input name="id" type="hidden" value="{{ item.id }}"/>
                                     </form>
                                 </a>
-                                {% else %}
+                            {% else %}
 
                                 <a class="item" onclick="$('#age_form').submit();" href="#">
                                     {{ item.persian_name }}
@@ -166,8 +174,9 @@
                                         <input name="id" type="hidden" value="{{ item.id }}"/>
                                     </form>
                                 </a>
-                                {% endif %}
+                            {% endif %}
                         </div>
+                        <img src="{{ active.poster.url }}" style="width: 100% ; height: 100%;">
                     </div>
                     <div class="four wide column mobile-only">
                         <div class="ui secondary pointing fluid stackable menu myMenu">
