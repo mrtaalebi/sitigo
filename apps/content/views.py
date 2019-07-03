@@ -23,7 +23,8 @@ def age(request):
         x.append({
             'id': p_age.id,
             'year': p_age.year,
-            'name': p_age.name,
+            'persian_name': p_age.persian_name,
+            'english_name': p_age.english_name,
             # 'files': list(p_age.files.all()),
             # 'poster': p_age.poster
         })
@@ -38,7 +39,8 @@ def age(request):
     if active is not None:
         ctx = {
             'id': active.id,
-            'name': active.name,
+            'persian_name': active.pesian_name,
+            'english_name': active.english_name,
             'year': active.year,
             'persian_content': active.persian_content,
             'english_content': active.english_content,
