@@ -14,8 +14,6 @@ class PostAdmin(admin.ModelAdmin):
 class FileUploadAdmin(forms.ModelForm):
     fields = ['file', 'name', 'image']
 
-    file = forms.CharField(widget=CKEditorUploadingWidget())
-
     class Meta:
         fields = ['file', 'name', 'image']
         model = FileUpload

@@ -30,7 +30,7 @@ def age(request):
         })
     context = {'prev_ages': x}
     if request.method == 'POST':
-        active = Age.objects.get(id=request.POST.get('id', False))
+        active = Age.objects.get(id=request.POST.get('id', 1))
     else:
         if len(prev_ages) > 0:
             active = prev_ages[len(prev_ages)-1]
@@ -54,6 +54,7 @@ def age(request):
 def doc_dwnldr(request):
     print(request)
     file_path = request.POST['file_path']
+    print(file_path)
     original_filename = request.POST['original_file_name']
     fp = open(file_path, 'rb')
     response = HttpResponse(fp.read())

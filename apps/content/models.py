@@ -13,7 +13,7 @@ class Post(models.Model):
 
 class FileUpload(models.Model):
     name = models.CharField(max_length=50)
-    file = RichTextUploadingField()
+    file = models.FileField()
     image = models.ImageField(null=True)
 
 
