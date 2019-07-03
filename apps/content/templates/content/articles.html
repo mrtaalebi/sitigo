@@ -16,7 +16,7 @@
 {% endblock %}
 {% block content %}
     <div class="ui inverted vertical masthead center aligned segment"
-         style="
+         style="min-height: 100vh;
                  background-image: url({% static 'intro/images/bg.png' %}); background-size: cover; background-repeat: no-repeat; background-position: center;"
          id="topper">
         <div class="ui container">
@@ -84,7 +84,7 @@
                     </div>
 
 
-                    <div class="twelve wide stretched column" style="">
+                    <div class="twelve wide centered stretched column" style="">
                         <div class="ui inverted segment" style="background-color: #1f292e ;margin: 0" align="left">
                             <div class="ui grid">
                                 {% for article in articles %}
@@ -97,7 +97,7 @@
                                                 <a class="header">{{ article.file.name }}</a>
                                             </div>
                                             <div class="extra content">
-{#                                                todo download#}
+                                                {#                                                todo download#}
                                             </div>
                                         </div>
                                     </div>
@@ -141,9 +141,9 @@
 
                         </div>
                     </div>
-                    <div class="twelve wide  stretched column">
+                    <div class="twelve wide centered  stretched column">
                         <div class="ui inverted segment" style="background-color: #1f292e" align="right">
-                          <div class="ui grid">
+                            <div class="ui grid">
                                 {% for article in articles %}
                                     <div class="three wide coloumn">
                                         <div class="ui card">
@@ -154,7 +154,7 @@
                                                 <a class="header">{{ article.file.name }}</a>
                                             </div>
                                             <div class="extra content">
-{#                                                todo download#}
+                                                {#                                                todo download#}
                                             </div>
                                         </div>
                                     </div>
