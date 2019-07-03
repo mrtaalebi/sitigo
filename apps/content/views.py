@@ -2,7 +2,7 @@ import mimetypes
 import os
 import urllib
 from urllib.parse import unquote
-
+from django.utils import translation
 from django.conf import settings
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
@@ -54,11 +54,12 @@ def age(request):
 
 
 def articles(request):
-    categories = list(Category.objects.all())
-    context = {'categories': categories}
+    print(translation.get_language())
+    categories = Category.objects.all()
+    context = {'categories': list(categories)}
     if request.method == 'GET':
         if len(categories) > 0:
-            active = categories[0]
+            active = categories.filter(language=translation.get_language())[0]
             print(active)
             articles = Article.objects.filter(category=active)
             context.update({
@@ -76,6 +77,7 @@ def articles(request):
             'active': Article.objects.get(id= active_category_id),
             'articles': articles
         })
+    print(context)
     return render(request, 'content/articles.html', context)
 
 
