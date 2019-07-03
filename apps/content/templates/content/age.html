@@ -30,7 +30,7 @@
                              style="border: 0; color: darkred;">
                             {% for item in prev_ages %}
                                 <a class="item" onclick="$('#age_form').submit();" href="#">
-                                    {{ item.name }}
+                                    {{ item.english_name }}
                                     <form id="age_form" name="change_active" action="{{ request.path }}" method="POST">
                                         {% csrf_token %}
                                         <input name="id" type="hidden" value="    "/>
@@ -41,9 +41,9 @@
                     </div>
                     <div class="four wide column mobile-hidden">
                         <div class="ui inverted vertical fluid tabular menu myMenu ">
-                            {% for item in prev_ages %}
+                           {% for item in prev_ages %}
                                 <a class="item" onclick="$('#age_form').submit();" href="#">
-                                    {{  item.name}}
+                                    {{ item.english_name }}
                                     <form id="age_form" name="change_active" action="{{ request.path }}" method="POST">
                                         {% csrf_token %}
                                         <input name="id" type="hidden" value="    "/>
@@ -65,18 +65,15 @@
                     <div class="four wide column mobile-only">
                         <div class="ui inverted pointing fluid stackable menu myMenu"
                              style="border: 0; color: darkred;">
-                            <a class="item mobile_menu">
-                                Bio
-                            </a>
-                            <a class="item">
-                                Pics
-                            </a>
-                            <a class="item">
-                                Companies
-                            </a>
-                            <a class="item">
-                                Links
-                            </a>
+                             {% for item in prev_ages %}
+                                <a class="item" onclick="$('#age_form').submit();" href="#">
+                                    {{ item.persian_name }}
+                                    <form id="age_form" name="change_active" action="{{ request.path }}" method="POST">
+                                        {% csrf_token %}
+                                        <input name="id" type="hidden" value="    "/>
+                                    </form>
+                                </a>
+                            {% endfor %}
                         </div>
                     </div>
                     <div class="twelve wide centered stretched column">
@@ -86,18 +83,15 @@
                     </div>
                     <div class="four wide column mobile-hidden">
                         <div class="ui inverted vertical fluid right  tabular  menu myMenu">
-                            <a class="active item">
-                                Bio
-                            </a>
-                            <a class="item">
-                                Pics
-                            </a>
-                            <a class="item">
-                                Companies
-                            </a>
-                            <a class="item">
-                                Links
-                            </a>
+                         {% for item in prev_ages %}
+                                <a class="item" onclick="$('#age_form').submit();" href="#">
+                                    {{ item.english_name }}
+                                    <form id="age_form" name="change_active" action="{{ request.path }}" method="POST">
+                                        {% csrf_token %}
+                                        <input name="id" type="hidden" value="    "/>
+                                    </form>
+                                </a>
+                            {% endfor %}
                         </div>
                     </div>
                     <div class="four wide column mobile-only">
