@@ -11,7 +11,7 @@ from django.utils.http import is_safe_url
 from django.utils.translation import (
     LANGUAGE_SESSION_KEY, check_for_language, )
 
-from apps.content.models import Age
+from apps.content.models import Age, Article
 from igo.settings import BASE_DIR
 
 LANGUAGE_QUERY_PARAMETER = 'language'
@@ -51,6 +51,32 @@ def age(request):
         }
         context.update({'active': ctx})
     return render(request, 'content/age.html', context)
+
+
+def articles(request):
+    categories = list(Article.objects.all())
+    context = {'categories': categories}
+    if request.method == 'GET':
+        if len(categories) > 0:
+            active = categories[0]
+            articles = Article.objects.filter(category=active)
+            context.update({
+                'articles': articles
+            })
+        else:
+            active = ''
+        context.update({
+                    'active': active
+        })
+    if request.method == 'POST':
+        active_category_id = request.POST.get('id', 1)
+        articles = Article.objects.get(category_id=active_category_id)
+        context.update({
+            'active': Article.objects.get(id= active_category_id),
+            'articles': articles
+        })
+    return render(request, 'content/articles.html', context)
+
 
 
 def doc_dwnldr(request):
