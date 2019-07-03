@@ -39,7 +39,7 @@ def age(request):
     if active is not None:
         ctx = {
             'id': active.id,
-            'persian_name': active.pesian_name,
+            'persian_name': active.persian_name,
             'english_name': active.english_name,
             'year': active.year,
             'persian_content': active.persian_content,

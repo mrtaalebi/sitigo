@@ -23,7 +23,7 @@
             {% block navbar %}
                 {% include 'base/main_navbar.html' %}
             {% endblock %}
-            {% if not  LANGUAGE_BIDI %}
+            {% if LANGUAGE_CODE == 'en' %}
                 <div class="ui stackable grid">
                     <div class="four wide column mobile-only">
                         <div class="ui inverted pointing fluid stackable menu myMenu"
