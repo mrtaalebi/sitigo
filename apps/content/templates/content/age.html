@@ -90,12 +90,12 @@
                                 {% for file in active.files %}
                                     <div class="ui centered two wide coloumn" style="
                                             align-items: center;padding: 20px;
-                                            border-left:1px solid #d4d4d5;
+                                            {#border-left:1px solid #d4d4d5;#}
                                             font-family: IRANSans
                                             ">
                                         <a href="{{ file.file.url }}" target="_blank" class="ui link download-hover "
                                            style="color: black"
-                                           onclick="$('#downloader').submit();" href="#"
+                                           onclick="$('#{{ file.id }}downloader').submit();" href="#"
                                            data-position="left center" data-inverted=""
                                            style="margin-left: 15px; margin-right: 15px" id="change_lang">
                                             <i class="inverted teal download big icon" style="margin: 10px;"></i>
@@ -103,7 +103,7 @@
                                         <br>
                                         <p align="center"> {{ file.file.name }}</p>
 
-                                        <form name="downloader" id="downloader" action="/content/download/"
+                                        <form name="downloader" id="{{ file.id }}downloader" action="/content/download/"
                                               method="POST">
                                             {% csrf_token %}
                                             <input name="file_path" type="hidden" value="{{ file.file.url }}"/>
@@ -157,12 +157,12 @@
                                 {% for file in active.files %}
                                     <div class="ui centered two wide coloumn" style="
                                             align-items: center;padding: 20px;
-                                            border-left:1px solid #d4d4d5;
+                                            {#border-left:1px solid #d4d4d5;#}
                                             font-family: IRANSans
                                             ">
                                         <a href="{{ file.url }}" target="_blank" class="ui link download-hover "
                                            style="color: black"
-                                           onclick="$('#downloader').submit();" href="#"
+                                           onclick="$('#{{ file.id }}downloader').submit();" href="#"
                                            data-position="left center" data-inverted=""
                                            style="margin-left: 15px; margin-right: 15px" id="change_lang">
                                             <i class="inverted teal download big icon" style="margin: 10px;"></i>
@@ -170,7 +170,7 @@
                                         <br>
                                         <p align="center"> {{ file.file.name }}</p>
 
-                                        <form name="downloader" id="downloader" action="/content/download/"
+                                        <form name="downloader" id="{{ file.id }}downloader" action="/content/download/"
                                               method="POST">
                                             {% csrf_token %}
                                             <input name="file_path" type="hidden" value="{{ file.file.url }}"/>
