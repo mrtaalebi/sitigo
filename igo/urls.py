@@ -20,12 +20,14 @@ from apps.intro import urls as intro_urls
 from apps.intro.views import set_lang
 from apps.content import urls as content_urls
 from apps.contact_us import urls as contact_us_urls
+from apps.question import urls as question_urls
 
 from igo import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^set_lang/', set_lang),
+    url(r'^questions/', include(question_urls)),
     url(r'^admin/', admin.site.urls),
     url(r'^content/', include(content_urls)),
     url(r'^intro/', include(intro_urls)),

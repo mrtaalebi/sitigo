@@ -1,18 +1,12 @@
 import mimetypes
 import os
-import urllib
-from urllib.parse import unquote
-from django.utils import translation
+
 from django.conf import settings
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse
 from django.shortcuts import render
-from django.urls import translate_url
-from django.utils.http import is_safe_url
-from django.utils.translation import (
-    LANGUAGE_SESSION_KEY, check_for_language, )
+from django.utils import translation
 
 from apps.content.models import Age, Article, Category
-from igo.settings import BASE_DIR
 
 LANGUAGE_QUERY_PARAMETER = 'language'
 

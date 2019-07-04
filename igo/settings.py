@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'apps.intro',
     'apps.content',
     'apps.contact_us',
+    'apps.question',
 ]
 
 
