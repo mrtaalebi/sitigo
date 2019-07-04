@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+{% load static i18n %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block extra_header %}
+    <link rel="stylesheet" href="{% static 'intro/slideshow.css' %}"/>
+    <style>
+        .myMenu > a {
+            background-color: #1f292e !important;
+        }
+
+        .mobile_menu :hover {
+            background-color: rgba(0, 0, 0, 0);
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="ui inverted vertical masthead segment"
+         style="
+                 background-image: url({% static 'intro/images/bg.png' %}); background-size: cover; background-repeat: no-repeat; background-position: center;"
+         id="topper">
+        <div class="ui container" style="">
+            {% block navbar %}
+                {% include 'base/main_navbar.html' %}
+            {% endblock %}
+        <div style="background-color: #222222dd; padding-left: 10%;padding-right: 10%;padding-top: 20px;padding-bottom: 10%;" >
+         <h3><i class="ui inverted teal big envelope icon"></i> {% trans "Your message has been sent successfully." %}</h3>
+
+            <a class="ui inverted teal button" style="padding: 20px;" href="\intro\homepage.html">{% trans "OK" %}</a>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    {% block extra_script %}
+        <script>
+        </script>
+    {% endblock %}
+{% endblock %}
