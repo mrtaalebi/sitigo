@@ -3,7 +3,8 @@ from django import forms
 
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
-from .models import Post, FileUpload, Age, Category, Article, Question
+from apps.question.models import Question
+from .models import Post, FileUpload, Age, Category, Article
 
 
 @admin.register(Post)
@@ -40,7 +41,3 @@ class CategoryAdmin(admin.ModelAdmin):
 class ArticleAdmin(admin.ModelAdmin):
     fields = ['category', 'file']
 
-
-@admin.register(Question)
-class QuestionAdmin(admin.ModelAdmin):
-    fields = ['language', 'question', 'answer']
