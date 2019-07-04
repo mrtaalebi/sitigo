@@ -19,6 +19,9 @@
             {% endblock %}
 
             <div class="ui inverted segment" style="background-color:  #222222dd" dir="rtl">
+            {%  if LANGUAGE_CODE == "en" %}
+                <h3 class="ui red header " dir="ltr">Sorry!  No Content Yet</h3>
+                {% else %}
             <h2 class="ui inverted header"><i class="inverted orange question icon"></i>سوالات متداول</h2>
                 <div class="ui inverted accordion myAccardion" style="font-weight: bolder" dir="rtl">
                     {% for q in questions %}
@@ -34,6 +37,7 @@
 
 
                 </div>
+            {% endif %}
             </div>
         </div>
 
