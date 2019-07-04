@@ -19,50 +19,55 @@
                 {% include 'base/main_navbar.html' %}
             {% endblock %}
 
-
+{% if LANGUAGE_CODE == "en" %}
 
             <div class="ui left aligned huge header" id="title"
                  style="color: white; font-size: 10vh; font-family: IRANSans; font-weight: 900">6th<br>Iranian<br>Geometry<br>Olympiad
             </div>
+        {% else %}
+    <div class="ui right aligned huge header" id="title"
+                 style="color: white; font-size: 10vh; font-family: IRANSans; font-weight: 900">ششمین<br>المپیاد<br>هندسه<br>ایران
+            </div>
+
+        {% endif %}
 
             <div class="center aligned segments"
                  style="width: 25rem; left: 0; right: 0; margin-left: auto; margin-right: auto; position: absolute; bottom: 2vh;">
                 <div class="ui center aligned attached segment"
                      style="background-color: #E8E8E8; color: black; border-radius: 10px; height: 5vh; line-height: 0.5vh; text-align: center">
-                    for danesh amozan lab lab lab
+                    {% trans " for students and graduates" %}
                 </div>
                 <div class="ui center aligned horizontal attached segment segments fingil">
-                    <div class="ui center aligned attached segment fingil">Tehran &ensp;|&ensp; Mashhad &ensp;|&ensp;
-                        Shiraz &ensp;|&ensp; Isfahan &ensp;|&ensp; Tabriz
+                    <div class="ui center aligned attached segment fingil">{% trans "Tehran &ensp;|&ensp; Mashhad &ensp;|&ensp; Shiraz &ensp;|&ensp; Isfahan &ensp;|&ensp; Tabriz" %}
                     </div>
                 </div>
                 <div class="ui horizontal attached segment segments fingil" style="margin-top: -2vh">
                     <div class="ui center aligned attached segment fingil">
                         <div class="ui white large circular label"
-                             style="color: black; height: 4vh; line-height: 2.5vh; width: 10vh">17 Aug
+                             style="color: black; height: 4vh; line-height: 2.5vh; width: 10vh">{% trans "17 Aug" %}
                         </div>
                     </div>
                     <div class="ui center aligned attached segment fingil">
                         <div class="ui white large circular label"
-                             style="color: black; height: 4vh; line-height: 2.5vh; width: 10vh">13 Sep
+                             style="color: black; height: 4vh; line-height: 2.5vh; width: 10vh"> {% trans "13 Sep" %}
                         </div>
                     </div>
                     <div class="ui center aligned attached segment fingil">
                         <div class="ui white large circular label"
-                             style="color: black; height: 4vh; line-height: 2.5vh; width: 10vh">19 Sep
+                             style="color: black; height: 4vh; line-height: 2.5vh; width: 10vh">{% trans "19 Sep" %}
                         </div>
                     </div>
                 </div>
 
                 <div class="ui horizontal attached segment segments fingil" style="margin-top: -3vh">
                     <div class="ui center aligned attached segment fingil">
-                        Registration
+                        {% trans "Registration" %}
                     </div>
                     <div class="ui center aligned attached segment fingil">
-                        Exam
+                        {% trans "Exam" %}
                     </div>
                     <div class="ui center aligned attached segment fingil">
-                        Results
+                        {% trans "Results" %}
                     </div>
                 </div>
             </div>
@@ -122,7 +127,7 @@
                     <h1 class="faded_class"><i class="inverted yellow large star icon"></i></h1>
                     <h3 class="ui inverted header faded_class">{% trans "Elementry Level" %}</h3>
                     <h4 class=" inverted sub header faded_class">{% trans "The entry of the eighth grade and the entry of the sixth and seventh grade as experimental" %}</h4>
-                    <p class="faded_class">
+                    <div class="faded_class" align="{% if LANGUAGE_CODE == "fa" %} right {% else %} left{% endif %}">
                     <ul class="faded_class" style="list-style-type: square">
 
                         <li> {% trans " Angle (triangle and polygons)" %}
@@ -139,7 +144,7 @@
                         </li>
 
                     </ul>
-                    </p>
+                    </div>
 
 
                 </div>
@@ -206,7 +211,7 @@
                         <div class="column" >
                             <h1 class="faded_class"><i class="inverted red big book icon"></i></h1>
                             <h3 class="faded_class"> سطح مقدماتی</h3>
-                            <div class="faded_class"align="right" >
+                            <div class="faded_class" align="right" >
 
                                 <ul class="faded_class" style="list-style-type: none">
                                     <li>
