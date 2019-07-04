@@ -1,0 +1,68 @@
+{% extends 'base/base.html' %}
+{% load static i18n %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block extra_header %}
+    <link rel="stylesheet" href="{% static 'intro/slideshow.css' %}"/>
+    <style>
+
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="ui inverted vertical masthead segment"
+         style="
+                 background-image: url({% static 'intro/images/bg.png' %}); background-size: cover; background-repeat: no-repeat; background-position: center;"
+         id="topper">
+        <div class="ui  container" style="">
+            {% block navbar %}
+                {% include 'base/main_navbar.html' %}
+            {% endblock %}
+
+            <div class="ui inverted segment">
+                <div class="ui inverted accordion myAccardion" style="font-weight: bolder" dir="rtl">
+
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        What is a dog?
+                    </div>
+                    <div class="content">
+                        <p class="transition hidden">A dog is a type of domesticated animal. Known for its loyalty and
+                            faithfulness, it can be found as a welcome guest in many households across the world.</p>
+                    </div>
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        What kinds of dogs are there?
+                    </div>
+                    <div class="content">
+                        <p class="transition hidden">There are many breeds of dogs. Each breed varies in size and
+                            temperament. Owners often select a breed of dog that they find to be compatible with their
+                            own lifestyle and desires from a companion.</p>
+                    </div>
+                    <div class="title active">
+                        <i class="dropdown icon"></i>
+                        What kinds of dogs are there?
+                    </div>
+                    <div class="content active">
+                        <p class="transition visible">There are many breeds of dogs. Each breed varies in size and
+                            temperament. Owners often select a breed of dog that they find to be compatible with their
+                            own lifestyle and desires from a companion.</p>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+      {% block extra_script %}
+        <script>
+        $('.ui.accordion')
+  .accordion()
+;
+        </script>
+    {% endblock %}
+
+{% endblock %}

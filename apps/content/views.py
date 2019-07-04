@@ -16,6 +16,8 @@ from igo.settings import BASE_DIR
 
 LANGUAGE_QUERY_PARAMETER = 'language'
 
+def faq(request):
+    return render(request, 'content/faq.html')
 
 def age(request):
     prev_ages = list(Age.objects.all().order_by('year'))
