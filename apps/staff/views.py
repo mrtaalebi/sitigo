@@ -31,6 +31,5 @@ def staff(request):
         context.update({
             'active': ctx
         })
-    print(context)
     return render(request, 'staff/staff.html', context)
 
