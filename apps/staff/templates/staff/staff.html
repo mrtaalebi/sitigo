@@ -29,7 +29,7 @@
                 <div class="ui inverted pointing fluid stackable menu myMenu"
                      style="border: 0; color: darkred;">
                     {% for item in events %}
-                    {% if item.language == "en" %}
+
                     {% if active.id == item.id %}
                     <a class="active item" onclick="$('#{{ item.id }}').submit();" href="#">
                         {{ item.english_name }}
@@ -50,14 +50,14 @@
                         </form>
                     </a>
                     {% endif %}
-                    {% endif %}
+
                     {% endfor %}
                 </div>
             </div>
             <div class="four wide column mobile-hidden">
                 <div class="ui inverted vertical fluid tabular menu myMenu ">
                     {% for item in events %}
-                    {% if item.language == "en" %}
+
                     {% if active.id == item.id %}
                     <a class="active item" onclick="$('#{{ item.id }}').submit();" href="#">
                         {{ item.english_name }}
@@ -78,7 +78,7 @@
                         </form>
                     </a>
                     {% endif %}
-                    {% endif %}
+
                     {% endfor %}
                 </div>
             </div>
@@ -89,7 +89,7 @@
                     <div class="ui inverted horizontal list">
                         {% for person in active.staff %}
                         <div class="item">
-                            <img class="ui small circular image" src="{{person.image.image.url}}">
+                            <img class="ui small circular image" src="{{person.image.url}}">
                             <div class="inverted content">
                                 <div class="ui sub header">{{person.english_name}}</div>
                                 {{person.english_role}}
@@ -109,7 +109,7 @@
             <div class="ui inverted pointing fluid stackable menu myMenu"
                  style="border: 0; color: darkred;">
                 {% for item in events %}
-                {% if item.language == "fa" %}
+
                 {% if active.id == item.id %}
                 <a class="active item" onclick="$('#{{ item.id }}').submit();" href="#">
                     {{ item.persian_name }}
@@ -130,7 +130,7 @@
                     </form>
                 </a>
                 {% endif %}
-                {% endif %}
+
                 {% endfor %}
 
             </div>
@@ -140,7 +140,7 @@
                 <div class="ui inverted  horizontal list">
                            {% for person in active.staff %}
                         <div class="item">
-                            <img class="ui small circular image" src="{{person.image.image.url}}">
+                            <img class="ui small circular image" src="{{person.image.url}}">
                             <div class="inverted content">
                                 <div class="ui sub header">{{person.persian_name}}</div>
                                 {{person.persian_role}}
@@ -155,7 +155,7 @@
         <div class="four wide column mobile-hidden">
             <div class="ui inverted vertical fluid right  tabular  menu myMenu">
                 {% for item in events %}
-                {% if item.language == "fa" %}
+
                 {% if active.id == item.id %}
                 <a class="active item" onclick="$('#{{ item.id }}').submit();" href="#">
                     {{ item.persian_name }}
@@ -176,7 +176,7 @@
                     </form>
                 </a>
                 {% endif %}
-                {% endif %}
+
                 {% endfor %}
             </div>
 
