@@ -29,7 +29,7 @@
                         <div class="ui inverted pointing fluid stackable menu myMenu"
                              style="border: 0; color: darkred;">
                             {% for item in categories %}
-                                {% if item.lang == "en" %}
+                                {% if item.language == "en" %}
                                     {% if active.id == item.id %}
                                         <a class="active item" onclick="$('#{{ item.id }}').submit();" href="#">
                                             {{ item.name }}
@@ -57,7 +57,7 @@
                     <div class="four wide column mobile-hidden">
                         <div class="ui inverted vertical fluid tabular menu myMenu ">
                             {% for item in categories %}
-                                {% if item.lang == "en" %}
+                                {% if item.language == "en" %}
                                     {% if active.id == item.id %}
                                         <a class="active item" onclick="$('{{ item.id }}').submit();" href="#">
                                             {{ item.name }}
@@ -85,11 +85,11 @@
 
 
                     <div class="twelve wide centered stretched column">
-                        <div class="ui segment" style="background-color:  #222222dd ;padding: 10%" align="left">
+                        <div class="ui segment" style="background-color:  #222222dd ;" align="left">
                             <div class="ui stackable grid" style="">
                                 {% for article in articles %}
                                     <div class="three wide coloumn">
-                                        <div class="ui inverted card">
+                                        <div class="ui inverted card" style="margin: 5%">
                                             <div class="image">
                                                 {% if article.file.image %}
                                                     <img src="{{ article.file.image.url }}">
@@ -138,7 +138,7 @@
                         <div class="ui inverted pointing fluid stackable menu myMenu"
                              style="border: 0; color: darkred;">
                             {% for item in categories %}
-                                {% if  item.lang == "fa" %}
+                                {% if  item.language == "fa" %}
                                     {% if active.id == item.id %}
                                         <a class="active item" onclick="$('#{{ item.id }}').submit();" href="#">
                                             {{ item.name }}
@@ -164,12 +164,12 @@
 
                         </div>
                     </div>
-                    <div class="twelve wide centered  stretched column">
-                        <div class="ui inverted segment" style="background-color: #222222dd;padding: 10%" align="right">
+                    <div class="twelve wide center aligned stretched column">
+                        <div class="ui inverted segment" style="background-color: #222222dd;" dir="rtl" align="right">
                             <div class="ui stackable grid">
                                 {% for article in articles %}
                                     <div class="three wide coloumn">
-                                        <div class="ui inverted card" style="">
+                                        <div class="ui inverted card" style="margin:5%">
                                             <div class="image">
 
                                                 {% if  article.file.image %}
@@ -214,7 +214,7 @@
                     <div class="four wide column mobile-hidden">
                         <div class="ui inverted vertical fluid right  tabular  menu myMenu">
                             {% for item in categories %}
-                                {% if item.lang == "fa" %}
+                                {% if item.language == "fa" %}
                                     {% if active.id == item.id %}
                                         <a class="active item" onclick="$('#{{ item.id }}').submit();" href="#">
                                             {{ item.name }}
