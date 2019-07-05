@@ -18,8 +18,8 @@
 
 # Docs
   * You can find the following under [docs](https://github.com/mrtaalebi/sitigo/tree/master/docs)
-    * ISSUE_TEMPLATE
     * CODE_OF_CONDUCT
     * CONTRIBUTING
-    * LICENSE
     * README
+  * LICENSE
+  * ISSUE_TEMPLATE
