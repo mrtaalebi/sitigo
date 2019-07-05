@@ -14,6 +14,9 @@ class Role(models.Model):
     persian_name = models.CharField(max_length=300)
     english_name = models.CharField(max_length=300)
 
+    def __str__(self):
+        return self.english_name
+
 
 class Staff(models.Model):
     event = models.ForeignKey(Age, on_delete=models.CASCADE)
@@ -21,6 +24,9 @@ class Staff(models.Model):
     english_name = models.CharField(max_length=300)
     image = models.ImageField(upload_to='staff_photos')
     role = models.ForeignKey(Role, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.english_name
 
     def save(self, *args, **kwargs):
         if not self.id:
