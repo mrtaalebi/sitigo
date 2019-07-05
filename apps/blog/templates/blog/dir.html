@@ -1,0 +1,23 @@
+{% for dir in dirs %}
+    <p>
+    <a href="/blog/{{ dir.pk }}/">
+        {{ dir.name }}
+    </a>
+    </p>
+{% endfor %}
+
+
+{% for dir in dirs %}
+    {% if dir.name == current_dir_name %}
+        {% for post in dir.posts %}
+        <a href="/blog/{{ dir.pk }}/{{ post.pk }}">
+            <h1> {{ post.title }} </h1>
+        </a>
+        <img src="{{ post.image.url }}"/>
+        <p> {{ post.headline | safe  }} </p>
+        <p> {{ post.date_created }} </p>
+        {% endfor %}
+    {% endif %}
+{% endfor %}
+
+
