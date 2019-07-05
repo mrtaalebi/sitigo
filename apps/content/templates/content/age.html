@@ -77,28 +77,28 @@
                                 {% endif %}
                             {% endfor %}
                         </div>
-                        <img src="{{ active.poster.url }}" style="width: 100% ; height: 80%;">
+                        <img src="{{ active.poster.url }}" style="width: 100% ; height: 80vh;">
                     </div>
 
 
                     <div class="twelve wide stretched column" style="">
-                        <div class="ui inverted segment" style="background-color: #1f292e ;margin: 0" align="left">
-                            <h1 class="ui header">{{ active.english_name }}</h1>
+                        <div class="ui inverted segment" style="background-color: #222222dd ;margin: 0" >
+                            <div align="left"><h1 class="ui inverted header" >{{ active.english_name }}</h1>
 
-                            <p>    {{ active.english_content|safe }}</p>
-                            <div class="ui grid">
+                            <p >    {{ active.english_content|safe }}</p></div>
+                            <div class="ui stackable grid" >
                                 {% for file in active.files %}
                                     <div class="ui centered two wide coloumn" style="
-                                            align-items: center;padding: 20px;
-                                            {#border-left:1px solid #d4d4d5;#}
-                                            font-family: IRANSans
+                                            padding: 20px;
+
+
                                             ">
                                         <a href="{{ file.file.url }}" target="_blank" class="ui link download-hover "
                                            style="color: black"
                                            onclick="$('#{{ file.id }}downloader').submit();" href="#"
                                            data-position="left center" data-inverted=""
                                            style="margin-left: 15px; margin-right: 15px" id="change_lang">
-                                            <i class="inverted teal download big icon" style="margin: 10px;"></i>
+                                            <i class="inverted teal download huge icon" style="margin: 10px;"></i>
                                         </a>
                                         <br>
                                         <p align="center"> {{ file.file.name }}</p>
@@ -112,6 +112,16 @@
                                         </form>
                                     </div>
                                 {% endfor %}
+                            </div>
+                            <div class="ui stackable grid" style="">
+                                <div class="ui medium images" style="margin: 5%">
+                                    {% for image in active.images %}
+
+                                        <img class="ui image" src="{{ image.image.url }}">
+
+                                    {% endfor %}
+                                </div>
+
                             </div>
 
                         </div>
@@ -148,24 +158,23 @@
                         </div>
                     </div>
                     <div class="twelve wide  stretched column">
-                        <div class="ui inverted segment" style="background-color: #1f292e">
-                            <h1 class="ui header">{{ active.persian_name }}</h1>
+                        <div class="ui inverted segment" style="background-color:#222222dd ">
+                           <div align="right"> <h1 class="ui inverted header">{{ active.persian_name }}</h1>
                             <p>
                                 {{ active.persian_content|safe }}
-                            </p>
-                            <div class="ui grid" dir="rtl">
+                            </p></div>
+                            <div class="ui stackable grid" dir="rtl" >
                                 {% for file in active.files %}
-                                    <div class="ui centered two wide coloumn" style="
-                                            align-items: center;padding: 20px;
-                                            {#border-left:1px solid #d4d4d5;#}
-                                            font-family: IRANSans
-                                            ">
+                                    <div class="ui centered  two wide coloumn" style="
+                                           padding: 20px;
+
+                                            " >
                                         <a href="{{ file.url }}" target="_blank" class="ui link download-hover "
                                            style="color: black"
                                            onclick="$('#{{ file.id }}downloader').submit();" href="#"
                                            data-position="left center" data-inverted=""
                                            style="margin-left: 15px; margin-right: 15px" id="change_lang">
-                                            <i class="inverted teal download big icon" style="margin: 10px;"></i>
+                                            <i class="inverted teal download huge icon" style="margin: 10px;"></i>
                                         </a>
                                         <br>
                                         <p align="center"> {{ file.file.name }}</p>
@@ -179,6 +188,16 @@
                                         </form>
                                     </div>
                                 {% endfor %}
+                            </div>
+                        <div class="ui stackable grid" style="">
+                                <div class="ui medium images" style="margin: 5%">
+                                    {% for image in active.images %}
+
+                                        <img class="ui image" src="{{ image.image.url }}">
+
+                                    {% endfor %}
+                                </div>
+
                             </div>
 
                         </div>
@@ -208,7 +227,7 @@
                                 {% endif %}
                             {% endfor %}
                         </div>
-                        <img src="{{ active.poster.url }}" style="width: 100% ; height: 100%;">
+                        <img src="{{ active.poster.url }}" style="width: 100% ; height: 80vh;">
                     </div>
 
                 </div>

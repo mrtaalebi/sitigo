@@ -1,9 +1,12 @@
 
 igo/server_setting.pyp
 
+*.pyo
+*.pyc
 *.sqlite3
-*.idea*
-*.iml*
+
+.idea/*
+media/*
 
 venv*
 env*
