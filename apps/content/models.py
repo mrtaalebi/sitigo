@@ -12,6 +12,26 @@ class Post(models.Model):
     content = RichTextField()
 
 
+class ImageUpload(models.Model):
+    caption = models.CharField(max_length=100, null=True, blank=True)
+    image = models.ImageField()
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.image = self.resize(self.image)
+        super(ImageUpload, self).save(*args, **kwargs)
+
+    def resize(self, img):
+        image_temp = Image.open(img)
+        output_io_stream = BytesIO()
+        image_temp = image_temp.resize((520, 400))
+        image_temp.save(output_io_stream, format='JPEG', quality=100)
+        output_io_stream.seek(0)
+        img = InMemoryUploadedFile(output_io_stream, 'ImageField', "%s.jpg" % img.name.split('.')[0],
+                                   'image/jpeg', sys.getsizeof(output_io_stream), None)
+        return img
+
+
 class FileUpload(models.Model):
     name = models.CharField(max_length=50)
     file = models.FileField()
@@ -19,13 +39,14 @@ class FileUpload(models.Model):
 
 
 class Age(models.Model):
-    persian_name = models.CharField(max_length=400, default='a') #todo ino bardar
+    persian_name = models.CharField(max_length=400, default='a')  # todo ino bardar
     english_name = models.CharField(max_length=400, default='a')
     poster = models.ImageField()
     files = models.ManyToManyField(FileUpload)
     persian_content = RichTextField()
     english_content = RichTextField()
     year = models.IntegerField()
+    images = models.ManyToManyField(ImageUpload)
 
     def save(self, *args, **kwargs):
         if not self.id:
@@ -58,4 +79,3 @@ class Category(models.Model):
 class Article(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     file = models.ForeignKey(FileUpload, on_delete=models.CASCADE)
-
