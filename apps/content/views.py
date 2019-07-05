@@ -41,7 +41,8 @@ def age(request):
             'persian_content': active.persian_content,
             'english_content': active.english_content,
             'files': list(active.files.all()),
-            'poster': active.poster
+            'poster': active.poster,
+            'images': list(active.images.all())
         }
         context.update({'active': ctx})
     return render(request, 'content/age.html', context)
