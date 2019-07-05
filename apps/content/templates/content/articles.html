@@ -84,6 +84,7 @@
                     </div>
 
 
+<<<<<<< HEAD
                     <div class="twelve wide centered stretched column" style="">
                         <div class="ui inverted segment" style="background-color: #1f292e ;margin: 0" align="left">
                             <div class="ui grid">
@@ -97,23 +98,53 @@
                                                 <a class="header">{{ article.file.name }}</a>
                                             </div>
                                             <div class="extra content">
+=======
+                    <div class="twelve wide centered stretched column">
+                        <div class="ui segment" style="background-color:  #222222dd ;padding: 10%" align="left">
+                            <div class="ui stackable grid" style="">
+                                {% for article in articles %}
+                                    <div class="three wide coloumn">
+                                        <div class="ui inverted card">
+                                            <div class="image">
+                                                {% if article.file.image %}
+                                                    <img src="{{ article.file.image.url }}">
+                                                {% else %}
+                                                    <img src="{% static 'intro/geo.png' %}">
+                                                {% endif %}                                            </div>
+                                            <div class="center aligned content" style="background-color: #222222;">
+                                                <a class="header" style="color: white">{{ article.file.name }}</a>
+                                            </div>
+                                            <div class="center aligned extra content" style="background-color: #222222;">
+>>>>>>> 2d278b134f59c8755fcbaa0e67b816006646c813
                                                 <a href="{{ article.file.file.url }}" target="_blank"
                                                    class="ui link download-hover "
                                                    style="color: black"
                                                    onclick="$('#{{ article.file.id }}downloader').submit();" href="#"
                                                    data-position="left center" data-inverted=""
                                                    style="margin-left: 15px; margin-right: 15px" id="change_lang">
+<<<<<<< HEAD
                                                     <i class="inverted teal download big icon"
                                                        style="margin: 10px;"></i>
                                                 </a>
                                                 <br>
                                                 <p align="center"> {{ article.file.name }}</p>
+=======
+                                                    <i class="inverted  download big icon"
+                                                       style="margin: 10px;"></i>
+                                                </a>
+
+>>>>>>> 2d278b134f59c8755fcbaa0e67b816006646c813
 
                                                 <form name="downloader" id="{{ article.file.id }}downloader"
                                                       action="/content/download/"
                                                       method="POST">
                                                     {% csrf_token %}
+<<<<<<< HEAD
                                                     <input name="file_path" type="hidden" value="{{ article.file.file.url }}"/>
+=======
+                                                    <input name="file_path" type="hidden"
+                                                           value="{{ article.file.file.url }}"/>
+>>>>>>> 2d278b134f59c8755fcbaa0e67b816006646c813
                                                     <input type="hidden" name="original_file_name"
                                                            value="{{ article.file.file.name }}"/>
                                                 </form>
@@ -162,6 +193,7 @@
                         </div>
                     </div>
                     <div class="twelve wide centered  stretched column">
+<<<<<<< HEAD
                         <div class="ui inverted segment" style="background-color: #1f292e" align="right">
                             <div class="ui grid">
                                 {% for article in articles %}
@@ -174,23 +206,54 @@
                                                 <a class="header">{{ article.file.name }}</a>
                                             </div>
                                             <div class="extra content">
+=======
+                        <div class="ui inverted segment" style="background-color: #222222dd;padding: 10%" align="right">
+                            <div class="ui stackable grid">
+                                {% for article in articles %}
+                                    <div class="three wide coloumn">
+                                        <div class="ui inverted card" style="">
+                                            <div class="image">
+
+                                                {% if  article.file.image %}
+                                                    <img src="{{ article.file.image.url }}">
+                                                {% else %}
+                                                    <img src="{% static 'intro/geo.png' %}">
+                                                {% endif %}
+                                            </div>
+                                            <div class="center aligned content" style="background-color: #222222;">
+                                                <a class="header" style="color: white">{{ article.file.name }}</a>
+                                            </div>
+                                            <div class="center aligned extra content" style="background-color: #222222">
+>>>>>>> 2d278b134f59c8755fcbaa0e67b816006646c813
                                                 <a href="{{ article.file.file.url }}" target="_blank"
                                                    class="ui link download-hover "
                                                    style="color: black"
                                                    onclick="$('#{{ article.file.id }}downloader').submit();" href="#"
                                                    data-position="left center" data-inverted=""
                                                    style="margin-left: 15px; margin-right: 15px" id="change_lang">
+<<<<<<< HEAD
                                                     <i class="inverted teal download big icon"
                                                        style="margin: 10px;"></i>
                                                 </a>
                                                 <br>
                                                 <p align="center"> {{ article.file.name }}</p>
+=======
+                                                    <i class="inverted download big icon"
+                                                       style="margin: 10px;"></i>
+                                                </a>
+
+>>>>>>> 2d278b134f59c8755fcbaa0e67b816006646c813
 
                                                 <form name="downloader" id="{{ article.file.id }}downloader"
                                                       action="/content/download/"
                                                       method="POST">
                                                     {% csrf_token %}
+<<<<<<< HEAD
                                                     <input name="file_path" type="hidden" value="{{ article.file.file.url }}"/>
+=======
+                                                    <input name="file_path" type="hidden"
+                                                           value="{{ article.file.file.url }}"/>
+>>>>>>> 2d278b134f59c8755fcbaa0e67b816006646c813
                                                     <input type="hidden" name="original_file_name"
                                                            value="{{ article.file.file.name }}"/>
                                                 </form>

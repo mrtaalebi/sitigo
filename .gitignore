@@ -5,7 +5,7 @@ igo/server_setting.pyp
 *.sqlite3
 *.idea*
 *.iml*
-media*
+media/*
 
 venv*
 env*
