@@ -86,7 +86,7 @@
                             <h1 class="ui header">{{ active.english_name }}</h1>
 
                             <p>    {{ active.english_content|safe }}</p>
-                            <div class="ui grid">
+                            <div class="ui  stackable grid">
                                 {% for file in active.files %}
                                     <div class="ui centered two wide coloumn" style="
                                             align-items: center;padding: 20px;
@@ -112,6 +112,16 @@
                                         </form>
                                     </div>
                                 {% endfor %}
+                            </div>
+                            <div class="ui stackable grid">
+                                <div class="ui large images">
+                                    {% for image in active.images %}
+
+                                        <img class="ui image" src="{{ image.url }}">
+
+                                    {% endfor %}
+                                </div>
+
                             </div>
 
                         </div>
@@ -153,7 +163,7 @@
                             <p>
                                 {{ active.persian_content|safe }}
                             </p>
-                            <div class="ui grid" dir="rtl">
+                            <div class="ui stackable grid" dir="rtl">
                                 {% for file in active.files %}
                                     <div class="ui centered two wide coloumn" style="
                                             align-items: center;padding: 20px;
@@ -179,6 +189,16 @@
                                         </form>
                                     </div>
                                 {% endfor %}
+                            </div>
+                        <div class="ui stackable grid">
+                                <div class="ui large images">
+                                    {% for image in active.images %}
+
+                                        <img class="ui image" src="{{ image.url }}">
+
+                                    {% endfor %}
+                                </div>
+
                             </div>
 
                         </div>
