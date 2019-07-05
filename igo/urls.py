@@ -22,6 +22,7 @@ from apps.content import urls as content_urls
 from apps.contact_us import urls as contact_us_urls
 from apps.blog import urls as blog_urls
 from apps.question import urls as question_urls
+from apps.staff import urls as staff_url
 
 from igo import settings
 from django.conf.urls.static import static
@@ -35,6 +36,7 @@ urlpatterns = [
     url(r'^contact_us/', include(contact_us_urls)),
     url(r'^blog/', include(blog_urls), name='blog'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    url(r'^staff/', include(staff_url)),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
