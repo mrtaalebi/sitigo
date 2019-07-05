@@ -1,5 +1,206 @@
-{{ active.id }}
-<br>
-{{ active.staff }}
-<br>
-{{ events }}
+{% extends 'base/base.html' %}
+{% load static i18n %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block extra_header %}
+<link rel="stylesheet" href="{% static 'intro/slideshow.css' %}"/>
+<style>
+    .myMenu > a {
+        background-color: #1f292e !important;
+    }
+
+    .mobile_menu :hover {
+        background-color: rgba(0, 0, 0, 0);
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="ui inverted vertical masthead center aligned segment"
+     style="min-height: 100vh;
+                 background-image: url({% static 'intro/images/bg.png' %}); background-size: cover; background-repeat: no-repeat; background-position: center;"
+     id="topper">
+    <div class="ui container">
+        {% block navbar %}
+        {% include 'base/main_navbar.html' %}
+        {% endblock %}
+        {% if LANGUAGE_CODE == 'en' %}
+        <div class="ui stackable grid">
+            <div class="four wide column mobile-only">
+                <div class="ui inverted pointing fluid stackable menu myMenu"
+                     style="border: 0; color: darkred;">
+                    {% for item in events %}
+                    {% if item.language == "en" %}
+                    {% if active.id == item.id %}
+                    <a class="active item" onclick="$('#{{ item.id }}').submit();" href="#">
+                        {{ item.english_name }}
+                        <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
+                              method="POST">
+                            {% csrf_token %}
+                            <input name="id" type="hidden" value="{{ item.id }}"/>
+                        </form>
+                    </a>
+                    {% else %}
+
+                    <a class="item" onclick="$('#{{ item.id }}').submit();" href="#">
+                        {{ item.english_name }}
+                        <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
+                              method="POST">
+                            {% csrf_token %}
+                            <input name="id" type="hidden" value="{{ item.id }}"/>
+                        </form>
+                    </a>
+                    {% endif %}
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="four wide column mobile-hidden">
+                <div class="ui inverted vertical fluid tabular menu myMenu ">
+                    {% for item in events %}
+                    {% if item.language == "en" %}
+                    {% if active.id == item.id %}
+                    <a class="active item" onclick="$('#{{ item.id }}').submit();" href="#">
+                        {{ item.english_name }}
+                        <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
+                              method="POST">
+                            {% csrf_token %}
+                            <input name="id" type="hidden" value="{{ item.id }}"/>
+                        </form>
+                    </a>
+                    {% else %}
+
+                    <a class="item" onclick="$('#{{ item.id }}').submit();" href="#">
+                        {{ item.english_name }}
+                        <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
+                              method="POST">
+                            {% csrf_token %}
+                            <input name="id" type="hidden" value="{{ item.id }}"/>
+                        </form>
+                    </a>
+                    {% endif %}
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+
+            <div class="twelve wide centered stretched column">
+                <div class="ui segment" style="background-color: #222222dd ;padding-left: 10%;" align="left">
+                    <div class="ui inverted horizontal list">
+                        {% for person in active.staff %}
+                        <div class="item">
+                            <img class="ui small circular image" src="{{person.image.image.url}}">
+                            <div class="inverted content">
+                                <div class="ui sub header">{{person.english_name}}</div>
+                                {{person.english_role}}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="ui stackable grid">
+        <div class="four wide column mobile-only">
+            <div class="ui inverted pointing fluid stackable menu myMenu"
+                 style="border: 0; color: darkred;">
+                {% for item in events %}
+                {% if item.language == "fa" %}
+                {% if active.id == item.id %}
+                <a class="active item" onclick="$('#{{ item.id }}').submit();" href="#">
+                    {{ item.persian_name }}
+                    <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
+                          method="POST">
+                        {% csrf_token %}
+                        <input name="id" type="hidden" value="{{ item.id }}"/>
+                    </form>
+                </a>
+                {% else %}
+
+                <a class="item" onclick="$('#{{ item.id }}').submit();" href="#">
+                    {{ item.persian_name }}
+                    <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
+                          method="POST">
+                        {% csrf_token %}
+                        <input name="id" type="hidden" value="{{ item.id }}"/>
+                    </form>
+                </a>
+                {% endif %}
+                {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+        <div class="twelve wide center aligned stretched column">
+            <div class="ui inverted segment" style="background-color: #222222dd;padding-right: 10%" dir="rtl" align="right">
+                <div class="ui inverted  horizontal list">
+                           {% for person in active.staff %}
+                        <div class="item">
+                            <img class="ui small circular image" src="{{person.image.image.url}}">
+                            <div class="inverted content">
+                                <div class="ui sub header">{{person.persian_name}}</div>
+                                {{person.persian_role}}
+                            </div>
+                        </div>
+                        {% endfor %}
+                </div>
+
+
+            </div>
+        </div>
+        <div class="four wide column mobile-hidden">
+            <div class="ui inverted vertical fluid right  tabular  menu myMenu">
+                {% for item in events %}
+                {% if item.language == "fa" %}
+                {% if active.id == item.id %}
+                <a class="active item" onclick="$('#{{ item.id }}').submit();" href="#">
+                    {{ item.persian_name }}
+                    <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
+                          method="POST">
+                        {% csrf_token %}
+                        <input name="id" type="hidden" value="{{ item.id }}"/>
+                    </form>
+                </a>
+                {% else %}
+
+                <a class="item" onclick="$('#{{ item.id }}').submit();" href="#">
+                    {{ item.persian_name }}
+                    <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
+                          method="POST">
+                        {% csrf_token %}
+                        <input name="id" type="hidden" value="{{ item.id }}"/>
+                    </form>
+                </a>
+                {% endif %}
+                {% endif %}
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </div>
+    {% endif %}
+
+</div>
+
+</div>
+
+
+{% block extra_script %}
+<script>
+    $(document).ready(function () {
+        $(document).on('click', '.myMenu .item', function (e) {
+            $('.myMenu .item').removeClass('active');
+            $(this).addClass('active');
+            $(this).style.backgroundColor = "black";
+        });
+    });
+</script>
+<script>
+    $('.myMenu .item').tab();</script>
+{% endblock %}
+{% endblock %}

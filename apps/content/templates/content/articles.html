@@ -59,7 +59,7 @@
                             {% for item in categories %}
                                 {% if item.language == "en" %}
                                     {% if active.id == item.id %}
-                                        <a class="active item" onclick="$('{{ item.id }}').submit();" href="#">
+                                        <a class="active item" onclick="$('#{{ item.id }}').submit();" href="#">
                                             {{ item.name }}
                                             <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
                                                   method="POST">
@@ -69,7 +69,7 @@
                                         </a>
                                     {% else %}
 
-                                        <a class="item" onclick="$('{{ item.id }}').submit();" href="#">
+                                        <a class="item" onclick="$('#{{ item.id }}').submit();" href="#">
                                             {{ item.name }}
                                             <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
                                                   method="POST">
