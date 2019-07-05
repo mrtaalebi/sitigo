@@ -3,7 +3,8 @@ igo/server_setting.pyp
 
 *__pycache__*
 *.sqlite3
-*.idea*
+.idea*
+.idea/*
 *.iml*
 media/*
 
