@@ -89,10 +89,10 @@
                     <div class="ui inverted horizontal list">
                         {% for person in active.staff %}
                         <div class="item">
-                            <img class="ui small circular image" src="{{person.image.image.url}}">
+                            <img class="ui small circular image" src="{{person.image.url}}">
                             <div class="inverted content">
                                 <div class="ui sub header">{{person.english_name}}</div>
-                                {{person.english_role}}
+                                {{person.role.english_name}}
                             </div>
                         </div>
                         {% endfor %}
@@ -140,10 +140,10 @@
                 <div class="ui inverted  horizontal list">
                            {% for person in active.staff %}
                         <div class="item">
-                            <img class="ui small circular image" src="{{person.image.image.url}}">
+                            <img class="ui small circular image" src="{{person.image.url}}">
                             <div class="inverted content">
                                 <div class="ui sub header">{{person.persian_name}}</div>
-                                {{person.persian_role}}
+                                {{person.role.persian_name}}
                             </div>
                         </div>
                         {% endfor %}
