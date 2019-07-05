@@ -39,5 +39,9 @@ def contact_us(request):
             recipient_list=recipient_list
             )
 
-    return redirect('contact_us:sent')
+    return redirect('contact_us/sent.html')
+
+
+def sent(request):
+    return render(request, 'contact_us/sent.html')
 

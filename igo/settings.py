@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'apps.intro',
     'apps.content',
     'apps.contact_us',
+    'apps.blog',
 ]
 
 
@@ -129,7 +130,7 @@ LANGUAGES = (
 
 LANGUAGE_CODE = 'en'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Iran'
 
 USE_I18N = True
 

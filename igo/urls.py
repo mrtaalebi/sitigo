@@ -20,6 +20,7 @@ from apps.intro import urls as intro_urls
 from apps.intro.views import set_lang
 from apps.content import urls as content_urls
 from apps.contact_us import urls as contact_us_urls
+from apps.blog import urls as blog_urls
 
 from igo import settings
 from django.conf.urls.static import static
@@ -30,6 +31,7 @@ urlpatterns = [
     url(r'^content/', include(content_urls), name='content'),
     url(r'^intro/', include(intro_urls)),
     url(r'^contact_us/', include(contact_us_urls)),
+    url(r'^blog/', include(blog_urls), name='blog'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
