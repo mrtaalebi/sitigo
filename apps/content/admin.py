@@ -3,7 +3,13 @@ from django import forms
 
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
-from .models import Post, FileUpload, Age
+from apps.content.models import ImageUpload
+from .models import Post, FileUpload, Age, Category, Article
+
+
+@admin.register(ImageUpload)
+class ImageAdmin(admin.ModelAdmin):
+    fields = ['image', 'caption']
 
 
 @admin.register(Post)
@@ -13,8 +19,6 @@ class PostAdmin(admin.ModelAdmin):
 
 class FileUploadAdmin(forms.ModelForm):
     fields = ['file', 'name', 'image']
-
-    file = forms.CharField(widget=CKEditorUploadingWidget())
 
     class Meta:
         fields = ['file', 'name', 'image']
@@ -29,6 +33,16 @@ class FileUploadAdmin(admin.ModelAdmin):
 
 @admin.register(Age)
 class AgeAdmin(admin.ModelAdmin):
-    fields = ['persian_name', 'english_name', 'poster', 'persian_content', 'english_content', 'files', 'year']
+    fields = ['persian_name', 'english_name', 'poster', 'persian_content', 'english_content', 'files', 'year', 'images']
     # inlines = [FileInLine,]
+
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    fields = ['language', 'name']
+
+
+@admin.register(Article)
+class ArticleAdmin(admin.ModelAdmin):
+    fields = ['category', 'file']
 

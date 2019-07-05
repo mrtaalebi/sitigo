@@ -1,0 +1,56 @@
+{% extends 'base/base.html' %}
+{% load static i18n %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block extra_header %}
+    <link rel="stylesheet" href="{% static 'intro/slideshow.css' %}"/>
+    <style>
+
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="ui inverted vertical masthead segment"
+         style="
+                 background-image: url({% static 'intro/images/bg.png' %}); background-size: cover; background-repeat: no-repeat; background-position: center;"
+         id="topper">
+        <div class="ui  container" style="">
+            {% block navbar %}
+                {% include 'base/main_navbar.html' %}
+            {% endblock %}
+
+            <div class="ui inverted segment" style="background-color:  #222222dd" dir="rtl">
+            {%  if LANGUAGE_CODE == "en" %}
+                <h3 class="ui red header " dir="ltr">Sorry!  No Content Yet</h3>
+                {% else %}
+            <h2 class="ui inverted header"><i class="inverted orange question icon"></i>سوالات متداول</h2>
+                <div class="ui inverted accordion myAccardion" style="font-weight: bolder" dir="rtl">
+                    {% for q in questions %}
+                        <div class="title"style="padding: 10px; background-color:  #222222dd;">
+                            <i class=" caret left icon"></i>
+                            {{ q.question }}
+                        </div>
+                        <div class="content" style="padding: 10px; background-color:  #222222dd;">
+                            <p class="transition hidden"> {{ q.answer }}</p>
+                        </div>
+
+                    {% endfor %}
+
+
+                </div>
+            {% endif %}
+            </div>
+        </div>
+
+    </div>
+
+
+
+    {% block extra_script %}
+        <script>
+            $('.ui.accordion')
+                .accordion()
+            ;
+        </script>
+    {% endblock %}
+
+{% endblock %}

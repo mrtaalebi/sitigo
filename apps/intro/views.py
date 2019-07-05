@@ -28,9 +28,7 @@ def set_lang(request):
     redirect to the page in the request (the 'next' parameter) without changing
     any state.
     """
-    print("hhhhh")
     next = request.POST.get('next', request.GET.get('next'))
-    print(request.POST)
     if ((next or not request.is_ajax()) and
             not is_safe_url(url=next, allowed_hosts={request.get_host()}, require_https=request.is_secure())):
         next = request.META.get('HTTP_REFERER')

@@ -1,17 +1,12 @@
 import mimetypes
 import os
-import urllib
-from urllib.parse import unquote
 
 from django.conf import settings
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse
 from django.shortcuts import render
-from django.urls import translate_url
-from django.utils.http import is_safe_url
-from django.utils.translation import (
-    LANGUAGE_SESSION_KEY, check_for_language, )
+from django.utils import translation
 
-from apps.content.models import Age
+from apps.content.models import Age, Article, Category
 
 LANGUAGE_QUERY_PARAMETER = 'language'
 
@@ -30,7 +25,8 @@ def age(request):
         })
     context = {'prev_ages': x}
     if request.method == 'POST':
-        active = Age.objects.get(id=request.POST.get('id', False))
+        print(request.POST)
+        active = Age.objects.get(id=request.POST.get('id', 1))
     else:
         if len(prev_ages) > 0:
             active = prev_ages[len(prev_ages)-1]
@@ -39,30 +35,61 @@ def age(request):
     if active is not None:
         ctx = {
             'id': active.id,
-            'persian_name': active.pesian_name,
+            'persian_name': active.persian_name,
             'english_name': active.english_name,
             'year': active.year,
             'persian_content': active.persian_content,
             'english_content': active.english_content,
             'files': list(active.files.all()),
-            'poster': active.poster
+            'poster': active.poster,
+            'images': list(active.images.all())
         }
         context.update({'active': ctx})
     return render(request, 'content/age.html', context)
 
 
+def articles(request):
+    print(translation.get_language())
+    categories = Category.objects.all()
+    context = {'categories': list(categories)}
+    if request.method == 'GET':
+        if len(categories) > 0:
+            active = categories.filter(language=translation.get_language())[0]
+            print(active)
+            articles = Article.objects.filter(category=active)
+            context.update({
+                'articles': articles
+            })
+        else:
+            active = ''
+        context.update({
+                    'active': active
+        })
+    if request.method == 'POST':
+        active_category_id = request.POST.get('id', 1)
+        articles = Article.objects.get(category_id=active_category_id)
+        context.update({
+            'active': Article.objects.get(id= active_category_id),
+            'articles': articles
+        })
+    print(context)
+    return render(request, 'content/articles.html', context)
+
+
+
 def doc_dwnldr(request):
-    print(request)
     file_path = request.POST['file_path']
     original_filename = request.POST['original_file_name']
-    fp = open(file_path, 'rb')
+    x = os.path.abspath(os.path.join(settings.MEDIA_ROOT, original_filename))
+    print(x)
+    fp = open(x, 'rb')
     response = HttpResponse(fp.read())
     fp.close()
-    type, encoding = mimetypes.guess_type(original_filename)
+    type, encoding = mimetypes.guess_type(x)
     if type is None:
         type = 'application/octet-stream'
     response['Content-Type'] = type
-    response['Content-Length'] = str(os.stat(file_path).st_size)
+    response['Content-Length'] = str(os.stat(x).st_size)
     if encoding is not None:
         response['Content-Encoding'] = encoding
 
@@ -76,6 +103,6 @@ def doc_dwnldr(request):
         filename_header = ''
     else:
         # For others like Firefox, we follow RFC2231 (encoding extension in HTTP headers).
-        filename_header = 'filename*=UTF-8\'\'%s' % urllib.quote(original_filename.encode('utf-8'))
+        filename_header = 'filename*=UTF-8\'\'%s' % original_filename
     response['Content-Disposition'] = 'attachment; ' + filename_header
     return response
