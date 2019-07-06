@@ -5,5 +5,5 @@ from apps.intro import views
 
 app_name = "intro"
 urlpatterns = [
-    url(r'$', views.homepage),
+    url(r'^$', views.homepage, name='homepage'),
 ]

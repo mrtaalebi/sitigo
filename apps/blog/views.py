@@ -42,6 +42,13 @@ def blog_post(request, dir_id, post_id):
     context = {
         'post': post
     }
+
     return render(request, 'blog/post.html', context)
 
 
+def subscribe(request):
+    if request.method == 'POST':
+        if 'email' not in request.data:
+            return redirect(request, 'blog:subscripted')
+        Subscriber.objects.create(email=request.data['email'])
+    return redirect(request, 'intro:homepage')
