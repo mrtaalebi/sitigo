@@ -12,7 +12,7 @@
         <a class="fitted item popup-link" onclick="$('#changeLang').submit();" href="#"
            data-position="left center" data-inverted=""
            style="margin-left: 15px; margin-right: 15px; display: inline" id="change_lang">
-            <i class="language icon huge" style="display: inline; position: absolute; bottom: 0; right: 0vw"></i>
+            <img class="ui mini circular image" src="{%if LANGUAGE_CODE == "fa" %}{% static '\intro\united-kingdom.png'%}{% else %}{% static '\intro\iran.png'%}{%endif%}">
         </a>
 
         <form name="changeLang" id="changeLang" action="/set_lang/" method="POST">

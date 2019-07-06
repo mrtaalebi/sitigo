@@ -48,7 +48,7 @@
             <a class="fitted item popup-link" onclick="$('#changeLang').submit();" href="#"
                data-position="left center" data-inverted=""
                style="margin-left: 15px; margin-right: 15px" id="change_lang">
-                <i class="language icon huge"></i>
+                   <img class="ui mini circular image" src="{%if LANGUAGE_CODE == "fa" %}{% static '\intro\iran.png'%}{%else%}{% static '\intro\united-kingdom.png'%}{%endif%}">
             </a>
 
             <form name="changeLang" id="changeLang" action="/set_lang/" method="POST">
@@ -70,7 +70,7 @@
        data-position="left center" data-inverted=""
        style="margin-left: 15px; margin-right: 15px;" id="change_lang">
 
-        <i class="language icon huge"></i>
+        <img class="ui mini circular image" src="{% static '\intro\iran.png'%}">
     </a>
     <form name="changeLang" id="changeLang" action="/set_lang/" method="POST">
         {% csrf_token %}
