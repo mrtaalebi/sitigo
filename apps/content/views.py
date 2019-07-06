@@ -52,9 +52,12 @@ def articles(request):
     context = {'categories': list(categories)}
     if request.method == 'GET':
         if len(categories) > 0:
-            active = categories.filter(language=translation.get_language())[0]
-            print(active)
-            articles = Article.objects.filter(category=active)
+            active = categories.filter(language=translation.get_language())
+            if len(active) > 0:
+                active = active[0]
+                articles = Article.objects.filter(category=active)
+            else:
+                articles = []
             context.update({
                 'articles': articles
             })
@@ -72,7 +75,6 @@ def articles(request):
         })
     print(context)
     return render(request, 'content/articles.html', context)
-
 
 
 def doc_dwnldr(request):
