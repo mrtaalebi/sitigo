@@ -1,12 +1,12 @@
 from django.shortcuts import render
 
 # Create your views here.
-from apps.content.models import Age
+from apps.content.models import Event
 from apps.staff.models import Staff
 
 
 def staff(request, event_id = None):
-    events = list(Age.objects.all())
+    events = list(Event.objects.all())
     x = []
     for e in events:
         x.append({
@@ -16,7 +16,7 @@ def staff(request, event_id = None):
         })
     context = {'events': x}
     if event_id is not None:
-        active = Age.objects.get(id=event_id)
+        active = Event.objects.get(id=event_id)
     else:
         if len(events) > 0:
             active = events[len(events)-1]

@@ -4,7 +4,7 @@ from django import forms
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 from apps.content.models import ImageUpload
-from .models import Post, FileUpload, Age, Category, Article
+from .models import Post, FileUpload, Event, Category, Article
 
 
 @admin.register(ImageUpload)
@@ -31,8 +31,8 @@ class FileUploadAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(Age)
-class AgeAdmin(admin.ModelAdmin):
+@admin.register(Event)
+class EventAdmin(admin.ModelAdmin):
     fields = ['persian_name', 'english_name', 'poster', 'persian_content', 'english_content', 'files', 'year', 'images']
     # inlines = [FileInLine,]
 

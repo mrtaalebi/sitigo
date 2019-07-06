@@ -7,6 +7,6 @@ urlpatterns = [
     url(r'^download/', views.doc_dwnldr),
     url(r'^articles/(?P<category_id>\w+)/$', views.articles, name='articles'),
     url(r'^articles/$', views.articles),
-    url(r'^(?P<age_id>\w+)/$', views.age),
-    url(r'^$', views.age),
+    url(r'^(?P<event_id>\w+)/$', views.event),
+    url(r'^$', views.event),
 ]
