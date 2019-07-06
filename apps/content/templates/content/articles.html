@@ -48,8 +48,8 @@
                             {% for item in categories %}
                                 {% if item.language == "en" %}
                                     {% if active.id == item.id %}
-                                        <a class="active item"  href="/content/articles/{{ item.id }}">
-                                            {{ item.name }}
+                                        <a class="active item" style="font-weight: bolder"  href="/content/articles/{{ item.id }}">
+                                            <span style="color:lightseagreen "> {{ item.persian_name }}</span>
                                         </a>
                                     {% else %}
                                         <a class="active item"  href="/content/articles/{{ item.id }}">
@@ -181,8 +181,8 @@
                             {% for item in categories %}
                                 {% if item.language == "fa" %}
                                     {% if active.id == item.id %}
-                                        <a class="active item"  href="/content/articles/{{ item.id }}">
-                                            {{ item.name }}
+                                        <a class="active item"  style="font-weight: bolder" href="/content/articles/{{ item.id }}">
+                                            <span style="color:lightseagreen "> {{ item.persian_name }}</span>
                                         </a>
                                     {% else %}
                                         <a class="active item"  href="/content/articles/{{ item.id }}">
