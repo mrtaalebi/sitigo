@@ -16,9 +16,10 @@ LANGUAGE_QUERY_PARAMETER = 'language'
 
 def homepage(request):
     x = []
-    for item in list(HomePageImage.objects.filter(homePage=HomePage.objects.all()[0])):
-        print(item)
-        x += [item]
+    if len(HomePage.objects.all()) > 0:
+        for item in list(HomePageImage.objects.filter(homePage=HomePage.objects.all()[0])):
+            print(item)
+            x += [item]
     context = {
         'slideshow': x,
         'num_of_img': range(len(x))
