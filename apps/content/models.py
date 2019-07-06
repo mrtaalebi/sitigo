@@ -44,6 +44,9 @@ class FileUpload(models.Model):
                 self.image = resize(self.image, 200, 200)
         super(FileUpload, self).save(*args, **kwargs)
 
+    def __str__(self):
+        return self.name
+
 
 class Age(models.Model):
     persian_name = models.CharField(max_length=400, default='a')  # todo ino bardar
@@ -54,6 +57,9 @@ class Age(models.Model):
     english_content = RichTextField()
     year = models.IntegerField()
     images = models.ManyToManyField(ImageUpload)
+
+    def __str__(self):
+        return self.english_name
 
     def save(self, *args, **kwargs):
         if not self.id:
@@ -76,3 +82,6 @@ class Category(models.Model):
 class Article(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     file = models.ForeignKey(FileUpload, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.file.name
