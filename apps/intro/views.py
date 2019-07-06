@@ -9,14 +9,19 @@ from django.utils.http import is_safe_url
 from django.utils.translation import (
     LANGUAGE_SESSION_KEY, check_for_language, )
 
-from apps.intro.models import HomePage
+from apps.intro.models import HomePage, HomePageImage
 
 LANGUAGE_QUERY_PARAMETER = 'language'
 
 
 def homepage(request):
+    x = []
+    for item in list(HomePageImage.objects.filter(homePage=HomePage.objects.all()[0])):
+        print(item)
+        x += [item]
     context = {
-        'slideshow': HomePage.objects.all()[0]
+        'slideshow': x,
+        'num_of_img': range(len(x))
     }
     return render(request, 'intro/homepage.html', context)
 

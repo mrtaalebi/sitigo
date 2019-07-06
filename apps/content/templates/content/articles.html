@@ -17,7 +17,7 @@
 {% block content %}
     <div class="ui inverted vertical masthead center aligned segment"
          style="min-height: 100vh;
-                 background-image: url({% static 'intro/images/bg.png' %}); background-size: cover; background-repeat: no-repeat; background-position: center;"
+                 background-image: url({% static 'intro/images/bg.png' %}); background-size: cover; background-repeat: no-repeat; background-position: center; background-attachment: fixed"
          id="topper">
         <div class="ui container">
             {% block navbar %}
@@ -168,7 +168,6 @@
                         <div class="ui inverted segment" style="background-color: #222222dd;padding:auto" dir="rtl" align="right">
                             <div class="ui stackable grid" >
                                 {% for article in articles %}
-
                                         <div class="ui inverted card" style="margin:5%">
                                             <div class="image" >
 

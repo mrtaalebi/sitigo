@@ -37,8 +37,13 @@ from django.db import models
 from apps.content.models import resize
 
 
+class HomePage(models.Model):
+    pass
+
+
 class HomePageImage(models.Model):
     image = models.ImageField(upload_to='home_page_slideshow')
+    homePage = models.ForeignKey(HomePage, related_name='home_page_image', on_delete=models.CASCADE)
 
     def save(self, *args, **kwargs):
         if not self.id:
@@ -46,5 +51,3 @@ class HomePageImage(models.Model):
         super(HomePageImage, self).save(*args, **kwargs)
 
 
-class HomePage(models.Model):
-    images = models.ManyToManyField(HomePageImage)

@@ -8,6 +8,9 @@ import math
 class BlogDir(models.Model):
     name = models.CharField(max_length=30, unique=True, null=False, blank=False)
 
+    def __str__(self):
+        self.name
+
 
 class BlogPost(models.Model):
     dir = models.ForeignKey('BlogDir', on_delete=models.CASCADE, related_name='posts', null=False, blank=False)
@@ -45,6 +48,9 @@ class BlogPost(models.Model):
                     recipient_list=['national.igo@gmail.com'],
                     bcc=mail_list[x * 20 : x * 20 + 20]
                     )
+
+    def __str__(self):
+        return self.title
 
 
 class BlogComment(models.Model):
