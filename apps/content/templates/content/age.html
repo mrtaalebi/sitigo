@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{% static 'intro/slideshow.css' %}"/>
     <style>
         .myMenu > a {
-            background-color: #1f292e !important;
+            background-color: #222222dd !important;
         }
 
         .mobile_menu :hover {
@@ -53,11 +53,11 @@
                         </div>
                     </div>
                     <div class="four wide column mobile-hidden">
-                        <div class="ui inverted vertical fluid tabular menu myMenu ">
+                        <div class="ui inverted vertical fluid  menu myMenu ">
                             {% for item in prev_ages %}
                                 {% if active.id == item.id %}
-                                    <a class="active item" onclick="$('#{{ item.id }}').submit();" href="#">
-                                        {{ item.english_name }}
+                                    <a class="active item" style="font-weight: bolder" onclick="$('#{{ item.id }}').submit();" href="#">
+                                        <span style="color:lightseagreen "> {{ item.english_name }}</span>
                                         <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
                                               method="POST">
                                             {% csrf_token %}
@@ -203,11 +203,11 @@
                         </div>
                     </div>
                     <div class="four wide column mobile-hidden">
-                        <div class="ui inverted vertical fluid right  tabular  menu myMenu">
+                        <div class="ui inverted vertical fluid right  menu myMenu">
                             {% for item in prev_ages %}
                                 {% if active.id == item.id %}
-                                    <a class="active item" onclick="$('#{{ item.id }}').submit();" href="#">
-                                        {{ item.persian_name }}
+                                    <a class="active item" style="font-weight: bolder;" onclick="$('#{{ item.id }}').submit();" href="#">
+                                       <span style="color:lightseagreen "> {{ item.persian_name }}</span>
                                         <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
                                               method="POST">
                                             {% csrf_token %}
