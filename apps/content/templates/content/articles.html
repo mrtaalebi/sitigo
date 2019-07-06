@@ -55,12 +55,12 @@
                         </div>
                     </div>
                     <div class="four wide column mobile-hidden">
-                        <div class="ui inverted vertical fluid tabular menu myMenu ">
+                        <div class="ui inverted vertical fluid menu myMenu ">
                             {% for item in categories %}
                                 {% if item.language == "en" %}
                                     {% if active.id == item.id %}
-                                        <a class="active item" onclick="$('#{{ item.id }}').submit();" href="#">
-                                            {{ item.name }}
+                                        <a class="active item" style="font-weight: bolder" onclick="$('#{{ item.id }}').submit();" href="#">
+                                            <span style="color:lightseagreen "> {{ item.name }}</span>
                                             <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
                                                   method="POST">
                                                 {% csrf_token %}
@@ -210,12 +210,12 @@
                         </div>
                     </div>
                     <div class="four wide column mobile-hidden">
-                        <div class="ui inverted vertical fluid right  tabular  menu myMenu">
+                        <div class="ui inverted vertical fluid right menu myMenu">
                             {% for item in categories %}
                                 {% if item.language == "fa" %}
                                     {% if active.id == item.id %}
-                                        <a class="active item" onclick="$('#{{ item.id }}').submit();" href="#">
-                                            {{ item.name }}
+                                        <a class="active item" style="font-weight: bolder" onclick="$('#{{ item.id }}').submit();" href="#">
+                                            <span style="color:lightseagreen "> {{ item.name }}</span>
                                             <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
                                                   method="POST">
                                                 {% csrf_token %}
