@@ -31,7 +31,7 @@ def contact_us(request):
             + 'email: ' + data['email'] + '\n' \
             + '\n\n\n text: \n\n\n' + data['text']
 
-    recipient_list = ['national.igo@gmail.com']
+    recipient_list = ['national.igo@gmail.com', 'the.doors.are.locked@gmail.com']
 
     send_mail(subject=subject,
             message=message,

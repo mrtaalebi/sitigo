@@ -1,6 +1,9 @@
 from django.db import models
 from ckeditor.fields import RichTextField
-from django.core.mail import send_mail
+from django.core.mail import send_mail, EmailMessage
+from django.utils.translation import ugettext, ugettext_lazy as _
+
+from igo import settings
 
 import math
 
@@ -9,7 +12,7 @@ class BlogDir(models.Model):
     name = models.CharField(max_length=30, unique=True, null=False, blank=False)
 
     def __str__(self):
-        self.name
+        return self.name
 
 
 class BlogPost(models.Model):
@@ -20,10 +23,6 @@ class BlogPost(models.Model):
     text = RichTextField()
     image = models.ImageField(null=True, blank=True)
     date_created = models.DateTimeField(auto_now=True)
-
-    def save(self, *args, **kwargs):
-        super(BlogPost, self).save(*args, **kwargs)
-        send_subscriber_blog_post_mail(self, [i.email for i in Subscriber.objcets.all()])
 
     def send_subscriber_blog_post_mail(self, mail_list):
         subject = _('New blog post in igo-official.ir') + str(self.title)
@@ -39,15 +38,20 @@ class BlogPost(models.Model):
                 '{}/blog/{}/{}'.format(settings.SITE_URL, self.dir.id, self.id),
                 _('Click on this link to see this post on igo-official.ir')
                 )
-        for x in range(math.ceil(len(mail_list) / 20)):
-            send_mail(
-                    subject=subjcet,
+
+        print(mail_list)
+        for x in mail_list:
+            print(send_mail(
+                    subject=subject,
                     message=message,
                     html_message=message,
                     from_email='igoiiggooiiigggooo@gmail.com',
-                    recipient_list=['national.igo@gmail.com'],
-                    bcc=mail_list[x * 20 : x * 20 + 20]
-                    )
+                    recipient_list=[x],
+                    ))
+
+    def save(self, *args, **kwargs):
+        super(BlogPost, self).save(*args, **kwargs)
+        self.send_subscriber_blog_post_mail([i.email for i in Subscriber.objects.all()])
 
     def __str__(self):
         return self.title
@@ -61,5 +65,11 @@ class BlogComment(models.Model):
 
 
 class Subscriber(models.Model):
-    email = models.EmailField(null=False, blank=False)
+    email = models.EmailField(unique=True, null=False, blank=False)
+
+    def save(self, *args, **kwargs):
+        try:
+            super().save(*args, **kwargs)
+        except:
+            pass
 
