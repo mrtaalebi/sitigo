@@ -23,7 +23,7 @@ class BlogPost(models.Model):
 
     def save(self, *args, **kwargs):
         super(BlogPost, self).save(*args, **kwargs)
-        send_subscriber_blog_post_mail(self, [i.email for i inSubscriber.objcets.all()])
+        send_subscriber_blog_post_mail(self, [i.email for i in Subscriber.objcets.all()])
 
     def send_subscriber_blog_post_mail(self, mail_list):
         subject = _('New blog post in igo-official.ir') + str(self.title)

@@ -32,7 +32,7 @@ urlpatterns = [
     url(r'^questions/', include(question_urls)),
     url(r'^admin/', admin.site.urls),
     url(r'^content/', include(content_urls)),
-    url(r'^intro/', include(intro_urls)),
+    url(r'^', include(intro_urls)),
     url(r'^contact_us/', include(contact_us_urls)),
     url(r'^blog/', include(blog_urls), name='blog'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
