@@ -10,7 +10,8 @@ from apps.content.models import Age, Article, Category
 
 LANGUAGE_QUERY_PARAMETER = 'language'
 
-def age(request):
+
+def age(request, age_id = None):
     prev_ages = list(Age.objects.all().order_by('year'))
     x = []
     for p_age in prev_ages:
@@ -23,9 +24,8 @@ def age(request):
             # 'poster': p_age.poster
         })
     context = {'prev_ages': x}
-    if request.method == 'POST':
-        print(request.POST)
-        active = Age.objects.get(id=request.POST.get('id', 1))
+    if age_id is not None:
+        active = Age.objects.get(id=age_id)
     else:
         if len(prev_ages) > 0:
             active = prev_ages[len(prev_ages)-1]
