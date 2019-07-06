@@ -7,7 +7,7 @@ from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.db import models
 
 # Create your models here.
-from apps.content.models import Age
+from apps.content.models import Event
 
 
 class Role(models.Model):
@@ -19,7 +19,7 @@ class Role(models.Model):
 
 
 class Staff(models.Model):
-    event = models.ForeignKey(Age, on_delete=models.CASCADE)
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
     persian_name = models.CharField(max_length=300)
     english_name = models.CharField(max_length=300)
     image = models.ImageField(upload_to='staff_photos')

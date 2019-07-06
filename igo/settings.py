@@ -22,6 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'v4!&rp9gp4nmhv4q&819lh5taco#bdr4of8)u+lr6e!+^!g&%0'
 
+SITE_URL = 'https://igo-official.ir'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

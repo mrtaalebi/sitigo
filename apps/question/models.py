@@ -4,7 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 
 # Create your models here.
 
-class Question(models.Model):
+class FAQ(models.Model):
     LANG_CHOICES = (
         ('fa', _('persian')),
         ('en', _('english'))

@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from apps.intro import urls as intro_urls
 from apps.intro.views import set_lang
-from apps.content import urls as content_urls
+from apps.content import urls as content_urls, views
 from apps.contact_us import urls as contact_us_urls
 from apps.blog import urls as blog_urls
 from apps.question import urls as question_urls
@@ -29,7 +29,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^set_lang/', set_lang),
-    url(r'^questions/', include(question_urls)),
+    url(r'^faq/', include(question_urls)),
     url(r'^admin/', admin.site.urls),
     url(r'^content/', include(content_urls)),
     url(r'^', include(intro_urls)),
@@ -37,6 +37,10 @@ urlpatterns = [
     url(r'^blog/', include(blog_urls), name='blog'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^staff/', include(staff_url)),
+    url(r'^events/(?P<event_id>\w+)/$', views.event),
+    url(r'^events/$', views.event),
+    url(r'^articles/(?P<category_id>\w+)/$', views.articles),
+    url(r'^articles/$', views.articles),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

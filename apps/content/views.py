@@ -6,13 +6,14 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.utils import translation
 
-from apps.content.models import Age, Article, Category
+
+from apps.content.models import Event, Article, Category
 
 LANGUAGE_QUERY_PARAMETER = 'language'
 
 
-def age(request, age_id = None):
-    prev_ages = list(Age.objects.all().order_by('year'))
+def event(request, event_id = None):
+    prev_ages = list(Event.objects.all().order_by('year'))
     x = []
     for p_age in prev_ages:
         x.append({
@@ -24,8 +25,8 @@ def age(request, age_id = None):
             # 'poster': p_age.poster
         })
     context = {'prev_ages': x}
-    if age_id is not None:
-        active = Age.objects.get(id=age_id)
+    if event_id is not None:
+        active = Event.objects.get(id=event_id)
     else:
         if len(prev_ages) > 0:
             active = prev_ages[len(prev_ages)-1]
@@ -44,13 +45,13 @@ def age(request, age_id = None):
             'images': list(active.images.all())
         }
         context.update({'active': ctx})
-    return render(request, 'content/age.html', context)
+    return render(request, 'content/event.html', context)
 
 
-def articles(request):
+def articles(request, category_id=None):
     categories = Category.objects.all()
     context = {'categories': list(categories)}
-    if request.method == 'GET':
+    if category_id is None:
         if len(categories) > 0:
             active = categories.filter(language=translation.get_language())
             if len(active) > 0:
@@ -58,22 +59,25 @@ def articles(request):
                 articles = Article.objects.filter(category=active)
             else:
                 articles = []
+                active = None
+
             context.update({
-                'articles': articles
+                'articles': articles,
+                'active': active
             })
         else:
             active = ''
+            context.update({
+                    'active': active,
+                    'articles': []
+            })
+    else:
+        articles = Article.objects.filter(category_id=category_id)
         context.update({
-                    'active': active
-        })
-    if request.method == 'POST':
-        active_category_id = request.POST.get('id', 1)
-        articles = Article.objects.filter(category_id=active_category_id)
-        context.update({
-            'active': Category.objects.get(id= active_category_id),
+            'active': Category.objects.get(id=category_id),
             'articles': articles
         })
-    print(context)
+    # print(context)
     return render(request, 'content/articles.html', context)
 
 
