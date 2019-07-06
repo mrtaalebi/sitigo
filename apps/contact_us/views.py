@@ -39,7 +39,7 @@ def contact_us(request):
             recipient_list=recipient_list
             )
 
-    return redirect('contact_us/sent.html')
+    return sent(request)
 
 
 def sent(request):
