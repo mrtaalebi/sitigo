@@ -6,7 +6,6 @@ app_name = "content"
 urlpatterns = [
     url(r'^download/', views.doc_dwnldr),
     url(r'^articles/', views.articles),
-   
+    url(r'^(?P<age_id>\w+)/$', views.age),
     url(r'^$', views.age),
-
 ]

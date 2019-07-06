@@ -115,7 +115,8 @@
 
                 <div class="four wide coloumn" style="padding: 20px;">
                     <h4 class="ui inverted header">{% trans "Subscribe Newsletter" %}</h4>
-                    <form class="ui form" method="post" id="notify">{% csrf_token %}
+                    <form class="ui form" method="POST" id="notify" action="{% url 'blog:subscribe' %}">
+                            {% csrf_token %}
                         <div class="field">
                             <div class="ui action input"
                                  style="height: 50px; width: 200px;">
