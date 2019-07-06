@@ -30,23 +30,12 @@
                              style="border: 0; color: darkred;">
                             {% for item in prev_ages %}
                                 {% if active.id == item.id %}
-                                    <a class="active item" onclick="$('#{{ item.id }}').submit();" href="#">
+                                    <a class="active item"  href="/content/{{ item.id }}">
                                         {{ item.english_name }}
-                                        <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
-                                              method="POST">
-                                            {% csrf_token %}
-                                            <input name="id" type="hidden" value="{{ item.id }}"/>
-                                        </form>
                                     </a>
                                 {% else %}
-
-                                    <a class="item" onclick="$('#{{ item.id }}').submit();" href="#">
+                                    <a class="active item"  href="/content/{{ item.id }}">
                                         {{ item.english_name }}
-                                        <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
-                                              method="POST">
-                                            {% csrf_token %}
-                                            <input name="id" type="hidden" value="{{ item.id }}"/>
-                                        </form>
                                     </a>
                                 {% endif %}
                             {% endfor %}
@@ -56,23 +45,12 @@
                         <div class="ui inverted vertical fluid tabular menu myMenu ">
                             {% for item in prev_ages %}
                                 {% if active.id == item.id %}
-                                    <a class="active item" onclick="$('#{{ item.id }}').submit();" href="#">
+                                    <a class="active item"  href="/content/{{ item.id }}">
                                         {{ item.english_name }}
-                                        <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
-                                              method="POST">
-                                            {% csrf_token %}
-                                            <input name="id" type="hidden" value="{{ item.id }}"/>
-                                        </form>
                                     </a>
                                 {% else %}
-
-                                    <a class="item" onclick="$('#{{ item.id }}').submit();" href="#">
+                                  <a class="active item"  href="/content/{{ item.id }}">
                                         {{ item.english_name }}
-                                        <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
-                                              method="POST">
-                                            {% csrf_token %}
-                                            <input name="id" type="hidden" value="{{ item.id }}"/>
-                                        </form>
                                     </a>
                                 {% endif %}
                             {% endfor %}
@@ -134,23 +112,12 @@
                              style="border: 0; color: darkred;">
                             {% for item in prev_ages %}
                                 {% if active.id == item.id %}
-                                    <a class="active item" onclick="$('#{{ item.id }}').submit();" href="#">
+                                    <a class="active item"  href="/content/{{ item.id }}">
                                         {{ item.persian_name }}
-                                        <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
-                                              method="POST">
-                                            {% csrf_token %}
-                                            <input name="id" type="hidden" value="{{ item.id }}"/>
-                                        </form>
                                     </a>
                                 {% else %}
-
-                                    <a class="item" onclick="$('#{{ item.id }}').submit();" href="#">
+                                    <a class="active item"  href="/content/{{ item.id }}">
                                         {{ item.persian_name }}
-                                        <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
-                                              method="POST">
-                                            {% csrf_token %}
-                                            <input name="id" type="hidden" value="{{ item.id }}"/>
-                                        </form>
                                     </a>
                                 {% endif %}
                             {% endfor %}
@@ -206,23 +173,12 @@
                         <div class="ui inverted vertical fluid right  tabular  menu myMenu">
                             {% for item in prev_ages %}
                                 {% if active.id == item.id %}
-                                    <a class="active item" onclick="$('#{{ item.id }}').submit();" href="#">
+                                    <a class="active item"  href="/content/{{ item.id }}">
                                         {{ item.persian_name }}
-                                        <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
-                                              method="POST">
-                                            {% csrf_token %}
-                                            <input name="id" type="hidden" value="{{ item.id }}"/>
-                                        </form>
                                     </a>
                                 {% else %}
-
-                                    <a class="item" onclick="$('#{{ item.id }}').submit();" href="#">
+                                    <a class="active item"  href="/content/{{ item.id }}">
                                         {{ item.persian_name }}
-                                        <form id="{{ item.id }}" name="change_active" action="{{ request.path }}"
-                                              method="POST">
-                                            {% csrf_token %}
-                                            <input name="id" type="hidden" value="{{ item.id }}"/>
-                                        </form>
                                     </a>
                                 {% endif %}
                             {% endfor %}
