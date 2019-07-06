@@ -8,6 +8,17 @@ import sys
 from django.utils.translation import ugettext_lazy as _
 
 
+def resize(img, x, y):
+    image_temp = Image.open(img)
+    output_io_stream = BytesIO()
+    image_temp = image_temp.resize((x, y))
+    image_temp.save(output_io_stream, format='JPEG', quality=100)
+    output_io_stream.seek(0)
+    img = InMemoryUploadedFile(output_io_stream, 'ImageField', "%s.jpg" % img.name.split('.')[0],
+                               'image/jpeg', sys.getsizeof(output_io_stream), None)
+    return img
+
+
 class Post(models.Model):
     content = RichTextField()
 
@@ -18,24 +29,20 @@ class ImageUpload(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.id:
-            self.image = self.resize(self.image)
+            self.image = resize(self.image, 500, 400)
         super(ImageUpload, self).save(*args, **kwargs)
-
-    def resize(self, img):
-        image_temp = Image.open(img)
-        output_io_stream = BytesIO()
-        image_temp = image_temp.resize((520, 400))
-        image_temp.save(output_io_stream, format='JPEG', quality=100)
-        output_io_stream.seek(0)
-        img = InMemoryUploadedFile(output_io_stream, 'ImageField', "%s.jpg" % img.name.split('.')[0],
-                                   'image/jpeg', sys.getsizeof(output_io_stream), None)
-        return img
 
 
 class FileUpload(models.Model):
     name = models.CharField(max_length=50)
     file = models.FileField()
-    image = models.ImageField(null=True)
+    image = models.ImageField(null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            if self.image:
+                self.image = resize(self.image, 200, 200)
+        super(FileUpload, self).save(*args, **kwargs)
 
 
 class Age(models.Model):
@@ -50,18 +57,8 @@ class Age(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.id:
-            self.poster = self.resize_poster(self.poster)
+            self.poster = resize(self.poster, 1000, 1500)
         super(Age, self).save(*args, **kwargs)
-
-    def resize_poster(self, img):
-        image_temp = Image.open(img)
-        output_io_stream = BytesIO()
-        image_temp = image_temp.resize((1000, 1500))
-        image_temp.save(output_io_stream, format='JPEG', quality=100)
-        output_io_stream.seek(0)
-        img = InMemoryUploadedFile(output_io_stream, 'ImageField', "%s.jpg" % img.name.split('.')[0],
-                                   'image/jpeg', sys.getsizeof(output_io_stream), None)
-        return img
 
 
 class Category(models.Model):

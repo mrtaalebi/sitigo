@@ -52,9 +52,13 @@ def articles(request):
     context = {'categories': list(categories)}
     if request.method == 'GET':
         if len(categories) > 0:
-            active = categories.filter(language=translation.get_language())[0]
-            print(active)
-            articles = Article.objects.filter(category=active)
+            active = categories.filter(language=translation.get_language())
+            if len(active) > 0:
+                active = active[0]
+                print(active)
+                articles = Article.objects.filter(category=active)
+            else:
+                articles = []
             context.update({
                 'articles': articles
             })
