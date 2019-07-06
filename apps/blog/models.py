@@ -5,6 +5,9 @@ from ckeditor.fields import RichTextField
 class BlogDir(models.Model):
     name = models.CharField(max_length=30, unique=True, null=False, blank=False)
 
+    def __str__(self):
+        self.name
+
 
 class BlogPost(models.Model):
     dir = models.ForeignKey('BlogDir', on_delete=models.CASCADE, related_name='posts', null=False, blank=False)
@@ -14,6 +17,9 @@ class BlogPost(models.Model):
     text = RichTextField()
     image = models.ImageField(null=True, blank=True)
     date_created = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
 
 
 class BlogComment(models.Model):
