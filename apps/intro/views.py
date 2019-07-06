@@ -9,12 +9,16 @@ from django.utils.http import is_safe_url
 from django.utils.translation import (
     LANGUAGE_SESSION_KEY, check_for_language, )
 
+from apps.intro.models import HomePage
+
 LANGUAGE_QUERY_PARAMETER = 'language'
 
 
 def homepage(request):
-    
-    return render(request, 'intro/homepage.html')
+    context = {
+        'slideshow': HomePage.objects.all()[0]
+    }
+    return render(request, 'intro/homepage.html', context)
 
 
 def set_lang(request):
