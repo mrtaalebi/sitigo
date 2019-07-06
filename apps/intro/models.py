@@ -1,4 +1,4 @@
-# from django.db import models
+from django.db import models
 # from django.utils.translation import ugettext_lazy as _
 #
 # # Singleton model HomePageData
@@ -34,3 +34,20 @@
 #     image = models.ImageField(null=False, blank=False)
 #
 #     home_page_data = models.ManyToManyField('HomePageData', related_name='slides')
+from apps.content.models import resize
+
+
+class HomePage(models.Model):
+    pass
+
+
+class HomePageImage(models.Model):
+    image = models.ImageField(upload_to='home_page_slideshow')
+    homePage = models.ForeignKey(HomePage, related_name='home_page_image', on_delete=models.CASCADE)
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.image = resize(self.image, 500, 400)
+        super(HomePageImage, self).save(*args, **kwargs)
+
+
