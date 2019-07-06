@@ -49,7 +49,6 @@ def age(request, age_id = None):
 
 
 def articles(request, category_id=None):
-    print(category_id)
     categories = Category.objects.all()
     context = {'categories': list(categories)}
     if category_id is None:
@@ -74,7 +73,6 @@ def articles(request, category_id=None):
             })
     else:
         articles = Article.objects.filter(category_id=category_id)
-        print(category_id)
         context.update({
             'active': Category.objects.get(id=category_id),
             'articles': articles

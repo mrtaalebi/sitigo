@@ -5,7 +5,7 @@ from apps.content.models import Age
 from apps.staff.models import Staff
 
 
-def staff(request):
+def staff(request, event_id = None):
     events = list(Age.objects.all())
     x = []
     for e in events:
@@ -15,8 +15,8 @@ def staff(request):
             'english_name': e.english_name
         })
     context = {'events': x}
-    if request.method == 'POST':
-        active = Age.objects.get(id=request.POST.get('id', 1))
+    if event_id is not None:
+        active = Age.objects.get(id=event_id)
     else:
         if len(events) > 0:
             active = events[len(events)-1]
