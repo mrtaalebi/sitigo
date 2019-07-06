@@ -91,7 +91,7 @@
 
                                         <div class="ui inverted card" style="margin: 5%">
                                             <div class="medium image">
-                                                {% if article.file.image %}
+                                                {% if article.file.image  %}
                                                     <img src="{{ article.file.image.url }}">
                                                 {% else %}
                                                     <img src="{% static 'intro/geo.png' %}">
@@ -101,13 +101,13 @@
                                             </div>
                                             <div class="center aligned extra content" style="background-color: #222222;">
                                                 <a href="{{ article.file.file.url }}" target="_blank"
-                                                   class="ui link download-hover "
-                                                   style="color: black"
+                                                   class=" ui inverted yellow button "
+
                                                    onclick="$('#{{ article.file.id }}downloader').submit();" href="#"
                                                    data-position="left center" data-inverted=""
-                                                   style="margin-left: 15px; margin-right: 15px" id="change_lang">
-                                                    <i class="inverted  download big icon"
-                                                       style="margin: 10px;"></i>
+                                                   style="margin-left: 15px; margin-right: 15px;border-radius: 20px" id="change_lang">
+                                                    <i class="inverted orange download  icon"
+                                                       style="margin-left: 5px;margin-right: 5px"></i> {%trans "download"}
                                                 </a>
 
 
@@ -183,13 +183,12 @@
                                             </div>
                                             <div class="center aligned extra content" style="background-color: #222222">
                                                 <a href="{{ article.file.file.url }}" target="_blank"
-                                                   class="ui link download-hover "
-                                                   style="color: black"
+                                                   class="ui inverted orange button "
                                                    onclick="$('#{{ article.file.id }}downloader').submit();" href="#"
                                                    data-position="left center" data-inverted=""
-                                                   style="margin-left: 15px; margin-right: 15px" id="change_lang">
-                                                    <i class="inverted download big icon"
-                                                       style="margin: 10px;"></i>
+                                                   style="margin-left: 15px; margin-right: 15px;border-radius: 20px" id="change_lang">
+                                                    <i class="inverted orange download icon"
+                                                       style="margin-left: 5px;margin-right: 5px"></i>{%trans "   download   "%}
                                                 </a>
 
 
