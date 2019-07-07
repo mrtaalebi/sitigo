@@ -5,7 +5,7 @@ from apps.intro.models import HomePageImage, HomePage
 
 @admin.register(HomePageImage)
 class HomePageImageAdmin(admin.ModelAdmin):
-    fields = ['image', 'homePage']
+    fields = ['image', 'persian_caption', 'english_caption', 'homePage']
 
 
 @admin.register(HomePage)

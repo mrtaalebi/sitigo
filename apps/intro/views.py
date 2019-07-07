@@ -36,7 +36,6 @@ def homepage(request):
         for item in list(HomePageImage.objects.filter(homePage=hp)):
             print(item)
             x += [item]
-    print(context)
     context.update({
         'slideshow': x,
         'num_of_img': range(len(x)),
