@@ -345,17 +345,33 @@
         <div class="ui equal width stackable internally grid">
             <div class="center aligned row">
                 <div class="column">
-                    <h3 class="faded_class">Sponsor</h3>
-
-                </div>
-                <div class="column">
-                    <h3 class="faded_class">Organizer</h3>
+                    <h3 class="faded_class">{% trans 'Sponsor' %}</h3>
                     <p>
                         <img
                                 class="ui avatar image"
-                                src="./static/images/avatar/nan.jpg"
+                                src="{{ sponsor.image.url }}"
                         />
-
+                        <br>
+                        {% if LANGUAGE_CODE == 'fa'%}
+                            {{ sponsor.persian_name }}
+                        {% else %}
+                            {{ sponsor.english_name }}
+                        {% endif %}
+                    </p>
+                </div>
+                <div class="column">
+                    <h3 class="faded_class">{% trans 'Organizer' %}</h3>
+                    <p>
+                        <img
+                                class="ui avatar image"
+                                src="{{ organizer.image.url }}"
+                        />
+                        <br>
+                        {% if LANGUAGE_CODE == 'fa'%}
+                            {{ organizer.persian_name }}
+                        {% else %}
+                            {{ organizer.english_name }}
+                        {% endif %}
                     </p>
                 </div>
             </div>

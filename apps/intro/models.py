@@ -47,8 +47,8 @@ class HomePage(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.id:
-            self.sponsor_image = resize(self.sponsor_image, 100, 100)
-            self.organizer_image = resize(self.organizer_image, 100, 100)
+            self.sponsor_image = resize(self.sponsor_image, 200, 200)
+            self.organizer_image = resize(self.organizer_image, 200, 200)
         super(HomePage, self).save(*args, **kwargs)
 
 
