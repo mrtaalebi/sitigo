@@ -316,6 +316,13 @@
             <div class="gingil">
                 <div class="mySlides fade">
                     <img class="slide-image" src="{{ img.image.url }}">
+                    <div class="text">
+                        {% if LANGUAGE_CODE == 'fa' %}
+                            {{ img.persian_caption }}
+                        {% else %}
+                            {{ img.english_caption }}
+                        {% endif %}
+                    </div>
                 </div>
             </div>
             {% endfor %}
