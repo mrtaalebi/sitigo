@@ -10,4 +10,4 @@ class HomePageImageAdmin(admin.ModelAdmin):
 
 @admin.register(HomePage)
 class HomePageAdmin(admin.ModelAdmin):
-    pass
+    fields = ['sponsor_name_persian', 'sponsor_name_english', 'organizer_name_persian', 'organizer_name_english', 'sponsor_image', 'organizer_image' ]

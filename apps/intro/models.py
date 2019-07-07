@@ -38,7 +38,12 @@ from apps.content.models import resize
 
 
 class HomePage(models.Model):
-    pass
+    sponsor_name_persian = models.CharField(max_length=200)
+    sponsor_name_english = models.CharField(max_length=200)
+    organizer_name_persian = models.CharField(max_length=200)
+    organizer_name_english = models.CharField(max_length=200)
+    organizer_image = models.ImageField(upload_to='organizer')
+    sponsor_image = models.ImageField(upload_to='sponsor')
 
 
 class HomePageImage(models.Model):
