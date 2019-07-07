@@ -43,6 +43,7 @@ class HomePage(models.Model):
 
 class HomePageImage(models.Model):
     image = models.ImageField(upload_to='home_page_slideshow')
+    caption = models.CharField(max_length=300, default='a')
     homePage = models.ForeignKey(HomePage, related_name='home_page_image', on_delete=models.CASCADE)
 
     def save(self, *args, **kwargs):

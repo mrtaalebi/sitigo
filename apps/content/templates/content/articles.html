@@ -31,11 +31,11 @@
                             {% for item in categories %}
                                 {% if item.language == "en" %}
                                     {% if active.id == item.id %}
-                                        <a class="active item"  href="/content/articles/{{ item.id }}">
+                                        <a class="active item"  href="/articles/{{ item.id }}">
                                         {{ item.name }}
                                         </a>
                                     {% else %}
-                                        <a class="active item"  href="/content/articles/{{ item.id }}">
+                                        <a class="active item"  href="/articles/{{ item.id }}">
                                             {{ item.name }}
                                         </a>
                                     {% endif %}
@@ -48,11 +48,11 @@
                             {% for item in categories %}
                                 {% if item.language == "en" %}
                                     {% if active.id == item.id %}
-                                        <a class="active item" style="font-weight: bolder"  href="/content/articles/{{ item.id }}">
+                                        <a class="active item" style="font-weight: bolder"  href="/articles/{{ item.id }}">
                                             <span style="color:lightseagreen "> {{ item.persian_name }}</span>
                                         </a>
                                     {% else %}
-                                        <a class="active item"  href="/content/articles/{{ item.id }}">
+                                        <a class="active item"  href="/articles/{{ item.id }}">
                                             {{ item.name }}
                                         </a>
                                     {% endif %}
@@ -118,11 +118,11 @@
                             {% for item in categories %}
                                 {% if  item.language == "fa" %}
                                     {% if active.id == item.id %}
-                                        <a class="active item"  href="/content/articles/{{ item.id }}">
+                                        <a class="active item"  href="/articles/{{ item.id }}">
                                             {{ item.name }}
                                         </a>
                                     {% else %}
-                                        <a class="active item"  href="/content/articles/{{ item.id }}">
+                                        <a class="active item"  href="/articles/{{ item.id }}">
                                             {{ item.name }}
                                         </a>
                                     {% endif %}
@@ -181,11 +181,11 @@
                             {% for item in categories %}
                                 {% if item.language == "fa" %}
                                     {% if active.id == item.id %}
-                                        <a class="active item"  style="font-weight: bolder" href="/content/articles/{{ item.id }}">
+                                        <a class="active item"  style="font-weight: bolder" href="/articles/{{ item.id }}">
                                             <span style="color:lightseagreen "> {{ item.persian_name }}</span>
                                         </a>
                                     {% else %}
-                                        <a class="active item"  href="/content/articles/{{ item.id }}">
+                                        <a class="active item"  href="/articles/{{ item.id }}">
                                             {{ item.name }}
                                         </a>
                                     {% endif %}
