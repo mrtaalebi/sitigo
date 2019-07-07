@@ -45,6 +45,12 @@ class HomePage(models.Model):
     organizer_image = models.ImageField(upload_to='organizer')
     sponsor_image = models.ImageField(upload_to='sponsor')
 
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.sponsor_image = resize(self.sponsor_image, 100, 100)
+            self.organizer_image = resize(self.organizer_image, 100, 100)
+        super(HomePage, self).save(*args, **kwargs)
+
 
 class HomePageImage(models.Model):
     image = models.ImageField(upload_to='home_page_slideshow')
