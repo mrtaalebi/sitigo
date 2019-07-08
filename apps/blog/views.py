@@ -16,7 +16,7 @@ def blog_dir(request, dir_id=None):
     else:
         context['dirs'] = [
             {
-                'pk': adir.pk,
+                'id': adir.pk,
                 'name': adir.name,
                 'posts': [
                     {
