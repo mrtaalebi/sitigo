@@ -42,9 +42,12 @@ def blog_post(request, dir_id, post_id):
         post = BlogPost.objects.get(pk=dir_id)
     else:
         return redirect(request.path)
-    
+
     context = {
-        'post': post
+        'post': post,
+        'post_id': post_id,
+        'dir_id': dir_id,
+        'comments': BlogComment.objects.filter(post=post)
     }
 
     return render(request, 'blog/post.html', context)
@@ -56,3 +59,13 @@ def subscribe(request):
             return redirect(request, 'homepage')
         Subscriber.objects.create(email=request.POST['email'])
     return render(request, 'blog/subscripted.html')
+
+
+def leave_comment(request, dir_id, post_id):
+    if request.POST:
+        b = BlogComment(post=BlogPost.objects.get(pk=post_id),
+                        author=request.POST['author'],
+                        text=request.POST['text'],
+                        )
+        b.save()
+    return blog_post(request, dir_id, post_id)

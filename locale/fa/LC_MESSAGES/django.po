@@ -123,19 +123,20 @@ msgstr "برای دانش‌آموزان و فارغ‌التحصیلان"
 msgid ""
 "Tehran &ensp;|&ensp; Mashhad &ensp;|&ensp; Shiraz &ensp;|&ensp; Isfahan "
 "&ensp;|&ensp; Tabriz"
-msgstr ""
+msgstr "تهران &ensp;|&ensp; مشهد &ensp;|&ensp; شیراز &ensp;|&ensp; اصفهان "
+"&ensp;|&ensp; تبریز"
 
 #: apps/intro/templates/intro/homepage.html:47
 msgid "17 Aug"
-msgstr ""
+msgstr "۵/۲۶"
 
 #: apps/intro/templates/intro/homepage.html:52
 msgid "13 Sep"
-msgstr ""
+msgstr "۶/۲۲"
 
 #: apps/intro/templates/intro/homepage.html:57
 msgid "19 Sep"
-msgstr ""
+msgstr "۶/۲۸"
 
 #: apps/intro/templates/intro/homepage.html:64
 msgid "Registration"

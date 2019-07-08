@@ -45,7 +45,7 @@ class BlogPost(models.Model):
                     subject=subject,
                     message=message,
                     html_message=message,
-                    from_email='igoiiggooiiigggooo@gmail.com',
+                    from_email='national.igo@gmail.com',
                     recipient_list=[x],
                     ))
 
@@ -62,6 +62,7 @@ class BlogComment(models.Model):
 
     author = models.CharField(max_length=20, null=False, blank=True, default="Unknown")
     text = models.TextField(max_length=200, null=False, blank=False)
+    date = models.DateTimeField(auto_now=True)
 
 
 class Subscriber(models.Model):
