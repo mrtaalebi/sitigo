@@ -16,14 +16,30 @@ LANGUAGE_QUERY_PARAMETER = 'language'
 
 def homepage(request):
     x = []
+    context = {}
     if len(HomePage.objects.all()) > 0:
-        for item in list(HomePageImage.objects.filter(homePage=HomePage.objects.all()[0])):
+        hp = HomePage.objects.all()[0]
+        sponsor = {
+            'persian_name': hp.sponsor_name_persian,
+            'english_name': hp.sponsor_name_english,
+            'image': hp.sponsor_image
+        }
+        organizer = {
+            'persian_name': hp.organizer_name_persian,
+            'english_name': hp.organizer_name_english,
+            'image': hp.organizer_image
+        }
+        context.update({
+            'sponsor': sponsor,
+            'organizer': organizer
+        })
+        for item in list(HomePageImage.objects.filter(homePage=hp)):
             print(item)
             x += [item]
-    context = {
+    context.update({
         'slideshow': x,
-        'num_of_img': range(len(x))
-    }
+        'num_of_img': range(len(x)),
+    })
     return render(request, 'intro/homepage.html', context)
 
 

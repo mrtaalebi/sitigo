@@ -30,11 +30,11 @@
                              style="border: 0; color: darkred;">
                             {% for item in prev_ages %}
                                 {% if active.id == item.id %}
-                                    <a class="active item"  href="/content/{{ item.id }}">
+                                    <a class="active item"  href="/events/{{ item.id }}">
                                         {{ item.english_name }}
                                     </a>
                                 {% else %}
-                                    <a class="active item"  href="/content/{{ item.id }}">
+                                    <a class="active item"  href="/events/{{ item.id }}">
                                         {{ item.english_name }}
                                     </a>
                                 {% endif %}
@@ -45,11 +45,11 @@
                         <div class="ui inverted vertical fluid  menu myMenu ">
                             {% for item in prev_ages %}
                                 {% if active.id == item.id %}
-                                    <a class="active item" style="font-weight: bolder"  href="/content/{{ item.id }}">
+                                    <a class="active item" style="font-weight: bolder"  href="/events/{{ item.id }}">
                                         <span style="color:lightseagreen "> {{ item.english_name }}</span>
                                     </a>
                                 {% else %}
-                                  <a class="active item"  href="/content/{{ item.id }}">
+                                  <a class="active item"  href="/events/{{ item.id }}">
                                         {{ item.english_name }}
                                     </a>
                                 {% endif %}
@@ -112,11 +112,11 @@
                              style="border: 0; color: darkred;">
                             {% for item in prev_ages %}
                                 {% if active.id == item.id %}
-                                    <a class="active item"  href="/content/{{ item.id }}">
+                                    <a class="active item"  href="/events/{{ item.id }}">
                                         {{ item.persian_name }}
                                     </a>
                                 {% else %}
-                                    <a class="active item"  href="/content/{{ item.id }}">
+                                    <a class="active item"  href="/events/{{ item.id }}">
                                         {{ item.persian_name }}
                                     </a>
                                 {% endif %}
@@ -173,11 +173,11 @@
                         <div class="ui inverted vertical fluid right menu myMenu">
                             {% for item in prev_ages %}
                                 {% if active.id == item.id %}
-                                    <a class="active item" style="font-weight: bolder"  href="/content/{{ item.id }}">
+                                    <a class="active item" style="font-weight: bolder"  href="/events/{{ item.id }}">
                                        <span style="color:lightseagreen "> {{ item.persian_name }}</span>
                                     </a>
                                 {% else %}
-                                    <a class="active item"  href="/content/{{ item.id }}">
+                                    <a class="active item"  href="/events/{{ item.id }}">
                                         {{ item.persian_name }}
                                     </a>
                                 {% endif %}
