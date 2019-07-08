@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.utils import translation
 
 from .models import *
 
@@ -20,6 +21,7 @@ def blog_dir(request, dir_id=None):
                 'name': adir.name,
                 'posts': [
                     {
+                        'pk': post.pk,
                         'title': post.title,
                         'text': post.text,
                         'image': post.image,
@@ -34,6 +36,8 @@ def blog_dir(request, dir_id=None):
 
 
 def blog_post(request, dir_id, post_id):
+    if translation.get_language() == 'en':
+        return redirect('/')
     if BlogPost.objects.filter(pk=dir_id).count() == 1:
         post = BlogPost.objects.get(pk=dir_id)
     else:

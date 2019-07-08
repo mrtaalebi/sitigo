@@ -67,15 +67,17 @@
                         {% for post in dir.posts %}
                         <div class="ui inverted card" style="margin:5%">
                             <div class="image">
-                              <a href="/blog/{{ dir.id }}/{{ post.pk }}"> <img src="{{post.image.url}}"></a>
+                              <img src="{{post.image.url}}">
                             </div>
                             <div class="content">
-                                <a class="header">{{post.title}}</a>
+                                <a class="header" href="/blog/{{ dir.id }}/{{ post.pk }}">{{post.title}}</a>
+                                <br>
                                 <div class="meta">
                                     <span class="date">{{post.date_created}}</span>
                                 </div>
+                                <br>
                                 <div class="description">
-                                    {{post.short_text}}
+                                    {{post.short_text|safe}}
                                 </div>
                             </div>
                             <div class="extra content">
