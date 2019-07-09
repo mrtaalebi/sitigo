@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.utils import translation
 
 from .models import *
 
@@ -16,7 +17,7 @@ def blog_dir(request, dir_id=None):
     else:
         context['dirs'] = [
             {
-                'pk': adir.pk,
+                'id': adir.pk,
                 'name': adir.name,
                 'posts': [
                     {
@@ -35,13 +36,18 @@ def blog_dir(request, dir_id=None):
 
 
 def blog_post(request, dir_id, post_id):
+    if translation.get_language() == 'en':
+        return redirect('/')
     if BlogPost.objects.filter(pk=dir_id).count() == 1:
         post = BlogPost.objects.get(pk=dir_id)
     else:
         return redirect(request.path)
-    
+
     context = {
-        'post': post
+        'post': post,
+        'post_id': post_id,
+        'dir_id': dir_id,
+        'comments': BlogComment.objects.filter(post=post)
     }
 
     return render(request, 'blog/post.html', context)
@@ -53,3 +59,13 @@ def subscribe(request):
             return redirect(request, 'homepage')
         Subscriber.objects.create(email=request.POST['email'])
     return render(request, 'blog/subscripted.html')
+
+
+def leave_comment(request, dir_id, post_id):
+    if request.POST:
+        b = BlogComment(post=BlogPost.objects.get(pk=post_id),
+                        author=request.POST['author'],
+                        text=request.POST['text'],
+                        )
+        b.save()
+    return blog_post(request, dir_id, post_id)

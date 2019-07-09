@@ -16,58 +16,58 @@
 </style>
 {% endblock %}
 {% block content %}
-<div class="ui inverted vertical masthead center aligned segment"
-     id="topper"
-     style="
-                 min-height:100vh;background-image: url({% static 'intro/images/bg.png' %}); background-size: cover;background-attachment: fixed; background-repeat: no-repeat; background-position: center;">
-    <div class="ui container">
-        {% block navbar %}
-        {% include 'base/main_navbar.html' %}
-        {% endblock %}
-        {% if LANGUAGE_CODE == 'en' %}
-        <div class="ui stackable grid">
-            <div class="four wide column mobile-only">
-                <div class="ui inverted pointing fluid stackable menu myMenu"
-                     style="border: 0; color: darkred;">
-                    {% for item in prev_ages %}
-                    {% if active.id == item.id %}
-                    <a class="active item" href="/content/{{ item.id }}">
-                        {{ item.english_name }}
-                    </a>
-                    {% else %}
-                    <a class="active item" href="/content/{{ item.id }}">
-                        {{ item.english_name }}
-                    </a>
-                    {% endif %}
-                    {% endfor %}
-                </div>
-            </div>
-            <div class="four wide column mobile-hidden">
-                <div class="ui inverted vertical fluid  menu myMenu ">
-                    {% for item in prev_ages %}
-                    {% if active.id == item.id %}
-                    <a class="active item" href="/content/{{ item.id }}" style="font-weight: bolder">
-                        <span style="color:lightseagreen "> {{ item.english_name }}</span>
-                    </a>
-                    {% else %}
-                    <a class="active item" href="/content/{{ item.id }}">
-                        {{ item.english_name }}
-                    </a>
-                    {% endif %}
-                    {% endfor %}
-                </div>
-                <img src="{{ active.poster.url }}" style="width: 100% ;">
-            </div>
+    <div class="ui inverted vertical masthead center aligned segment"
+         style="
+                 min-height:100vh;background-image: url({% static 'intro/images/bg.png' %}); background-size: cover;background-attachment: fixed; background-repeat: no-repeat; background-position: center;"
+         id="topper">
+        <div class="ui container">
+            {% block navbar %}
+                {% include 'base/main_navbar.html' %}
+            {% endblock %}
+            {% if LANGUAGE_CODE == 'en' %}
+                <div class="ui stackable grid">
+                    <div class="four wide column mobile-only">
+                        <div class="ui inverted pointing fluid stackable menu myMenu"
+                             style="border: 0; color: darkred;">
+                            {% for item in prev_ages %}
+                                {% if active.id == item.id %}
+                                    <a class="active item"  href="/events/{{ item.id }}">
+                                        {{ item.english_name }}
+                                    </a>
+                                {% else %}
+                                    <a class="active item"  href="/events/{{ item.id }}">
+                                        {{ item.english_name }}
+                                    </a>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="four wide column mobile-hidden">
+                        <div class="ui inverted vertical fluid  menu myMenu ">
+                            {% for item in prev_ages %}
+                                {% if active.id == item.id %}
+                                    <a class="active item" style="font-weight: bolder"  href="/events/{{ item.id }}">
+                                        <span style="color:lightseagreen "> {{ item.english_name }}</span>
+                                    </a>
+                                {% else %}
+                                  <a class="active item"  href="/events/{{ item.id }}">
+                                        {{ item.english_name }}
+                                    </a>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <img src="{{ active.poster.url }}" style="width: 100% ;">
+                    </div>
 
 
-            <div class="twelve wide stretched column" style="">
-                <div class="ui inverted segment" style="background-color: #222222dd ;margin: 0">
-                    <div align="left"><h1 class="ui inverted header">{{ active.english_name }}</h1>
-
-                        <p> {{ active.english_content|safe }}</p></div>
-                    <div class="ui stackable grid">
-                        {% for file in active.files %}
-                        <div class="ui centered two wide coloumn" style="
+                    <div class="twelve wide stretched column" style="">
+                        <div class="ui inverted segment" style="background-color: #222222dd ;margin: 0" >
+                            <div align="left"><h1 class="ui inverted header" >{{ active.english_name }}</h1>
+                            <br>
+                            <p >    {{ active.english_content|safe }}</p></div>
+                            <div class="ui stackable grid" >
+                                {% for file in active.files %}
+                                    <div class="ui centered two wide coloumn" style="
                                             padding: 20px;
 
 
@@ -92,9 +92,23 @@
                         </div>
                         {% endfor %}
                     </div>
-                    <div class="ui stackable grid" style="">
-                        <div class="ui medium images" style="margin: 5%">
-                            {% for image in active.images %}
+                </div>
+            {% else %}
+                <div class="ui stackable grid" dir="ltr">
+                    <div class="four wide column mobile-only">
+                        <div class="ui inverted pointing fluid stackable menu myMenu"
+                             style="border: 0; color: darkred;">
+                            {% for item in prev_ages %}
+                                {% if active.id == item.id %}
+                                    <a class="active item"  href="/events/{{ item.id }}">
+                                        {{ item.persian_name }}
+                                    </a>
+                                {% else %}
+                                    <a class="active item"  href="/events/{{ item.id }}">
+                                        {{ item.persian_name }}
+                                    </a>
+                                {% endif %}
+                            {% endfor %}
 
                             <img class="ui image" src="{{ image.image.url }}">
 
@@ -102,6 +116,17 @@
                         </div>
 
                     </div>
+                    <div class="twelve wide  stretched column">
+                        <div class="ui inverted segment" style="background-color:#222222dd ">
+                           <div align="right"> <h1 class="ui inverted header">{{ active.persian_name }}</h1>
+                            <br>
+                               <p>
+                                {{ active.persian_content|safe }}
+                            </p></div>
+                            <div class="ui stackable grid" dir="rtl" >
+                                {% for file in active.files %}
+                                    <div class="ui centered  two wide coloumn" style="
+                                           padding: 20px;
 
                 </div>
             </div>
@@ -157,12 +182,18 @@
                         </div>
                         {% endfor %}
                     </div>
-                    <div class="ui stackable grid" style="">
-                        <div class="ui medium images" style="margin: 5%">
-                            {% for image in active.images %}
-
-                            <img class="ui image" src="{{ image.image.url }}">
-
+                    <div class="four wide column mobile-hidden">
+                        <div class="ui inverted vertical fluid right menu myMenu">
+                            {% for item in prev_ages %}
+                                {% if active.id == item.id %}
+                                    <a class="active item" style="font-weight: bolder"  href="/events/{{ item.id }}">
+                                       <span style="color:lightseagreen "> {{ item.persian_name }}</span>
+                                    </a>
+                                {% else %}
+                                    <a class="active item"  href="/events/{{ item.id }}">
+                                        {{ item.persian_name }}
+                                    </a>
+                                {% endif %}
                             {% endfor %}
                         </div>
 

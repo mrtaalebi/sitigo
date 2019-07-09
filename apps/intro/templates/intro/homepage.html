@@ -107,7 +107,7 @@
                         {% trans "We are proud to announce that a total of 56 countries took part in the 5th IGO event, we hereby extend our profound gratitude to these countries for their participation:Afghanistan , Argentina , Armenia , Australia , Bangladesh , Belarus , Bolivia , Bosnia and Herzegovina , Brazil , Bulgaria , China , Costa rica , Croatia , Cuba , Czech , Denmark , Ecuador , El Salvador , Estonia , Finland , Georgia , Guatemala , India , Indonesia , Iran and ..." %}
                     </p>
                 </div>
-                <div class="six wide right floated column">
+                <div class="six wide right floated column faded_class">
                     <img
                             class="ui huge rounded image"
                             src="{% static 'intro/images/logo.png' %}"
@@ -118,7 +118,7 @@
         </div>
     </div>
     <div class="ui inverted vertical stripe quote segment mySegment"
-         style="background-color:rgb(0,0,0);padding-right: 10%;padding-left: 5%;">
+         style="background-color:rgb(0,0,0);padding-right: 5%;padding-left: 5%;">
 
         <div class="ui equal width stackable internally  grid">
             <div class="center aligned row">
@@ -198,6 +198,7 @@
         {#rsources#}
         <div class="ui vertical stripe quote segment inverted">
             <div style="padding-right: 5%; padding-left: 5%;">
+
                 <h1 class="ui inverted header faded_class" align="center" style="padding-top: 5%">منابع مناسب</h1>
                 <h4 class="inverted  header faded_class" align="center">علاقه‌مندان به شرکت در المپیاد هندسۀ ایران
                     می‌توانند از هر منبعی که سرفصل‌های بالا را پوشش دهد استفاده کنند. با این حال، علاوه بر کتاب‌های
@@ -316,6 +317,13 @@
             <div class="gingil">
                 <div class="mySlides fade">
                     <img class="slide-image" src="{{ img.image.url }}">
+                    <div class="text">
+                        {% if LANGUAGE_CODE == 'fa' %}
+                            {{ img.persian_caption }}
+                        {% else %}
+                            {{ img.english_caption }}
+                        {% endif %}
+                    </div>
                 </div>
             </div>
             {% endfor %}
@@ -345,17 +353,33 @@
         <div class="ui equal width stackable internally grid">
             <div class="center aligned row">
                 <div class="column">
-                    <h3 class="faded_class">Sponsor</h3>
-
-                </div>
-                <div class="column">
-                    <h3 class="faded_class">Organizer</h3>
+                    <h3 class="faded_class">{% trans 'Sponsor' %}</h3>
                     <p>
                         <img
                                 class="ui avatar image"
-                                src="./static/images/avatar/nan.jpg"
+                                src="{{ sponsor.image.url }}"
                         />
-
+                        <br>
+                        {% if LANGUAGE_CODE == 'fa'%}
+                            {{ sponsor.persian_name }}
+                        {% else %}
+                            {{ sponsor.english_name }}
+                        {% endif %}
+                    </p>
+                </div>
+                <div class="column">
+                    <h3 class="faded_class">{% trans 'Organizer' %}</h3>
+                    <p>
+                        <img
+                                class="ui avatar image"
+                                src="{{ organizer.image.url }}"
+                        />
+                        <br>
+                        {% if LANGUAGE_CODE == 'fa'%}
+                            {{ organizer.persian_name }}
+                        {% else %}
+                            {{ organizer.english_name }}
+                        {% endif %}
                     </p>
                 </div>
             </div>

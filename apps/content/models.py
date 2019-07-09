@@ -48,7 +48,7 @@ class FileUpload(models.Model):
         return self.name
 
 
-class Age(models.Model):
+class Event(models.Model):
     persian_name = models.CharField(max_length=400, default='a')  # todo ino bardar
     english_name = models.CharField(max_length=400, default='a')
     poster = models.ImageField()
@@ -64,7 +64,7 @@ class Age(models.Model):
     def save(self, *args, **kwargs):
         if not self.id:
             self.poster = resize(self.poster, 1000, 1500)
-        super(Age, self).save(*args, **kwargs)
+        super(Event, self).save(*args, **kwargs)
 
 
 class Category(models.Model):

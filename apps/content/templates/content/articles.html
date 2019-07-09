@@ -31,11 +31,11 @@
                             {% for item in categories %}
                                 {% if item.language == "en" %}
                                     {% if active.id == item.id %}
-                                        <a class="active item"  href="/content/articles/{{ item.id }}">
-                                        {{ item.name }}
+                                        <a class="active item" href="/articles/{{ item.id }}">
+                                            {{ item.name }}
                                         </a>
                                     {% else %}
-                                        <a class="active item"  href="/content/articles/{{ item.id }}">
+                                        <a class="active item" href="/articles/{{ item.id }}">
                                             {{ item.name }}
                                         </a>
                                     {% endif %}
@@ -48,11 +48,12 @@
                             {% for item in categories %}
                                 {% if item.language == "en" %}
                                     {% if active.id == item.id %}
-                                        <a class="active item"  href="/content/articles/{{ item.id }}">
-                                            {{ item.name }}
+                                        <a class="active item" style="font-weight: bolder"
+                                           href="/articles/{{ item.id }}">
+                                            <span style="color:lightseagreen "> {{ item.name }}</span>
                                         </a>
                                     {% else %}
-                                        <a class="active item"  href="/content/articles/{{ item.id }}">
+                                        <a class="active item" href="/articles/{{ item.id }}">
                                             {{ item.name }}
                                         </a>
                                     {% endif %}
@@ -67,40 +68,41 @@
                             <div class="ui stackable grid" style="">
                                 {% for article in articles %}
 
-                                        <div class="ui inverted card" style="margin: 5%">
-                                            <div class="medium image">
-                                                {% if article.file.image  %}
-                                                    <img src="{{ article.file.image.url }}">
-                                                {% else %}
-                                                    <img src="{% static 'intro/geo.png' %}">
-                                                {% endif %}                                            </div>
-                                            <div class="center aligned content" style="background-color: #222222;">
-                                                <a class="header" style="color: white">{{ article.file.name }}</a>
-                                            </div>
-                                            <div class="center aligned extra content" style="background-color: #222222;">
-                                                <a href="{{ article.file.file.url }}" target="_blank"
-                                                   class=" ui inverted yellow button "
-
-                                                   onclick="$('#{{ article.file.id }}downloader').submit();" href="#"
-                                                   data-position="left center" data-inverted=""
-                                                   style="margin-left: 15px; margin-right: 15px;border-radius: 20px" id="change_lang">
-                                                    <i class="inverted orange download  icon"
-                                                       style="margin-left: 5px;margin-right: 5px"></i> {%trans "download"%}
-                                                </a>
-
-
-                                                <form name="downloader" id="{{ article.file.id }}downloader"
-                                                      action="/content/download/"
-                                                      method="POST">
-                                                    {% csrf_token %}
-                                                    <input name="file_path" type="hidden"
-                                                           value="{{ article.file.file.url }}"/>
-                                                    <input type="hidden" name="original_file_name"
-                                                           value="{{ article.file.file.name }}"/>
-                                                </form>
-                                                {#                                                todo download#}
-                                            </div>
+                                    <div class="ui inverted card" style="margin: 5%">
+                                        <div class="medium image">
+                                            {% if article.file.image %}
+                                                <img src="{{ article.file.image.url }}">
+                                            {% else %}
+                                                <img src="{% static 'intro/geo.png' %}">
+                                            {% endif %}                                            </div>
+                                        <div class="center aligned content" style="background-color: #222222;">
+                                            <a class="header" style="color: white">{{ article.file.name }}</a>
                                         </div>
+                                        <div class="center aligned extra content" style="background-color: #222222;">
+                                            <a href="{{ article.file.file.url }}" target="_blank"
+                                               class=" ui inverted yellow button "
+
+                                               onclick="$('#{{ article.file.id }}downloader').submit();" href="#"
+                                               data-position="left center" data-inverted=""
+                                               style="margin-left: 15px; margin-right: 15px;border-radius: 20px"
+                                               id="change_lang">
+                                                <i class="inverted orange download  icon"
+                                                   style="margin-left: 5px;margin-right: 5px"></i> {% trans "download" %}
+                                            </a>
+
+
+                                            <form name="downloader" id="{{ article.file.id }}downloader"
+                                                  action="/content/download/"
+                                                  method="POST">
+                                                {% csrf_token %}
+                                                <input name="file_path" type="hidden"
+                                                       value="{{ article.file.file.url }}"/>
+                                                <input type="hidden" name="original_file_name"
+                                                       value="{{ article.file.file.name }}"/>
+                                            </form>
+                                            {#                                                todo download#}
+                                        </div>
+                                    </div>
 
                                 {% endfor %}
                             </div>
@@ -111,18 +113,18 @@
                 </div>
                 </div>
             {% else %}
-                <div class="ui stackable grid">
+                <div class="ui stackable grid" dir="ltr">
                     <div class="four wide column mobile-only">
                         <div class="ui inverted pointing fluid stackable menu myMenu"
                              style="border: 0; color: darkred;">
                             {% for item in categories %}
                                 {% if  item.language == "fa" %}
                                     {% if active.id == item.id %}
-                                        <a class="active item"  href="/content/articles/{{ item.id }}">
+                                        <a class="active item" href="/articles/{{ item.id }}">
                                             {{ item.name }}
                                         </a>
                                     {% else %}
-                                        <a class="active item"  href="/content/articles/{{ item.id }}">
+                                        <a class="active item" href="/articles/{{ item.id }}">
                                             {{ item.name }}
                                         </a>
                                     {% endif %}
@@ -132,44 +134,46 @@
                         </div>
                     </div>
                     <div class="twelve wide center aligned stretched column">
-                        <div class="ui inverted segment" style="background-color: #222222dd;padding:auto" dir="rtl" align="right">
-                            <div class="ui stackable grid" >
+                        <div class="ui inverted segment" style="background-color: #222222dd;padding:auto" dir="rtl"
+                             align="right">
+                            <div class="ui stackable grid">
                                 {% for article in articles %}
-                                        <div class="ui inverted card" style="margin:5%">
-                                            <div class="image" >
+                                    <div class="ui inverted card" style="margin:5%">
+                                        <div class="image">
 
-                                                {% if  article.file.image %}
-                                                    <img src="{{ article.file.image.url }}">
-                                                {% else %}
-                                                    <img src="{% static 'intro/geo.png' %}">
-                                                {% endif %}
-                                            </div>
-                                            <div class="center aligned content" style="background-color: #222222;">
-                                                <a class="header" style="color: white">{{ article.file.name }}</a>
-                                            </div>
-                                            <div class="center aligned extra content" style="background-color: #222222">
-                                                <a href="{{ article.file.file.url }}" target="_blank"
-                                                   class="ui inverted orange button "
-                                                   onclick="$('#{{ article.file.id }}downloader').submit();" href="#"
-                                                   data-position="left center" data-inverted=""
-                                                   style="margin-left: 15px; margin-right: 15px;border-radius: 20px" id="change_lang">
-                                                    <i class="inverted orange download icon"
-                                                       style="margin-left: 5px;margin-right: 5px"></i>{%trans "   download   "%}
-                                                </a>
-
-
-                                                <form name="downloader" id="{{ article.file.id }}downloader"
-                                                      action="/content/download/"
-                                                      method="POST">
-                                                    {% csrf_token %}
-                                                    <input name="file_path" type="hidden"
-                                                           value="{{ article.file.file.url }}"/>
-                                                    <input type="hidden" name="original_file_name"
-                                                           value="{{ article.file.file.name }}"/>
-                                                </form>
-                                                {#                                                todo download#}
-                                            </div>
+                                            {% if  article.file.image %}
+                                                <img src="{{ article.file.image.url }}">
+                                            {% else %}
+                                                <img src="{% static 'intro/geo.png' %}">
+                                            {% endif %}
                                         </div>
+                                        <div class="center aligned content" style="background-color: #222222;">
+                                            <a class="header" style="color: white">{{ article.file.name }}</a>
+                                        </div>
+                                        <div class="center aligned extra content" style="background-color: #222222">
+                                            <a href="{{ article.file.file.url }}" target="_blank"
+                                               class="ui inverted orange button "
+                                               onclick="$('#{{ article.file.id }}downloader').submit();" href="#"
+                                               data-position="left center" data-inverted=""
+                                               style="margin-left: 15px; margin-right: 15px;border-radius: 20px"
+                                               id="change_lang">
+                                                <i class="inverted orange download icon"
+                                                   style="margin-left: 5px;margin-right: 5px"></i>{% trans "   download   " %}
+                                            </a>
+
+
+                                            <form name="downloader" id="{{ article.file.id }}downloader"
+                                                  action="/content/download/"
+                                                  method="POST">
+                                                {% csrf_token %}
+                                                <input name="file_path" type="hidden"
+                                                       value="{{ article.file.file.url }}"/>
+                                                <input type="hidden" name="original_file_name"
+                                                       value="{{ article.file.file.name }}"/>
+                                            </form>
+                                            {#                                                todo download#}
+                                        </div>
+                                    </div>
 
                                 {% endfor %}
                             </div>
@@ -181,11 +185,12 @@
                             {% for item in categories %}
                                 {% if item.language == "fa" %}
                                     {% if active.id == item.id %}
-                                        <a class="active item"  href="/content/articles/{{ item.id }}">
-                                            {{ item.name }}
+                                        <a class="active item" style="font-weight: bolder"
+                                           href="/articles/{{ item.id }}">
+                                            <span style="color:lightseagreen "> {{ item.name }}</span>
                                         </a>
                                     {% else %}
-                                        <a class="active item"  href="/content/articles/{{ item.id }}">
+                                        <a class="active item" href="/articles/{{ item.id }}">
                                             {{ item.name }}
                                         </a>
                                     {% endif %}

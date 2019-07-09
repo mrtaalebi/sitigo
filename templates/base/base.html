@@ -23,7 +23,7 @@
     <link
             rel="shortuct icon"
             type="image/png"
-            href="{% static 'intro/favicon.png' %}"
+            href="{% static 'favicon.png' %}"
     />
     <link
             rel="stylesheet"
@@ -38,16 +38,23 @@
 
 </head>
 
-<body id="root" dir="{% if LANGUAGE_CODE == "fa" %}rtl {% else %} ltr {% endif %}">
-<div class="ui large top fixed hidden menu">
+<body id="root" {% if LANGUAGE_CODE == "fa" %}dir="rtl"{% endif %}>
+<div class="ui large top fixed mobile-hidden hidden menu">
     <div class="ui container">
         <a class="active item">Home</a> <a class="item">Work</a>
         <a class="item">Company</a> <a class="item">Careers</a>
+<<<<<<< HEAD
         <div class="right menu">
+=======
+        <div {% if LANGUAGE_CODE == "fa" %}class="left menu" {% else %} class="right menu"{% endif %}>
+
+>>>>>>> cac524bda3d1831ada56db375bce8a82b0ac43de
             <a class="fitted item popup-link" onclick="$('#changeLang').submit();" href="#"
                data-position="left center" data-inverted=""
                style="margin-left: 15px; margin-right: 15px" id="change_lang">
-                   <img class="ui mini circular image" src="{%if LANGUAGE_CODE == "fa" %}{% static '\intro\iran.png'%}{%else%}{% static '\intro\united-kingdom.png'%}{%endif%}">
+                <img class="ui mini circular image" src="
+
+                        {% if LANGUAGE_CODE == "fa" %}{% static '\intro\united-kingdom.png' %}{% else %}{% static '\intro\iran.png' %}{% endif %}">
             </a>
             <form name="changeLang" id="changeLang" action="/set_lang/" method="POST">
                 {% csrf_token %}
@@ -58,15 +65,20 @@
     </div>
 </div>
 <!--Sidebar Menu-->
+<<<<<<< HEAD
 <div class="ui vertical mobile-only inverted sidebar menu" >
     <a class="item" >Home</a> <a class="item">Work</a>
+=======
+<div class="ui vertical inverted sidebar menu mobile-only" align="right" dir="ltr">
+    <a class="item">Home</a> <a class="item">Work</a>
+>>>>>>> cac524bda3d1831ada56db375bce8a82b0ac43de
     <a class="item">Company</a> <a class="item">Careers</a>
     {#    <a class="item">Login</a> <a class="item">Signup</a>#}
     <a class="fitted item popup-link" onclick="$('#changeLang').submit();" href="#"
        data-position="left center" data-inverted=""
        style="margin-left: 15px; margin-right: 15px;" id="change_lang">
 
-        <img class="ui mini circular image" src="{% static '\intro\iran.png'%}">
+        <img class="ui mini circular image" src="{% static '\intro\iran.png' %}">
     </a>
     <form name="changeLang" id="changeLang" action="/set_lang/" method="POST">
         {% csrf_token %}
@@ -81,7 +93,7 @@
 
     {% endblock %}
 
-    <div class="ui inverted vertical footer segment" style="background-color: rgb(0,0,0);" >
+    <div class="ui inverted vertical footer segment" style="background-color: rgb(0,0,0);">
         <div class="ui container">
             <div
                     class="ui stackable inverted stackable  grid" style="padding-left: 10%;padding-right: 10%;">
@@ -107,18 +119,17 @@
                 </div>
 
 
-                <div class="four wide coloumn" style="padding: 20px;">
+                <div class="four wide coloumn" style="padding: auto;">
                     <h4 class="ui inverted header">{% trans "Subscribe Newsletter" %}</h4>
                     <form class="ui form" method="POST" id="notify" action="{% url 'blog:subscribe' %}">
-                            {% csrf_token %}
+                        {% csrf_token %}
                         <div class="field">
                             <div class="ui action input"
-                                 style="height: 50px; width: 200px;">
-                                <input type="email" placeholder="{% trans "Enter your Email" %}"
-                                       style=" "
+                                 style="height: 50px; width: 180px;">
+                                <input type="email" placeholder="{% trans 'Enter your Email' %}" style=" border-radius: 0 "
                                        id="email" name="email">
                                 <button class="ui teal button" type="submit" id="button"
-                                        style=" "
+                                        style="border-radius: 0px "
                                 >
                                     {% trans 'Subscribe' %}
                                 </button>

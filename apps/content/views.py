@@ -3,17 +3,17 @@ import os
 
 from django.conf import settings
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.utils import translation
 
 
-from apps.content.models import Age, Article, Category
+from apps.content.models import Event, Article, Category
 
 LANGUAGE_QUERY_PARAMETER = 'language'
 
 
-def age(request, age_id = None):
-    prev_ages = list(Age.objects.all().order_by('year'))
+def event(request, event_id = None):
+    prev_ages = list(Event.objects.all().order_by('year'))
     x = []
     for p_age in prev_ages:
         x.append({
@@ -25,8 +25,8 @@ def age(request, age_id = None):
             # 'poster': p_age.poster
         })
     context = {'prev_ages': x}
-    if age_id is not None:
-        active = Age.objects.get(id=age_id)
+    if event_id is not None:
+        active = Event.objects.get(id=event_id)
     else:
         if len(prev_ages) > 0:
             active = prev_ages[len(prev_ages)-1]
@@ -45,11 +45,10 @@ def age(request, age_id = None):
             'images': list(active.images.all())
         }
         context.update({'active': ctx})
-    return render(request, 'content/age.html', context)
+    return render(request, 'content/event.html', context)
 
 
 def articles(request, category_id=None):
-    print(category_id)
     categories = Category.objects.all()
     context = {'categories': list(categories)}
     if category_id is None:
@@ -74,7 +73,8 @@ def articles(request, category_id=None):
             })
     else:
         articles = Article.objects.filter(category_id=category_id)
-        print(category_id)
+        if Category.objects.get(id=category_id).language != translation.get_language():
+            return redirect('/articles/')
         context.update({
             'active': Category.objects.get(id=category_id),
             'articles': articles
