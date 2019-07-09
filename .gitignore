@@ -4,6 +4,7 @@ igo/server_setting.pyp
 *.pyo
 *.pyc
 *.sqlite3
+*.xml 
 
 .idea/*
 media/*

@@ -20,6 +20,7 @@ def blog_dir(request, dir_id=None):
                 'name': adir.name,
                 'posts': [
                     {
+                        'pk': post.pk,
                         'title': post.title,
                         'text': post.text,
                         'image': post.image,
