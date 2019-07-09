@@ -2,16 +2,16 @@
 {% get_current_language_bidi as LANGUAGE_BIDI %}
 {% get_current_language as LANGUAGE_CODE %}
 
-<div class="ui large secondary inverted pointing menu">
+<div class="ui large secondary inverted pointing menu" style="display: flex;">
     <a class="toc item"><i class="sidebar icon"></i></a>
-    <a class="active item" style="display: inline">Home</a>
-    <a class="item" style="display: inline">Work</a>
-    <a class="item" style="display: inline">Company</a>
-    <a class="item" style="display: inline">Careers</a>
+    <a class="active item mobile-hidden" style="display: inline">Home</a>
+    <a class="item mobile-hidden" style="display: inline">Work</a>
+    <a class="item mobile-hidden" style="display: inline">Company</a>
+    <a class="item mobile-hidden" style="display: inline">Careers</a>
     <div {% if LANGUAGE_CODE == "fa" %}class="left item" {% else %} class="right item"{% endif %} style="display: inline !important; margin: 0; padding: 0;">
         <a class="fitted item popup-link" onclick="$('#changeLang').submit();" href="#"
            data-position="left center" data-inverted=""
-           style="margin-left: 15px; margin-right: 15px; display: inline" id="change_lang">
+           style="margin-left: 15px; margin-right: 15px; display: inline;" id="change_lang">
             <img class="ui mini circular image" src="{%if LANGUAGE_CODE == "fa" %}{% static '\intro\united-kingdom.png'%}{% else %}{% static '\intro\iran.png'%}{%endif%}">
         </a>
 

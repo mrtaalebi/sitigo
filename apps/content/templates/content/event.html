@@ -62,7 +62,7 @@
                     <div class="twelve wide stretched column" style="">
                         <div class="ui inverted segment" style="background-color: #222222dd ;margin: 0" >
                             <div align="left"><h1 class="ui inverted header" >{{ active.english_name }}</h1>
-
+                            <br>
                             <p >    {{ active.english_content|safe }}</p></div>
                             <div class="ui stackable grid" >
                                 {% for file in active.files %}
@@ -127,7 +127,8 @@
                     <div class="twelve wide  stretched column">
                         <div class="ui inverted segment" style="background-color:#222222dd ">
                            <div align="right"> <h1 class="ui inverted header">{{ active.persian_name }}</h1>
-                            <p>
+                            <br>
+                               <p>
                                 {{ active.persian_content|safe }}
                             </p></div>
                             <div class="ui stackable grid" dir="rtl" >

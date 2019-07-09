@@ -3,7 +3,7 @@ import os
 
 from django.conf import settings
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.utils import translation
 
 
@@ -73,6 +73,8 @@ def articles(request, category_id=None):
             })
     else:
         articles = Article.objects.filter(category_id=category_id)
+        if Category.objects.get(id=category_id).language != translation.get_language():
+            return redirect('/articles/')
         context.update({
             'active': Category.objects.get(id=category_id),
             'articles': articles
