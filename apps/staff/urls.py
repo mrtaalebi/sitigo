@@ -5,6 +5,6 @@ from apps.staff import views
 
 app_name = "staff"
 urlpatterns = [
-    url(r'^(?P<event_id>\w+)/$', views.staff),
+    url(r'^(?P<event_id>\d+)/$', views.staff),
     url(r'^$', views.staff),
 ]

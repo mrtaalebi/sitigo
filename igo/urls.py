@@ -37,9 +37,9 @@ urlpatterns = [
     url(r'^blog/', include(blog_urls), name='blog'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^staff/', include(staff_url)),
-    url(r'^events/(?P<event_id>\w+)/$', views.event),
+    url(r'^events/(?P<event_id>\d+)/$', views.event),
     url(r'^events/$', views.event),
-    url(r'^articles/(?P<category_id>\w+)/$', views.articles),
+    url(r'^articles/(?P<category_id>\d+)/$', views.articles),
     url(r'^articles/$', views.articles),
 ]
 
