@@ -41,10 +41,12 @@
 <body id="root" {% if LANGUAGE_CODE == "fa" %}dir="rtl"{% endif %}>
 <div class="ui large top fixed mobile-hidden hidden menu">
     <div class="ui container">
-        <a class="active item">Home</a> <a class="item">Work</a>
-        <a class="item">Company</a> <a class="item">Careers</a>
+        {% for location, text, is_active in navbar %}
+            <a class="item {{ is_active }}" href="{{ location }}">{{ text }}</a>
+        {% endfor %}
 
-        <div class="right menu">
+
+                <div class="right menu">
 
         <div {% if LANGUAGE_CODE == "fa" %}class="left menu" {% else %} class="right menu"{% endif %}>
 
@@ -67,19 +69,16 @@
 </div>
 <!--Sidebar Menu-->
 
-<div class="ui vertical mobile-only inverted sidebar menu" >
-    <a class="item" >Home</a> <a class="item">Work</a>
-
 <div class="ui vertical inverted sidebar menu mobile-only" align="right" dir="ltr">
-    <a class="item">Home</a> <a class="item">Work</a>
+    {% for location, text, is_active in navbar %}
+        <a class="item {{ is_active }}" href="{{ location }}">{{ text }}</a>
+    {% endfor %}
 
-    <a class="item">Company</a> <a class="item">Careers</a>
-    {#    <a class="item">Login</a> <a class="item">Signup</a>#}
     <a class="fitted item popup-link" onclick="$('#changeLang').submit();" href="#"
        data-position="left center" data-inverted=""
        style="margin-left: 15px; margin-right: 15px;" id="change_lang">
 
-        <img class="ui mini circular image" src="{% static '\intro\iran.png' %}">
+            <img class="ui mini circular image" src="{% if LANGUAGE_CODE == "fa" %}{% static '/intro/iran.png' %}{% else %}{% static '/intro/united-kingdom.png' %}{% endif %}">
     </a>
     <form name="changeLang" id="changeLang" action="/set_lang/" method="POST">
         {% csrf_token %}
@@ -92,6 +91,10 @@
 <div class="pusher">
 
     {% block content %}
+        {% for location, text, is_active in navbar %}
+            <a class="item {{ is_active }}" href="{{ location }}">{{ text }}</a>
+        {% endfor %}
+
 
     {% endblock %}
 
@@ -168,7 +171,6 @@
     ScrollReveal().reveal('.faded_class', {delay: 500});
 </script>
 {% block extra_script %}{% endblock %}
-
 
 </body>
 </html>
