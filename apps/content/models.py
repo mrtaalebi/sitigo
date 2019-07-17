@@ -12,7 +12,7 @@ def resize(img, x, y):
     image_temp = Image.open(img)
     output_io_stream = BytesIO()
     image_temp = image_temp.resize((x, y))
-    image_temp.save(output_io_stream, format='JPEG', quality=100)
+    image_temp.save(output_io_stream, format='PNG', quality=100)
     output_io_stream.seek(0)
     img = InMemoryUploadedFile(output_io_stream, 'ImageField', "%s.jpg" % img.name.split('.')[0],
                                'image/jpeg', sys.getsizeof(output_io_stream), None)
@@ -56,7 +56,7 @@ class Event(models.Model):
     persian_content = RichTextField()
     english_content = RichTextField()
     year = models.IntegerField()
-    images = models.ManyToManyField(ImageUpload)
+    images = models.ManyToManyField(ImageUpload, null=True, blank=True)
 
     def __str__(self):
         return self.english_name
