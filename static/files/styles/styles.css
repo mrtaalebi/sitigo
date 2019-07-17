@@ -83,7 +83,7 @@ This set of fonts are used in this project under the license: (.....)
 		 url({% static 'intro/fonts/WebFonts/fonts/ttf/IRANSansWeb.ttf' %}) format('truetype');
 }
 
-* {
+.text {
     font-family: IRANSans !important;
     font-style: normal !important;
     font-weight: 900 !important;

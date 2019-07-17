@@ -24,7 +24,7 @@ from apps.blog import urls as blog_urls
 from apps.question import urls as question_urls
 from apps.staff import urls as staff_url
 
-from igo import settings
+from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
@@ -43,5 +43,6 @@ urlpatterns = [
     url(r'^articles/$', views.articles),
 ]
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
