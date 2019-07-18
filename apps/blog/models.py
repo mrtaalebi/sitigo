@@ -6,6 +6,7 @@ from django.utils.translation import ugettext, ugettext_lazy as _
 from igo import settings
 
 import math
+import threading
 
 
 class BlogDir(models.Model):
@@ -51,7 +52,9 @@ class BlogPost(models.Model):
 
     def save(self, *args, **kwargs):
         super(BlogPost, self).save(*args, **kwargs)
-        self.send_subscriber_blog_post_mail([i.email for i in Subscriber.objects.all()])
+        threading.Thread(target=self.send_subscriber_blog_post_mail,
+                args=*[[i.email for i in Subscriber.objects.all()]]
+                ).start()
 
     def __str__(self):
         return self.title
