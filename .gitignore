@@ -1,13 +1,18 @@
+# Ignore everything
+*
 
-igo/server_setting.pyp
 
-*.pyo
-*.pyc
-*.sqlite3
-*.xml 
+# Then add everything needed
 
-.idea/*
-media/*
-
-venv*
-env*
+!apps/**
+!docs/**
+!.git/**
+!.github/**
+!.gitignore
+!igo/**
+!LICENSE
+!local/**
+!manage.py
+!requirements.txt
+!static/files/**
+!templates/**
