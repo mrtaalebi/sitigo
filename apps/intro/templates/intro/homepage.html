@@ -19,17 +19,17 @@
                 {% include 'base/main_navbar.html' %}
             {% endblock %}
 
-{% if LANGUAGE_CODE == "en" %}
+            {% if LANGUAGE_CODE == "en" %}
 
-            <div class="ui left aligned huge header" id="title"
-                 style="color: white; font-size: 10vh; font-family: IRANSans; font-weight: 900">6th<br>Iranian<br>Geometry<br>Olympiad
-            </div>
-        {% else %}
-    <div class="ui right aligned huge header" id="title"
-                 style="color: white; font-size: 10vh; font-family: IRANSans; font-weight: 900">ششمین<br>المپیاد<br>هندسه<br>ایران
-            </div>
+                <div class="ui left aligned huge header" id="title"
+                     style="color: white; font-size: 10vh; font-family: IRANSans; font-weight: 900">6th<br>Iranian<br>Geometry<br>Olympiad
+                </div>
+            {% else %}
+                <div class="ui right aligned huge header" id="title"
+                     style="color: white; font-size: 10vh; font-family: IRANSans; font-weight: 900">ششمین<br>المپیاد<br>هندسه<br>ایران
+                </div>
 
-        {% endif %}
+            {% endif %}
 
             <div class="center aligned segments"
                  style="width: 25rem; left: 0; right: 0; margin-left: auto; margin-right: auto; position: absolute; bottom: 2vh;">
@@ -81,31 +81,29 @@
                     <h3 class="ui header faded_class" style="color:white;"><i
                             class="inverted red id card outline icon"></i>{% trans "Introduction" %}
                     </h3>
-                    <p class="faded_class">
-                        {% trans "Geometry is one of the oldest branches of human science. Geometry Olympiad, beginning its work in 2014, aimed to pay more attention to geometry and bring various geometric ideas together. It is an annual academic competition for high school students which extended its activity to international level in 2015, whereby the event is simultaneously held in different countries around the world. The event has been held every year since then." %}
-
-                    </p>
-                    <h3 class="ui header faded_class" style="color:white"><i
-                            class="inverted purple check square icon"></i>{% trans "Goals" %}
-                    </h3>
-                    <p class="faded_class">
-                    <ul style="list-style-type: square" class="faded_class">
-                        <li> {% trans "Paving the way for geometry lovers to extend their communication in their home country and around the world" %}
-                        </li>
-                        <li> {% trans "Providing geometry teachers with opportunities to exchange their knowledge and experience to improve and enrich high school education" %}
-                        </li>
-                        <li> {% trans "Identifying geometry talents in the country, and then introducing a suitable scientific direction to them" %}
-                        </li>
-                        <li>
-                            {% trans "Creating activities together with Mathematical Olympiad to promote mathematics" %}
-                        </li>
-                    </ul>
-                    </p>
-                    <h3 class="ui header faded_class" style="color:white"><i
-                            class="inverted teal flag icon"></i>{% trans "Participating of foreign countries" %} </h3>
-                    <p class="faded_class">
-                        {% trans "We are proud to announce that a total of 56 countries took part in the 5th IGO event, we hereby extend our profound gratitude to these countries for their participation:Afghanistan , Argentina , Armenia , Australia , Bangladesh , Belarus , Bolivia , Bosnia and Herzegovina , Brazil , Bulgaria , China , Costa rica , Croatia , Cuba , Czech , Denmark , Ecuador , El Salvador , Estonia , Finland , Georgia , Guatemala , India , Indonesia , Iran and ..." %}
-                    </p>
+                    {% if LANGUAGE_CODE == 'en' %}
+                        <p class="faded_class" style="text-align: justify;text-justify: inter-word;">
+                            Geometry is one of the oldest subfields of human science. Since 2014, Geometry Olympiad
+                            aimed to pay more attention to geometry and promote geometric and logical thinking. This
+                            event is an annual academic competition for high school students which extended its activity
+                            to international level in 2015, whereby it is simultaneously held in different countries
+                            around the world.
+                        </p>
+                    {% else %}
+                        <p class="faded_class" style="text-align: justify;text-justify: inter-word; ">
+                            هندسه به عنوان یکی از شاخه‌های اصلی ریاضیات، قدمتی باستانی دارد.
+                            حل مسائل هندسی به عنوان چالشی خلاقیت‌برانگیز همواره درمیان ریاضی‌دانان و دوست‌داران ریاضیات
+                            از محبوبیت بالایی برخوردار بوده‌ است.
+                            در ایران نیز دانشمندان بزرگی همچون ابوریحان بیرونی و غیاث‌الدین جمشید کاشانی نقش مهمی در
+                            پیشرفت و گسترش مرزهای هندسه در عصر خود داشته‌اند. این پیشینهٔ تاریخی سبب شده تا به امروز
+                            آموزش هندسه در ایران از اهمیت ویژه‌ای برخوردار باشد که کسب نتایج درخشان دانش‌آموزان کشورمان
+                            در مسابقات بین‌المللی مانند المپیاد جهانی ریاضی گواهی بر این مدعاست.
+                            در سال ۱۳۹۳ جمعی از معلمان و علاقه‌مندان این حوزه با هدف ترویج و عمومی کردن هندسه در سطح
+                            کشور و ایجاد بستری مناسب برای ارتباط بین علاقه‌مندان در سرتاسر جهان، اقدام به راه‌اندازی
+                            «المپیاد هندسهٔ ایران» کردند. این رویداد همه‌ساله در نیمهٔ دوم شهریور ماه در ایران و بسیاری
+                            از کشورهای جهان برگزار می‌شود.
+                        </p>
+                    {% endif %}
                 </div>
                 <div class="six wide right floated column faded_class">
                     <img
@@ -117,6 +115,110 @@
 
         </div>
     </div>
+
+    <div class="ui inverted vertical stripe segment" style="background-color: black">
+        <div class="ui middle aligned stackable grid container">
+            <div class="row">
+                <div >
+                    <h3 class="ui header faded_class" style="color:white"><i
+                            class="inverted purple check square icon"></i>{% trans "Goals" %}
+                    </h3>
+                    <p class="faded_class">
+                        <ul style="list-style-type: square; " class="faded_class">
+                            {% if LANGUAGE_CODE == 'en' %}
+                                <li>
+                                <p>Paving the way for geometry lovers to extend their communication in their home
+                                    country and also around the world</p>
+                                </li>
+
+                                <li>
+                                    <p>Providing geometry teachers with opportunities to exchange their knowledge and
+                                        experience to improve and enrich high school education</p>
+                                </li>
+
+                                <li>
+                                    <p>Identifying and guiding geometry talents in Iran a proper scientific
+                                        direction</p>
+                                </li>
+
+                                <li>
+                                    <p>Promoting geometric thinking among different people, including students,
+                                        teachers, and academics</p>
+                                </li>
+
+                                <li>
+                                    <p>Further promotion of the quality of geometry in each country </p>
+                                </li>
+
+                                <li>
+                                    <p>Cooperating with Mathematical Olympiad to advance mathematics </p>
+                                </li>
+
+                            {% else %}
+                                <li>
+                                    <p>ﺷﻨﺎﺳﺎﯾﯽ اﺳﺘﻌﺪادﻫﺎی ﻫﻨﺪﺳﻪ در ﮐﺸﻮر و اراﺋﻪ ﻣﺴﯿﺮ ﻋﻠﻤﯽ ﻣﻨﺎﺳﺐ ﺑﻪ آن‌ها</p>
+                                </li>
+
+                                <li>
+                                    <p> اﯾﺠﺎد ﻓﺮﺻﺘﯽ ﺑﺮای ﺗﺒﺎدل داﻧﺶ و ﺗﺠﺮﺑﯿﺎت ﻣﻌﻠﻤﺎن ﻫﻨﺪﺳﻪ ﺑﺮای ارﺗﻘﺎء ﺳﻄﺢ آﻣﻮزش
+                                        دﺑﯿﺮﺳﺘﺎﻧﯽ</p>
+                                </li>
+
+                                <li>
+                                    <p>ﻋﻤﻮﻣﯽ ﮐﺮدن ﺗﻔﮑﺮ ﻫﻨﺪﺳﯽ در ﺑﯿﻦ اﻗﺸﺎر ﻣﺨﺘﻠﻒ اﻋﻢ از داﻧﺶ آﻣﻮزان، ﻣﻌﻠﻤﯿﻦ و
+                                        داﻧﺸﮕﺎﻫﯿﺎن</p>
+                                </li>
+
+                                <li>
+                                    <p>اﯾﺠﺎد ﺑﺴﺘﺮی ﺑﺮای ارﺗﺒﺎط ﺑﯿﻦ ﻋﻼﻗﻪﻣﻨﺪان ﺑﻪ ﻫﻨﺪﺳﻪ</p>
+                                </li>
+
+                                <li>
+                                    <p>ارﺗﻘﺎء ﻫﺮﭼﻪ ﺑﯿﺸﺘﺮ ﺳﻄﺢ ﮐﯿﻔﯽ ﻫﻨﺪﺳﻪ در ﮐﺸﻮر</p>
+                                </li>
+
+                                <li>
+                                    <p>اﯾﺠﺎد ﻓﻌﺎﻟﯿﺖ‌ﻫﺎﯾﯽ در ﮐﻨﺎر اﻟﻤﭙﯿﺎد رﯾﺎﺿﯽ ﺑﺮای ﺗﺮوﯾﺞ رﯾﺎﺿﯿﺎت</p>
+                                </li>
+
+                            {% endif %}
+                    </ul>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div >
+
+    <div class="ui inverted vertical stripe segment">
+        <div class="ui middle aligned stackable grid container">
+            <div class="row">
+                <div class="eight wide column">
+                    <h3 class="ui header faded_class" style="color:white"><i
+                            class="inverted teal flag icon"></i>{% trans "Participating of foreign countries" %} </h3>
+                    {% if LANGUAGE_CODE == 'en' %}
+                    <p class="faded_class" style="text-align: justify;text-justify: inter-word;">
+                    We are proud to announce that a total of 56 countries took part in the 5th IGO event, we hereby extend our profound gratitude to these countries for their participation:
+Afghanistan, Argentina, Armenia, Australia, Bangladesh, Belarus, Bolivia, Bosnia and Herzegovina, Brazil, Bulgaria, China, Costa rica, Croatia, Cuba, Czech, Denmark, Ecuador, El Salvador, Estonia, Finland, Georgia, Guatemala, India, Indonesia, Iran, Iraq, Ireland, Italy, Kazakhstan, Kosovo, Kyrgyzstan, Macedonia, Malaysia, Mexico, Nepal, Netherlands, Nicaragua, Nigeria, Pakistan, Panama, Poland, Philippines, Republic of Korea, Republic of Moldova, Romania, Russia, South Africa, Sweden, Syria, Tajikistan, Turkey, Turkmenistan, Ukraine, United Kingdom, Venezuela, Vietnam
+                    </p>
+                    {% else %}
+                    <p class="faded_class" style="text-align: justify;text-justify: inter-word;">
+                        کشورهای زیر در پنجمین المپیاد هندسه شرکت کردند:
+افغانستان، آرژانتین، آفریقای جنوبی، آلبانی، ارمنستان، استرالیا، استونی، اکوادور، الجزایر، السالوادور، اندونزی، انگلستان، اوکراین، ایتالیا، ایران، ایرلند، برزیل، بلاروس،  بلغارستان، بنگلادش، بوسنی و هرزگوین، بولیوی، پاکستان، پاناما، تاجیکستان، ترکمنستان، ترکیه، چک، چین، دانمارک، دومنیکن، روسیه، رومانی، سوئد، سوریه، عراق، فنلاند،  فیلیپین، قرقیزستان، قزاقستان، کره جنوبی، کاستاریکا، کرواسی، کوبا، کوزوو، گرجستان، گواتمالا، لهستان، مالزی، مقدونیه، مکزیک، مولداوی، نپال، نیجریه، نیکاراگوئه، هلند، هند، ونزوئلا، ویتنام
+                    </p>
+                    {% endif %}
+                </div>
+                <div class="six wide right floated column faded_class">
+                    <img
+                            class="ui huge rounded image"
+                            src="{% static 'intro/images/logo.png' %}"
+                    >
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <div class="ui inverted vertical stripe quote segment mySegment"
          style="background-color:rgb(0,0,0);padding-right: 5%;padding-left: 5%;">
 
@@ -128,22 +230,22 @@
                     <h3 class="ui inverted header faded_class">{% trans "Elementry Level" %}</h3>
                     <h4 class=" inverted sub header faded_class">{% trans "The entry of the eighth grade and the entry of the sixth and seventh grade as experimental" %}</h4>
                     <div class="faded_class" align="{% if LANGUAGE_CODE == "fa" %} right {% else %} left{% endif %}">
-                    <ul class="faded_class" style="list-style-type: none">
+                        <ul class="faded_class" style="list-style-type: none">
 
-                        <li> {% trans " Angle (triangle and polygons)" %}
-                        </li>
-                        <li> {% trans " The Pythagorean Case" %}
-                        </li>
-                        <li> {% trans "Triangular inequality" %}
-                        </li>
-                        <li> {% trans "Transition, symmetry, era" %}
-                        </li>
-                        <li> {% trans "Parallel and diagonal lines" %}
-                        </li>
-                        <li> {% trans "Space geometry (volume, area and ..." %}
-                        </li>
+                            <li> {% trans " Angle (triangle and polygons)" %}
+                            </li>
+                            <li> {% trans " The Pythagorean Case" %}
+                            </li>
+                            <li> {% trans "Triangular inequality" %}
+                            </li>
+                            <li> {% trans "Transition, symmetry, era" %}
+                            </li>
+                            <li> {% trans "Parallel and diagonal lines" %}
+                            </li>
+                            <li> {% trans "Space geometry (volume, area and ..." %}
+                            </li>
 
-                    </ul>
+                        </ul>
                     </div>
 
 
@@ -194,6 +296,8 @@
             </div>
         </div>
     </div>
+
+
     {% if LANGUAGE_CODE == "fa" %}
         {#rsources#}
         <div class="ui vertical stripe quote segment inverted">
@@ -204,21 +308,21 @@
                     می‌توانند از هر منبعی که سرفصل‌های بالا را پوشش دهد استفاده کنند. با این حال، علاوه بر کتاب‌های
                     درسی، کتاب‌های زیر به عنوان مناسب‌ترین منابع پیشنهاد می‌شوند</h4>
                 <h4 class="inverted  header faded_class" align="center"> همچنین برای استفاده از مقالات و مسئله ها
-                    میتوانید به این <a href="">لینک</a> مراجعه کنید</h4>
+                    میتوانید به این <a href="/articles/">لینک</a> مراجعه کنید</h4>
                 {#todo link of articles#}
 
                 <div class="ui equal width stackable internally grid" dir="rtl">
                     <div class="center aligned row">
-                        <div class="column" >
+                        <div class="column">
                             <h1 class="faded_class"><i class="inverted red big book icon"></i></h1>
                             <h3 class="faded_class"> سطح مقدماتی</h3>
-                            <div class="faded_class" align="right" >
+                            <div class="faded_class" align="right">
 
                                 <ul class="faded_class" style="list-style-type: none">
                                     <li>
-                                        <h5 dir="rtl"><i class="book icon">&nbsp;&nbsp; </i>هندسه از ابتدا..
-                                        <br>ارشک حمیدی
-                                        <br> انتشارات هاروارد
+                                        <h5 dir="rtl"><i class="book icon"></i><a style="color: darkgray" href="https://shahreketabonline.com/products/371/233679/%D9%81%D8%A7%D8%B7%D9%85%DB%8C_%D9%87%D9%86%D8%AF%D8%B3%D9%87_%D8%A7%D8%B2_%D8%A7%D8%A8%D8%AA%D8%AF%D8%A7_%D8%AA%D8%A7_%D8%AC%D9%84%D8%AF_%D8%A7%D9%88%D9%84"> هندسه از ابتدا تا ... </a>
+                                            <br>ارشک حمیدی
+                                            <br> انتشارات هاروارد
                                         </h5>
 
                                     </li>
@@ -232,27 +336,27 @@
                             </h1>
                             <h3 class="faded_class">سطح متوسط</h3>
                             <div class="faded_class" align="right">
-                                  <ul class="faded_class" style="list-style-type: none">
+                                <ul class="faded_class" style="list-style-type: none">
                                     <li>
-                                        <h5 dir="rtl"><i class="book icon">&nbsp;&nbsp;</i>هندسه از ابتدا..
-                                        <br>ارشک حمیدی
-                                        <br> انتشارات هاروارد
+                                        <h5 dir="rtl"><i class="book icon"></i><a style="color: darkgray" href="https://shahreketabonline.com/products/371/233679/%D9%81%D8%A7%D8%B7%D9%85%DB%8C_%D9%87%D9%86%D8%AF%D8%B3%D9%87_%D8%A7%D8%B2_%D8%A7%D8%A8%D8%AA%D8%AF%D8%A7_%D8%AA%D8%A7_%D8%AC%D9%84%D8%AF_%D8%A7%D9%88%D9%84"> هندسه از ابتدا تا ... </a>
+                                            <br>ارشک حمیدی
+                                            <br> انتشارات هاروارد
                                         </h5>
 
                                     </li>
-                                      <br>
-                                         <li>
-                                        <h5 dir="rtl"><i class="book icon">&nbsp;&nbsp;</i>هندسۀ مسطحه، از مقدمات تا المپیاد
-                                        <br>سیامک احمدپور، مصطفی مسگری
-                                        <br> انتشارات خوشخوان
+                                    <br>
+                                    <li>
+                                        <h5 dir="rtl"><i class="book icon"></i><a style="color: darkgray" href="https://shahreketabonline.com/products/371/235609/%D8%AE%D9%88%D8%B4%D8%AE%D9%88%D8%A7%D9%86_%D9%87%D9%86%D8%AF%D8%B3%D9%87_%D9%85%D8%B3%D8%B7%D8%AD%D9%87"> هندسه‌ی مسطحه، از مقدمات تا المپیاد </a>
+                                            <br>سیامک احمدپور، مصطفی مسگری
+                                            <br> انتشارات خوشخوان
                                         </h5>
 
                                     </li>
-                                      <br>
-                                         <li>
-                                        <h5 dir="rtl"><i class="book icon">&nbsp;&nbsp;</i>استراتژی های حل مسائل هندسه
-                                        <br>مرتضی عدل، محمد احمدی
-                                        <br> انتشارات دانش‌پژوهان جوان
+                                    <br>
+                                    <li>
+                                        <h5 dir="rtl"><i class="book icon"></i>استراتژی های حل مسائل هندسه
+                                            <br>مرتضی عدل، محمد احمدی
+                                            <br> انتشارات دانش‌پژوهان جوان
                                         </h5>
 
                                     </li>
@@ -267,35 +371,36 @@
 
                             <h3 class="faded_class"> سطح پیشرفته</h3>
                             <div class="faded_class" align="right">
-                                      <ul class="faded_class" style="list-style-type: none">
+                                <ul class="faded_class" style="list-style-type: none">
                                     <li>
-                                        <h5 dir="rtl"><i class="book icon">&nbsp;&nbsp;</i>هندسۀ مسطحه، مقدمه‌ای بر هندسۀ نوین مثلث و دایره
-                                        <br>ناتان آلتشیلرکورت
-                                        <br> انتشارات فاطمی
+                                        <h5 dir="rtl"><i class="book icon"></i>هندسه‌ی مسطحه، مقدمه‌ای بر هندسه‌ی نوین مثلث
+                                            و دایره
+                                            <br>ناتان آلتشیلرکورت
+                                            <br> انتشارات فاطمی
                                         </h5>
 
                                     </li>
-                                          <br>
-                                         <li>
-                                        <h5 dir="rtl"><i class="book icon">&nbsp;&nbsp;</i>هندسۀ مسطحه، از مقدمات تا المپیاد
-                                        <br>سیامک احمدپور، مصطفی مسگری
-                                        <br> انتشارات خوشخوان
+                                    <br>
+                                    <li>
+                                        <h5 dir="rtl"><i class="book icon"></i><a style="color: darkgray" href="https://shahreketabonline.com/products/371/235609/%D8%AE%D9%88%D8%B4%D8%AE%D9%88%D8%A7%D9%86_%D9%87%D9%86%D8%AF%D8%B3%D9%87_%D9%85%D8%B3%D8%B7%D8%AD%D9%87"> هندسه‌ی مسطحه، از مقدمات تا المپیاد </a>
+                                            <br>سیامک احمدپور، مصطفی مسگری
+                                            <br> انتشارات خوشخوان
                                         </h5>
 
                                     </li>
-                                          <br>
-                                         <li>
-                                        <h5 dir="rtl"><i class="book icon">&nbsp;&nbsp;</i>استراتژی های حل مسائل هندسه
-                                        <br>مرتضی عدل، محمد احمدی
-                                        <br> انتشارات دانش‌پژوهان جوان
+                                    <br>
+                                    <li>
+                                        <h5 dir="rtl"><i class="book icon"></i> استراتژی‌های حل مسایل هندسه
+                                            <br>مرتضی عدل، محمد احمدی
+                                            <br> انتشارات دانش‌پژوهان جوان
                                         </h5>
 
                                     </li>
-                                             <br>
-                                         <li>
-                                        <h5 dir="rtl"><i class="book icon">&nbsp;&nbsp;</i>هندسه
-                                        <br>جاوید ولیدشتی
-                                        <br> انتشارات فاطمی
+                                    <br>
+                                    <li>
+                                        <h5 dir="rtl"><i class="book icon"></i>  هندسه
+                                            <br>جاوید ولیدشتی
+                                            <br> انتشارات فاطمی
                                         </h5>
 
                                     </li>
@@ -314,30 +419,30 @@
         <div class="slideshow-container inverted gingil" style="height: 80vh">
             <!-- Full-width images with number and caption text -->
             {% for img in slideshow %}
-            <div class="gingil">
-                <div class="mySlides fade">
-                    <img class="slide-image" src="{{ img.image.url }}">
-                    <div class="text">
-                        {% if LANGUAGE_CODE == 'fa' %}
-                            {{ img.persian_caption }}
-                        {% else %}
-                            {{ img.english_caption }}
-                        {% endif %}
+                <div class="gingil">
+                    <div class="mySlides fade">
+                        <img class="slide-image" src="{{ img.image.url }}">
+                        <div class="text">
+                            {% if LANGUAGE_CODE == 'fa' %}
+                                {{ img.persian_caption }}
+                            {% else %}
+                                {{ img.english_caption }}
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
-            </div>
             {% endfor %}
 
-{#            <div class="gingil">#}
-{#                <div class="mySlides fade">#}
-{#                    <img class="slide-image" src="{% static 'intro/images/2.png' %}">#}
-{#                </div>#}
-{#            </div>#}
+            {#            <div class="gingil">#}
+            {#                <div class="mySlides fade">#}
+            {#                    <img class="slide-image" src="{% static 'intro/images/2.png' %}">#}
+            {#                </div>#}
+            {#            </div>#}
 
             <!-- Next and previous buttons -->
             {% for img in slideshow %}
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
             {% endfor %}
         </div>
 
@@ -360,7 +465,7 @@
                                 src="{{ sponsor.image.url }}"
                         />
                         <br>
-                        {% if LANGUAGE_CODE == 'fa'%}
+                        {% if LANGUAGE_CODE == 'fa' %}
                             {{ sponsor.persian_name }}
                         {% else %}
                             {{ sponsor.english_name }}
@@ -375,7 +480,7 @@
                                 src="{{ organizer.image.url }}"
                         />
                         <br>
-                        {% if LANGUAGE_CODE == 'fa'%}
+                        {% if LANGUAGE_CODE == 'fa' %}
                             {{ organizer.persian_name }}
                         {% else %}
                             {{ organizer.english_name }}
