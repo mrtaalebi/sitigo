@@ -18,7 +18,7 @@ This set of fonts are used in this project under the license: (.....)
 **/
 
 @font-face {
-	font-family: IRANSans;
+	font-family: "IRANSans";
 	font-style: normal;
 	font-weight: 900;
 	src: url({% static 'intro/fonts/WebFonts/fonts/eot/IRANSansWeb_Black.eot' %});
@@ -29,7 +29,7 @@ This set of fonts are used in this project under the license: (.....)
 }
 
 @font-face {
-	font-family: IRANSans;
+	font-family: "IRANSans";
 	font-style: normal;
 	font-weight: bold;
 	src: url({% static 'intro/fonts/WebFonts/fonts/eot/IRANSansWeb_Bold.eot' %});
@@ -40,7 +40,7 @@ This set of fonts are used in this project under the license: (.....)
 }
 
 @font-face {
-	font-family: IRANSans;
+	font-family: "IRANSans";
 	font-style: normal;
 	font-weight: 500;
 	src: url({% static 'intro/fonts/WebFonts/fonts/eot/IRANSansWeb_Medium.eot' %});
@@ -51,7 +51,7 @@ This set of fonts are used in this project under the license: (.....)
 }
 
 @font-face {
-	font-family: IRANSans;
+	font-family: "IRANSans";
 	font-style: normal;
 	font-weight: 300;
 	src: url({% static 'intro/fonts/WebFonts/fonts/eot/IRANSansWeb_Light.eot' %});
@@ -62,7 +62,7 @@ This set of fonts are used in this project under the license: (.....)
 }
 
 @font-face {
-	font-family: IRANSans;
+	font-family: "IRANSans";
 	font-style: normal;
 	font-weight: 200;
 	src: url({% static 'intro/fonts/WebFonts/fonts/eot/IRANSansWeb_UltraLight.eot' %});
@@ -73,7 +73,7 @@ This set of fonts are used in this project under the license: (.....)
 }
 
 @font-face {
-	font-family: IRANSans;
+	font-family: "IRANSans";
 	font-style: normal;
 	font-weight: normal;
 	src: url({% static 'intro/fonts/WebFonts/fonts/eot/IRANSansWeb.eot' %});
@@ -83,10 +83,13 @@ This set of fonts are used in this project under the license: (.....)
 		 url({% static 'intro/fonts/WebFonts/fonts/ttf/IRANSansWeb.ttf' %}) format('truetype');
 }
 
-.text {
-    font-family: IRANSans !important;
+* {
+    font-family: "IRANSans" !important;
     font-style: normal !important;
-    font-weight: 900 !important;
+}
+
+i {
+    font-family: "Icons" !important;
 }
 
 body {
