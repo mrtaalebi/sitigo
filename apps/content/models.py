@@ -32,14 +32,14 @@ class ImageUpload(models.Model):
 class FileUpload(models.Model):
     name = models.CharField(max_length=50)
     file = models.FileField()
-    image = models.ImageField(null=True, blank=True)
+    thumbnail = models.ImageField(null=True, blank=True)
 
     def save(self, *args, **kwargs):
         if not self.id:
-            if not self.image:
-                image = self.make_preview(file)
-            if self.image:
-                self.image = resize(self.image, 200, 200)
+            if not self.thumbnail:
+                self.thumbnail = self.make_preview(file)
+            if self.thumbnail:
+                self.thumbnail = resize(self.thumbnail, 200, 200)
 
         super(FileUpload, self).save(*args, **kwargs)
 

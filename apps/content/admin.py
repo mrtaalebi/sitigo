@@ -13,10 +13,10 @@ class ImageAdmin(admin.ModelAdmin):
 
 
 class FileUploadAdmin(forms.ModelForm):
-    fields = ['file', 'name', 'image']
+    fields = ['file', 'name', 'thumbnail']
 
     class Meta:
-        fields = ['file', 'name', 'image']
+        fields = ['file', 'name', 'thumbnail']
         model = FileUpload
 
 
