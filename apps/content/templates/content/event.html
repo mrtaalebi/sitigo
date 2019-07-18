@@ -60,11 +60,11 @@
 
 
                     <div class="twelve wide stretched column" style="">
-                        <div class="ui inverted segment" style="background-color: #222222dd ;">
-                            <div align="left"><h1 class="ui inverted header">{{ active.english_name }}</h1>
+                        <div class="ui inverted segment" style="background-color: #222222dd ;padding-left:5%;padding-right:5%;">
+                            <div align="left" style=""><h1 align="center" class="ui inverted header">{{ active.english_name }}</h1>
                                 <br>
-                                <p>    {{ active.english_content|safe }}</p></div>
-                            <div class="ui stackable grid">
+                                <p style="text-align: justify; text-justify: inter-word;">    {{ active.english_content|safe }}</p></div>
+                            <div class="ui stackable grid" style="" >
                                 {% for file in active.files %}
                                     <div class="ui centered two wide coloumn" style="
                                             padding: 20px;
@@ -127,13 +127,14 @@
                         </div>
                     </div>
                     <div class="twelve wide  stretched column">
-                        <div class="ui inverted segment" style="background-color:#222222dd ">
-                            <div align="right"><h1 class="ui inverted header">{{ active.persian_name }}</h1>
+                        <div class="ui inverted segment" style="background-color:#222222dd;padding-left:5%;padding-right:5% ">
+                            <div align="right" dir="rtl"><h1 align="center" class="ui inverted header">{{ active.persian_name }}</h1>
                                 <br>
-                                <p>
+                                <p style="text-align: justify; text-justify: inter-word;">
                                     {{ active.persian_content|safe }}
                                 </p></div>
-                            <div class="ui stackable grid" dir="rtl">
+
+                            <div class="ui stackable grid" dir="rtl" style="">
                                 {% for file in active.files %}
                                     <div class="ui centered  two wide coloumn" style="
                                            padding: 20px;
@@ -159,6 +160,7 @@
                                     </div>
                                 {% endfor %}
                             </div>
+
                             <div class="ui stackable grid" style="" dir="rtl">
                                 <div class="ui medium images" style="margin: 5%">
                                     {% for image in active.images %}
