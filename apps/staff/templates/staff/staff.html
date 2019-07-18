@@ -63,15 +63,15 @@
 
 
                     <div class="twelve wide centered stretched column">
-                        <div class="ui inverted segment" style="background-color: #222222dd ;padding-left: 10%;"
-                             align="left">
+                        <div class="ui inverted segment" style="background-color: #222222dd ;padding-left: auto; padding-right: auto"
+                             align="center">
                             <div class="ui inverted horizontal list">
                                 {% for person in active.staff %}
                                     <div class="item">
-                                        <img class="ui small circular image" src="{{ person.image.url }}">
-                                        <div class="inverted content">
-                                            <div class="ui sub header">{{ person.english_name }}</div>
-                                            {{ person.role.english_name }}
+                                        <img class="ui tiny circular image" src="{{ person.image.url }}">
+                                        <div class="inverted content" align="left">
+                                            <div class="ui sub header">&nbsp;&nbsp;{{ person.english_name }}</div>
+                                           &nbsp;&nbsp; {{ person.role.english_name }}
                                         </div>
                                     </div>
                                 {% endfor %}
@@ -105,16 +105,16 @@
 
                         </div>
                     </div>
-                    <div class="twelve wide center aligned stretched column">
-                        <div class="ui inverted segment" style="background-color: #222222dd;padding-right: 10%"
-                             dir="rtl" align="right">
-                            <div class="ui inverted  horizontal list">
+                    <div class="twelve wide center aligned stretched column" style="padding-right: auto;padding-left: auto" align="center">
+                        <div class="ui inverted segment" style="background-color: #222222dd;padding-right: auto;padding-left: auto"
+                             dir="rtl" align="center">
+                            <div class="ui inverted  horizontal list" style="padding-right: auto;padding-left: auto">
                                 {% for person in active.staff %}
                                     <div class="item">
-                                        <img class="ui small circular image" src="{{ person.image.url }}">
-                                        <div class="inverted content">
-                                            <div class="ui sub header">{{ person.persian_name }}</div>
-                                            {{ person.role.persian_name }}
+                                        <img class="ui tiny circular image" src="{{ person.image.url }}">
+                                        <div class="inverted content" align="right">
+                                            <div class="ui sub header">&nbsp;&nbsp;{{ person.persian_name }}</div>
+                                          &nbsp;&nbsp;   {{ person.role.persian_name }}
                                         </div>
                                     </div>
                                 {% endfor %}
