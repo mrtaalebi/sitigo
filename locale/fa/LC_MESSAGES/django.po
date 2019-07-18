@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-07 19:36+0430\n"
+"POT-Creation-Date: 2019-07-18 23:03+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,17 +18,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: apps/blog/models.py:28
+#: apps/blog/models.py:29
 msgid "New blog post in igo-official.ir"
 msgstr "پست جدیدی در بلاگ المپیاد هندسه به آدرس igo-official.ir منتشر شده‌است!"
 
-#: apps/blog/models.py:33
+#: apps/blog/models.py:34
 msgid "Check the above link"
 msgstr "لینک بالا را بررسی کنید."
 
-#: apps/blog/models.py:39
+#: apps/blog/models.py:40
 msgid "Click on this link to see this post on igo-official.ir"
-msgstr "بر روی این لینک کلیک کنید تا پست را در وبسایت المپیاد هندسه مشاهده کنید."
+msgstr ""
+"بر روی این لینک کلیک کنید تا پست را در وبسایت المپیاد هندسه مشاهده کنید."
+
+#: apps/blog/templates/blog/post.html:76
+#: apps/contact_us/templates/contact_us/contact_us.html:88
+msgid "Send"
+msgstr "ارسال"
 
 #: apps/blog/templates/blog/subscripted.html:27
 msgid ""
@@ -54,7 +60,7 @@ msgid "university"
 msgstr "دانشگاه"
 
 #: apps/contact_us/templates/contact_us/contact_us.html:36
-#: templates/base/base.html:95
+#: templates/base/base.html:106
 msgid "Contact Us"
 msgstr "با ما در ارتباط باشید"
 
@@ -91,27 +97,23 @@ msgstr "موضوع"
 msgid "Text"
 msgstr "متن"
 
-#: apps/contact_us/templates/contact_us/contact_us.html:88
-msgid "Send"
-msgstr "ارسال"
-
 #: apps/contact_us/templates/contact_us/sent.html:27
 msgid "Your message has been sent successfully."
 msgstr "پیام شما با موفقیت ارسال شد."
 
-#: apps/content/models.py:72 apps/question/models.py:9
+#: apps/content/models.py:94 apps/question/models.py:9
 msgid "persian"
 msgstr "فارسی"
 
-#: apps/content/models.py:73 apps/question/models.py:10
+#: apps/content/models.py:95 apps/question/models.py:10
 msgid "english"
 msgstr "انگلیسی"
 
-#: apps/content/templates/content/articles.html:90
+#: apps/content/templates/content/articles.html:89
 msgid "download"
 msgstr "دانلود"
 
-#: apps/content/templates/content/articles.html:161
+#: apps/content/templates/content/articles.html:160
 msgid "   download   "
 msgstr "دانلود"
 
@@ -123,8 +125,9 @@ msgstr "برای دانش‌آموزان و فارغ‌التحصیلان"
 msgid ""
 "Tehran &ensp;|&ensp; Mashhad &ensp;|&ensp; Shiraz &ensp;|&ensp; Isfahan "
 "&ensp;|&ensp; Tabriz"
-msgstr "تهران &ensp;|&ensp; مشهد &ensp;|&ensp; شیراز &ensp;|&ensp; اصفهان "
-"&ensp;|&ensp; تبریز"
+msgstr ""
+"تهران &ensp;|&ensp; مشهد &ensp;|&ensp; شیراز &ensp;|&ensp; اصفهان &ensp;|"
+"&ensp; تبریز"
 
 #: apps/intro/templates/intro/homepage.html:47
 msgid "17 Aug"
@@ -154,170 +157,151 @@ msgstr "نتایج"
 msgid "Introduction"
 msgstr "معرفی"
 
-#: apps/intro/templates/intro/homepage.html:85
-msgid ""
-"Geometry is one of the oldest branches of human science. Geometry Olympiad, "
-"beginning its work in 2014, aimed to pay more attention to geometry and "
-"bring various geometric ideas together. It is an annual academic competition "
-"for high school students which extended its activity to international level "
-"in 2015, whereby the event is simultaneously held in different countries "
-"around the world. The event has been held every year since then."
-msgstr "هندسه به عنوان یکی از قدیمی‌ترین شاخه‌های علمی، قدمتی همسنگ با تاریخ علم بشر دارد. هندسه یکی از حوزه‌های درخشش تمدن ایرانی-اسلامی است و در آثار تاریخی ایرانیان نمودی برجسته دارد. دانشمندان صاحب‌نامی هم‌چون ابوریحان بیرونی و غیاث‌الدین جمشید کاشانی آثاری ارزنده در این زمینه از خود برجا گذاشته‌اند . هندسه در نظام آموزشی ما نیز جایگاه ویژه‌ای دارد. سنت آموزش هندسه همواره در میان دبیران ریاضی کشور ما وجود داشته و هندسة ایران را دارای سبک خاص خود کرده است، به طوری که امروزه کشورمان در مسابقاتی مانند المپیاد بین‌المللی ریاضی به عنوان کشوری قوی در هندسه شناخته شده است. با این حال، متأسفانه در سال‌های اخیر این شاخه از ریاضیات، در نظام آموزشی و در میان معلمان و دانش‌آموزان مورد غفلت نسبی قرار گرفته است. به همین دلیل، جمعی از معلمان و علاقه‌مندان به هندسه تصمیم گرفتند با راه‌اندازی برنامه‌ای ملی، بار دیگر توجه معلمان و دانش‌آموزان را به هندسه جلب کنند. با همت این افراد، «المپیاد هندسة ایران » در سال ۱۳۹۳ شکل گرفت و به محفلی برای ترویج و عمومی کردن تفکر هندسی و منطقی و همچنین هم‌افزایی و تبادل دانش میان فعالان این عرصه تبدیل شد."
-
-#: apps/intro/templates/intro/homepage.html:89
+#: apps/intro/templates/intro/homepage.html:124
 msgid "Goals"
 msgstr "اهداف"
 
-#: apps/intro/templates/intro/homepage.html:93
-msgid ""
-"Paving the way for geometry lovers to extend their communication in their "
-"home country and around the world"
-msgstr "ایجاد بستری برای ارتباط بین علاقه‌مندان به هندسه"
-
-#: apps/intro/templates/intro/homepage.html:95
-msgid ""
-"Providing geometry teachers with opportunities to exchange their knowledge "
-"and experience to improve and enrich high school education"
-msgstr "ایجاد فرصتی برای تبادل دانش و تجربیات معلمان هندسه برای ارتقاء سطح آموزش دبیرستانی"
-
-#: apps/intro/templates/intro/homepage.html:97
-msgid ""
-"Identifying geometry talents in the country, and then introducing a suitable "
-"scientific direction to them"
-msgstr "شناسایی استعدادهای هندسه در کشور و ارایه‌ی مسیر علمی مناسب به آن‌ها"
-
-#: apps/intro/templates/intro/homepage.html:100
-msgid ""
-"Creating activities together with Mathematical Olympiad to promote "
-"mathematics"
-msgstr "ایجاد فعالیت‌هایی در کنار المپیاد ریاضی برای ترویج ریاضیات"
-
-#: apps/intro/templates/intro/homepage.html:105
+#: apps/intro/templates/intro/homepage.html:198
 msgid "Participating of foreign countries"
 msgstr "المپیاد هندسه‌ی ایران در آن‌ سوی مرزها"
 
-#: apps/intro/templates/intro/homepage.html:107
-msgid ""
-"We are proud to announce that a total of 56 countries took part in the 5th "
-"IGO event, we hereby extend our profound gratitude to these countries for "
-"their participation:Afghanistan , Argentina , Armenia , Australia , "
-"Bangladesh , Belarus , Bolivia , Bosnia and Herzegovina , Brazil , "
-"Bulgaria , China , Costa rica , Croatia , Cuba , Czech , Denmark , Ecuador , "
-"El Salvador , Estonia , Finland , Georgia , Guatemala , India , Indonesia , "
-"Iran and ..."
-msgstr "این کشورها در پنجمین المپیاد هندسه شرکت کردند: افغانستان، آرژانتین، آفریقای جنوبی، آلبانی، ارمنستان، استرالیا، استونی، اکوادور، الجزایر، السالوادور، اندونزی، انگلستان، اوکراین، ایتالیا، ایران، ایرلند، برزیل، بلاروس،  بلغارستان، بنگلادش، بوسنی و هرزگوین، بولیوی، پاکستان، پاناما، تاجیکستان، ترکمنستان، ترکیه، چک، چین، دانمارک، دومنیکن، روسیه، رومانی، سوئد، سوریه، عراق، فنلاند،  فیلیپین، قرقیزستان، قزاقستان، کره جنوبی، کاستاریکا، کرواسی، کوبا، کوزوو، گرجستان، گواتمالا، لهستان، مالزی، مقدونیه، مکزیک، مولداوی، نپال، نیجریه، نیکاراگوئه، هلند، هند، ونزوئلا، ویتنام"
-
-#: apps/intro/templates/intro/homepage.html:128
+#: apps/intro/templates/intro/homepage.html:230
 msgid "Elementry Level"
 msgstr "سطح مقدماتی"
 
-#: apps/intro/templates/intro/homepage.html:129
+#: apps/intro/templates/intro/homepage.html:231
 msgid ""
 "The entry of the eighth grade and the entry of the sixth and seventh grade "
 "as experimental"
 msgstr "ورودی‌های پایه‌ی هشتم و ورودی‌ پایه‌های ششم و هفتم به صورت آزمایشی "
 
-#: apps/intro/templates/intro/homepage.html:133
+#: apps/intro/templates/intro/homepage.html:235
 msgid " Angle (triangle and polygons)"
 msgstr "زاویه(مثلث و چندضلعی‌ها)"
 
-#: apps/intro/templates/intro/homepage.html:135
+#: apps/intro/templates/intro/homepage.html:237
 msgid " The Pythagorean Case"
 msgstr "قضیه‌ی فیثاغورس"
 
-#: apps/intro/templates/intro/homepage.html:137
+#: apps/intro/templates/intro/homepage.html:239
 msgid "Triangular inequality"
 msgstr "نامساوی مثلثی"
 
-#: apps/intro/templates/intro/homepage.html:139
+#: apps/intro/templates/intro/homepage.html:241
 msgid "Transition, symmetry, era"
 msgstr "انتقال، تقارن، دوران"
 
-#: apps/intro/templates/intro/homepage.html:141
+#: apps/intro/templates/intro/homepage.html:243
 msgid "Parallel and diagonal lines"
 msgstr "خطوط موازی و مورب"
 
-#: apps/intro/templates/intro/homepage.html:143
+#: apps/intro/templates/intro/homepage.html:245
 msgid "Space geometry (volume, area and ..."
 msgstr "هندسه‌ی فضایی(حجم، مساحت و ..)"
 
-#: apps/intro/templates/intro/homepage.html:157
+#: apps/intro/templates/intro/homepage.html:259
 msgid "Average level"
 msgstr "سطح متوسط"
 
-#: apps/intro/templates/intro/homepage.html:158
+#: apps/intro/templates/intro/homepage.html:260
 msgid " The Entry of the ninth and tenth grade"
-msgstr ""
+msgstr "ورودی پایه های نهم و دهم"
 
-#: apps/intro/templates/intro/homepage.html:164
+#: apps/intro/templates/intro/homepage.html:266
 msgid "Circle"
 msgstr "دایره"
 
-#: apps/intro/templates/intro/homepage.html:167
+#: apps/intro/templates/intro/homepage.html:269
 msgid "Similarity"
 msgstr "تشابه"
 
-#: apps/intro/templates/intro/homepage.html:170
+#: apps/intro/templates/intro/homepage.html:272
 msgid "Strength point relative to the circle"
 msgstr ""
 
-#: apps/intro/templates/intro/homepage.html:173
+#: apps/intro/templates/intro/homepage.html:275
 msgid "Perpendicular and perpendicular quadrilateral"
 msgstr ""
 
-#: apps/intro/templates/intro/homepage.html:184
+#: apps/intro/templates/intro/homepage.html:286
 msgid "Advanced Level"
 msgstr "سطح پیشرفته"
 
-#: apps/intro/templates/intro/homepage.html:185
+#: apps/intro/templates/intro/homepage.html:287
 msgid "The entry of eleven and twelfth grade and graduates"
 msgstr "ورودی‌ پایه‌های یازدهم و دوزازدهم و فارغ‌التحصیلان"
 
-#: apps/intro/templates/intro/homepage.html:188
+#: apps/intro/templates/intro/homepage.html:290
 msgid "All geometry topics (plane and space)"
 msgstr "همه مباحث هندسه (مسطحه و فضایی)"
 
-#: apps/intro/templates/intro/homepage.html:355
+#: apps/intro/templates/intro/homepage.html:461
 msgid "Sponsor"
 msgstr "حمایت‌کننده"
 
-#: apps/intro/templates/intro/homepage.html:370
+#: apps/intro/templates/intro/homepage.html:476
 msgid "Organizer"
 msgstr "برگزار کننده"
 
-#: igo/settings.py:130
-msgid "English"
-msgstr "انگلیسی"
+#: igo/context_processors.py:9
+msgid "Home"
+msgstr "خانه"
 
-#: igo/settings.py:131
-msgid "Persian"
-msgstr "فارسی"
-
-#: templates/base/base.html:107
-msgid "Services"
-msgstr "خدمات"
-
-#: templates/base/base.html:109
-msgid "Previous Events"
-msgstr "رویدادهای پیشین"
-
-#: templates/base/base.html:110
-msgid "Problems & Articles"
-msgstr "مقالات و مسئله‌ها"
-
-#: templates/base/base.html:111
+#: igo/context_processors.py:10 templates/base/base.html:122
 msgid "Blog"
 msgstr "بلاگ"
 
-#: templates/base/base.html:117
+#: igo/context_processors.py:11
+msgid "Events"
+msgstr "رویدادهای پیشین"
+
+#: igo/context_processors.py:12
+msgid "Articles"
+msgstr "مقالات و مسئله‌ها"
+
+#: igo/context_processors.py:13
+msgid "Staff"
+msgstr "دست‌اندرکاران"
+
+#: igo/context_processors.py:14
+msgid "FAQ"
+msgstr "سوالات متداول"
+
+#: igo/context_processors.py:15
+#, fuzzy
+#| msgid "Contact Us"
+msgid "Contact"
+msgstr "تماس با ما"
+
+#: igo/settings/development.py:133 igo/settings/production.py:143
+msgid "English"
+msgstr "انگلیسی"
+
+#: igo/settings/development.py:134 igo/settings/production.py:144
+msgid "Persian"
+msgstr "فارسی"
+
+#: templates/base/base.html:118
+msgid "Services"
+msgstr "خدمات"
+
+#: templates/base/base.html:120
+msgid "Previous Events"
+msgstr "رویدادهای پیشین"
+
+#: templates/base/base.html:121
+msgid "Problems & Articles"
+msgstr "مقالات و مسئله‌ها"
+
+#: templates/base/base.html:128
 msgid "Subscribe Newsletter"
 msgstr "عضویت در خبرنامه"
 
-#: templates/base/base.html:123
+#: templates/base/base.html:134
 msgid "Enter your Email"
 msgstr "ایمیل خود را وارد کنید."
 
-#: templates/base/base.html:129
+#: templates/base/base.html:139
 msgid "Subscribe"
 msgstr "عضویت"
 
@@ -1552,6 +1536,72 @@ msgstr ""
 #: venv/lib/python3.5/site-packages/wagtail/tests/testapp/templates/tests/form_page_with_custom_submission.html:21
 msgid "You must log in first."
 msgstr ""
+
+#~ msgid ""
+#~ "Geometry is one of the oldest branches of human science. Geometry "
+#~ "Olympiad, beginning its work in 2014, aimed to pay more attention to "
+#~ "geometry and bring various geometric ideas together. It is an annual "
+#~ "academic competition for high school students which extended its activity "
+#~ "to international level in 2015, whereby the event is simultaneously held "
+#~ "in different countries around the world. The event has been held every "
+#~ "year since then."
+#~ msgstr ""
+#~ "هندسه به عنوان یکی از قدیمی‌ترین شاخه‌های علمی، قدمتی همسنگ با تاریخ علم "
+#~ "بشر دارد. هندسه یکی از حوزه‌های درخشش تمدن ایرانی-اسلامی است و در آثار "
+#~ "تاریخی ایرانیان نمودی برجسته دارد. دانشمندان صاحب‌نامی هم‌چون ابوریحان "
+#~ "بیرونی و غیاث‌الدین جمشید کاشانی آثاری ارزنده در این زمینه از خود برجا "
+#~ "گذاشته‌اند . هندسه در نظام آموزشی ما نیز جایگاه ویژه‌ای دارد. سنت آموزش "
+#~ "هندسه همواره در میان دبیران ریاضی کشور ما وجود داشته و هندسة ایران را "
+#~ "دارای سبک خاص خود کرده است، به طوری که امروزه کشورمان در مسابقاتی مانند "
+#~ "المپیاد بین‌المللی ریاضی به عنوان کشوری قوی در هندسه شناخته شده است. با "
+#~ "این حال، متأسفانه در سال‌های اخیر این شاخه از ریاضیات، در نظام آموزشی و در "
+#~ "میان معلمان و دانش‌آموزان مورد غفلت نسبی قرار گرفته است. به همین دلیل، "
+#~ "جمعی از معلمان و علاقه‌مندان به هندسه تصمیم گرفتند با راه‌اندازی برنامه‌ای "
+#~ "ملی، بار دیگر توجه معلمان و دانش‌آموزان را به هندسه جلب کنند. با همت این "
+#~ "افراد، «المپیاد هندسة ایران » در سال ۱۳۹۳ شکل گرفت و به محفلی برای ترویج "
+#~ "و عمومی کردن تفکر هندسی و منطقی و همچنین هم‌افزایی و تبادل دانش میان "
+#~ "فعالان این عرصه تبدیل شد."
+
+#~ msgid ""
+#~ "Paving the way for geometry lovers to extend their communication in their "
+#~ "home country and around the world"
+#~ msgstr "ایجاد بستری برای ارتباط بین علاقه‌مندان به هندسه"
+
+#~ msgid ""
+#~ "Providing geometry teachers with opportunities to exchange their "
+#~ "knowledge and experience to improve and enrich high school education"
+#~ msgstr ""
+#~ "ایجاد فرصتی برای تبادل دانش و تجربیات معلمان هندسه برای ارتقاء سطح آموزش "
+#~ "دبیرستانی"
+
+#~ msgid ""
+#~ "Identifying geometry talents in the country, and then introducing a "
+#~ "suitable scientific direction to them"
+#~ msgstr "شناسایی استعدادهای هندسه در کشور و ارایه‌ی مسیر علمی مناسب به آن‌ها"
+
+#~ msgid ""
+#~ "Creating activities together with Mathematical Olympiad to promote "
+#~ "mathematics"
+#~ msgstr "ایجاد فعالیت‌هایی در کنار المپیاد ریاضی برای ترویج ریاضیات"
+
+#~ msgid ""
+#~ "We are proud to announce that a total of 56 countries took part in the "
+#~ "5th IGO event, we hereby extend our profound gratitude to these countries "
+#~ "for their participation:Afghanistan , Argentina , Armenia , Australia , "
+#~ "Bangladesh , Belarus , Bolivia , Bosnia and Herzegovina , Brazil , "
+#~ "Bulgaria , China , Costa rica , Croatia , Cuba , Czech , Denmark , "
+#~ "Ecuador , El Salvador , Estonia , Finland , Georgia , Guatemala , India , "
+#~ "Indonesia , Iran and ..."
+#~ msgstr ""
+#~ "این کشورها در پنجمین المپیاد هندسه شرکت کردند: افغانستان، آرژانتین، "
+#~ "آفریقای جنوبی، آلبانی، ارمنستان، استرالیا، استونی، اکوادور، الجزایر، "
+#~ "السالوادور، اندونزی، انگلستان، اوکراین، ایتالیا، ایران، ایرلند، برزیل، "
+#~ "بلاروس،  بلغارستان، بنگلادش، بوسنی و هرزگوین، بولیوی، پاکستان، پاناما، "
+#~ "تاجیکستان، ترکمنستان، ترکیه، چک، چین، دانمارک، دومنیکن، روسیه، رومانی، "
+#~ "سوئد، سوریه، عراق، فنلاند،  فیلیپین، قرقیزستان، قزاقستان، کره جنوبی، "
+#~ "کاستاریکا، کرواسی، کوبا، کوزوو، گرجستان، گواتمالا، لهستان، مالزی، "
+#~ "مقدونیه، مکزیک، مولداوی، نپال، نیجریه، نیکاراگوئه، هلند، هند، ونزوئلا، "
+#~ "ویتنام"
 
 #~ msgid "Change Language"
 #~ msgstr "تغییر زبان"
