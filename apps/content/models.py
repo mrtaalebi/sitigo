@@ -30,8 +30,8 @@ class ImageUpload(models.Model):
 
 
 class FileUpload(models.Model):
-    name = models.CharField(max_length=50)
-    file = models.FileField()
+    name = models.CharField(max_length=50, null=False, blank=True)
+    file = models.FileField(null=False, blank=False)
     thumbnail = models.ImageField(null=True, blank=True)
 
     def save(self, *args, **kwargs):
@@ -40,6 +40,9 @@ class FileUpload(models.Model):
                 self.thumbnail = self.make_preview(file)
             if self.thumbnail:
                 self.thumbnail = resize(self.thumbnail, 200, 200)
+
+            if not self.name:
+                self.name = self.file.file.split('/')[-1]
 
         super(FileUpload, self).save(*args, **kwargs)
 
@@ -51,7 +54,7 @@ class FileUpload(models.Model):
         
             thumb_name = 'T_' + file.file
             thumb_path = os.path.join(settings.MEDIA_ROOT, thumb_name)
-            params = ['convert', os.path.join(settings.MEDIA_ROOT, file.file), thumb_path]
+            params = ['convert', os.path.join(settings.MEDIA_ROOT, file.file) + "[0]", thumb_path]
             subprocess.check_call(params)
             return thumb_name
         except:

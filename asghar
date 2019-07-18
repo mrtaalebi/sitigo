@@ -1,3 +1,0 @@
-i, pn, ev, rol, en=s.image, s.persian_name, s.event, s.role, s.english_name
-s = Staff.objects.get()
-Staff.objects.create(image=i, persian_name=pn, event=ev, role=rol, english_name=en)
