@@ -4,7 +4,7 @@ from django import forms
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 from apps.content.models import ImageUpload
-from .models import FileUpload, Event, Category, Article
+from .models import FileUpload, Event, Category, SubCategory, Article
 
 
 @admin.register(ImageUpload)
@@ -37,7 +37,12 @@ class CategoryAdmin(admin.ModelAdmin):
     fields = ['language', 'name']
 
 
+@admin.register(SubCategory)
+class SubCategoryAdmin(admin.ModelAdmin):
+    fields = ['category', 'name']
+
+
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    fields = ['category', 'file']
+    fields = ['category', 'sub_cat', 'file']
 

@@ -101,8 +101,15 @@ class Category(models.Model):
         return self.name
 
 
+class SubCategory(models.Model):
+    cat = models.ForeignKey(Category, on_delete=models.CASCADE)
+    name = models.CharField(max_length=400)
+
+
 class Article(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    sub_cat = models.ForeignKey(SubCategory, on_delete=models.CASCADE, null=True, blank=True)
+
     file = models.ForeignKey(FileUpload, on_delete=models.CASCADE)
 
     def __str__(self):

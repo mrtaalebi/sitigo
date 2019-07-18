@@ -7,7 +7,7 @@ from django.shortcuts import render, redirect
 from django.utils import translation
 
 
-from apps.content.models import Event, Article, Category
+from apps.content.models import Event, Article, Category, SubCategory
 
 LANGUAGE_QUERY_PARAMETER = 'language'
 
@@ -63,6 +63,13 @@ def articles(request, category_id=None):
 
             context.update({
                 'articles': articles,
+                'sub_cats': [
+                    {
+                        'name': cat.name,
+                        'articles': list(articles.objects.filter(sub_cat=cat))
+                    }
+                    for cat in SubCategory.objects.filter(cat=active)],
+                'has_subs': SubCategory.objects.filter(cat=active).count(),
                 'active': active
             })
         else:
