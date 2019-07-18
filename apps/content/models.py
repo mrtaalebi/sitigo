@@ -30,35 +30,41 @@ class ImageUpload(models.Model):
 
 
 class FileUpload(models.Model):
-    name = models.CharField(max_length=50, null=False, blank=True)
+    name = models.CharField(max_length=200, null=False, blank=True)
     file = models.FileField(null=False, blank=False)
     thumbnail = models.ImageField(null=True, blank=True)
 
     def save(self, *args, **kwargs):
-        if not self.id:
-            if not self.thumbnail:
-                self.thumbnail = self.make_preview(file)
-            if self.thumbnail:
-                self.thumbnail = resize(self.thumbnail, 200, 200)
-
-            if not self.name:
-                self.name = self.file.file.split('/')[-1]
+        if not self.thumbnail:
+            self.thumbnail = self.make_preview(self.file)
+        if self.thumbnail:
+            self.thumbnail = resize(self.thumbnail, 500, 500)
+        
+        if not self.name:
+            self.name = self.file.name
 
         super(FileUpload, self).save(*args, **kwargs)
 
     def make_preview(self, file):
-        try:
-            import subprocess
-            from django.conf import settings
-            import os
+        print(file)
+        import subprocess
+        from django.conf import settings
+        import os
+        from django.core.files.storage import default_storage
+        from django.core.files.base import ContentFile
+
+
+        thumb_name = 'T_' + file.name + '.png'
+        thumb_path = os.path.join(settings.MEDIA_ROOT, thumb_name)
         
-            thumb_name = 'T_' + file.file
-            thumb_path = os.path.join(settings.MEDIA_ROOT, thumb_name)
-            params = ['convert', os.path.join(settings.MEDIA_ROOT, file.file) + "[0]", thumb_path]
-            subprocess.check_call(params)
-            return thumb_name
-        except:
-            return None
+        path = default_storage.save('tmp/' + file.name, ContentFile(file.read()))
+        tmp_file = os.path.join(settings.MEDIA_ROOT, path)
+        params = ['convert', tmp_file + "[0]", thumb_path]
+
+        print(subprocess.call(params))
+
+        return thumb_name
+        
 
     def __str__(self):
         return self.name
