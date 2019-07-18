@@ -1,5 +1,14 @@
+from apps.scoreboard.models import *
+
 
 def wow(csv_path, contest_tier_id):
+
+    if ContestTier.objects.filter(id=contest_tier_id).count() != 1:
+        print('no such ContestTier')
+        exit(1)
+
+    contest_tier = ContestTier.objects.get(id=contest_tier_id)
+
     with open(csv_path) as f:
         for line in f:
             l = line.split(',')
@@ -20,7 +29,8 @@ def wow(csv_path, contest_tier_id):
             c = Contestant.objects.create(name=name,
                     country=country,
                     ruler=ruler,
-                    rank=int(rank)
+                    rank=int(rank),
+                    event_tier=contest_tier
                 )
 
             for i, sc in enumerate(scores):

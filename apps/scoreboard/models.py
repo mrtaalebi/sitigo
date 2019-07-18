@@ -43,5 +43,5 @@ class ContestTier(models.Model):
     event = models.ForeignKey(Event, null=False, blank=False, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name + " - " + self.event
+        return self.name + " - " + self.event + " : " + self.pk
 
