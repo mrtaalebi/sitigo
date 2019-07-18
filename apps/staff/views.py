@@ -6,7 +6,7 @@ from apps.staff.models import Staff
 
 
 def staff(request, event_id = None):
-    events = list(Event.objects.all())
+    events = list(Event.objects.all().order_by('year'))
     x = []
     for e in events:
         x.append({
