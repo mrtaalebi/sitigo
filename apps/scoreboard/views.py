@@ -6,8 +6,8 @@ from apps.content.models import Event
 
 def scoreboard(request, event_id=None):
     if event_id is not None and Event.objects.filter(pk=event_id).count() == 1:
-        event = event.objects.get(pk=event_id)
-    else if Event.objects.count() > 0:
+        event = Event.objects.get(pk=event_id)
+    elif Event.objects.count() > 0:
         event = Event.objects.order_by('-year').first()
     else:
         return render(request, 

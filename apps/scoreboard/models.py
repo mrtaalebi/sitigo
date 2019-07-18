@@ -1,5 +1,6 @@
 from django.db import models
 from apps.content.models import Event
+from .management.read_csv import wow
 
 
 class Contestant(models.Model):
@@ -45,3 +46,11 @@ class ContestTier(models.Model):
     def __str__(self):
         return self.name + " - " + self.event + " : " + self.pk
 
+
+class CSV(models.Model):
+    contest_tier = models.ForeignKey(ContestTier, on_delete=models.CASCADE, null=False, blank=False)
+    csv_file = models.FileField(upload_to='/scoreboard', null=False, blank=False)
+
+    def save(self, *args, **kwargs):
+        wow(self.csv_file.url, self.contest_tier.id)
+        super(CSV, self).save(*args, **kwargs)

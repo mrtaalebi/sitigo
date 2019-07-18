@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Contestant, Country, Ruler, ProblemScore, ContestTier
+from .models import Contestant, Country, Ruler, ProblemScore, ContestTier, CSV
 
 
 @admin.register(Contestant)
@@ -26,4 +26,8 @@ class ProblemScoreAdmin(admin.ModelAdmin):
 @admin.register(ContestTier)
 class ContestTierAdmin(admin.ModelAdmin):
     pass
+
+@admin.register(CSV)
+class CSVAdmin(admin.ModelAdmin):
+    fields = ['csv_file', 'contest_tier']
 
