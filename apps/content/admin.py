@@ -39,7 +39,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(SubCategory)
 class SubCategoryAdmin(admin.ModelAdmin):
-    fields = ['category', 'name']
+    fields = ['cat', 'name']
 
 
 @admin.register(Article)

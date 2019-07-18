@@ -61,6 +61,19 @@ def articles(request, category_id=None):
                 articles = []
                 active = None
 
+                context.update({
+                'articles': articles,
+                'sub_cats': [
+                    {
+                        'name': cat.name,
+                        'articles': list(articles.objects.filter(sub_cat=cat))
+                    }
+                    for cat in SubCategory.objects.filter(cat=active)],
+                'has_subs': SubCategory.objects.filter(cat=active).count() != 0,
+                'active': active
+                 })
+        else:
+            active = ''
             context.update({
                 'articles': articles,
                 'sub_cats': [
@@ -69,24 +82,36 @@ def articles(request, category_id=None):
                         'articles': list(articles.objects.filter(sub_cat=cat))
                     }
                     for cat in SubCategory.objects.filter(cat=active)],
-                'has_subs': SubCategory.objects.filter(cat=active).count(),
+                'has_subs': SubCategory.objects.filter(cat=active).count() != 0,
                 'active': active
             })
-        else:
-            active = ''
-            context.update({
-                    'active': active,
-                    'articles': []
-            })
     else:
-        articles = Article.objects.filter(category_id=category_id)
+        active = Category.objects.get(id=category_id)
+        articles = Article.objects.filter(category=active)
         if Category.objects.get(id=category_id).language != translation.get_language():
             return redirect('/articles/')
         context.update({
-            'active': Category.objects.get(id=category_id),
-            'articles': articles
+                'articles': articles,
+                'sub_cats': [
+                    {
+                        'name': cat.name,
+                        'articles': list(articles.filter(sub_cat=cat))
+                    }
+                    for cat in SubCategory.objects.filter(cat=active)],
+                'has_subs': SubCategory.objects.filter(cat=active).count() != 0,
+                'active': active
         })
-    # print(context)
+
+        if context['has_subs']:
+            non_sub = list(articles)
+            for cat in context['sub_cats']:
+                for art in cat['articles']:
+                    non_sub.remove(art)
+            context['sub_cats'] += [{
+                        'name': 'other',
+                        'articles': non_sub
+                    }]
+ 
     return render(request, 'content/articles.html', context)
 
 

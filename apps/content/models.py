@@ -105,6 +105,9 @@ class SubCategory(models.Model):
     cat = models.ForeignKey(Category, on_delete=models.CASCADE)
     name = models.CharField(max_length=400)
 
+    def __str__(self):
+        return str(self.cat) + ' - ' + self.name
+
 
 class Article(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
