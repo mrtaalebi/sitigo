@@ -422,7 +422,7 @@ Afghanistan, Argentina, Armenia, Australia, Bangladesh, Belarus, Bolivia, Bosnia
                 <div class="gingil">
                     <div class="mySlides fade">
                         <img class="slide-image" src="{{ img.image.url }}">
-                        <div class="text">
+                        <div class="text" style="background-color: rgba(0, 0, 0, 0.50);">
                             {% if LANGUAGE_CODE == 'fa' %}
                                 {{ img.persian_caption }}
                             {% else %}
@@ -433,17 +433,12 @@ Afghanistan, Argentina, Armenia, Australia, Bangladesh, Belarus, Bolivia, Bosnia
                 </div>
             {% endfor %}
 
-            {#            <div class="gingil">#}
-            {#                <div class="mySlides fade">#}
-            {#                    <img class="slide-image" src="{% static 'intro/images/2.png' %}">#}
-            {#                </div>#}
-            {#            </div>#}
 
             <!-- Next and previous buttons -->
-            {% for img in slideshow %}
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
-            {% endfor %}
+            <div class="ui fluid" dir="ltr">
+            <a class="prev" style="position: absolute; left: 0;" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" style="position: absolute; right: 0;" onclick="plusSlides(1)">&#10095;</a>
+            </div>
         </div>
 
         <!-- The dots/circles -->
@@ -461,7 +456,7 @@ Afghanistan, Argentina, Armenia, Australia, Bangladesh, Belarus, Bolivia, Bosnia
                     <h3 class="faded_class">{% trans 'Sponsor' %}</h3>
                     <p>
                         <img
-                                class="ui avatar image"
+                                class="ui avatar small image"
                                 src="{{ sponsor.image.url }}"
                         />
                         <br>
@@ -476,7 +471,7 @@ Afghanistan, Argentina, Armenia, Australia, Bangladesh, Belarus, Bolivia, Bosnia
                     <h3 class="faded_class">{% trans 'Organizer' %}</h3>
                     <p>
                         <img
-                                class="ui avatar image"
+                                class="ui avatar small image"
                                 src="{{ organizer.image.url }}"
                         />
                         <br>
