@@ -46,7 +46,7 @@
         {% endfor %}
 
 
-                <div class="right menu">
+                <div  {% if LANGUAGE_CODE == "fa" %}class="left menu" {% else %} class="right menu"{% endif %}>
 
         <div {% if LANGUAGE_CODE == "fa" %}class="left menu" {% else %} class="right menu"{% endif %}>
 
