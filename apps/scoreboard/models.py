@@ -49,7 +49,7 @@ class ContestTier(models.Model):
 
 class CSV(models.Model):
     contest_tier = models.ForeignKey(ContestTier, on_delete=models.CASCADE, null=False, blank=False)
-    csv_file = models.FileField(upload_to='/scoreboard', null=False, blank=False)
+    csv_file = models.FileField(upload_to='scoreboard', null=False, blank=False)
 
     def save(self, *args, **kwargs):
         wow(self.csv_file.url, self.contest_tier.id)

@@ -4,17 +4,12 @@ from django import forms
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 from apps.content.models import ImageUpload
-from .models import Post, FileUpload, Event, Category, Article
+from .models import FileUpload, Event, Category, Article
 
 
 @admin.register(ImageUpload)
 class ImageAdmin(admin.ModelAdmin):
     fields = ['image', 'caption']
-
-
-@admin.register(Post)
-class PostAdmin(admin.ModelAdmin):
-    pass
 
 
 class FileUploadAdmin(forms.ModelForm):

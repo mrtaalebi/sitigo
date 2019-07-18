@@ -19,10 +19,6 @@ def resize(img, x, y):
     return img
 
 
-class Post(models.Model):
-    content = RichTextField()
-
-
 class ImageUpload(models.Model):
     caption = models.CharField(max_length=100, null=True, blank=True)
     image = models.ImageField()
@@ -40,9 +36,26 @@ class FileUpload(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.id:
+            if not self.image:
+                image = self.make_preview(file)
             if self.image:
                 self.image = resize(self.image, 200, 200)
+
         super(FileUpload, self).save(*args, **kwargs)
+
+    def make_preview(self, file):
+        try:
+            import subprocess
+            from django.conf import settings
+            import os
+        
+            thumb_name = 'T_' + file.file
+            thumb_path = os.path.join(settings.MEDIA_ROOT, thumb_name)
+            params = ['convert', os.path.join(settings.MEDIA_ROOT, file.file), thumb_path]
+            subprocess.check_call(params)
+            return thumb_name
+        except:
+            return None
 
     def __str__(self):
         return self.name

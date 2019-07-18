@@ -51,9 +51,10 @@ class BlogPost(models.Model):
                     ))
 
     def save(self, *args, **kwargs):
+        l = [i.email for i in subscriber.objects.all()]
         super(BlogPost, self).save(*args, **kwargs)
         threading.Thread(target=self.send_subscriber_blog_post_mail,
-                args=*[[i.email for i in Subscriber.objects.all()]]
+                args=[l]
                 ).start()
 
     def __str__(self):
