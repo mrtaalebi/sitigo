@@ -1,18 +1,18 @@
 # Ignore everything
 *
-
+!*/
 
 # Then add everything needed
 
-!apps/**
-!docs/**
-!.git/**
-!.github/**
+!/apps/**
+!/docs/**
+!/.git/**
+!/.github/**
 !.gitignore
-!igo/**
+!/igo/**
 !LICENSE
-!local/**
+!/local/**
 !manage.py
 !requirements.txt
-!static/files/**
-!templates/**
+!/static/files/**
+!/templates/**

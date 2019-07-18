@@ -1,0 +1,124 @@
+{% extends 'base/base.html' %}
+{% load static i18n %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block extra_header %}
+<link rel="stylesheet" href="{% static 'intro/slideshow.css' %}"/>
+<style>
+    .myMenu > a {
+        background-color: #1f292e !important;
+    }
+
+    .mobile_menu :hover {
+        background-color: rgba(0, 0, 0, 0);
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="ui inverted vertical masthead center aligned segment"
+     style="min-height: 100vh;
+                 background-image: url({% static 'intro/images/bg.png' %}); background-size: cover; background-repeat: no-repeat; background-position: center; background-attachment: fixed"
+     id="topper">
+    <div class="ui container">
+        {% block navbar %}
+        {% include 'base/main_navbar.html' %}
+        {% endblock %}
+
+        <div class="ui stackable grid" >
+                     <div class="four wide column mobile-hidden">
+                <div class="ui inverted vertical fluid right menu myMenu">
+                    {% for ev in events %}
+                    {% if event.year == ev.year %}
+                    <a class="active item" style="font-weight: bolder" href="/scoreboard/{{ ev.pk }}/">
+                            <span style="color:lightseagreen ">
+                                {% if LANGUAGE_CODE == "fa" %}
+                                    {{ ev.persian_name }}
+                                {% else %}
+                                    {{ event.english_name }}
+                                {% endif %}
+                            </span>
+                    </a>
+                    {% else %}
+                    <a class="item" href="/scoreboard/{{ ev.pk }}/">
+                        {% if LANGUAGE_CODE == "fa" %}
+                            {{ ev.persian_name }}
+                        {% else %}
+                            {{ ev.english_name }}
+                        {% endif %}
+                    </a>
+                    {% endif %}
+                    {%endfor%}
+                </div>
+
+            </div>
+            <div class="four wide column mobile-only">
+                <div class="ui inverted pointing fluid stackable menu myMenu"
+                     style="border: 0; color: darkred;">
+                    {% for ev in events %}
+                    {% if event.year == ev.year %}
+                    <a class="active item" href="/scoreboard/{{ ev.pk }}/">
+                        {% if LANGUAGE_CODE == "fa" %}
+                            {{ ev.persian_name }}
+                        {% else %}
+                            {{ ev.english_name }}
+                        {% endif %}
+                    </a>
+                    {% else %}
+                    <a class="active item" href="/blog/{{ ev.pk }}/">
+                        {% if LANGUAGE_CODE == "fa" %}
+                            {{ ev.persian_name }}
+                        {% else %}
+                            {{ ev.english_name }}
+                        {% endif %}
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+
+                </div>
+            </div>
+            <div class="twelve wide center aligned stretched column">
+                <div class="ui inverted segment" style="background-color: #222222dd;padding:auto" dir="rtl"
+                     align="right">
+                    <div class="ui stackable grid">
+                        {% for tier in contest_tiers %}
+                            {% if LANGUAGE_CODE == "fa" %}
+                                {{ tr.persian_name }}
+                            {% else %}
+                                {{ tr.english_name }}
+                            {% endif %}
+                            <table>
+                                <th>
+                                    {% for h in tier.table_header %}
+                                        <td>{% trans h %}</td>
+                                    {% endfor %}
+                                </th>
+                                {% for cont in tier.contestants %}
+                                    <tr>
+                                        <td>{{ cont.name }}</td>
+                                        <td>{{ cont.country }}</td>
+                                        {% for sc in cont.scores %}
+                                            <td>{{ sc.score }}</td>
+                                        {% endfor %}
+                                        <td>{{ cont.sum_score }}</td>
+                                        <td>{{ con.rank }}</td>
+                                        <td>{{ con.ruler }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </div>
+
+            
+        </div>
+
+
+    </div>
+
+</div>
+
+
+{% endblock %}
+

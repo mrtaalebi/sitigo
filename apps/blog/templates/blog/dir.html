@@ -1,0 +1,130 @@
+{% extends 'base/base.html' %}
+{% load static i18n %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block extra_header %}
+<link rel="stylesheet" href="{% static 'intro/slideshow.css' %}"/>
+<style>
+    .myMenu > a {
+        background-color: #1f292e !important;
+    }
+
+    .mobile_menu :hover {
+        background-color: rgba(0, 0, 0, 0);
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="ui inverted vertical masthead center aligned segment"
+     style="min-height: 100vh;
+                 background-image: url({% static 'intro/images/bg.png' %}); background-size: cover; background-repeat: no-repeat; background-position: center; background-attachment: fixed"
+     id="topper">
+    <div class="ui container">
+        {% block navbar %}
+        {% include 'base/main_navbar.html' %}
+        {% endblock %}
+
+        <div class="ui stackable grid" >
+                     <div class="four wide column mobile-hidden">
+                <div class="ui inverted vertical fluid right menu myMenu">
+                    {% for dir in dirs %}
+                    {% if current_dir_name == dir.name %}
+                    <a class="active item" style="font-weight: bolder" href="/blog/{{ dir.pk }}/">
+                        <span style="color:lightseagreen "> {{ dir.name }}</span>
+                    </a>
+                    {% else %}
+                    <a class="item" href="/blog/{{ dir.pk }}/">
+                        {{ dir.name }}
+                    </a>
+                    {% endif %}
+                    {%endfor%}
+                </div>
+
+            </div>
+            <div class="four wide column mobile-only">
+                <div class="ui inverted pointing fluid stackable menu myMenu"
+                     style="border: 0; color: darkred;">
+                    {% for dir in dirs %}
+                    {% if current_dir_name == dir.name %}
+                    <a class="active item" href="/blog/{{ dir.pk }}/">
+                        {{ dir.name }}
+                    </a>
+                    {% else %}
+                    <a class="active item" href="/blog/{{ dir.pk }}/">
+                        {{ dir.name }}
+                    </a>
+                    {% endif %}
+                    {% endfor %}
+
+                </div>
+            </div>
+            <div class="twelve wide center aligned stretched column">
+                <div class="ui inverted segment" style="background-color: #222222dd;padding:auto" dir="rtl"
+                     align="right">
+                    <div class="ui stackable grid">
+                        {% for dir in dirs %}
+                        {% if dir.name == current_dir_name %}
+                        {% for post in dir.posts %}
+                        <div class="ui inverted card" style="margin:5%">
+                            <div class="image">
+                              <img src="{{post.image.url}}">
+                            </div>
+                            <div class="content">
+                                <a class="header" href="/blog/{{ dir.id }}/{{ post.pk }}">{{post.title}}</a>
+                                <br>
+                                <div class="meta">
+                                    <span class="date">{{post.date_created}}</span>
+                                </div>
+                                <br>
+                                <div class="description">
+                                    {{post.short_text|safe}}
+                                </div>
+                            </div>
+                            <div class="extra content">
+                                <!-- todo comment-->
+                            </div>
+                        </div>
+
+                        {% endfor %}
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+{% endblock %}
+
+
+<!--{% for dir in dirs %}-->
+<!--<p>-->
+<!--<a href="/blog/{{ dir.pk }}/">-->
+<!--{{ dir.name }}-->
+<!--</a>-->
+<!--</p>-->
+<!--{% endfor %}-->
+
+
+<!--{% for dir in dirs %}-->
+<!--{% if dir.name == current_dir_name %}-->
+<!--{% for post in dir.posts %}-->
+<!--<a href="/blog/{{ dir.pk }}/{{ post.pk }}">-->
+<!--<h1> {{ post.title }} </h1>-->
+<!--</a>-->
+<!--<img src="{{ post.image.url }}"/>-->
+<!--<p> {{ post.headline | safe  }} </p>-->
+<!--<p> {{ post.date_created }} </p>-->
+<!--{% endfor %}-->
+<!--{% endif %}-->
+<!--{% endfor %}-->
+
+

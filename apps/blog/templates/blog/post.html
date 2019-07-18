@@ -1,0 +1,104 @@
+{#{{ post.title }}#}
+{##}
+{#{{ post.headline }}#}
+{##}
+{#{{ post.image }}#}
+{##}
+{#{{ post.text|safe}}#}
+{##}
+{#{{ post.date_created }}#}
+
+{% extends 'base/base.html' %}
+{% load static i18n %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block extra_header %}
+    <link rel="stylesheet" href="{% static 'intro/slideshow.css' %}"/>
+    <style>
+        .myMenu > a {
+            background-color: #222222dd !important;
+        }
+
+        .mobile_menu :hover {
+            background-color: rgba(0, 0, 0, 0);
+        }
+    </style>
+{% endblock %}
+{% block content %}
+
+
+    <div class="ui inverted vertical masthead segment"
+         style="
+                 background-image: url({% static 'intro/images/bg.png' %}); background-size: cover; background-repeat: no-repeat; background-position: center; background-attachment: fixed"
+         id="topper">
+        <div class="ui container" style="">
+            {% block navbar %}
+                {% include 'base/main_navbar.html' %}
+            {% endblock %}
+            <div style="background-color: #222222dd; padding-left: 10%;padding-right: 10%;padding-top: 10px;padding-bottom: 10%;">
+                <h1 class="ui inverted header centered">
+                    {{ post.title }}
+                </h1>
+                <br>
+                <img class="ui centered large image" src="{{ post.image.url }}"
+                     style="margin-top: 20px; margin-bottom: 20px">
+                <br>
+                <p>{{ post.text|safe }}</p>
+                <br>
+                <hr class="inverted"></hr>
+                <p>نوشته شده در تاریخ {{ post.date_created }}</p>
+                <hr class="inverted"></hr>
+                {% for comment in comments %}
+                   <span style="color: lightseagreen">{{ comment.author }}:</span>
+                    <br>
+                    {{ comment.text }}
+                    <br>
+                    <div class="meta">
+                        <span class="date">{{ comment.date }}</span>
+                    </div>
+                    <br>
+                {% endfor %}
+
+                <div>
+                    <form method="POST" class="ui inverted form" action="{% url 'blog:leave_comment' dir_id post_id %}"
+                          id="comment_form">
+                        {% csrf_token %}
+                         <h3 class="ui orange dividing header">نظرات خود را با ما در میان بگذارید</h3>
+                        <div class="field required">
+                            <label>نام</label>
+                            <input name="author" type="text">
+                        </div>
+                        <div class="field required">
+                            <label>نظر</label>
+                            <textarea name="text" rows="4" cols="50"></textarea>
+                        </div>
+                        <button type="submit" id="button" class="ui inverted teal button"
+                                style="font-weight: bolder">{% trans 'Send' %}</button>
+                    </form>
+
+
+                </div>
+            <br><br>
+            <a class="ui inverted orange button" href="/blog/{{ dir_id }}/">بازگشت به بلاگ</a>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+    {% block extra_script %}
+        <script>
+            $(document).ready(function () {
+                $(document).on('click', '.myMenu .item', function (e) {
+                    $('.myMenu .item').removeClass('active');
+                    $(this).addClass('active');
+                    $(this).style.backgroundColor = "black";
+                });
+            });
+        </script>
+        <script>
+            $('.myMenu .item').tab();</script>
+    {% endblock %}
+{% endblock %}

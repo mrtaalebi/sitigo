@@ -1,0 +1,155 @@
+@font-face {
+  font-family: 'IRANSans_UltraLight';
+  src: url({% static 'intro/fonts/WebFonts/fonts/ttf/IRANSansWeb_UltraLight.ttf'%}) format('ttf');
+}
+
+@font-face {
+  font-family: 'IRANSans_Light';
+  src: url({% static 'intro/fonts/WebFonts/fonts/woff2/IRANSansWeb_Light.woff2'%}) format('woff2');
+}
+
+@font-face {
+  font-family: 'IRANSans_Medium';
+  src: url({% static 'intro/fonts/WebFonts/fonts/woff2/IRANSansWeb_Medium.woff2'%}) format('woff2');
+}
+
+@font-face {
+  font-family: 'IRANSans';
+  src: url({% static 'intro/fonts/WebFonts/fonts/woff2/IRANSansWeb.woff2'%}) format('woff2');
+}
+
+@font-face {
+  font-family: 'IRANSans_Bold';
+  src: url({% static 'intro/fonts/WebFonts/fonts/woff2/IRANSansWeb_Bold.woff2'%}) format('woff2');
+}
+
+@font-face {
+  font-family: 'IRANSans_Black';
+  src: url({% static 'intro/fonts/WebFonts/fonts/ttf/IRANSansWeb_Black.woff2'%}) format('woff2');
+}
+
+* {
+  font-family: "IRANSans";
+}
+
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-font-smoothing: grayscale;
+      }
+
+      .hidden.menu {
+        display: none;
+      }
+
+      .masthead.segment {
+        min-height: 600px;
+        padding: 1em 0em;
+      }
+
+      .masthead .logo.item img {
+        margin-right: 1em;
+      }
+
+      .masthead .ui.menu .ui.button {
+        margin-left: 0.5em;
+      }
+
+      .masthead h1.ui.header {
+        margin-top: 2em;
+        margin-bottom: 0em;
+        font-size: 4em;
+        font-weight: normal;
+      }
+
+      .masthead h2 {
+        font-size: 1.7em;
+        font-weight: normal;
+      }
+
+      .ui.vertical.stripe {
+        padding: 8em 0em;
+      }
+
+      .ui.vertical.stripe h3 {
+        font-size: 2em;
+      }
+
+      .ui.vertical.stripe .button + h3,
+      .ui.vertical.stripe p + h3 {
+        margin-top: 3em;
+      }
+
+      .ui.vertical.stripe .floated.image {
+        clear: both;
+      }
+
+      .ui.vertical.stripe p {
+        font-size: 1.33em;
+      }
+
+      .ui.vertical.stripe .horizontal.divider {
+        margin: 3em 0em;
+      }
+
+      .quote.stripe.segment {
+        padding: 0em;
+      }
+
+      .quote.stripe.segment .grid .column {
+        padding-top: 5em;
+        padding-bottom: 5em;
+      }
+
+      .footer.segment {
+        padding: 5em 0em;
+      }
+
+      .secondary.pointing.menu .toc.item {
+        display: none;
+      }
+
+      @media only screen and (max-width: 700px) {
+        .ui.fixed.menu {
+          display: none !important;
+        }
+
+        .secondary.pointing.menu .item,
+        .secondary.pointing.menu .menu {
+          display: none;
+        }
+
+        .secondary.pointing.menu .toc.item {
+          display: block;
+        }
+
+        .masthead.segment {
+          min-height: 350px;
+        }
+
+        .masthead h1.ui.header {
+          font-size: 2em;
+          margin-top: 1.5em;
+        }
+
+        .masthead h2 {
+          margin-top: 0.5em;
+          font-size: 1.5em;
+        }
+      }
+
+
+
+.fingil {
+  border-radius: 10px !important;
+  background-color: transparent !important;
+  color: white !important;
+  font-weight: 900 !important;
+  border: 0px !important;
+  font-family: "IRANSans_Black" !important;
+}
+
+.fingil-border {
+  border-radius: 0px !important;
+  border-left: 2px solid white !important;
+  border-right: 2px solid white !important;
+}
