@@ -100,16 +100,11 @@ WSGI_APPLICATION = 'igo.wsgi.application'
 
 DATABASES = {
     "default": {
-        # Add "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": "sitigo",
-        # Not used with sqlite3.
         "USER": "sitiguser",
-        # Not used with sqlite3.
         "PASSWORD": "passpasspass",
-        # Set to empty string for localhost. Not used with sqlite3.
         "HOST": "localhost",
-        # Set to empty string for default. Not used with sqlite3.
         "PORT": "5432",
     }
 }
