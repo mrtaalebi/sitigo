@@ -1,0 +1,368 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-20 00:13+0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: apps/blog/models.py:29
+msgid "New blog post in igo-official.ir"
+msgstr "پست جدیدی در بلاگ المپیاد هندسه به آدرس igo-official.ir منتشر شده‌است!"
+
+#: apps/blog/models.py:34
+msgid "Check the above link"
+msgstr "لینک بالا را بررسی کنید."
+
+#: apps/blog/models.py:40
+msgid "Click on this link to see this post on igo-official.ir"
+msgstr ""
+"بر روی این لینک کلیک کنید تا پست را در وبسایت المپیاد هندسه مشاهده کنید."
+
+#: apps/blog/templates/blog/post.html:76
+#: apps/contact_us/templates/contact_us/contact_us.html:88
+msgid "Send"
+msgstr "ارسال"
+
+#: apps/blog/templates/blog/subscripted.html:27
+msgid ""
+"You've been successfully subscribed to blog posts and will recieve an email "
+"as soon as something posted on the blog."
+msgstr "  "
+
+#: apps/blog/templates/blog/subscripted.html:29
+#: apps/contact_us/templates/contact_us/sent.html:29
+msgid "OK"
+msgstr ""
+
+#: apps/contact_us/models.py:10
+msgid "middle school"
+msgstr "متوسطه‌ی دوره‌ی اول"
+
+#: apps/contact_us/models.py:11
+msgid "high school"
+msgstr "متوسطه‌ی دوره‌ی دوم"
+
+#: apps/contact_us/models.py:12
+msgid "university"
+msgstr "دانشگاه"
+
+#: apps/contact_us/templates/contact_us/contact_us.html:36
+#: igo/context_processors.py:15 templates/base/base.html:106
+msgid "Contact Us"
+msgstr "تماس با ما"
+
+#: apps/contact_us/templates/contact_us/contact_us.html:38
+msgid "Name and Family Name"
+msgstr "نام و نام خانوادگی"
+
+#: apps/contact_us/templates/contact_us/contact_us.html:48
+msgid "Country"
+msgstr "کشور"
+
+#: apps/contact_us/templates/contact_us/contact_us.html:52
+msgid "School/University"
+msgstr "مدرسه/دانشگاه"
+
+#: apps/contact_us/templates/contact_us/contact_us.html:56
+msgid "Study Grade"
+msgstr "پایه‌ی تحصیلی"
+
+#: apps/contact_us/templates/contact_us/contact_us.html:62
+msgid "Email"
+msgstr "ایمیل"
+
+#: apps/contact_us/templates/contact_us/contact_us.html:66
+msgid "Phone Number"
+msgstr "شماره تلفن"
+
+#: apps/contact_us/templates/contact_us/contact_us.html:71
+msgid "Subject"
+msgstr "موضوع"
+
+#: apps/contact_us/templates/contact_us/contact_us.html:75
+msgid "Text"
+msgstr "متن"
+
+#: apps/contact_us/templates/contact_us/sent.html:27
+msgid "Your message has been sent successfully."
+msgstr "پیام شما با موفقیت ارسال شد."
+
+#: apps/content/models.py:94 apps/question/models.py:9
+msgid "persian"
+msgstr "فارسی"
+
+#: apps/content/models.py:95 apps/question/models.py:10
+msgid "english"
+msgstr "انگلیسی"
+
+#: apps/content/templates/content/articles.html:95
+#: apps/content/templates/content/articles.html:137
+#: apps/content/templates/content/articles.html:214
+#: apps/content/templates/content/articles.html:259
+msgid "download"
+msgstr "دانلود"
+
+#: apps/intro/templates/intro/homepage.html:37
+msgid "Register now!"
+msgstr "همین حالا ثبت نام کنید"
+
+#: apps/intro/templates/intro/homepage.html:41
+msgid " for students and graduates"
+msgstr "برای دانش‌آموزان و فارغ‌التحصیلان"
+
+#: apps/intro/templates/intro/homepage.html:44
+msgid ""
+"Tehran &ensp;|&ensp; Mashhad &ensp;|&ensp; Shiraz &ensp;|&ensp; Isfahan "
+"&ensp;|&ensp; Tabriz"
+msgstr ""
+"تهران &ensp;|&ensp; مشهد &ensp;|&ensp; شیراز &ensp;|&ensp; اصفهان &ensp;|"
+"&ensp; تبریز"
+
+#: apps/intro/templates/intro/homepage.html:50
+msgid "17 Aug"
+msgstr "۵/۲۶"
+
+#: apps/intro/templates/intro/homepage.html:55
+msgid "13 Sep"
+msgstr "۶/۲۲"
+
+#: apps/intro/templates/intro/homepage.html:60
+msgid "19 Sep"
+msgstr "۶/۲۸"
+
+#: apps/intro/templates/intro/homepage.html:67
+msgid "Registration"
+msgstr "ثبت نام"
+
+#: apps/intro/templates/intro/homepage.html:70
+msgid "Exam"
+msgstr "آزمون"
+
+#: apps/intro/templates/intro/homepage.html:73
+msgid "Results"
+msgstr "نتایج"
+
+#: apps/intro/templates/intro/homepage.html:85
+msgid "Introduction"
+msgstr "معرفی"
+
+#: apps/intro/templates/intro/homepage.html:127
+msgid "Goals"
+msgstr "اهداف"
+
+#: apps/intro/templates/intro/homepage.html:201
+msgid "Participating of foreign countries"
+msgstr "المپیاد هندسه‌ی ایران در آن‌ سوی مرزها"
+
+#: apps/intro/templates/intro/homepage.html:233
+msgid "Elementry Level"
+msgstr "سطح مقدماتی"
+
+#: apps/intro/templates/intro/homepage.html:275
+#, fuzzy
+#| msgid "Average level"
+msgid "Average Level"
+msgstr "سطح متوسط"
+
+#: apps/intro/templates/intro/homepage.html:307
+msgid "Advanced Level"
+msgstr "سطح پیشرفته"
+
+#: apps/intro/templates/intro/homepage.html:491
+msgid "Sponsor"
+msgstr "حمایت‌کننده"
+
+#: apps/intro/templates/intro/homepage.html:506
+msgid "Organizer"
+msgstr "برگزار کننده"
+
+#: igo/context_processors.py:9
+msgid "Home"
+msgstr "خانه"
+
+#: igo/context_processors.py:10
+msgid "Blog"
+msgstr "بلاگ"
+
+#: igo/context_processors.py:11
+msgid "Events"
+msgstr "رویدادهای پیشین"
+
+#: igo/context_processors.py:12
+msgid "Articles"
+msgstr "مقالات و مسئله‌ها"
+
+#: igo/context_processors.py:13
+msgid "Staff"
+msgstr "دست‌اندرکاران"
+
+#: igo/context_processors.py:14
+msgid "FAQ"
+msgstr "سوالات متداول"
+
+#: igo/settings/development.py:133 igo/settings/production.py:143
+msgid "English"
+msgstr "انگلیسی"
+
+#: igo/settings/development.py:134 igo/settings/production.py:144
+msgid "Persian"
+msgstr "فارسی"
+
+#: templates/base/base.html:122
+msgid "Services"
+msgstr "خدمات"
+
+#: templates/base/base.html:135
+msgid "Subscribe Newsletter"
+msgstr "عضویت در خبرنامه"
+
+#: templates/base/base.html:142
+msgid "Enter your Email"
+msgstr "ایمیل خود را وارد کنید."
+
+#: templates/base/base.html:147
+msgid "Subscribe"
+msgstr "عضویت"
+
+#~ msgid ""
+#~ "The entry of the eighth grade and the entry of the sixth and seventh "
+#~ "grade as experimental"
+#~ msgstr "ورودی‌های پایه‌ی هشتم و ورودی‌ پایه‌های ششم و هفتم به صورت آزمایشی "
+
+#~ msgid " Angle (triangle and polygons)"
+#~ msgstr "زاویه(مثلث و چندضلعی‌ها)"
+
+#~ msgid " The Pythagorean Case"
+#~ msgstr "قضیه‌ی فیثاغورس"
+
+#~ msgid "Triangular inequality"
+#~ msgstr "نامساوی مثلثی"
+
+#~ msgid "Transition, symmetry, era"
+#~ msgstr "انتقال، تقارن، دوران"
+
+#~ msgid "Parallel and diagonal lines"
+#~ msgstr "خطوط موازی و مورب"
+
+#~ msgid "Space geometry (volume, area and ..."
+#~ msgstr "هندسه‌ی فضایی(حجم، مساحت و ..)"
+
+#~ msgid " The Entry of the ninth and tenth grade"
+#~ msgstr "ورودی پایه های نهم و دهم"
+
+#~ msgid "Circle"
+#~ msgstr "دایره"
+
+#~ msgid "Similarity"
+#~ msgstr "تشابه"
+
+#~ msgid "The entry of eleven and twelfth grade and graduates"
+#~ msgstr "ورودی‌ پایه‌های یازدهم و دوزازدهم و فارغ‌التحصیلان"
+
+#~ msgid "All geometry topics (plane and space)"
+#~ msgstr "همه مباحث هندسه (مسطحه و فضایی)"
+
+#~ msgid "Previous Events"
+#~ msgstr "رویدادهای پیشین"
+
+#~ msgid "Problems & Articles"
+#~ msgstr "مقالات و مسئله‌ها"
+
+#~ msgid "   download   "
+#~ msgstr "دانلود"
+
+#, fuzzy
+#~| msgid "Contact Us"
+#~ msgid "Contact"
+#~ msgstr "تماس با ما"
+
+#~ msgid "Enter a valid email address."
+#~ msgstr "آدرس ایمیل معتبر وارد کنید."
+
+#~ msgid "This field is required."
+#~ msgstr "این فیلد الزامی است."
+
+#~ msgid ""
+#~ "Geometry is one of the oldest branches of human science. Geometry "
+#~ "Olympiad, beginning its work in 2014, aimed to pay more attention to "
+#~ "geometry and bring various geometric ideas together. It is an annual "
+#~ "academic competition for high school students which extended its activity "
+#~ "to international level in 2015, whereby the event is simultaneously held "
+#~ "in different countries around the world. The event has been held every "
+#~ "year since then."
+#~ msgstr ""
+#~ "هندسه به عنوان یکی از قدیمی‌ترین شاخه‌های علمی، قدمتی همسنگ با تاریخ علم "
+#~ "بشر دارد. هندسه یکی از حوزه‌های درخشش تمدن ایرانی-اسلامی است و در آثار "
+#~ "تاریخی ایرانیان نمودی برجسته دارد. دانشمندان صاحب‌نامی هم‌چون ابوریحان "
+#~ "بیرونی و غیاث‌الدین جمشید کاشانی آثاری ارزنده در این زمینه از خود برجا "
+#~ "گذاشته‌اند . هندسه در نظام آموزشی ما نیز جایگاه ویژه‌ای دارد. سنت آموزش "
+#~ "هندسه همواره در میان دبیران ریاضی کشور ما وجود داشته و هندسة ایران را "
+#~ "دارای سبک خاص خود کرده است، به طوری که امروزه کشورمان در مسابقاتی مانند "
+#~ "المپیاد بین‌المللی ریاضی به عنوان کشوری قوی در هندسه شناخته شده است. با "
+#~ "این حال، متأسفانه در سال‌های اخیر این شاخه از ریاضیات، در نظام آموزشی و در "
+#~ "میان معلمان و دانش‌آموزان مورد غفلت نسبی قرار گرفته است. به همین دلیل، "
+#~ "جمعی از معلمان و علاقه‌مندان به هندسه تصمیم گرفتند با راه‌اندازی برنامه‌ای "
+#~ "ملی، بار دیگر توجه معلمان و دانش‌آموزان را به هندسه جلب کنند. با همت این "
+#~ "افراد، «المپیاد هندسة ایران » در سال ۱۳۹۳ شکل گرفت و به محفلی برای ترویج "
+#~ "و عمومی کردن تفکر هندسی و منطقی و همچنین هم‌افزایی و تبادل دانش میان "
+#~ "فعالان این عرصه تبدیل شد."
+
+#~ msgid ""
+#~ "Paving the way for geometry lovers to extend their communication in their "
+#~ "home country and around the world"
+#~ msgstr "ایجاد بستری برای ارتباط بین علاقه‌مندان به هندسه"
+
+#~ msgid ""
+#~ "Providing geometry teachers with opportunities to exchange their "
+#~ "knowledge and experience to improve and enrich high school education"
+#~ msgstr ""
+#~ "ایجاد فرصتی برای تبادل دانش و تجربیات معلمان هندسه برای ارتقاء سطح آموزش "
+#~ "دبیرستانی"
+
+#~ msgid ""
+#~ "Identifying geometry talents in the country, and then introducing a "
+#~ "suitable scientific direction to them"
+#~ msgstr "شناسایی استعدادهای هندسه در کشور و ارایه‌ی مسیر علمی مناسب به آن‌ها"
+
+#~ msgid ""
+#~ "Creating activities together with Mathematical Olympiad to promote "
+#~ "mathematics"
+#~ msgstr "ایجاد فعالیت‌هایی در کنار المپیاد ریاضی برای ترویج ریاضیات"
+
+#~ msgid ""
+#~ "We are proud to announce that a total of 56 countries took part in the "
+#~ "5th IGO event, we hereby extend our profound gratitude to these countries "
+#~ "for their participation:Afghanistan , Argentina , Armenia , Australia , "
+#~ "Bangladesh , Belarus , Bolivia , Bosnia and Herzegovina , Brazil , "
+#~ "Bulgaria , China , Costa rica , Croatia , Cuba , Czech , Denmark , "
+#~ "Ecuador , El Salvador , Estonia , Finland , Georgia , Guatemala , India , "
+#~ "Indonesia , Iran and ..."
+#~ msgstr ""
+#~ "این کشورها در پنجمین المپیاد هندسه شرکت کردند: افغانستان، آرژانتین، "
+#~ "آفریقای جنوبی، آلبانی، ارمنستان، استرالیا، استونی، اکوادور، الجزایر، "
+#~ "السالوادور، اندونزی، انگلستان، اوکراین، ایتالیا، ایران، ایرلند، برزیل، "
+#~ "بلاروس،  بلغارستان، بنگلادش، بوسنی و هرزگوین، بولیوی، پاکستان، پاناما، "
+#~ "تاجیکستان، ترکمنستان، ترکیه، چک، چین، دانمارک، دومنیکن، روسیه، رومانی، "
+#~ "سوئد، سوریه، عراق، فنلاند،  فیلیپین، قرقیزستان، قزاقستان، کره جنوبی، "
+#~ "کاستاریکا، کرواسی، کوبا، کوزوو، گرجستان، گواتمالا، لهستان، مالزی، "
+#~ "مقدونیه، مکزیک، مولداوی، نپال، نیجریه، نیکاراگوئه، هلند، هند، ونزوئلا، "
+#~ "ویتنام"
+
+#~ msgid "Change Language"
+#~ msgstr "تغییر زبان"
+
+#~ msgid "resources"
+#~ msgstr "منابع"
