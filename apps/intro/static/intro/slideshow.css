@@ -11,12 +11,12 @@
   top: 0px;
   max-width: 100%;
   background-color: black;
-  max-height: 80vh;
+  height: 100%;
 }
 
 .slide-image {
-    width: 100vw;
-    max-height: 100%;
+    max-width: 100vw;
+    height: 100%;
     padding: 0px;
     margin: 0px;
     left: 0px;
@@ -55,6 +55,8 @@
   color: #f2f2f2;
   font-size: 15px;
   position: absolute;
+  left: 0;
+  right: 0;
   bottom: 8px;
   width: 100%;
   text-align: center;

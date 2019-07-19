@@ -107,7 +107,8 @@ def articles(request, category_id=None):
             for cat in context['sub_cats']:
                 for art in cat['articles']:
                     non_sub.remove(art)
-            context['sub_cats'] += [{
+            if len(non_sub) > 0:
+                context['sub_cats'] += [{
                         'name': 'other',
                         'articles': non_sub
                     }]

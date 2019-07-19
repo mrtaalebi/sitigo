@@ -12,7 +12,7 @@ def navbar(request):
             ['/articles', _('Articles')],
             ['/staff', _('Staff')],
             ['/faq', _('FAQ')],
-            ['/contact_us', _('Contact')],
+            ['/contact_us', _('Contact Us')],
         ]
     }
 

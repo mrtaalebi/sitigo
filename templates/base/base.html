@@ -101,7 +101,7 @@
     <div class="ui inverted vertical footer segment" style="background-color: rgb(0,0,0);">
         <div class="ui container">
             <div
-                    class="ui stackable inverted stackable  grid" style="padding-left: 10%;padding-right: 10%;">
+                    class="ui stackable inverted stackable  grid row" style="padding-left: 10%;padding-right: 10%;">
                 <div class="four wide coloumn" style="padding: 20px;">
                     <h4 class="ui inverted header">{% trans "Contact Us" %}</h4>
                     <div class="ui inverted link list">
@@ -114,18 +114,23 @@
                                 class="inverted pink large instagram icon" style="font-family: brand-icons !important"></i>igo_official.ir</a></div>
                     </div>
                 </div>
+                <div class="two wide column"></div>
                 <div class="four wide coloumn" style="padding: 20px;">
                     <h4 class="ui inverted header">{% trans "Services" %}</h4>
                     <div class="ui inverted link list">
-                        <a class="item" href="/events">{% trans "Previous Events" %}</a>
-                        <a class="item" href="/articles">{% trans "Problems & Articles" %}</a>
-                        <a class="item" href="/blog">{% trans "Blog" %}</a>
+                        {% for location, text, is_active in navbar %}
+                            <a class="item" href="{{ location }}">{{ text }}</a>
+                        {% endfor %}
+{#                        <a class="item" href="/events">{% trans "Previous Events" %}</a>#}
+{#                        <a class="item" href="/articles">{% trans "Problems & Articles" %}</a>#}
+{#                        <a class="item" href="/blog">{% trans "Blog" %}</a>#}
                     </div>
                 </div>
 
-
-                <div class="four wide coloumn" style="padding: auto;">
+                <div class="two wide column"></div>
+                <div class="four wide coloumn" style="padding: 20px;">
                     <h4 class="ui inverted header">{% trans "Subscribe Newsletter" %}</h4>
+                    <br>
                     <form class="ui form" method="POST" id="notify" action="{% url 'blog:subscribe' %}">
                         {% csrf_token %}
                         <div class="field">
