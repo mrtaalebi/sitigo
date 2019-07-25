@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-20 21:41+0430\n"
+"POT-Creation-Date: 2019-07-25 21:24+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -169,13 +169,11 @@ msgid "Participating of foreign countries"
 msgstr "المپیاد هندسه‌ی ایران در آن‌ سوی مرزها"
 
 #: apps/intro/templates/intro/homepage.html:233
-msgid "Elementry Level"
+msgid "Elementary Level"
 msgstr "سطح مقدماتی"
 
 #: apps/intro/templates/intro/homepage.html:275
-#, fuzzy
-#| msgid "Average level"
-msgid "Average Level"
+msgid "Intermediate Level"
 msgstr "سطح متوسط"
 
 #: apps/intro/templates/intro/homepage.html:307

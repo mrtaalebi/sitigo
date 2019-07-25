@@ -41,8 +41,13 @@
                     {% trans " for students and graduates" %}
                 </div>
                 <div class="ui center aligned horizontal attached segment segments fingil">
+                     {% if LANGUAGE_CODE == 'fa' %}
                     <div class="ui center aligned attached segment fingil">{% trans "Tehran &ensp;|&ensp; Mashhad &ensp;|&ensp; Shiraz &ensp;|&ensp; Isfahan &ensp;|&ensp; Tabriz" %}
                     </div>
+                    {% else %}
+                    <div class="ui center aligned attached segment">
+                    </div>
+                    {% endif %}
                 </div>
                 <div class="ui horizontal attached segment segments fingil" style="margin-top: -2vh">
                     <div class="ui center aligned attached segment fingil">
@@ -230,14 +235,14 @@ Afghanistan, Argentina, Armenia, Australia, Bangladesh, Belarus, Bolivia, Bosnia
                 <div class="column">
                     <h1 class="faded_class"><i class="inverted red huge child icon"></i></h1>
                     <h1 class="faded_class"><i class="inverted yellow large star icon"></i></h1>
-                    <h3 class="ui inverted header faded_class">{% trans "Elementry Level" %}</h3>
+                    <h3 class="ui inverted header faded_class">{% trans "Elementary Level" %}</h3>
                     {% if LANGUAGE_CODE == 'en' %}
                     <h4 class=" inverted sub centered header faded_class">
-                        8th-grade students and also 6th and 7th grade students may participate unofficially
+                        7th and 8th-grade students
                     </h4>
                     {% else %}
                     <h4 class=" inverted sub centered header faded_class">
-                        ورودی پایه‌ی هشتم، ورودی پایه‌های ششم و هفتم می‌توانند به صورت آزمایشی شرکت کنند.
+                        ورودی پایه‌ی هفتم و هشتم
                     </h4>
                     {% endif %}
                     <div class="faded_class" align="{% if LANGUAGE_CODE == "fa" %} right {% else %} left{% endif %}">
@@ -272,7 +277,7 @@ Afghanistan, Argentina, Armenia, Australia, Bangladesh, Belarus, Bolivia, Bosnia
                 <div class="column">
                     <h1 class="faded_class"><i class="inverted purple huge child icon"></i></h1>
                     <h1 class="faded_class"><i class="inverted yellow large star icon"></i><i class="inverted yellow large star icon"></i></h1>
-                    <h3 class="ui inverted header faded_class">{% trans "Average Level" %}</h3>
+                    <h3 class="ui inverted header faded_class">{% trans "Intermediate Level" %}</h3>
                     {% if LANGUAGE_CODE == 'en' %}
                     <h4 class=" inverted sub centered header faded_class">
                          9th and 10th-grade students

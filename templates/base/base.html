@@ -70,15 +70,21 @@
 <!--Sidebar Menu-->
 
 <div class="ui vertical inverted sidebar menu mobile-only" align="right" dir="ltr">
+    {% if LANGUAGE_CODE == "fa" %}
     {% for location, text, is_active in navbar %}
         <a class="item {{ is_active }}" href="{{ location }}">{{ text }}</a>
     {% endfor %}
+    {% else %}
+    {% for location, text, is_active in navbar %}
+        <a class="item {{ is_active }}" href="{{ location }}" style="text-align: left">{{ text }}</a>
+    {% endfor %}
+    {% endif %}
 
     <a class="fitted item popup-link" onclick="$('#changeLang').submit();" href="#"
        data-position="left center" data-inverted=""
-       style="margin-left: 15px; margin-right: 15px;" id="change_lang">
+       style="margin-left: 15px; margin-right: 15px;{% if LANGUAGE_CODE == "en" %}text-align:left{% endif %}" id="change_lang">
 
-            <img class="ui mini circular image" src="{% if LANGUAGE_CODE == "fa" %}{% static '/intro/iran.png' %}{% else %}{% static '/intro/united-kingdom.png' %}{% endif %}">
+            <img class="ui mini circular image"  src="{% if LANGUAGE_CODE == "fa" %}{% static '/intro/iran.png' %}{% else %}{% static '/intro/united-kingdom.png' %}{% endif %}">
     </a>
     <form name="changeLang" id="changeLang" action="/set_lang/" method="POST">
         {% csrf_token %}
@@ -112,9 +118,9 @@
                         <div class=" item"><a class="item" target="_blank"
                                               href="https://www.instagram.com/igo_official.ir"><i
                                 class="inverted pink large instagram icon" style="font-family: brand-icons !important"></i>igo_official.ir</a></div>
-                        {% if LANGUAGE_CODE == "fa" %}
-                        <div class=" item" style="color:white; text-align: justify;text-justify: inter-word;"><i class="inverted green large map marker icon" style="font-family: Icons !important"></i> نشانی دبیرخانه: تهران، میدان دکتر فاطمی، ابتدای خیابان جویبار، خیابان میرهادی شرقی، شماره ۱۴، موسسه فرهنگی فاطمی، واحد۴</div>
-                        {% endif%}
+                        <!--{% if LANGUAGE_CODE == "fa" %}-->
+                        <!--<div class=" item" style="color:white; text-align: justify;text-justify: inter-word;"><i class="inverted green large map marker icon" style="font-family: Icons !important"></i> نشانی دبیرخانه: تهران، میدان دکتر فاطمی، ابتدای خیابان جویبار، خیابان میرهادی شرقی، شماره ۱۴، موسسه فرهنگی فاطمی، واحد۴</div>-->
+                        <!--{% endif%}-->
                     </div>
                 </div>
                 <div class="two wide column"></div>
