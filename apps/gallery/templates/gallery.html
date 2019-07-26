@@ -29,7 +29,7 @@
                 <div class="ui inverted vertical fluid right menu myMenu">
                     {% for ev in events %}
                     {% if event.year == ev.year %}
-                    <a class="active item" style="font-weight: bolder" href="/scoreboard/{{ ev.pk }}/">
+                    <a class="active item" style="font-weight: bolder" href="/gallery/{{ ev.pk }}/">
                             <span style="color:lightseagreen ">
                                 {% if LANGUAGE_CODE == "fa" %}
                                     {{ ev.persian_name }}
@@ -39,7 +39,7 @@
                             </span>
                     </a>
                     {% else %}
-                    <a class="item" href="/scoreboard/{{ ev.pk }}/">
+                    <a class="item" href="/gallery/{{ ev.pk }}/">
                         {% if LANGUAGE_CODE == "fa" %}
                             {{ ev.persian_name }}
                         {% else %}
@@ -56,7 +56,7 @@
                      style="border: 0; color: darkred;">
                     {% for ev in events %}
                     {% if event.year == ev.year %}
-                    <a class="active item" href="/scoreboard/{{ ev.pk }}/">
+                    <a class="active item" href="/gallery/{{ ev.pk }}/">
                         {% if LANGUAGE_CODE == "fa" %}
                             {{ ev.persian_name }}
                         {% else %}
@@ -79,34 +79,18 @@
             <div class="twelve wide center aligned stretched column">
                 <div class="ui inverted segment" style="background-color: #222222dd;padding:auto" dir="rtl"
                      align="right">
-                    <div class="ui stackable grid">
-                        {% for tier in contest_tiers %}
-                            {% if LANGUAGE_CODE == "fa" %}
-                                {{ tr.persian_name }}
-                            {% else %}
-                                {{ tr.english_name }}
-                            {% endif %}
-                            <table>
-                                <th>
-                                    {% for h in tier.table_header %}
-                                        <td>{% trans h %}</td>
-                                    {% endfor %}
-                                </th>
-                                {% for cont in tier.contestants %}
-                                    <tr>
-                                        <td>{{ cont.name }}</td>
-                                        <td>{{ cont.country }}</td>
-                                        {% for sc in cont.scores %}
-                                            <td>{{ sc.score }}</td>
-                                        {% endfor %}
-                                        <td>{{ cont.sum_score }}</td>
-                                        <td>{{ con.rank }}</td>
-                                        <td>{{ con.ruler }}</td>
-                                    </tr>
+                        {% for country_images in by_country_event_images %}
+                            <h1>{{ country_images.country.name }}</h1>
+
+                            <div class="ui stackable four grid">
+                                {% for image in country_images.images %}
+                                    <div>
+                                        <img class="ui image" src="{{ image.image.url }}">
+                                        <p>{{ image.caption }}</p>
+                                    </div>
                                 {% endfor %}
-                            </table>
+                            </div>
                         {% endfor %}
-                    </div>
 
                 </div>
             </div>

@@ -55,7 +55,8 @@ INSTALLED_APPS = [
     'apps.blog',
     'apps.question',
     'apps.staff',
-    'apps.scoreboard'
+    'apps.scoreboard',
+    'apps.gallery',
 ]
 
 

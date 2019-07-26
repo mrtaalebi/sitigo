@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-26 19:24+0430\n"
+"POT-Creation-Date: 2019-07-27 00:03+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -120,7 +120,7 @@ msgstr "دانلود"
 msgid "Register now!"
 msgstr "همین حالا ثبت نام کنید"
 
-#: apps/intro/templates/intro/homepage.html:51
+#: apps/intro/templates/intro/homepage.html:50
 msgid "Coming soon!"
 msgstr "به زودی!"
 
@@ -216,11 +216,11 @@ msgstr "دست‌اندرکاران"
 msgid "FAQ"
 msgstr "سوالات متداول"
 
-#: igo/settings/development.py:133 igo/settings/production.py:143
+#: igo/settings/development.py:134 igo/settings/production.py:144
 msgid "English"
 msgstr "انگلیسی"
 
-#: igo/settings/development.py:134 igo/settings/production.py:144
+#: igo/settings/development.py:135 igo/settings/production.py:145
 msgid "Persian"
 msgstr "فارسی"
 
