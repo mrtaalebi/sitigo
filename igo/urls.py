@@ -41,6 +41,9 @@ urlpatterns = [
     url(r'^events/$', views.event),
     url(r'^articles/(?P<category_id>\d+)/$', views.articles),
     url(r'^articles/$', views.articles),
+
+    url(r'^scoreboard/', include(apps.scoreboard.urls), name='scoreboard'),
+    url(r'^gallery/', include(apps.gallery.url), name='gallery'),
 ]
 
 if settings.DEBUG:
