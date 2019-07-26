@@ -49,69 +49,44 @@ def event(request, event_id = None):
 
 
 def articles(request, category_id=None):
-    categories = Category.objects.all()
-    context = {'categories': list(categories)}
-    if category_id is None:
-        if len(categories) > 0:
-            active = categories.filter(language=translation.get_language())
-            if len(active) > 0:
-                active = active[0]
-                articles = Article.objects.filter(category=active)
-            else:
-                articles = []
-                active = None
 
-                context.update({
-                'articles': articles,
-                'sub_cats': [
-                    {
-                        'name': cat.name,
-                        'articles': list(articles.objects.filter(sub_cat=cat))
-                    }
-                    for cat in SubCategory.objects.filter(cat=active)],
-                'has_subs': SubCategory.objects.filter(cat=active).count() != 0,
-                'active': active
-                 })
-        else:
-            active = ''
-            context.update({
-                'articles': articles,
-                'sub_cats': [
-                    {
-                        'name': cat.name,
-                        'articles': list(articles.objects.filter(sub_cat=cat))
-                    }
-                    for cat in SubCategory.objects.filter(cat=active)],
-                'has_subs': SubCategory.objects.filter(cat=active).count() != 0,
-                'active': active
-            })
+    categories = Category.objects
+    lang = translation.get_language()
+    cat_lang = categories.filter(language=lang)
+
+    if category_id is not None \
+            and categories.filter(pk=category_id).count() == 1:
+        cat = categories.get(pk=category_id)
+    elif cat_lang.count() > 0:
+        cat = cat_lang.first()
     else:
-        active = Category.objects.get(id=category_id)
-        articles = Article.objects.filter(category=active)
-        if Category.objects.get(id=category_id).language != translation.get_language():
-            return redirect('/articles/')
-        context.update({
-                'articles': articles,
-                'sub_cats': [
-                    {
-                        'name': cat.name,
-                        'articles': list(articles.filter(sub_cat=cat))
-                    }
-                    for cat in SubCategory.objects.filter(cat=active)],
-                'has_subs': SubCategory.objects.filter(cat=active).count() != 0,
-                'active': active
-        })
+        return render(request, 'content/articles.html')
 
-        if context['has_subs']:
-            non_sub = list(articles)
-            for cat in context['sub_cats']:
-                for art in cat['articles']:
-                    non_sub.remove(art)
+    articles = Article.objects.filter(category=cat)
+
+    context = {
+        'categories': list(cat_lang),
+        'active': cat,
+        'articles': articles,
+
+        'has_subs': SubCategory.objects.filter(cat=cat).count() != 0,
+        'sub_cats': [
+            {
+                'name': s_cat.name,
+                'articles': list(articles.filter(sub_cat=s_cat))
+            } for s_cat in SubCategory.objects.filter(cat=cat)],
+    }
+
+    if context['has_subs']:
+        non_sub = list(articles)
+        for s_cat in context['sub_cats']:
+            for art in s_cat['articles']:
+                non_sub.remove(art)
             if len(non_sub) > 0:
                 context['sub_cats'] += [{
-                        'name': 'other',
-                        'articles': non_sub
-                    }]
+                    'name': ' ',
+                    'articles': non_sub
+                }]
  
     return render(request, 'content/articles.html', context)
 
