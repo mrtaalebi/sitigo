@@ -12,7 +12,7 @@ class Contestant(models.Model):
     event_tier = models.ForeignKey("ContestTier", null=False, blank=False, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name + " - " + self.event_tier
+        return self.name + " - " + str(self.event_tier)
 
 
 class Country(models.Model):
@@ -35,7 +35,7 @@ class ProblemScore(models.Model):
     contestant = models.ForeignKey("Contestant", related_name="problem_scores", null=False, blank=False, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.p_id + ": " + self.score + " - " + self.contestant
+        return str(self.p_id) + ": " + str(self.score) + " - " + str(self.contestant)
 
 
 class ContestTier(models.Model):
@@ -44,7 +44,7 @@ class ContestTier(models.Model):
     event = models.ForeignKey(Event, null=False, blank=False, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.english_name + " - " + self.event + " : " + self.pk
+        return self.english_name + " - " + str(self.event) + " : " + str(self.pk)
 
 
 class CSV(models.Model):
