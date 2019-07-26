@@ -23,9 +23,12 @@ from apps.contact_us import urls as contact_us_urls
 from apps.blog import urls as blog_urls
 from apps.question import urls as question_urls
 from apps.staff import urls as staff_url
+from apps.scoreboard import urls as scoreboard_urls
+from apps.gallery import urls as gallery_urls
 
 from django.conf import settings
 from django.conf.urls.static import static
+
 
 urlpatterns = [
     url(r'^set_lang/', set_lang),
@@ -42,8 +45,8 @@ urlpatterns = [
     url(r'^articles/(?P<category_id>\d+)/$', views.articles),
     url(r'^articles/$', views.articles),
 
-    url(r'^scoreboard/', include(apps.scoreboard.urls), name='scoreboard'),
-    url(r'^gallery/', include(apps.gallery.url), name='gallery'),
+    url(r'^scoreboard/', include(scoreboard_urls), name='scoreboard'),
+    url(r'^gallery/', include(gallery_urls), name='gallery'),
 ]
 
 if settings.DEBUG:
