@@ -20,6 +20,8 @@ def navbar(request):
 
     if translation.get_language() == "en":
         context['navbar'].remove(['/articles', _('Articles')])
+        context['navbar'].remove(['/staff', _('Staff')])
+    
 
     page_dir = '/' + request.path.split('/')[1]
     for x in context['navbar']:
