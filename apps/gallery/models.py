@@ -27,7 +27,7 @@ class Image(models.Model):
     def save(self, *args, **kwargs):
         if not self.id:
             self.image = resize(self.image, 800, 600)
-        super(ImageUpload, self).save(*args, **kwargs)
+        super(Image, self).save(*args, **kwargs)
     
     def __str__(self):
         return self.caption + ' - ' + str(self.country_event)
