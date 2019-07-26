@@ -20,9 +20,9 @@ def gallery(request, event_id=None):
         'event': event,
         'by_country_event_images': [
             {
-                'country': coev,
+                'coev': coev,
                 'images': shuffle(list(Image.objects.filter(country_event=coev))),
-            } for coev in CountryEvent.objects.filter(event__id=event.id).order_by('country__name')],
+            } for coev in CountryEvent.objects.filter(event=event).order_by('country__name')],
     }
 
     return render(request, 'gallery/gallery.html', context)
