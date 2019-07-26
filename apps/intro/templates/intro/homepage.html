@@ -12,6 +12,15 @@
          style="width: 100vw; height: 100vh;
                  background-image: url({% static 'intro/images/bg.png' %}); background-size: cover; background-repeat: no-repeat; background-position: center;"
          id="topper">
+
+            <div class="ui center aligned segment register
+                {% if LANGUAGE_CODE == "fa" %}
+                    register-fa">
+                {% else %}
+                    register-en">
+                {% endif %}
+                <h1>{% trans "Register now!" %}</h1>
+            </div>
         <div class="ui container">
 
 
@@ -21,22 +30,20 @@
 
             {% if LANGUAGE_CODE == "en" %}
 
-                <div class="ui left aligned huge header" id="title" style="color: white; font-size: 10vh; font-weight: 900"><p>6th<br>Iranian<br>Geometry<br>Olympiad</p>
+            <div class="ui left aligned huge header title" id="title" style="color: white; font-size: 10vh; font-weight: 900"><p>6th<br>Iranian<br>Geometry<br>Olympiad<br></p>
                 </div>
             {% else %}
-                <div class="ui right aligned huge header" id="title"
-                     style="color: white; font-size: 10vh; font-weight: 900">ششمین<br>المپیاد<br>هندسه<br>ایران
+                <div class="ui right aligned huge header title" id="title"
+                                                          style="color: white; font-size: 10vh; font-weight: 900">ششمین<br>المپیاد<br>هندسهٔ<br>ایران<br>
                 </div>
 
             {% endif %}
 
+
+
             <div class="center aligned segments"
                  style="width: 25rem; left: 0; right: 0; max-width: 90vw; margin-left: auto; margin-right: auto; position: absolute; bottom: 2vh;">
-                <div class="ui center aligned attached segment"
-                     style="background-color: greenyellow; color: black;margin-bottom: 20px; border-radius: 10px; height: 7vh; line-height: 0.5vh; text-align: center">
-                    <h1>{% trans "Register now!" %}</h1>
-                </div>
-                <div class="ui center aligned attached segment"
+               <div class="ui center aligned attached segment"
                      style="background-color: #E8E8E8; color: black; border-radius: 10px; height: 5vh; line-height: 0.5vh; text-align: center">
                     {% trans " for students and graduates" %}
                 </div>
@@ -52,17 +59,17 @@
                 <div class="ui horizontal attached segment segments fingil" style="margin-top: -2vh">
                     <div class="ui center aligned attached segment fingil">
                         <div class="ui white large circular label"
-                             style="color: black; height: 4vh; line-height: 2.5vh; width: 10vh">{% trans "17 Aug" %}
+                             style="color: black; height: 4vh; width: 15vh">{% trans "17 Aug" %}
                         </div>
                     </div>
                     <div class="ui center aligned attached segment fingil">
                         <div class="ui white large circular label"
-                             style="color: black; height: 4vh; line-height: 2.5vh; width: 10vh"> {% trans "13 Sep" %}
+                             style="color: black; height: 4vh; width: 15vh"> {% trans "13 Sep" %}
                         </div>
                     </div>
                     <div class="ui center aligned attached segment fingil">
                         <div class="ui white large circular label"
-                             style="color: black; height: 4vh; line-height: 2.5vh; width: 10vh">{% trans "19 Sep" %}
+                             style="color: black; height: 4vh; width: 15vh">{% trans "19 Sep" %}
                         </div>
                     </div>
                 </div>
