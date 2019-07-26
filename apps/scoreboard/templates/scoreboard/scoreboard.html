@@ -80,32 +80,32 @@
                 <div class="ui inverted segment" style="background-color: #222222dd;padding:auto" dir="rtl"
                      align="right">
                     <div class="ui">
-                        {{ events }}
-                        {{ event }}
-                        {{ contest_tiers }}
-
                         {% for tier in contest_tiers %}
-                            {% if LANGUAGE_CODE == "fa" %}
-                                {{ tier.tr.persian_name }}
-                            {% else %}
-                                {{ tier.tr.english_name }}
-                            {% endif %}
-                            <table>
-                                <th>
+                            <div class="ui orange dividing header center aligned">
+                                {% if LANGUAGE_CODE == "fa" %}
+                                    {{ tier.tr.persian_name }}
+                                {% else %}
+                                    {{ tier.tr.english_name }}
+                                {% endif %}
+                            </div>
+                            <table class="ui orange striped table" dir="ltr">
+                                <tr>
+                                <thead>
                                     {% for h in tier.table_header %}
-                                        <td>{% trans h %}</td>
+                                        <th>{% trans h %}</th>
                                     {% endfor %}
-                                </th>
+                                </thead>
+                                </tr>
                                 {% for cont in tier.contestants %}
                                     <tr>
-                                        <td>{{ cont.name }}</td>
-                                        <td>{{ cont.country }}</td>
-                                        {% for sc in cont.scores %}
+                                        <td>{{ cont.con.name }}</td>
+                                        <td>{{ cont.con.country }}</td>
+                                        {% for sc in cont.con.scores %}
                                             <td>{{ sc.score }}</td>
                                         {% endfor %}
                                         <td>{{ cont.sum_score }}</td>
-                                        <td>{{ con.rank }}</td>
-                                        <td>{{ con.ruler }}</td>
+                                        <td>{{ cont.con.rank }}</td>
+                                        <td>{{ cont.con.ruler }}</td>
                                     </tr>
                                 {% endfor %}
                             </table>
