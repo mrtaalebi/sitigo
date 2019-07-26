@@ -1,5 +1,5 @@
 from django.db import models
-from PIL import Image
+from PIL import Image as PIL_Image
 from io import BytesIO
 from django.core.files.uploadedfile import InMemoryUploadedFile
 import sys
@@ -9,7 +9,7 @@ from apps.content.models import Event
 
 
 def resize(img, x, y):
-    image_temp = Image.open(img)
+    image_temp = PIL_Image.open(img)
     output_io_stream = BytesIO()
     image_temp = image_temp.resize((x, y))
     image_temp.save(output_io_stream, format='PNG', quality=100)
