@@ -35,3 +35,5 @@ def scoreboard(request, event_id=None):
             for tier in ContestTier.objects.filter(event__id=event.id)]
     }
 
+    return render(request, 'scoreboard/scoreboard.html', context)
+
