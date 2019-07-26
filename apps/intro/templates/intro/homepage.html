@@ -13,6 +13,7 @@
                  background-image: url({% static 'intro/images/bg.png' %}); background-size: cover; background-repeat: no-repeat; background-position: center;"
          id="topper">
 
+
             <div class="ui center aligned segment register
                 {% if LANGUAGE_CODE == "fa" %}
                     register-fa">
@@ -41,10 +42,17 @@
 
 
 
+
             <div class="center aligned segments"
                  style="width: 25rem; left: 0; right: 0; max-width: 90vw; margin-left: auto; margin-right: auto; position: absolute; bottom: 2vh;">
+
+            <a href="">
+            <div class="ui center aligned segment register register-mobile">
+                <h1>{% trans "Register now!" %}</h1>
+            </div>
+            </a>
                <div class="ui center aligned attached segment"
-                     style="background-color: #E8E8E8; color: black; border-radius: 10px; height: 5vh; line-height: 0.5vh; text-align: center">
+                     style="background-color: #E8E8E8; color: black; border-radius: 2.5vh; height: 5vh; line-height: 0.5vh; width: 100%; text-align: center">
                     {% trans " for students and graduates" %}
                 </div>
                 <div class="ui center aligned horizontal attached segment segments fingil">

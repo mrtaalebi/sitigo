@@ -211,6 +211,11 @@ body {
     margin: 0 !important;
 }
 
+.register-mobile {
+    visibility: hidden !important;
+    display: none !important;
+}
+
 .register-fa {
     transform: rotate(+90deg);
     top: 40vh;
@@ -224,6 +229,20 @@ body {
 }
 
 @media only screen and (max-width: 700px) {
+
+    .register {
+        visibility: hidden !important;
+        display: none !important;
+    }
+
+    .register-mobile {
+        visibility: visible !important;
+        display: block !important;
+        margin-bottom: 2vh !important;
+        position: relative !important;
+        width: 100% !important;
+    }
+    
     .register-fa {
         left: -30vw;
     }
@@ -245,6 +264,8 @@ body {
     font-weight: 900 !important;
     border: 0px !important;
     font-family: "IRANSans" !important;
+    display: flex !important;
+    justify-content: center !important;
 }
 
 .fingil-border {
