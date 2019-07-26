@@ -15,7 +15,7 @@ def scoreboard(request, event_id=None):
                 context={"error": "No Events Yet!"})
 
     context = {
-        'events': list(Event.objects.order_by('-year')),
+        'events': list(Event.objects.order_by('year')),
         'event': event,
         'contest_tiers': [
                 {

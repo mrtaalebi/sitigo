@@ -16,13 +16,13 @@ def gallery(request, event_id=None):
                 context={"error": "No Events Yet!"})
 
     context = {
-        'events': list(Event.objects.order_by('-year')),
+        'events': list(Event.objects.order_by('year')),
         'event': event,
         'by_country_event_images': [
             {
                 'country': coev,
                 'images': shuffle(list(Image.objects.filter(country_event=coev))),
-            } for coev in CountryEvent.objects.filter(event__id=event.id).order_by('name')],
+            } for coev in CountryEvent.objects.filter(event__id=event.id).order_by('country__name')],
     }
 
     return render(request, 'gallery/gallery.html', context)
