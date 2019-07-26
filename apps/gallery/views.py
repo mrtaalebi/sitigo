@@ -21,7 +21,7 @@ def gallery(request, event_id=None):
         'by_country_event_images': [
             {
                 'coev': coev,
-                'images': shuffle(list(Image.objects.filter(country_event=coev))),
+                'images': list(Image.objects.filter(country_event=coev)),
             } for coev in CountryEvent.objects.filter(event=event).order_by('country__name')],
     }
 
