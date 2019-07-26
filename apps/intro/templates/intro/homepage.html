@@ -14,14 +14,15 @@
          id="topper">
 
 
-            <div class="ui center aligned segment register
-                {% if LANGUAGE_CODE == "fa" %}
-                    register-fa">
+        <div class="ui center aligned segment register
+            {% if LANGUAGE_CODE == "fa" %}
+                register-fa
                 {% else %}
-                    register-en">
-                {% endif %}
-                <h1>{% trans "Register now!" %}</h1>
-            </div>
+                register-en
+            {% endif %}
+                " style="visibility: hidden">
+            <h1>{% trans "Register now!" %}</h1>
+        </div>
         <div class="ui container">
 
 
@@ -44,15 +45,15 @@
 
 
             <div class="center aligned segments"
-                 style="width: 25rem; left: 0; right: 0; max-width: 90vw; margin-left: auto; margin-right: auto; position: absolute; bottom: 2vh;">
+                 style="width: 25rem; left: 0; right: 0; max-width: 90vw; margin-left: auto; margin-right: auto; position: absolute; bottom: 2vh; visibility: hidden">
 
             <a href="">
             <div class="ui center aligned segment register register-mobile">
                 <h1>{% trans "Register now!" %}</h1>
             </div>
             </a>
-               <div class="ui center aligned attached segment"
-                     style="background-color: #E8E8E8; color: black; border-radius: 2.5vh; height: 5vh; line-height: 0.5vh; width: 100%; text-align: center">
+               <div class="ui center aligned attached segment fingil"
+                     style="background-color: #E8E8E8 !important; color: black !important; border-radius: 2.5vh !important; height: 5vh !important; line-height: 0.5vh; width: 100% !important; text-align: center">
                     {% trans " for students and graduates" %}
                 </div>
                 <div class="ui center aligned horizontal attached segment segments fingil">
