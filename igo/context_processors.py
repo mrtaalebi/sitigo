@@ -1,6 +1,7 @@
 from django.template import RequestContext
 from django.urls import reverse
 from django.utils.translation import ugettext as _
+from django.utils import translation
 
 def navbar(request):
 
@@ -11,10 +12,14 @@ def navbar(request):
             ['/events', _('Events')],
             ['/articles', _('Articles')],
             ['/staff', _('Staff')],
+            ['/gallery', _('Gallery')],
             ['/faq', _('FAQ')],
             ['/contact_us', _('Contact Us')],
         ]
     }
+
+    if translation.get_language() == "en":
+        context['navbar'].remove(['/articles', _('Articles')])
 
     page_dir = '/' + request.path.split('/')[1]
     for x in context['navbar']:
