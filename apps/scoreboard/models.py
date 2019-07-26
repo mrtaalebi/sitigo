@@ -44,7 +44,7 @@ class ContestTier(models.Model):
     event = models.ForeignKey(Event, null=False, blank=False, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.engish_name + " - " + self.event + " : " + self.pk
+        return self.english_name + " - " + self.event + " : " + self.pk
 
 
 class CSV(models.Model):
