@@ -79,12 +79,12 @@
             <div class="twelve wide center aligned stretched column">
                 <div class="ui inverted segment" style="background-color: #222222dd;padding:auto" dir="rtl"
                      align="right">
-                    <div class="ui stackable grid">
+                    <div class="ui">
                         {% for tier in contest_tiers %}
                             {% if LANGUAGE_CODE == "fa" %}
-                                {{ tr.persian_name }}
+                                {{ tier.tr.persian_name }}
                             {% else %}
-                                {{ tr.english_name }}
+                                {{ tier.tr.english_name }}
                             {% endif %}
                             <table>
                                 <th>
