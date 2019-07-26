@@ -80,6 +80,7 @@
                 <div class="ui inverted segment" style="background-color: #222222dd;padding:auto" dir="rtl"
                      align="right">
                     <div class="ui">
+                        {{ context }}
                         {% for tier in contest_tiers %}
                             {% if LANGUAGE_CODE == "fa" %}
                                 {{ tier.tr.persian_name }}
