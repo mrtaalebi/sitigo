@@ -7,6 +7,6 @@ app_name = "gallery"
 
 urlpatterns = [
     url(r'^(?P<event_id>\d+)/$', views.gallery, name='gallery'),
-    url(r'^/$', name='gallery'),
+    url(r'^/$', views.gallery, name='gallery'),
 ]
 

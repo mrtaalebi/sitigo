@@ -7,6 +7,6 @@ app_name = "scoreboard"
 
 urlpatterns = [
     url(r'^(?P<event_id>\d+)/$', views.scoreboard, name='scoreboard'),
-    url(r'^/$', name='scoreboard'),
+    url(r'^/$', views.scoreboard, name='scoreboard'),
 ]
 
