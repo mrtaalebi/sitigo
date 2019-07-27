@@ -20,17 +20,24 @@ def resize(img, x, y):
 
 
 class Image(models.Model):
-    caption = models.CharField(max_length=100, null=True, blank=True)
+    persian_caption = models.CharField(max_length=100, null=True, blank=True)
+    english_caption = models.CharField(max_length=100, null=True, blank=True)
     country_event = models.ForeignKey('CountryEvent', on_delete=models.CASCADE)
     image = models.ImageField()
 
     def save(self, *args, **kwargs):
         if not self.id:
             self.image = resize(self.image, 800, 600)
+            if self.persian_caption == "":
+                self.persian_caption = self.country_event.event.persian_name + " در " \
+                        + self.country_event.country.persian_name
+            if self.english_caption == "":
+                self.english_caption = self.country_event.event.english_name + " in " \
+                        + self.country_event.country.english_name
         super(Image, self).save(*args, **kwargs)
     
     def __str__(self):
-        return self.caption + ' - ' + str(self.country_event)
+        return str(self.english_caption) + ' - ' + str(self.country_event)
 
 
 class CountryEvent(models.Model):
@@ -42,8 +49,9 @@ class CountryEvent(models.Model):
 
 
 class Country(models.Model):
-    name = models.CharField(max_length=100)
+    persian_name = models.CharField(max_length=100)
+    english_name = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.name
+        return self.english_name
 
