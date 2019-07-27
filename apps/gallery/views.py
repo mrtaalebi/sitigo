@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.utils import translation
 
 from .models import *
 
@@ -15,15 +16,23 @@ def gallery(request, event_id=None):
                 'gallery/gallery.html',
                 context={"error": "No Events Yet!"})
 
+    
     context = {
         'events': list(Event.objects.order_by('year')),
-        'event': event,
-        'by_country_event_images': [
-            {
-                'coev': coev,
-                'images': list(Image.objects.filter(country_event=coev)),
-            } for coev in CountryEvent.objects.filter(event=event).order_by('country__name')],
+        'event': event
     }
+    if translation.get_language() == "fa":
+        sort_by = "country__persian_name"
+    else:
+        sort_by = "country__english_name"
+
+    context['by_country_event_images'] = [
+        {
+            'coev': coev,
+            'images': list(Image.objects.filter(country_event=coev)),
+        } for coev in CountryEvent.objects.filter(event=event).order_by(sort_by)
+    ]
+
 
     return render(request, 'gallery/gallery.html', context)
 

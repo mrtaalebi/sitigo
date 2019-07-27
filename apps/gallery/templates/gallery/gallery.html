@@ -82,11 +82,15 @@
                         {% for country_images in by_country_event_images %}
                             <h1>{{ country_images.coev.country.name }}</h1>
 
-                            <div class="ui stackable four grid">
+                            <div class="ui stackable four images">
                                 {% for image in country_images.images %}
                                     <div>
                                         <img class="ui image" src="{{ image.image.url }}">
-                                        <p>{{ image.caption }}</p>
+                                        {% if LANGUAGE_CODE == "fa" %}
+                                            <p>{{ image.persian_caption }}</p>
+                                        {% else %}
+                                            <p>{{ image.english_caption }}</p>
+                                        {% endif %}
                                     </div>
                                 {% endfor %}
                             </div>
