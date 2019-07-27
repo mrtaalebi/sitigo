@@ -517,6 +517,23 @@ Afghanistan, Argentina, Armenia, Australia, Bangladesh, Belarus, Bolivia, Bosnia
     <div class="ui inverted vertical stripe quote segment">
         <div class="ui equal width stackable internally grid">
             <div class="center aligned row">
+
+                <div class="column">
+                    <h3 class="faded_class">{% trans 'Organizer' %}</h3>
+                    <p>
+                        <img
+                            class="ui avatar medium image"
+                            src="{{ organizer.image.url }}"
+                            style="margin-bottom: 2vh; margin-top: 5vh"
+                        />
+                        <br>
+                        {% if LANGUAGE_CODE == 'fa' %}
+                            {{ organizer.persian_name }}
+                        {% else %}
+                            {{ organizer.english_name }}
+                        {% endif %}
+                    </p>
+                </div>
                 <div class="column">
                     <h3 class="faded_class">{% trans 'Sponsor' %}</h3>
                     <p>
@@ -534,22 +551,7 @@ Afghanistan, Argentina, Armenia, Australia, Bangladesh, Belarus, Bolivia, Bosnia
                         {% endif %}
                     </p>
                 </div>
-                <div class="column">
-                    <h3 class="faded_class">{% trans 'Organizer' %}</h3>
-                    <p>
-                        <img
-                            class="ui avatar medium image"
-                            src="{{ organizer.image.url }}"
-                            style="margin-bottom: 2vh; margin-top: 5vh"
-                        />
-                        <br>
-                        {% if LANGUAGE_CODE == 'fa' %}
-                            {{ organizer.persian_name }}
-                        {% else %}
-                            {{ organizer.english_name }}
-                        {% endif %}
-                    </p>
-                </div>
+
             </div>
         </div>
     </div>
