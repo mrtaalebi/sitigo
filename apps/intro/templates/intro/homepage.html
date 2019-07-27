@@ -520,9 +520,11 @@ Afghanistan, Argentina, Armenia, Australia, Bangladesh, Belarus, Bolivia, Bosnia
                 <div class="column">
                     <h3 class="faded_class">{% trans 'Sponsor' %}</h3>
                     <p>
+
                         <img
-                                class="ui avatar medium image"
-                                src="{{ sponsor.image.url }}"
+                            class="ui avatar medium image"
+                            src="{{ sponsor.image.url }}"
+                            style="margin-bottom: 2vh; margin-top: 5vh"
                         />
                         <br>
                         {% if LANGUAGE_CODE == 'fa' %}
@@ -536,8 +538,9 @@ Afghanistan, Argentina, Armenia, Australia, Bangladesh, Belarus, Bolivia, Bosnia
                     <h3 class="faded_class">{% trans 'Organizer' %}</h3>
                     <p>
                         <img
-                                class="ui avatar medium image"
-                                src="{{ organizer.image.url }}"
+                            class="ui avatar medium image"
+                            src="{{ organizer.image.url }}"
+                            style="margin-bottom: 2vh; margin-top: 5vh"
                         />
                         <br>
                         {% if LANGUAGE_CODE == 'fa' %}
