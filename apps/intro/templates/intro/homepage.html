@@ -150,8 +150,10 @@
 
     <div class="ui inverted vertical stripe segment" style="background-color: black">
         <div class="ui middle aligned stackable grid container">
-            <div class="row">
-                <div >
+            <div class="row" style="padding-bottom: 20vh">
+                <div class="two wide {% if LANGUAGE_CODE == "fa" %}left{% else %}right{% endif %} floated column faded_class">
+                </div>
+                <div class="ten wide column">
                     <h3 class="ui header faded_class" style="color:white"><i
                             class="inverted purple check square icon"></i>{% trans "Goals" %}
                     </h3>
@@ -217,6 +219,7 @@
                     </ul>
                     </p>
                 </div>
+                <div class="two wide {% if LANGUAGE_CODE == "fa" %}left{% else %}right{% endif %} floated column faded_class">
             </div>
 
         </div>
@@ -225,7 +228,9 @@
     <div class="ui inverted vertical stripe segment">
         <div class="ui middle aligned stackable grid container">
             <div class="row">
-                <div class="eight wide column">
+                <div class="two wide {% if LANGUAGE_CODE == "fa" %}left{% else %}right{% endif %} floated column faded_class">
+                </div>
+                <div class="ten wide column">
                     <h3 class="ui header faded_class" style="color:white"><i
                             class="inverted teal flag icon"></i>{% trans "Participating of foreign countries" %} </h3>
                     {% if LANGUAGE_CODE == 'en' %}
@@ -240,7 +245,7 @@ Afghanistan, Argentina, Armenia, Australia, Bangladesh, Belarus, Bolivia, Bosnia
                     </p>
                     {% endif %}
                 </div>
-                <div class="six wide {% if LANGUAGE_CODE == "fa" %}left{% else %}right{% endif %} floated column faded_class">
+                <div class="two wide {% if LANGUAGE_CODE == "fa" %}left{% else %}right{% endif %} floated column faded_class">
                 </div>
             </div>
 
