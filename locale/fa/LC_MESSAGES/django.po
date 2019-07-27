@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-27 00:03+0430\n"
+"POT-Creation-Date: 2019-07-27 16:28+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,7 +60,7 @@ msgid "university"
 msgstr "دانشگاه"
 
 #: apps/contact_us/templates/contact_us/contact_us.html:36
-#: igo/context_processors.py:15 templates/base/base.html:112
+#: igo/context_processors.py:17 templates/base/base.html:112
 msgid "Contact Us"
 msgstr "تماس با ما"
 
@@ -121,8 +121,8 @@ msgid "Register now!"
 msgstr "همین حالا ثبت نام کنید"
 
 #: apps/intro/templates/intro/homepage.html:50
-msgid "Coming soon!"
-msgstr "به زودی!"
+msgid "Coming soon..."
+msgstr "به زودی..."
 
 #: apps/intro/templates/intro/homepage.html:65
 msgid " for students and graduates"
@@ -192,27 +192,31 @@ msgstr "حمایت‌کننده"
 msgid "Organizer"
 msgstr "برگزار کننده"
 
-#: igo/context_processors.py:9
+#: igo/context_processors.py:10
 msgid "Home"
 msgstr "خانه"
 
-#: igo/context_processors.py:10
+#: igo/context_processors.py:11
 msgid "Blog"
 msgstr "بلاگ"
 
-#: igo/context_processors.py:11
+#: igo/context_processors.py:12
 msgid "Events"
 msgstr "رویدادهای پیشین"
 
-#: igo/context_processors.py:12
+#: igo/context_processors.py:13 igo/context_processors.py:22
 msgid "Articles"
 msgstr "مقالات و مسئله‌ها"
 
-#: igo/context_processors.py:13
+#: igo/context_processors.py:14 igo/context_processors.py:23
 msgid "Staff"
 msgstr "دست‌اندرکاران"
 
-#: igo/context_processors.py:14
+#: igo/context_processors.py:15
+msgid "Gallery"
+msgstr "گالری"
+
+#: igo/context_processors.py:16
 msgid "FAQ"
 msgstr "سوالات متداول"
 

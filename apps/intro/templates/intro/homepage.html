@@ -47,7 +47,7 @@
                  style="width: 25rem; left: 0; right: 0; max-width: 90vw; margin-left: auto; margin-right: auto; position: absolute; bottom: 20vh;">
 
                 <div class="ui center aligned segment register">
-                    <h1>{% trans "Coming soon!" %}</h1>
+                    <h1>{% trans "Coming soon..." %}</h1>
                 </div>
             </div>
 
@@ -137,7 +137,7 @@
                         </p>
                     {% endif %}
                 </div>
-                <div class="six wide right floated column faded_class">
+                <div class="six wide {% if LANGUAGE_CODE == "fa" %}left{% else %}right{% endif %} floated column faded_class">
                     <img
                             class="ui huge rounded image"
                             src="{% static 'intro/images/logo.png' %}"
@@ -240,10 +240,10 @@ Afghanistan, Argentina, Armenia, Australia, Bangladesh, Belarus, Bolivia, Bosnia
                     </p>
                     {% endif %}
                 </div>
-                <div class="six wide right floated column faded_class">
+                <div class="six wide {% if LANGUAGE_CODE == "fa" %}left{% else %}right{% endif %} floated column faded_class">
                     <img
                             class="ui huge rounded image"
-                            src="{% static 'intro/images/logo.png' %}"
+                            src="{% static 'intro/images/earth_flags.png' %}"
                     >
                 </div>
             </div>

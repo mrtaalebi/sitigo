@@ -28,7 +28,7 @@ def scoreboard(request, event_id=None):
                     {
                         'con': con,
                         'scores': ProblemScore.objects.filter(contestant=con).order_by('p_id'),
-                        'sum_score': sum(list(ProblemScore.objects.filter(contestant=con))),
+                        'sum_score': sum([p.score for p in ProblemScore.objects.filter(contestant=con)]),
                     } for con in Contestant.objects.filter(event_tier=tier).order_by('rank')],
             } for tier in ContestTier.objects.filter(event=event)]
     }
