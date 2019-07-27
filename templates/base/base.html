@@ -118,9 +118,9 @@
                         <div class=" item"><a class="item" target="_blank"
                                               href="https://www.instagram.com/igo_official.ir"><i
                                 class="inverted pink large instagram icon" style="font-family: brand-icons !important"></i>igo_official.ir</a></div>
-                        <!--{% if LANGUAGE_CODE == "fa" %}-->
-                        <!--<div class=" item" style="color:white; text-align: justify;text-justify: inter-word;"><i class="inverted green large map marker icon" style="font-family: Icons !important"></i> نشانی دبیرخانه: تهران، میدان دکتر فاطمی، ابتدای خیابان جویبار، خیابان میرهادی شرقی، شماره ۱۴، موسسه فرهنگی فاطمی، واحد۴</div>-->
-                        <!--{% endif%}-->
+                        <div class="item" style="padding-top: 5vh">
+                            <img class="ui avatar small image" src="{% static 'intro/images/logo.png' %}">
+                        </div>
                     </div>
                 </div>
                 <div class="two wide column"></div>
@@ -130,9 +130,6 @@
                         {% for location, text, is_active in navbar %}
                             <a class="item" href="{{ location }}">{{ text }}</a>
                         {% endfor %}
-{#                        <a class="item" href="/events">{% trans "Previous Events" %}</a>#}
-{#                        <a class="item" href="/articles">{% trans "Problems & Articles" %}</a>#}
-{#                        <a class="item" href="/blog">{% trans "Blog" %}</a>#}
                     </div>
                 </div>
 
