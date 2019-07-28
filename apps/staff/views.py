@@ -6,30 +6,28 @@ from apps.staff.models import Staff
 
 
 def staff(request, event_id = None):
-    events = list(Event.objects.all().order_by('year'))
-    x = []
-    for e in events:
-        x.append({
-            'id': e.id,
-            'persian_name': e.persian_name,
-            'english_name': e.english_name
-        })
-    context = {'events': x}
-    if event_id is not None:
-        active = Event.objects.get(id=event_id)
+    events = Event.objects.all().order_by('year')
+    if event_id is not None and events.filter(pk=event_id).count() == 1:
+        active = events.get(pk=event_id)
+    elif events.count() > 0:
+        active = events.last()
     else:
-        if len(events) > 0:
-            active = events[len(events)-1]
-        else:
-            active = None
-    if active is not None:
-        staffs = list(Staff.objects.filter(event=active))
-        ctx = {
-            'id': active.id,
-            'staff': staffs
-        }
-        context.update({
-            'active': ctx
-        })
+        return render(reqeust, 'staff/staff.html', context={'events': events})
+
+    e_staff = Staff.objects.filter(event=active)
+    role_tiers = set()
+    for s in e_staff:
+        role_tiers.add(s.role.tier)
+
+    context = {
+        'events': events,
+        'active': active,
+        'tiers' :[{
+            't': t,
+            'staff': e_staff.filter(role__tier=t)
+        } for t in role_tiers]
+
+    }
+
     return render(request, 'staff/staff.html', context)
 

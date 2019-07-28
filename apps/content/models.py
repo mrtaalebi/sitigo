@@ -78,7 +78,7 @@ class Event(models.Model):
     persian_content = RichTextField()
     english_content = RichTextField()
     year = models.IntegerField()
-    images = models.ManyToManyField(ImageUpload, null=True, blank=True)
+    images = models.ManyToManyField(ImageUpload)
 
     def __str__(self):
         return self.english_name
