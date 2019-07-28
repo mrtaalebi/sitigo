@@ -11,11 +11,13 @@ from django.utils.translation import (
 
 from apps.intro.models import HomePage, HomePageImage
 
+from apps.gallery.models import Image
+import random
+
 LANGUAGE_QUERY_PARAMETER = 'language'
 
 
 def homepage(request):
-    x = []
     context = {}
     if len(HomePage.objects.all()) > 0:
         hp = HomePage.objects.all()[0]
@@ -33,12 +35,14 @@ def homepage(request):
             'sponsor': sponsor,
             'organizer': organizer
         })
-        for item in list(HomePageImage.objects.filter(homePage=hp)):
-            print(item)
-            x += [item]
+    gallery_images = list(Image.objects.all())
+    if len(gallery_images) > 0:
+        images = random.sample(gallery_images, 10 % len(gallery_images))
+    else:
+        images = []
     context.update({
-        'slideshow': x,
-        'num_of_img': range(len(x)),
+        'slideshow': images,
+        'num_of_img': range(len(images)),
     })
     return render(request, 'intro/homepage.html', context)
 

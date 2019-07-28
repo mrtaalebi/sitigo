@@ -8,10 +8,19 @@ from django.utils.translation import ugettext_lazy as _
 from apps.content.models import Event
 
 
-def resize(img, x, y):
+def resize(img, max_height, x_to_y):
     image_temp = PIL_Image.open(img)
     output_io_stream = BytesIO()
+    y = max_height if image_temp.size[1] > max_height else image_temp.size[1]
+    x = y * image_temp.size[0] / image_temp.size[1]
     image_temp = image_temp.resize((x, y))
+    if image_temp.size[0] / image_temp.size[1] - x_to_y > 1e-5:
+        image_temp = image_temp.crop((
+                (image_temp.size[0] - image_temp.size[1] * x_to_y) / 2,
+                0,
+                image_temp.size[0] - (image_temp.size[0] - image_temp.size[1] * x_to_y) / 2,
+                image_temp.size[1])
+            )
     image_temp.save(output_io_stream, format='PNG', quality=100)
     output_io_stream.seek(0)
     img = InMemoryUploadedFile(output_io_stream, 'ImageField', "%s.jpg" % img.name.split('.')[0],
@@ -27,7 +36,7 @@ class Image(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.id:
-            self.image = resize(self.image, 800, 600)
+            self.image = resize(self.image, 1000, 4 / 3)
             if self.persian_caption == "":
                 self.persian_caption = self.country_event.event.persian_name + " در " \
                         + self.country_event.country.persian_name
