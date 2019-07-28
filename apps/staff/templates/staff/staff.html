@@ -66,6 +66,7 @@
                     <div class="twelve wide centered stretched column">
                         <div class="ui inverted segment" style="background-color: #222222dd ;padding-left: auto; padding-right: auto"
                              align="center">
+
                             {% for tier in tiers %}
                                 <div class="ui orange center aligned dividing header">
                                     {{ tier.t.english_name }}
@@ -133,19 +134,43 @@
                     <div class="twelve wide center aligned stretched column" style="padding-right: auto;padding-left: auto" align="center">
                         <div class="ui inverted segment" style="background-color: #222222dd;padding-right: auto;padding-left: auto"
                              dir="rtl" align="center">
-                            <div class="ui inverted  horizontal list" style="padding-right: auto;padding-left: auto">
-                                {% for person in active.staff %}
-                                    <div class="item">
-                                        <img class="ui tiny circular image" src="{{ person.image.url }}">
-                                        <div class="inverted content" align="right">
-                                            <div class="ui sub header">&nbsp;&nbsp;{{ person.persian_name }}</div>
-                                          &nbsp;&nbsp;   {{ person.role.persian_name }}
-                                        </div>
+
+                            {% for tier in tiers %}
+                                <div class="ui orange center aligned dividing header">
+                                    {{ tier.t.english_name }}
+                                </div>
+                                <div class="ui stackable grid" style="margin-bottom: 5vh">
+                                    {% for s in tier.staff %}
+                                        {% if forloop.counter0|modulo:4 == 0 %}
+                                            <div class="ui center aligend row">
+                                        {% endif %}
+                                        <div class="column" style="display: flex; flex-direction: column;">
+                                            <div class="ui small circular image">
+                                                <img src="{{ s.image.url }}">
+                                            </div> 
+                                            <div class="ui black label" style="max-width: 30vh; margin-top: 1vh">
+                                                {% if LANGUAGE_CODE == "fa" %}
+                                                    {{ s.persian_name }}
+                                                {% else %}
+                                                    {{ s.english_name }}
+                                                {% endif %}
+                                            </div>
+                                            <div class="ui label grey" style="max-width: 30vh">
+                                                    {% if LANGUAGE_CODE == "fa" %}
+                                                        {{ s.role.persian_name }}
+                                                    {% else %}
+                                                        {{ s.role.english_name }}
+                                                    {% endif %}
+                                            
+                                            </div>
+                                        </div>                            
+                                        {% if forloop.counter0|modulo:4 == 3 %}
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
                                     </div>
-                                {% endfor %}
-                            </div>
-
-
+                                </div>
+                            {% endfor %}
 
                         </div>
                     </div>
