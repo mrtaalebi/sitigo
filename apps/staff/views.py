@@ -1,8 +1,9 @@
 from django.shortcuts import render
 
-# Create your views here.
 from apps.content.models import Event
 from apps.staff.models import Staff
+
+import random
 
 
 def staff(request, event_id = None):
@@ -18,7 +19,7 @@ def staff(request, event_id = None):
     role_tiers = set()
     for s in e_staff:
         role_tiers.add(s.role.tier)
-
+    role_tiers = sorted(list(role_tiers), key=lambda x : x.position_from_top)
     context = {
         'events': events,
         'active': active,
@@ -26,8 +27,9 @@ def staff(request, event_id = None):
             't': t,
             'staff': e_staff.filter(role__tier=t)
         } for t in role_tiers]
-
     }
+    for tier in context['tiers']:
+        tier['staff'] = random.shuffle(tier['staff'])
 
     return render(request, 'staff/staff.html', context)
 
