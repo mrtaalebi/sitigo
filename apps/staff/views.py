@@ -28,8 +28,9 @@ def staff(request, event_id = None):
             'staff': e_staff.filter(role__tier=t)
         } for t in role_tiers]
     }
+
     for tier in context['tiers']:
-        tier['staff'] = random.shuffle(tier['staff'])
+        random.shuffle(tier['staff'])
 
     return render(request, 'staff/staff.html', context)
 
