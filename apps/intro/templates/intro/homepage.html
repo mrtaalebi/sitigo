@@ -481,35 +481,22 @@ Afghanistan, Argentina, Armenia, Australia, Bangladesh, Belarus, Bolivia, Bosnia
 
     {#    slideshow#}
     <div class="ui inverted segment" style="background-color: black; padding: 0px; margin: 0px; padding-bottom:">
-        <div class="slideshow-container inverted gingil" style="height: 80vh">
-            <!-- Full-width images with number and caption text -->
+        <div class="ui three column grid">
             {% for img in slideshow %}
-                <div class="gingil">
-                    <div class="mySlides fade">
-                        <img class="slide-image" src="{{ img.image.url }}">
-                        <div class="text" style="background-color: rgba(0, 0, 0, 0.70);">
-                            {% if LANGUAGE_CODE == 'fa' %}
-                                {{ img.persian_caption }}
-                            {% else %}
-                                {{ img.english_caption }}
-                            {% endif %}
+                <div class="ui center aligend column">
+                    <div style="display: flex; justify-content: center">
+                        <div class="ui image">
+                            <img src="{{ img.image.url }}" style="height: 200px">
+                            <div class="ui inverted black bottom attached label">
+                                {% if LANGUAGE_CODE == "fa" %}
+                                    {{ image.persian_caption }}
+                                {% else %}
+                                    {{ image.english_caption }}
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>
-            {% endfor %}
-
-
-            <!-- Next and previous buttons -->
-            <div class="ui fluid" dir="ltr">
-            <a class="prev" style="position: absolute; left: 0;" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" style="position: absolute; right: 0;" onclick="plusSlides(1)">&#10095;</a>
-            </div>
-        </div>
-
-        <!-- The dots/circles -->
-        <div style="text-align:center; height: 2vh">
-            {% for x in num_of_img %}
-                <span class="dot" onclick="currentSlide(x+1)"></span>
             {% endfor %}
         </div>
     </div>
