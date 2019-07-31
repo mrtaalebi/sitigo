@@ -92,7 +92,6 @@
                             <div class="ui stackable two column grid">
                                 {% for image in country_images.images %}
                                     {% if forloop.counter0|modulo:2 == 0 %}
-                                        <div class="row">
                                     {% endif %}
                                     <div class="ui center aligned column">
                                         <div style="display: flex; justify-content: center">
@@ -109,9 +108,7 @@
                                         </div>
                                     </div>
                                     {% if forloop.counter0|modulo:2 == 1 %}
-                                        </div>
                                     {% elif country_images.images|len == forloop.counter1 %}
-                                        </div>
                                     {% endif %}
                                 {% endfor %}
                             </div>
