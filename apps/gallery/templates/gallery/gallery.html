@@ -110,6 +110,8 @@
                                     </div>
                                     {% if forloop.counter0|modulo:2 == 1 %}
                                         </div>
+                                    {% elif country_images.images|len == forloop.counter1 %}
+                                        </div>
                                     {% endif %}
                                 {% endfor %}
                             </div>
