@@ -37,7 +37,7 @@ def homepage(request):
         })
     gallery_images = list(Image.objects.all())
     if len(gallery_images) > 0:
-        images = random.sample(gallery_images, min(10, len(gallery_images)))
+        images = random.sample(gallery_images, min(9, len(gallery_images)))
     else:
         images = []
     context.update({
