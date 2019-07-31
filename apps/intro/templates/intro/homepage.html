@@ -487,11 +487,11 @@ Afghanistan, Argentina, Armenia, Australia, Bangladesh, Belarus, Bolivia, Bosnia
                     <div style="display: flex; justify-content: center">
                         <div class="ui image">
                             <img src="{{ img.image.url }}" style="height: 200px">
-                            <div class="ui center aligned inverted black bottom attached label">
+                            <div class="ui center aligned inverted black bottom attached small label">
                                 {% if LANGUAGE_CODE == "fa" %}
-                                    <p>{{ img.persian_caption }}</p>
+                                    <p class="ui center aligned">{{ img.persian_caption }}</p>
                                 {% else %}
-                                    <p>{{ img.english_caption }}</p>
+                                    <p class="ui center aligned">{{ img.english_caption }}</p>
                                 {% endif %}
                             </div>
                         </div>
