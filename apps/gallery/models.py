@@ -16,9 +16,9 @@ def resize(img, max_height, x_to_y):
     image_temp = image_temp.resize((x, y))
     if image_temp.size[0] / image_temp.size[1] - x_to_y > 1e-5:
         image_temp = image_temp.crop((
-                (image_temp.size[0] - image_temp.size[1] * x_to_y) / 2,
+                int((image_temp.size[0] - image_temp.size[1] * x_to_y) / 2),
                 0,
-                image_temp.size[0] - (image_temp.size[0] - image_temp.size[1] * x_to_y) / 2,
+                int(image_temp.size[0] - (image_temp.size[0] - image_temp.size[1] * x_to_y) / 2),
                 image_temp.size[1])
             )
     image_temp.save(output_io_stream, format='PNG', quality=100)
