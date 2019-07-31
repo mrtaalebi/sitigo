@@ -38,10 +38,10 @@ class Image(models.Model):
         if not self.id:
             self.image = resize(self.image, 1000, 4 / 3)
             if self.persian_caption == "default":
-                self.persian_caption = self.country_event.event.persian_name + " در " \
+                self.persian_caption = self.country_event.event.persian_name.split()[0] + " المپیاد هندسه در" \
                         + self.country_event.country.persian_name
             if self.english_caption == "default":
-                self.english_caption = self.country_event.event.english_name + " in " \
+                self.english_caption = self.country_event.event.english_name.split()[0] + " IGO in " \
                         + self.country_event.country.english_name
         super(Image, self).save(*args, **kwargs)
     
