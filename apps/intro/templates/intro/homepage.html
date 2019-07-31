@@ -479,7 +479,7 @@ Afghanistan, Argentina, Armenia, Australia, Bangladesh, Belarus, Bolivia, Bosnia
         </div>
     {% endif %}
 
-    {#    slideshow#}
+
     <div class="ui inverted segment" style="background-color: black; padding-left: 15%; padding-right: 15%; margin: 0px; padding-bottom: 2vh">
         <div class="ui three column grid">
             {% for img in slideshow %}
@@ -489,9 +489,9 @@ Afghanistan, Argentina, Armenia, Australia, Bangladesh, Belarus, Bolivia, Bosnia
                             <img src="{{ img.image.url }}" style="height: 200px">
                             <div class="ui center aligned inverted black bottom attached small label">
                                 {% if LANGUAGE_CODE == "fa" %}
-                                    <p class="ui center aligned">{{ img.persian_caption }}</p>
+                                    {{ img.persian_caption }}
                                 {% else %}
-                                    <p class="ui center aligned">{{ img.english_caption }}</p>
+                                    {{ img.english_caption }}
                                 {% endif %}
                             </div>
                         </div>
