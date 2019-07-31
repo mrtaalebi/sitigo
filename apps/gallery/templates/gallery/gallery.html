@@ -91,25 +91,13 @@
 
                             <div class="ui stackable two column grid">
                                 {% for image in country_images.images %}
-                                    {% if forloop.counter0|modulo:2 == 0 %}
-                                    {% endif %}
                                     <div class="ui center aligned column">
                                         <div style="display: flex; justify-content: center">
                                             <div class="ui image">
                                                 <img src="{{ image.image.url }}" style="height: 300px;">
-                                                <div class="ui inverted black bottom attached label">
-                                                    {% if LANGUAGE_CODE == "fa" %}
-                                                        <p>{{ image.persian_caption }}</p>
-                                                    {% else %}
-                                                        <p>{{ image.english_caption }}</p>
-                                                    {% endif %}
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    {% if forloop.counter0|modulo:2 == 1 %}
-                                    {% elif country_images.images|len == forloop.counter1 %}
-                                    {% endif %}
                                 {% endfor %}
                             </div>
                         {% endfor %}
