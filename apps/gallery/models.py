@@ -11,8 +11,8 @@ from apps.content.models import Event
 def resize(img, max_height, x_to_y):
     image_temp = PIL_Image.open(img)
     output_io_stream = BytesIO()
-    y = max_height if image_temp.size[1] > max_height else image_temp.size[1]
-    x = y * image_temp.size[0] / image_temp.size[1]
+    y = int(max_height if image_temp.size[1] > max_height else image_temp.size[1])
+    x = int(y * image_temp.size[0] / image_temp.size[1])
     image_temp = image_temp.resize((x, y))
     if image_temp.size[0] / image_temp.size[1] - x_to_y > 1e-5:
         image_temp = image_temp.crop((
