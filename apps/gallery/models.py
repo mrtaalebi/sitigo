@@ -32,17 +32,26 @@ class Image(models.Model):
     persian_caption = models.CharField(max_length=100, null=True, blank=True, default="default")
     english_caption = models.CharField(max_length=100, null=True, blank=True, default="default")
     country_event = models.ForeignKey('CountryEvent', on_delete=models.CASCADE)
+    city = models.ForeignKey('City', null=True, on_delete=models.CASCADE)
+
     image = models.ImageField()
 
     def save(self, *args, **kwargs):
         if not self.id:
             self.image = resize(self.image, 1000, 4 / 3)
+            if self.city is not None:
+                location_persian = self.city.persian_name + " - " + self.country_event.country.persian_name
+                location_english = self.city.english_name + " - " + self.country_event.country.english_name
+            else:
+                location_persian = self.country_event.country.persian_name
+                locatian_english = self.country_event.country.english_name
+
             if self.persian_caption == "default":
                 self.persian_caption = self.country_event.event.persian_name.split()[0] + " المپیاد هندسه در" \
-                        + self.country_event.country.persian_name
+                        + location_persian
             if self.english_caption == "default":
                 self.english_caption = self.country_event.event.english_name.split()[0] + " IGO in " \
-                        + self.country_event.country.english_name
+                        + location_english
         super(Image, self).save(*args, **kwargs)
     
     def __str__(self):
@@ -60,6 +69,16 @@ class CountryEvent(models.Model):
 class Country(models.Model):
     persian_name = models.CharField(max_length=100)
     english_name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.english_name
+
+
+class City(models.Model):
+    persian_name = models.CharField(max_length=100)
+    english_name = models.CharField(max_length=100)
+
+    country = models.ForeignKey('Country', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.english_name
