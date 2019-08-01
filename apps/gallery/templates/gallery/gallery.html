@@ -89,7 +89,7 @@
                                 {% endif %}
                             </div>
 
-                            <div class="ui stackable two column grid">
+                            <div class="ui stackable two column grid" dir="{% if LANGUAGE_CODE == "fa" %}rtl{% else %}ltr{% endif %}">
                                 {% for image in country_images.images %}
                                     <div class="ui center aligned column">
                                         <div style="display: flex; justify-content: center">
