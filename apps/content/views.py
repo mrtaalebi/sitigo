@@ -2,7 +2,7 @@ import mimetypes
 import os
 
 from django.conf import settings
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render, redirect
 from django.utils import translation
 
@@ -94,11 +94,13 @@ def articles(request, category_id=None):
 def doc_dwnldr(request):
     file_path = request.POST['file_path']
     original_filename = request.POST['original_file_name']
-    x = os.path.abspath(os.path.join(settings.MEDIA_ROOT, original_filename))
-    print(x)
-    fp = open(x, 'rb')
-    response = HttpResponse(fp.read())
-    fp.close()
+    try:
+        x = os.path.abspath(os.path.join(settings.MEDIA_ROOT, original_filename))
+        fp = open(x, 'rb')
+        response = HttpResponse(fp.read())
+        fp.close()
+    except:
+        return HttpResponseNotFound("Sorry! requested file not found. please contact us to fix this problem asap.")
     type, encoding = mimetypes.guess_type(x)
     if type is None:
         type = 'application/octet-stream'
