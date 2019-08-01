@@ -1,10 +1,10 @@
 from django.contrib import admin
 
 # Register your models here.
-from apps.staff.models import RoleTier, Role, Staff
+from apps.staff.models import Team, Role, Staff
 
-@admin.register(RoleTier)
-class RoleTierAdmin(admin.ModelAdmin):
+@admin.register(Team)
+class TeamAdmin(admin.ModelAdmin):
     pass
 
 

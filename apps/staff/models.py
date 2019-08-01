@@ -6,36 +6,36 @@ from PIL import Image
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.db import models
 
-# Create your models here.
 from apps.content.models import Event
 
-class RoleTier(models.Model):
-    persian_name = models.CharField(max_length=100, default="")
-    english_name = models.CharField(max_length=100, default="")
-    position_from_top = models.IntegerField(null=False, blank=False, unique=True)
+
+class Team(models.Model):
+    persian_name = models.CharField(max_length=200)
+    english_name = models.CharField(max_length=200)
+    position_from_top = models.IntegerField()
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.english_name + ' - ' + str(self.position_from_top)
+        return self.english_name + " " + str(self.position_from_top) + " - " + str(self.event)
 
 
 class Role(models.Model):
     persian_name = models.CharField(max_length=300)
     english_name = models.CharField(max_length=300)
     
-    tier = models.ForeignKey(RoleTier, on_delete=models.CASCADE)
+    team = models.ForeignKey(Team, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.english_name
 
 
 class Staff(models.Model):
-    event = models.ForeignKey(Event, on_delete=models.CASCADE)
     persian_name = models.CharField(max_length=300)
     english_name = models.CharField(max_length=300)
     image = models.ImageField(upload_to='staff_photos')
     role = models.ForeignKey(Role, on_delete=models.CASCADE)
 
-    is_head = models.BooleanField(default=False)
+    head_title = models.CharField(max_length=100, null=True, blank=True)
 
     def __str__(self):
         return self.english_name
