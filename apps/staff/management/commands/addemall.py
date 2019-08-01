@@ -43,7 +43,7 @@ class Command(BaseCommand):
 
         with open(team_csv) as f:
             for l in f:
-                w = l.split(',')
+                w = [ll.strip() for ll in l.split(',')]
                 if len(w) != 3:
                     print("Broken line at team_csv: {}. exiting.".format(w))
                     exit(1)
@@ -62,7 +62,7 @@ class Command(BaseCommand):
 
         with open(role_csv) as f:
             for l in f:
-                w = l.split(',')
+                w = [ll.strip() for ll in l.split(',')]
                 if len(w) != 3:
                     print("Broken line at role_csv: {}. exiting.".format(w))
                     exit(1)
@@ -81,7 +81,7 @@ class Command(BaseCommand):
 
         with open(data_csv) as f:
             for l in f:
-                w = l.split(',')
+                w = [ll.strip() for ll in l.split(',')]
                 if len(w) != 4:
                     print("Broken line at data_csv: {}. exiting.")
                     exit(1)
