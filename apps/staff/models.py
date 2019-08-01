@@ -35,6 +35,8 @@ class Staff(models.Model):
     image = models.ImageField(upload_to='staff_photos')
     role = models.ForeignKey(Role, on_delete=models.CASCADE)
 
+    is_head = models.BooleanField(default=False)
+
     def __str__(self):
         return self.english_name
 
