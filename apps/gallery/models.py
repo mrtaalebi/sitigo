@@ -29,10 +29,10 @@ def resize(img, max_height, x_to_y):
 
 
 class Image(models.Model):
-    persian_caption = models.CharField(max_length=100, null=True, blank=True, default="default")
-    english_caption = models.CharField(max_length=100, null=True, blank=True, default="default")
+    persian_caption = models.CharField(max_length=200, null=True, blank=True, default="default")
+    english_caption = models.CharField(max_length=200, null=True, blank=True, default="default")
     country_event = models.ForeignKey('CountryEvent', on_delete=models.CASCADE)
-    city = models.ForeignKey('City', null=True, on_delete=models.CASCADE)
+    city = models.ForeignKey('City', null=True, blank=True, on_delete=models.CASCADE)
 
     image = models.ImageField()
 
@@ -44,10 +44,10 @@ class Image(models.Model):
                 location_english = self.city.english_name + " - " + self.country_event.country.english_name
             else:
                 location_persian = self.country_event.country.persian_name
-                locatian_english = self.country_event.country.english_name
+                location_english = self.country_event.country.english_name
 
             if self.persian_caption == "default":
-                self.persian_caption = self.country_event.event.persian_name.split()[0] + " المپیاد هندسه در" \
+                self.persian_caption = self.country_event.event.persian_name.split()[0] + " المپیاد هندسه در " \
                         + location_persian
             if self.english_caption == "default":
                 self.english_caption = self.country_event.event.english_name.split()[0] + " IGO in " \
@@ -67,16 +67,16 @@ class CountryEvent(models.Model):
 
 
 class Country(models.Model):
-    persian_name = models.CharField(max_length=100)
-    english_name = models.CharField(max_length=100)
+    persian_name = models.CharField(max_length=200)
+    english_name = models.CharField(max_length=200)
 
     def __str__(self):
         return self.english_name
 
 
 class City(models.Model):
-    persian_name = models.CharField(max_length=100)
-    english_name = models.CharField(max_length=100)
+    persian_name = models.CharField(max_length=200)
+    english_name = models.CharField(max_length=200)
 
     country = models.ForeignKey('Country', on_delete=models.CASCADE)
 
