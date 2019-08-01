@@ -67,20 +67,20 @@
                         <div class="ui inverted segment" style="background-color: #222222dd ;padding-left: auto; padding-right: auto"
                              align="center">
 
-                            {% for tier in tiers %}
-                                <div class="ui orange center aligned dividing header">
-                                    {{ tier.t.english_name }}
+                            {% for team in teams %}
+                                <div class="ui grey center aligned dividing header">
+                                    {{ team.t.english_name }}
                                 </div>
                                 <div class="ui stackable grid" style="margin-bottom: 5vh">
-                                    {% for s in tier.staff %}
+                                    {% for s in team.staff %}
                                         {% if forloop.counter0|modulo:4 == 0 %}
-                                            <div class="ui center aligend row">
+                                            <div class="ui center aligend relaxed row" style="justify-content: center">
                                         {% endif %}
-                                        <div class="column" style="display: flex; flex-direction: column;">
-                                            <div class="ui small circular image">
+                                        <div class="ui fluid column" style="display: flex; flex-direction: column; width: 25%">
+                                            <div class="ui tiny circular image">
                                                 <img src="{{ s.image.url }}">
                                             </div> 
-                                            <div class="ui black label" style="max-width: 30vh; margin-top: 1vh">
+                                            <div class="ui black label" style="max-width: 100%; margin-top: 1vh">
                                                 {% if LANGUAGE_CODE == "fa" %}
                                                     {{ s.persian_name }}
                                                 {% else %}
@@ -135,20 +135,20 @@
                         <div class="ui inverted segment" style="background-color: #222222dd;padding-right: auto;padding-left: auto"
                              dir="rtl" align="center">
 
-                            {% for tier in tiers %}
-                                <div class="ui orange center aligned dividing header">
-                                    {{ tier.t.english_name }}
+                            {% for team in teams %}
+                                <div class="ui grey center aligned dividing header">
+                                    {{ team.t.english_name }}
                                 </div>
                                 <div class="ui stackable grid" style="margin-bottom: 5vh">
-                                    {% for s in tier.staff %}
+                                    {% for s in team.staff %}
                                         {% if forloop.counter0|modulo:4 == 0 %}
-                                            <div class="ui center aligend row">
+                                            <div class="ui center aligend relaxed row" style="justify-content: center">
                                         {% endif %}
-                                        <div class="column" style="display: flex; flex-direction: column;">
-                                            <div class="ui small circular image">
+                                        <div class="ui fluid column" style="display: flex; flex-direction: column; width: 25%">
+                                            <div class="ui tiny circular image">
                                                 <img src="{{ s.image.url }}">
                                             </div> 
-                                            <div class="ui black label" style="max-width: 30vh; margin-top: 1vh">
+                                            <div class="ui black label" style="max-width: 100%; margin-top: 1vh">
                                                 {% if LANGUAGE_CODE == "fa" %}
                                                     {{ s.persian_name }}
                                                 {% else %}
@@ -165,6 +165,8 @@
                                             </div>
                                         </div>                            
                                         {% if forloop.counter0|modulo:4 == 3 %}
+                                            </div>
+                                        {% elif forloop.counter1 == team.staff|len %}
                                             </div>
                                         {% endif %}
                                     {% endfor %}

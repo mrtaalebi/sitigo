@@ -1,6 +1,7 @@
 from django.core.management import BaseCommand
 
 from apps.staff.models import Team, Role, Staff
+from apps.content.models import Event
 
 
 class Command(BaseCommand):
@@ -22,7 +23,7 @@ class Command(BaseCommand):
         parser.add_argument('team_csv', type=str)
         parser.add_argument('role_csv', type=str)
         parser.add_argument('data_csv', type=str)
-        parser.add_argument('event_id', type=int)
+        parser.add_argument('event_id', type=str)
 
     def handle(self, *args, **options):
         try:
@@ -70,7 +71,7 @@ class Command(BaseCommand):
                 english_name = w[1]
                 team_english_name = w[2]
 
-                team_filter = Team.objects.filter(english_name=english_name, event=event)
+                team_filter = Team.objects.filter(english_name=team_english_name, event=event)
                 if team_filter.count() != 1:
                     print("No\More than one Team with english name: {} found. exiting.".format(team_english_name))
                     exit(1)
@@ -83,7 +84,7 @@ class Command(BaseCommand):
             for l in f:
                 w = [ll.strip() for ll in l.split(',')]
                 if len(w) != 4:
-                    print("Broken line at data_csv: {}. exiting.")
+                    print("Broken line at data_csv: {}. exiting.".format(w))
                     exit(1)
 
                 persian_name = w[0]
