@@ -23,6 +23,8 @@ class Role(models.Model):
     persian_name = models.CharField(max_length=300)
     english_name = models.CharField(max_length=300)
     
+    is_head = models.BooleanField(default=False)
+
     team = models.ForeignKey(Team, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -35,7 +37,6 @@ class Staff(models.Model):
     image = models.ImageField(upload_to='staff_photos', default='staff-default.png')
     role = models.ForeignKey(Role, on_delete=models.CASCADE)
 
-    head_title = models.CharField(max_length=100, null=True, blank=True)
 
     def __str__(self):
         return self.english_name

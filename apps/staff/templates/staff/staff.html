@@ -73,6 +73,41 @@
                                 </div>
                                 <hr style="color: white; margin-bottom: 6vh">
                                 <div class="ui stackable grid" style="margin-bottom: 5vh">
+
+                                    {% for s in team.heads %}
+                                        {% if forloop.counter0|modulo:4 == 0 %}
+                                            <div class="ui center aligend relaxed row" style="justify-content: center">
+                                        {% endif %}
+                                        <div class="ui fluid column" style="display: flex; flex-direction: column; width: 25%">
+                                            <div class="ui tiny circular image">
+                                                <img src="{{ s.image.url }}">
+                                            </div> 
+                                            <div class="ui black label" style="max-width: 100%; margin-top: 1vh">
+                                                {% if LANGUAGE_CODE == "fa" %}
+                                                    {{ s.persian_name }}
+                                                {% else %}
+                                                    {{ s.english_name }}
+                                                {% endif %}
+                                            </div>
+                                            <div class="ui label grey" style="max-width: 100%">
+                                                    {% if LANGUAGE_CODE == "fa" %}
+                                                        {{ s.role.persian_name }}
+                                                    {% else %}
+                                                        {{ s.role.english_name }}
+                                                    {% endif %}
+                                            
+                                            </div>
+                                        </div>                            
+                                        {% if forloop.counter0|modulo:4 == 3 %}
+                                            </div>
+                                        {% elif forloop.counter1 == team.heads|len %}
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+
+                                </div>
+                                <div class="ui stackable grid" style="margin-bottom: 5vh; margin-top: 5vh">
+
                                     {% for s in team.staff %}
                                         {% if forloop.counter0|modulo:4 == 0 %}
                                             <div class="ui center aligend relaxed row" style="justify-content: center">
@@ -142,7 +177,9 @@
                                 </div>
                                 <hr style="color: white; margin-bottom: 6vh">
                                 <div class="ui stackable grid" style="margin-bottom: 5vh">
-                                    {% for s in team.staff %}
+
+
+                                    {% for s in team.heads %}
                                         {% if forloop.counter0|modulo:4 == 0 %}
                                             <div class="ui center aligend relaxed row" style="justify-content: center">
                                         {% endif %}
@@ -164,6 +201,32 @@
                                                         {{ s.role.english_name }}
                                                     {% endif %}
                                             
+                                            </div>
+                                        </div>                            
+                                        {% if forloop.counter0|modulo:4 == 3 %}
+                                            </div>
+                                        {% elif forloop.counter1 == team.heads|len %}
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+
+                                </div>
+                                <div class="ui stackbale grid" style="margin-bottom: 5vh; margin-top: 5vh">
+
+                                    {% for s in team.staff %}
+                                        {% if forloop.counter0|modulo:4 == 0 %}
+                                            <div class="ui center aligend relaxed row" style="justify-content: center">
+                                        {% endif %}
+                                        <div class="ui fluid column" style="display: flex; flex-direction: column; width: 25%">
+                                            <div class="ui tiny circular image">
+                                                <img src="{{ s.image.url }}">
+                                            </div> 
+                                            <div class="ui black label" style="max-width: 100%; margin-top: 1vh">
+                                                {% if LANGUAGE_CODE == "fa" %}
+                                                    {{ s.persian_name }}
+                                                {% else %}
+                                                    {{ s.english_name }}
+                                                {% endif %}
                                             </div>
                                         </div>                            
                                         {% if forloop.counter0|modulo:4 == 3 %}

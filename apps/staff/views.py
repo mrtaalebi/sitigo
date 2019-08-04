@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from django.db.models import Q
 from apps.content.models import Event
 from apps.staff.models import Team, Role, Staff
 
@@ -20,12 +20,14 @@ def staff(request, event_id = None):
         'active': active,
         'teams' :[{
             't': t,
-            'staff': list(Staff.objects.filter(role__team=t))
+            'staff': list(Staff.objects.filter(role__team=t)),
+            'heads': list(Staff.objects.filter(role__team=t, role__is_head=True))
         } for t in Team.objects.filter(event=active).order_by('position_from_top')]
     }
 
     for team in context['teams']:
         random.shuffle(team['staff'])
+        print(team['heads'])
 
     return render(request, 'staff/staff.html', context)
 
