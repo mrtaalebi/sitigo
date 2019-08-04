@@ -20,7 +20,6 @@ def navbar(request):
 
     if translation.get_language() == "en":
         context['navbar'].remove(['/articles', _('Articles')])
-        context['navbar'].remove(['/staff', _('Staff')])
         context['navbar'].remove(['/faq', _('FAQ')])
     
 
