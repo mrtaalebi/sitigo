@@ -123,14 +123,6 @@
                                                     {{ s.english_name }}
                                                 {% endif %}
                                             </div>
-                                            <div class="ui label grey" style="max-width: 100%">
-                                                    {% if LANGUAGE_CODE == "fa" %}
-                                                        {{ s.role.persian_name }}
-                                                    {% else %}
-                                                        {{ s.role.english_name }}
-                                                    {% endif %}
-                                            
-                                            </div>
                                         </div>                            
                                         {% if forloop.counter0|modulo:4 == 3 %}
                                             </div>
