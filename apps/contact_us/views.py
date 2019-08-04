@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-
+from django.utils import translation
 from django.core.mail import send_mail
 from django.conf import settings
 
@@ -31,7 +31,9 @@ def contact_us(request):
             + 'email: ' + data['email'] + '\n' \
             + '\n\n\n text: \n\n\n' + data['text']
 
-    recipient_list = ['national.igo@gmail.com', 'the.doors.are.locked@gmail.com']
+    lang = translation.get_language()
+    recp = 'national.igo@gmail.com' if lang == "fa" else 'international.igo@gmail.com'
+    recipient_list = [recp]
 
     send_mail(subject=subject,
             message=message,

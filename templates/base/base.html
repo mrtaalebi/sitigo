@@ -111,8 +111,8 @@
                 <div class="five wide column" >
                     <h4 class="ui inverted header">{% trans "Contact Us" %}</h4>
                     <div class="ui inverted link list">
-                        <div class=" item"><a href="mailto:national.igo@gmail.com"><i
-                                class="inverted orange large envelope icon "></i> national.igo@gmail.com</a></div>
+                            <div class=" item"><a href="mailto:{% if LANGUAGE_CODE == "fa" %}national.igo@gmail.com{% else %}international.igo@gmail.com{% endif %}"><i
+                                                  class="inverted orange large envelope icon "></i> {% if LANGUAGE_CODE == "fa" %} national.igo@gmail.com {% else %} international.igo@gmail.com {% endif %}</a></div>
                         <div class=" item"><a target="_blank" href="https://t.me/igo_official"><i
                                 class="inverted blue large telegram plane icon" style="font-family: brand-icons !important"></i> igo_official</a></div>
                         <div class=" item"><a class="item" target="_blank"
