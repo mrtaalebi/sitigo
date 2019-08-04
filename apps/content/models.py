@@ -19,16 +19,6 @@ def resize(img, x, y):
     return img
 
 
-class ImageUpload(models.Model):
-    caption = models.CharField(max_length=100, null=True, blank=True)
-    image = models.ImageField()
-
-    def save(self, *args, **kwargs):
-        if not self.id:
-            self.image = resize(self.image, 500, 400)
-        super(ImageUpload, self).save(*args, **kwargs)
-
-
 class FileUpload(models.Model):
     name = models.CharField(max_length=200, null=False, blank=True)
     file = models.FileField(null=False, blank=False)
@@ -78,7 +68,6 @@ class Event(models.Model):
     persian_content = RichTextField()
     english_content = RichTextField()
     year = models.IntegerField()
-    images = models.ManyToManyField(ImageUpload)
 
     def __str__(self):
         return self.english_name

@@ -91,16 +91,6 @@
                                     </div>
                                 {% endfor %}
                             </div>
-                            <div class="ui stackable grid" style="">
-                                <div class="ui medium images" style="margin: 5%">
-                                    {% for image in active.images %}
-
-                                        <img class="ui image" src="{{ image.image.url }}">
-
-                                    {% endfor %}
-                                </div>
-
-                            </div>
                         <br><br>
                         {% if active.id %}
                             <a class="ui inverted orange button" href="/staff/{{ active.id }}/">Staff of this event</a>
@@ -162,16 +152,6 @@
                                 {% endfor %}
                             </div>
 
-                            <div class="ui stackable grid" style="" dir="rtl">
-                                <div class="ui medium images" style="margin: 5%">
-                                    {% for image in active.images %}
-
-                                        <img class="ui image" src="{{ image.image.url }}">
-
-                                    {% endfor %}
-                                </div>
-
-                            </div>
                             <br><br>
                             <a class="ui inverted orange button" href="/staff/{{ active.id }}/">دست اندرکاران این دوره</a>
 
