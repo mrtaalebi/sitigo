@@ -42,6 +42,7 @@ def event(request, event_id = None):
             'english_content': active.english_content,
             'files': list(active.files.all()),
             'poster': active.poster,
+            'english_poster': active.english_poster if active.english_poster != None else active.poster
         }
         context.update({'active': ctx})
     return render(request, 'content/event.html', context)

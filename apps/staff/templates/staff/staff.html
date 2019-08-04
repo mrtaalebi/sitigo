@@ -68,9 +68,10 @@
                              align="center">
 
                             {% for team in teams %}
-                                <div class="ui grey center aligned dividing header">
+                                <div class="ui center aligned dividing header" style="margin: 0; padding: 0;">
                                     {{ team.t.english_name }}
                                 </div>
+                                <hr style="color: white; margin-bottom: 6vh">
                                 <div class="ui stackable grid" style="margin-bottom: 5vh">
                                     {% for s in team.staff %}
                                         {% if forloop.counter0|modulo:4 == 0 %}
@@ -87,7 +88,7 @@
                                                     {{ s.english_name }}
                                                 {% endif %}
                                             </div>
-                                            <div class="ui label grey" style="max-width: 30vh">
+                                            <div class="ui label grey" style="max-width: 100%">
                                                     {% if LANGUAGE_CODE == "fa" %}
                                                         {{ s.role.persian_name }}
                                                     {% else %}
@@ -136,9 +137,10 @@
                              dir="rtl" align="center">
 
                             {% for team in teams %}
-                                <div class="ui grey center aligned dividing header">
+                                <div class="ui center aligned dividing header"; style="margin: 0; padding: 0">
                                     {{ team.t.english_name }}
                                 </div>
+                                <hr style="color: white; margin-bottom: 6vh">
                                 <div class="ui stackable grid" style="margin-bottom: 5vh">
                                     {% for s in team.staff %}
                                         {% if forloop.counter0|modulo:4 == 0 %}
@@ -155,7 +157,7 @@
                                                     {{ s.english_name }}
                                                 {% endif %}
                                             </div>
-                                            <div class="ui label grey" style="max-width: 30vh">
+                                            <div class="ui label grey" style="max-width: 100%">
                                                     {% if LANGUAGE_CODE == "fa" %}
                                                         {{ s.role.persian_name }}
                                                     {% else %}

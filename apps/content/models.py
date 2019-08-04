@@ -64,6 +64,7 @@ class Event(models.Model):
     persian_name = models.CharField(max_length=400, default='a')  # todo ino bardar
     english_name = models.CharField(max_length=400, default='a')
     poster = models.ImageField()
+    english_poster = models.ImageField(null=True)
     files = models.ManyToManyField(FileUpload)
     persian_content = RichTextField()
     english_content = RichTextField()
@@ -75,6 +76,8 @@ class Event(models.Model):
     def save(self, *args, **kwargs):
         if not self.id:
             self.poster = resize(self.poster, 1000, 1500)
+            if self.english_poster == None:
+                self.english_poster = self.poster
         super(Event, self).save(*args, **kwargs)
 
 
