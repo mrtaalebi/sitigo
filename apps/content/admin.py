@@ -22,8 +22,7 @@ class FileUploadAdmin(admin.ModelAdmin):
 
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
-    fields = ['persian_name', 'english_name', 'poster', 'persian_content', 'english_content', 'files', 'year', 'images']
-    # inlines = [FileInLine,]
+    pass
 
 
 @admin.register(Category)
