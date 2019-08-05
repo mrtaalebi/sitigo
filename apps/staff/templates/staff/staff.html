@@ -74,7 +74,7 @@
                                 <hr style="color: white; margin-bottom: 6vh">
                                 <div class="ui stackable grid" style="margin-bottom: 5vh">
 
-                                    {% for s in team.heads %}
+                                    {% for s in team.heads_english_sorted %}
                                         {% if forloop.counter0|modulo:4 == 0 %}
                                             <div class="ui center aligend relaxed row" style="justify-content: center">
                                         {% endif %}
@@ -108,7 +108,7 @@
                                 </div>
                                 <div class="ui stackable grid" style="margin-bottom: 5vh; margin-top: 5vh">
 
-                                    {% for s in team.staff %}
+                                    {% for s in team.staff_english_sorted %}
                                         {% if forloop.counter0|modulo:4 == 0 %}
                                             <div class="ui center aligend relaxed row" style="justify-content: center">
                                         {% endif %}
@@ -171,7 +171,7 @@
                                 <div class="ui stackable grid" style="margin-bottom: 5vh">
 
 
-                                    {% for s in team.heads %}
+                                    {% for s in team.heads_persian_sorted %}
                                         {% if forloop.counter0|modulo:4 == 0 %}
                                             <div class="ui center aligend relaxed row" style="justify-content: center">
                                         {% endif %}
@@ -205,7 +205,7 @@
                                 </div>
                                 <div class="ui stackbale grid" style="margin-bottom: 5vh; margin-top: 5vh">
 
-                                    {% for s in team.staff %}
+                                    {% for s in team.staff_persian_sorted %}
                                         {% if forloop.counter0|modulo:4 == 0 %}
                                             <div class="ui center aligend relaxed row" style="justify-content: center">
                                         {% endif %}

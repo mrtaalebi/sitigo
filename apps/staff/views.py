@@ -20,14 +20,12 @@ def staff(request, event_id = None):
         'active': active,
         'teams' :[{
             't': t,
-            'staff': list(Staff.objects.filter(role__team=t)),
-            'heads': list(Staff.objects.filter(role__team=t, role__is_head=True))
+            'staff_persian_sorted': list(Staff.objects.filter(role__team=t, role__is_head=False).order_by('persian_lastname')),
+            'staff_english_sorted': list(Staff.objects.filter(role__team=t, role__is_head=False).order_by('english_lastname')),
+            'heads_persian_sorted': list(Staff.objects.filter(role__team=t, role__is_head=True).order_by('persian_lastname')),
+            'heads_english_sorted': list(Staff.objects.filter(role__team=t, role__is_head=True).order_by('english_lastname')),
         } for t in Team.objects.filter(event=active).order_by('position_from_top')]
     }
-
-    for team in context['teams']:
-        random.shuffle(team['staff'])
-        print(team['heads'])
 
     return render(request, 'staff/staff.html', context)
 
