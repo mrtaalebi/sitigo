@@ -44,7 +44,7 @@ class Command(BaseCommand):
 
         with open(team_csv) as f:
             for l in f:
-                w = [ll.strip() for ll in l.split(',')]
+                w = [ll.strip() for ll in l.replace('\u200c', ' ').split(',')]
                 if len(w) != 3:
                     print("Broken line at team_csv: {}. exiting.".format(w))
                     exit(1)
@@ -63,13 +63,14 @@ class Command(BaseCommand):
 
         with open(role_csv) as f:
             for l in f:
-                w = [ll.strip() for ll in l.split(',')]
-                if len(w) != 3:
+                w = [ll.strip() for ll in l.replace('\u200c', ' ').split(',')]
+                if len(w) != 4:
                     print("Broken line at role_csv: {}. exiting.".format(w))
                     exit(1)
                 persian_name = w[0]
                 english_name = w[1]
                 team_english_name = w[2]
+                is_head = True if w[3] == '1' else False
 
                 team_filter = Team.objects.filter(english_name=team_english_name, event=event)
                 if team_filter.count() != 1:
@@ -78,25 +79,33 @@ class Command(BaseCommand):
 
                 Role.objects.create(persian_name=persian_name,
                         english_name=english_name,
+                        is_head=is_head,
                         team=team_filter.get())
 
         with open(data_csv) as f:
             for l in f:
-                w = [ll.strip() for ll in l.split(',')]
-                if len(w) != 4:
+                w = [ll.strip() for ll in l.replace('\u200c', ' ').split(',')]
+                if len(w) != 5:
                     print("Broken line at data_csv: {}. exiting.".format(w))
                     exit(1)
 
-                persian_name = w[0]
-                english_name = w[1]
-                role_english_name = w[2]
-                head_title = w[3]
+                persian_firstname = w[0]
+                persian_lastname = w[1]
+                english_firstname = w[2]
+                english_lastname = w[3]
+                role_english_name = w[4]
 
                 role_filter = Role.objects.filter(english_name=role_english_name)
                 if role_filter.count() != 1:
                     print("No\More than one role with english name: {} found. exiting.".format(role_english_name))
                     exit(1)
 
-                Staff.objects.create(persian_name=persian_name, english_name=english_name, role=role_filter.get(), head_title=head_title)
+                Staff.objects.create(
+                        persian_firstname=persian_firstname,
+                        persian_lastname=persian_lastname,
+                        english_firstname=english_firstname,
+                        english_lastname=english_lastname,
+                        role=role_filter.get()
+                    )
 
 

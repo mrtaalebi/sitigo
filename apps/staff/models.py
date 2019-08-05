@@ -32,8 +32,11 @@ class Role(models.Model):
 
 
 class Staff(models.Model):
-    persian_name = models.CharField(max_length=300)
-    english_name = models.CharField(max_length=300)
+    persian_firstname = models.CharField(max_length=300)
+    persian_lastname = models.CharField(max_length=300)
+    english_firstname = models.CharField(max_length=300)
+    english_lastname = models.CharField(max_length=300)
+
     image = models.ImageField(upload_to='staff_photos', default='staff-default.png')
     role = models.ForeignKey(Role, on_delete=models.CASCADE)
 
