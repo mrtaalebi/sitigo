@@ -42,7 +42,7 @@ class Staff(models.Model):
 
 
     def __str__(self):
-        return self.english_name
+        return self.english_firstname + " " + self.english_lastname
 
     def save(self, *args, **kwargs):
         if not self.id:

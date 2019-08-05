@@ -85,8 +85,25 @@
             <div class="twelve wide center aligned stretched column">
                 <div class="ui inverted segment" style="background-color: #222222dd;padding:auto" dir="rtl"
                      align="right">
+
+                        <div class="ui inverted fluid buttons">
+                            {% for gallery in gallery_links %}
+                                {% if gallery.g.english_name ==  gallery_english_name %}
+                                    <a class="ui grey button" href="{{ gallery.link }}">
+                                {% else %}
+                                    <a class="ui black button" href="{{ gallery.link }}">
+                                {% endif %}
+                                    {% if LANGUAGE_CODE == "fa" %}
+                                        {{ gallery.g.persian_name }}
+                                    {% else %}
+                                        {{ gallery.g.english_name }}
+                                    {% endif %}
+                                    </a>
+                            {% endfor %}
+                        </div>
+
                         {% for country_images in by_country_event_images %}
-                            <div class="ui center aligned dividing header" style="margin-bottom: 0">
+                            <div class="ui center aligned dividing header" style="margin-bottom: 0" id="{{ country_images.coev.country.english_name }}">
                                 {% if LANGUAGE_CODE == "fa" %}
                                     {{ country_images.coev.country.persian_name }}
                                 {% else %}
@@ -102,9 +119,17 @@
                                             <div class="ui image">
                                                     <img src="{{ image.image.url }}"
                                                         alt="{% if LANGUAGE_CODE == "fa" %}{{ image.persian_caption }}{% else %}{{ image.english_caption }}{% endif %}"
-                                                        class="open-modal"
-                                                        style="height: 300px; border-radius: 0.5em; cursor: pointer"
+                                                        class="open-modal show-caption"
+                                                        style="border-radius: 0.5em; cursor: pointer"
+                                                        id="{{ image.id }}"
                                                         >
+                                                    <p class="ui inverted black bottom attached label" style="display: none; background: rgba(0, 0, 0, 0.75) !important;" id="caption_{{ image.id }}">
+                                                        {% if LANGUAGE_CODE == "fa" %}
+                                                            {{ image.persian_caption }}
+                                                        {% else %}
+                                                            {{ image.english_caption }}
+                                                        {% endif %}
+                                                    </p>
                                             </div>
                                         </div>
                                     </div>
@@ -114,9 +139,11 @@
 
                         <div class="modal">
                             <div style="padding: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 1em; height: 100%">
-                                <div class="ui image">
-                                    <img class="modal-image" src="" alt="">
-                                    <p class="ui inverted black bottom attached label modal-caption"></p>
+                                <div class="ui image" style="height: 100%">
+                                    <div style="height: 100%">
+                                        <img class="modal-image" src="" alt="">
+                                        <p class="ui inverted black bottom attached label modal-caption"></p>
+                                    </div>
                                 </div>
                         	</div>
                         </div>

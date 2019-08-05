@@ -14,9 +14,8 @@
 }
 
 .modal-image {
-    height: auto !important;
-    width: 100% !important;
-    margin;
+    height: 100% !important;
+    width: auto !important;
 }
 
 .modal-caption {

@@ -40,8 +40,8 @@ class Image(models.Model):
         if not self.id:
             self.image = resize(self.image, 1000, 4 / 3)
             if self.city is not None:
-                location_persian = self.city.persian_name + " - " + self.country_event.country.persian_name
-                location_english = self.city.english_name + " - " + self.country_event.country.english_name
+                location_persian = self.country_event.country.persian_namea + " - " + self.city.persian_name
+                location_english = self.country_event.country.english_name + " - " + self.city.english_name
             else:
                 location_persian = self.country_event.country.persian_name
                 location_english = self.country_event.country.english_name
@@ -61,6 +61,7 @@ class Image(models.Model):
 class CountryEvent(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
     country = models.ForeignKey('Country', on_delete=models.CASCADE)
+    gallery = models.ForeignKey('Gallery', on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return str(self.event) + ' - ' + str(self.country)
@@ -79,6 +80,16 @@ class City(models.Model):
     english_name = models.CharField(max_length=200)
 
     country = models.ForeignKey('Country', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.english_name
+
+
+class Gallery(models.Model):
+    persian_name = models.CharField(max_length=200)
+    english_name = models.CharField(max_length=200)
+
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.english_name
