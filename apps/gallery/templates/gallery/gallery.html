@@ -120,7 +120,7 @@
                                                     <img src="{{ image.image.url }}"
                                                         alt="{% if LANGUAGE_CODE == "fa" %}{{ image.persian_caption }}{% else %}{{ image.english_caption }}{% endif %}"
                                                         class="open-modal"
-                                                        style="height: 300px; border-radius: 0.5em; cursor: pointer"
+                                                        style="border-radius: 0.5em; cursor: pointer"
                                                         >
                                             </div>
                                         </div>
@@ -131,9 +131,11 @@
 
                         <div class="modal">
                             <div style="padding: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 1em; height: 100%">
-                                <div class="ui image">
-                                    <img class="modal-image" src="" alt="">
-                                    <p class="ui inverted black bottom attached label modal-caption"></p>
+                                <div class="ui image" style="height: 100%">
+                                    <div>
+                                        <img class="modal-image" src="" alt="">
+                                        <p class="ui inverted black bottom attached label modal-caption"></p>
+                                    </div>
                                 </div>
                         	</div>
                         </div>
