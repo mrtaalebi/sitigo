@@ -5,6 +5,8 @@
 {% get_current_language as LANGUAGE_CODE %}
 {% block extra_header %}
 <link rel="stylesheet" href="{% static 'intro/slideshow.css' %}"/>
+<link rel="stylesheet" href="{% static 'gallery/styles.css' %}"/>
+<script src="{% static 'gallery/script.js' %}"></script>
 <style>
     .myMenu > a {
         background-color: #222222dd !important;
@@ -90,18 +92,25 @@
                             </div>
 
                             <div class="ui stackable two column center aligned relaxed grid" dir="{% if LANGUAGE_CODE == "fa" %}rtl{% else %}ltr{% endif %}"
-                                    style="border: 0.2em white solid; border-radius: 0.5em; margin: 0.25em";>
+                                    style="border-top: 0.15em white solid; margin: 0.25em";>
                                 {% for image in country_images.images %}
                                     <div class="ui center aligned column">
                                         <div style="display: flex; justify-content: center">
                                             <div class="ui image">
-                                                <img src="{{ image.image.url }}" style="height: 300px;">
+                                                <img src="{{ image.image.url }}" class="o-my-sweet-image" style="height: 300px; border-radius: 0.5em; cursor: pointer">
                                             </div>
                                         </div>
                                     </div>
                                 {% endfor %}
                             </div>
                         {% endfor %}
+
+                        <div class="show" style="z-index: 999; display: none">
+                            <div class="overlay"></div>
+                            <div class="img-show">
+                                <img src="">
+                            </div>
+                        </div>
 
                 </div>
             </div>
