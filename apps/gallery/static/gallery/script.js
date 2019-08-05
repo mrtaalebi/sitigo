@@ -1,12 +1,11 @@
 $(document).ready(function () {
-    $(".trigger_popup_fricc").click(function(){
-	    $('.hover_bkgr_fricc').show();
-        $('.hover_img_fricc').attr("src", $(this).attr("src"))
+    $(".open-modal").click(function(){
+	    $('.modal').show();
+        $('.modal-image').attr("src", $(this).attr("src"));
+        $('.modal-image').attr("alt", $(this).attr("alt"));
+        $('.modal-caption').html($(this).attr("alt"))
 	});
-	$('.hover_bkgr_fricc').click(function(){
-		$('.hover_bkgr_fricc').hide();
-	});
-	$('.popupCloseButton').click(function(){
-		$('.hover_bkgr_fricc').hide();
+	$('.open-modal').click(function(){
+		$('.modal').hide();
 	});
 });

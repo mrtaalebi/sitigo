@@ -100,7 +100,11 @@
                                     <div class="ui center aligned column">
                                         <div style="display: flex; justify-content: center">
                                             <div class="ui image">
-                                                <img src="{{ image.image.url }}" class="trigger_popup_fricc" style="height: 300px; border-radius: 0.5em; cursor: pointer">
+                                                    <img src="{{ image.image.url }}"
+                                                        alt="{% if LANGUAGE_CODE=="fa" %}{{ image.persian_caption }}{% else %}{{ image.english_caption }}{% endif %}"
+                                                        class="open-modal"
+                                                        style="height: 300px; border-radius: 0.5em; cursor: pointer"
+                                                        >
                                             </div>
                                         </div>
                                     </div>
@@ -108,12 +112,10 @@
                             </div>
                         {% endfor %}
 
-                        <a class="trigger_popup_fricc">Click here to show the popup</a>
-
-                        <div class="hover_bkgr_fricc">
+                        <div class="modal">
                         	<div>
-                    		    <div class="popupCloseButton">X</div>
-                                <img class="hover_img_fricc" src="">
+                                <img class="modal-image" src="" alt="">
+                                <p class="modal-caption"></p>
                         	</div>
                         </div>
 
