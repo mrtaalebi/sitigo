@@ -119,9 +119,17 @@
                                             <div class="ui image">
                                                     <img src="{{ image.image.url }}"
                                                         alt="{% if LANGUAGE_CODE == "fa" %}{{ image.persian_caption }}{% else %}{{ image.english_caption }}{% endif %}"
-                                                        class="open-modal"
+                                                        class="open-modal show-caption"
                                                         style="border-radius: 0.5em; cursor: pointer"
+                                                        id="{{ image.id }}"
                                                         >
+                                                    <p class="ui inverted black bottom attached label" style="display: none; background: rgba(0, 0, 0, 0.75) !important;" id="caption_{{ image.id }}">
+                                                        {% if LANGUAGE_CODE == "fa" %}
+                                                            {{ image.persian_caption }}
+                                                        {% else %}
+                                                            {{ image.english_caption }}
+                                                        {% endif %}
+                                                    </p>
                                             </div>
                                         </div>
                                     </div>
