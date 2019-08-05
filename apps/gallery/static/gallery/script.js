@@ -1,12 +1,11 @@
 $(window).load(function () {
-    $(".o-my-sweet-image").click(function () {
-        var $src = $(this).attr("src");
-        $(".show").fadeIn();
-        $(".img-show img").attr("src", $src);
-    });
-    
-    $(".overlay").click(function () {
-        $(".show").fadeOut();
-    });
-    
+	$(".trigger_popup_fricc").click(function(){
+	   $('.hover_bkgr_fricc').show();
+	});
+	$('.hover_bkgr_fricc').click(function(){
+		$('.hover_bkgr_fricc').hide();
+	});
+	$('.popupCloseButton').click(function(){
+		$('.hover_bkgr_fricc').hide();
+	});
 });
