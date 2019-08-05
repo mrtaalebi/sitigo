@@ -1,4 +1,4 @@
-$(window).load(function () {
+$(document).ready(function () {
 	$(".trigger_popup_fricc").click(function(){
 	   $('.hover_bkgr_fricc').show();
 	});
