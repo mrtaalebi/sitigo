@@ -103,7 +103,7 @@
                         </div>
 
                         {% for country_images in by_country_event_images %}
-                            <div class="ui center aligned dividing header" style="margin-bottom: 0">
+                            <div class="ui center aligned dividing header" style="margin-bottom: 0" id="{{ country_images.coev.country.english_name }}">
                                 {% if LANGUAGE_CODE == "fa" %}
                                     {{ country_images.coev.country.persian_name }}
                                 {% else %}

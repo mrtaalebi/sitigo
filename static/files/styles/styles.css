@@ -87,6 +87,10 @@ This set of fonts are used in this project under the license: (.....)
     font-family: "IRANSans" !important;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 i {
     font-family: "Icons" !important;
 }

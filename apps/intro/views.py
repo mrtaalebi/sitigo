@@ -41,7 +41,12 @@ def homepage(request):
     else:
         images = []
     context.update({
-        'slideshow': images,
+        'slideshow': [{
+            'image': img,
+            'link': '/gallery/{}/{}#{}'.format(img.country_event.event.id,
+                                            img.country_event.gallery.id if img.country_event.gallery is not None else '',
+                                            img.country_event.country.english_name),
+            } for img in images],
         'num_of_img': range(len(images)),
     })
     return render(request, 'intro/homepage.html', context)

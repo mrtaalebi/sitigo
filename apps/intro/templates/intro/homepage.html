@@ -485,16 +485,18 @@ Afghanistan, Argentina, Armenia, Australia, Bangladesh, Belarus, Bolivia, Bosnia
             {% for img in slideshow %}
                 <div class="ui center aligend column faded_class" style="padding-bottom: 0px">
                     <div style="display: flex; justify-content: center">
+                        <a href={{ img.link }}>
                         <div class="ui image">
-                            <img src="{{ img.image.url }}" style="height: 190px">
+                            <img src="{{ img.image.image.url }}" style="height: 190px">
                             <div class="ui center aligned inverted black bottom attached small label" style="text-align: center">
                                 {% if LANGUAGE_CODE == "fa" %}
-                                    {{ img.persian_caption }}
+                                    {{ img.image.persian_caption }}
                                 {% else %}
-                                    {{ img.english_caption }}
+                                    {{ img.image.english_caption }}
                                 {% endif %}
                             </div>
                         </div>
+                        </a>
                     </div>
                 </div>
             {% endfor %}
