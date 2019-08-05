@@ -20,3 +20,20 @@
 .open-modal {
     cursor: pointer;
 }
+
+.tool {
+   position: absolute;
+   display: flex; 
+   justify-content: center; 
+   align-items: center; 
+   width: 2em;
+   height: 2em;
+   padding: 0.5em; 
+   margin: 0.5em;
+   border-radius: 2em; 
+   background: #1b1c1d !important;
+} 
+
+.iii {
+    margin: 0 !important;
+}

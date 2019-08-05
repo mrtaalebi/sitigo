@@ -1,11 +1,17 @@
 $(document).ready(function () {
-    $(".open-modal").click(function(){
-	    $('.modal').fadeIn();
-        $('.modal-image').attr("src", $(this).attr("src"));
-        $('.modal-image').attr("alt", $(this).attr("alt"));
-        $('.modal-caption').html($(this).attr("alt"))
+
+    function set_image(img) {
+        $('.modal-image').attr("src", img.attr("src"));
+        $('.modal-image').attr("alt", img.attr("alt"));
+        $('.modal-caption').html(img.attr("alt"));
+    }
+
+    $('.open-modal').click(function() {
+        $('.modal').fadeIn();
+        set_image($(this));
 	});
-	$('.modal').click(function(){
+
+	$('.close-modal').click(function() {
         $('.modal-image').attr("src", "");
         $('.modal-image').attr("alt", "");
         $('.modal-caption').html("");
@@ -23,4 +29,25 @@ $(document).ready(function () {
             $(select).fadeOut();
         }
     );
+
+
+    var images = $(".slide").toArray.reverse();
+    $(".prev-slide").click(function() {
+        for (var i = 0; i < images.length; i++) {
+            if (images[i].attr("src") == $('.modal-images').attr("src")) {
+                set_image(images[ (i - 1) % images.length ]);
+                break;
+            }
+        }
+    });
+    
+    $(".next-slide").click(function() {
+        for (var i = 0; i < images.length; i++) {
+            if (images[i].attr("src") == $('.modal-images').attr("src")) {
+                set_image(images[ (i + 1) % images.length ]);
+                break;
+            }
+        }
+    });
+
 });

@@ -119,7 +119,7 @@
                                             <div class="ui image">
                                                     <img src="{{ image.image.url }}"
                                                         alt="{% if LANGUAGE_CODE == "fa" %}{{ image.persian_caption }}{% else %}{{ image.english_caption }}{% endif %}"
-                                                        class="open-modal show-caption"
+                                                        class="open-modal show-caption slide"
                                                         style="border-radius: 0.5em; cursor: pointer"
                                                         id="{{ image.id }}"
                                                         >
@@ -146,6 +146,16 @@
                                         </div>
                                         <div class="ui inverted black modal-caption" style="background: #1b1c1d!important; top: 0; height: 2em; line-height: 2em; font-weight: bold">
                                         </div>
+                                    </div>
+
+                                    <div class="close-modal tool" style="right: 0; top: 0;">
+                                        <i class="close large icon iii"></i>
+                                    </div>
+                                    <div class="prev-silde tool" style="position: fixed; left: 0; top: 50vh;">
+                                        <i class="caret left large icon iii"></i>
+                                    </div>
+                                    <div class="next-slide tool" style="position: fixed; right: 0; top: 50vh;">
+                                        <i class="caret right large icon iii"></i>
                                     </div>
                                 </div>
                         	</div>
