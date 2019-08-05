@@ -1,5 +1,5 @@
 .modal {
-    background:rgba(0, 0, 0, 0.5);
+    background:rgba(0, 0, 0, 0.85);
     cursor: pointer;
     display: none;
     height: 100vh;
@@ -9,11 +9,18 @@
     top: 0;
     left: 0;
     z-index: 999;
+
+    padding: 2em;
 }
 
 .modal-image {
-    max-height: 90%;
-    max-width: 90%;
+    height: auto !important;
+    width: 100% !important;
+    margin;
+}
+
+.modal-caption {
+    width: 100%;
 }
 
 .open-modal {
