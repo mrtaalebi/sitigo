@@ -1,14 +1,14 @@
 $(document).ready(function () {
 
     function set_image(img) {
-        $('.modal-image').attr("src", img.attr("src"));
-        $('.modal-image').attr("alt", img.attr("alt"));
-        $('.modal-caption').html(img.attr("alt"));
+        $('.modal-image').attr("src", $(img).attr("src"));
+        $('.modal-image').attr("alt", $(img).attr("alt"));
+        $('.modal-caption').html($(img).attr("alt"));
     }
 
     $('.open-modal').click(function() {
         $('.modal').fadeIn();
-        set_image($(this));
+        set_image(this);
 	});
 
 	$('.close-modal').click(function() {
@@ -35,7 +35,7 @@ $(document).ready(function () {
     $(".prev-slide").click(function() {
         for (var i = 0; i < images.length; i++) {
             if ($(images[i]).attr("src") == $('.modal-images').attr("src")) {
-                set_image($(images[ (i - 1) % images.length ]));
+                set_image(images[ (i - 1) % images.length ]);
                 break;
             }
         }
@@ -44,7 +44,7 @@ $(document).ready(function () {
     $(".next-slide").click(function() {
         for (var i = 0; i < images.length; i++) {
             if ($(images[i]).attr("src") == $('.modal-images').attr("src")) {
-                set_image($(images[ (i + 1) % images.length ]));
+                set_image(images[ (i + 1) % images.length ]);
                 break;
             }
         }
