@@ -3,6 +3,7 @@ $(document).ready(function () {
     function set_image(img) {
         $('.modal-image').attr("src", $(img).attr("src"));
         $('.modal-image').attr("alt", $(img).attr("alt"));
+        $('.modal-image').css("height", "100%");
         $('.modal-caption').html($(img).attr("alt"));
     }
 
@@ -32,9 +33,11 @@ $(document).ready(function () {
 
 
     var images = $(".slide");
+
     $(".prev-slide").click(function() {
         for (var i = 0; i < images.length; i++) {
-            if ($(images[i]).attr("src") == $('.modal-images').attr("src")) {
+            console.log($(images[i]).attr("src"));
+            if ($(images[i]).attr("src") == $('.modal-image').attr("src")) {
                 set_image(images[ (i - 1) % images.length ]);
                 break;
             }
@@ -43,7 +46,8 @@ $(document).ready(function () {
     
     $(".next-slide").click(function() {
         for (var i = 0; i < images.length; i++) {
-            if ($(images[i]).attr("src") == $('.modal-images').attr("src")) {
+            console.log($(images[i]).attr("src"));
+            if ($(images[i]).attr("src") == $('.modal-image').attr("src")) {
                 set_image(images[ (i + 1) % images.length ]);
                 break;
             }
