@@ -61,6 +61,7 @@ class Image(models.Model):
 class CountryEvent(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
     country = models.ForeignKey('Country', on_delete=models.CASCADE)
+    gallery = models.ForeignKey('Gallery', on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return str(self.event) + ' - ' + str(self.country)
@@ -79,6 +80,16 @@ class City(models.Model):
     english_name = models.CharField(max_length=200)
 
     country = models.ForeignKey('Country', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.english_name
+
+
+class Gallery(models.Model):
+    persian_name = models.CharField(max_length=200)
+    english_name = models.CharField(max_length=200)
+
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.english_name
