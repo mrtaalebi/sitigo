@@ -81,7 +81,7 @@
                 <div class="ui inverted segment" style="background-color: #222222dd;padding:auto" dir="rtl"
                      align="right">
                         {% for country_images in by_country_event_images %}
-                            <div class="ui grey center aligned dividing header">
+                            <div class="ui center aligned dividing header" style="margin-bottom: 0">
                                 {% if LANGUAGE_CODE == "fa" %}
                                     {{ country_images.coev.country.persian_name }}
                                 {% else %}
@@ -89,7 +89,8 @@
                                 {% endif %}
                             </div>
 
-                            <div class="ui stackable two column grid" dir="{% if LANGUAGE_CODE == "fa" %}rtl{% else %}ltr{% endif %}">
+                            <div class="ui stackable two column center aligned relaxed grid" dir="{% if LANGUAGE_CODE == "fa" %}rtl{% else %}ltr{% endif %}"
+                                    style="border: 0.2em white solid; border-radius: 0.5em; margin: 0.25em";>
                                 {% for image in country_images.images %}
                                     <div class="ui center aligned column">
                                         <div style="display: flex; justify-content: center">
