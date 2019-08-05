@@ -31,13 +31,11 @@ $(document).ready(function () {
     );
 
 
-    var images = $(".slide").toArray().reverse();
+    var images = $(".slide");
     $(".prev-slide").click(function() {
         for (var i = 0; i < images.length; i++) {
-            console.log(images[i].attr("src"));
-            if (images[i].attr("src") == $('.modal-images').attr("src")) {
-                set_image(images[ (i - 1) % images.length ]);
-                console.log("yaaay");
+            if ($(images[i]).attr("src") == $('.modal-images').attr("src")) {
+                set_image($(images[ (i - 1) % images.length ]));
                 break;
             }
         }
@@ -45,8 +43,8 @@ $(document).ready(function () {
     
     $(".next-slide").click(function() {
         for (var i = 0; i < images.length; i++) {
-            if (images[i].attr("src") == $('.modal-images').attr("src")) {
-                set_image(images[ (i + 1) % images.length ]);
+            if ($(images[i]).attr("src") == $('.modal-images').attr("src")) {
+                set_image($(images[ (i + 1) % images.length ]));
                 break;
             }
         }
