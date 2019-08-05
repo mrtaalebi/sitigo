@@ -34,8 +34,10 @@ $(document).ready(function () {
     var images = $(".slide").toArray.reverse();
     $(".prev-slide").click(function() {
         for (var i = 0; i < images.length; i++) {
+            console.log(images[i].attr("src"));
             if (images[i].attr("src") == $('.modal-images').attr("src")) {
                 set_image(images[ (i - 1) % images.length ]);
+                console.log("yaaay");
                 break;
             }
         }

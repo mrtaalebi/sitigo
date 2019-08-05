@@ -1,6 +1,5 @@
 .modal {
     background:rgba(0, 0, 0, 0.85);
-    cursor: pointer;
     display: none;
     height: 100vh;
     width: 100vw;
@@ -22,16 +21,17 @@
 }
 
 .tool {
-   position: absolute;
-   display: flex; 
-   justify-content: center; 
-   align-items: center; 
-   width: 2em;
-   height: 2em;
-   padding: 0.5em; 
-   margin: 0.5em;
-   border-radius: 2em; 
-   background: #1b1c1d !important;
+    cursor: pointer;
+    position: absolute;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    width: 2em;
+    height: 2em;
+    padding: 0.5em; 
+    margin: 0.5em;
+    border-radius: 2em; 
+    background: #1b1c1d !important;
 } 
 
 .iii {
