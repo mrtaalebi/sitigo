@@ -14,7 +14,7 @@ LANGUAGE_QUERY_PARAMETER = 'language'
 
 def event(request, event_id = None):
     lang = translation.get_language()
-    prev_ages = list(Event.objects.all().order_by('year').filter(files__language=lang))
+    prev_ages = list(Event.objects.all().order_by('year'))
     x = []
     for p_age in prev_ages:
         x.append({
@@ -41,7 +41,7 @@ def event(request, event_id = None):
             'year': active.year,
             'persian_content': active.persian_content,
             'english_content': active.english_content,
-            'files': list(active.files.all()),
+            'files': list(active.files.filter(language=lang)),
             'poster': active.poster,
             'english_poster': active.english_poster if active.english_poster != None else active.poster
         }
