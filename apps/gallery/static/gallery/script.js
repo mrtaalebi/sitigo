@@ -31,7 +31,7 @@ $(document).ready(function () {
     );
 
 
-    var images = $(".slide").toArray.reverse();
+    var images = $(".slide").toArray().reverse();
     $(".prev-slide").click(function() {
         for (var i = 0; i < images.length; i++) {
             console.log(images[i].attr("src"));
