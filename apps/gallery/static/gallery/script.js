@@ -1,11 +1,9 @@
 $(function () {
     "use strict";
     
-    var images = document.querySelectorAll('.o-my-sweet-image')
-    
-    images.click(function () {
+    $("document.querySelector('#topper > div > div.ui.stackable.grid > div.twelve.wide.center.aligned.stretched.column > div > div > div > div > div > img')").click(function () {
         var $src = $(this).attr("src");
-        $(".show").fadeIn();
+        $("#topper > div > div.ui.stackable.grid > div.twelve.wide.center.aligned.stretched.column > div > div.show").fadeIn();
         $(".img-show img").attr("src", $src);
     });
     
