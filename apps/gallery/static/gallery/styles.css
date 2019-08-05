@@ -14,10 +14,8 @@
 }
 
 .modal-image {
-    max-height: 90% !important;
-    height: auto !important;
-    width: 100% !important;
-    margin;
+    height: 100% !important;
+    width: auto !important;
 }
 
 .modal-caption {
