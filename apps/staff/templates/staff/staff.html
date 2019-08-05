@@ -1,6 +1,6 @@
 {% extends 'base/base.html' %}
 {% load static i18n %}
-{% load template_filters %}
+{% load modulo name len from staff_template_filters %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
 {% get_current_language as LANGUAGE_CODE %}
 {% block extra_header %}
@@ -76,7 +76,7 @@
 
                                     {% for s in team.heads_english_sorted %}
                                         {% if forloop.counter0|modulo:4 == 0 %}
-                                            <div class="ui center aligend relaxed row" style="justify-content: center">
+                                    <div class="ui center aligend relaxed row" style="justify-content: center">
                                         {% endif %}
                                         <div class="ui fluid column" style="display: flex; flex-direction: column; width: 25%">
                                             <div class="ui tiny circular image">
@@ -84,9 +84,9 @@
                                             </div> 
                                             <div class="ui black label" style="max-width: 100%; margin-top: 1vh">
                                                 {% if LANGUAGE_CODE == "fa" %}
-                                                    {{ s.persian_name }}
+                                                    {{ s|name:"fa" }}
                                                 {% else %}
-                                                    {{ s.english_name }}
+                                                    {{ s|name:"en" }}
                                                 {% endif %}
                                             </div>
                                             <div class="ui label grey" style="max-width: 100%">
@@ -97,11 +97,11 @@
                                                     {% endif %}
                                             
                                             </div>
-                                        </div>                            
+                                        </div>
                                         {% if forloop.counter0|modulo:4 == 3 %}
-                                            </div>
-                                        {% elif forloop.counter1 == team.heads|len %}
-                                            </div>
+                                    </div>
+                                        {% elif forloop.counter == team.heads_english_sorted|len %}
+                                    </div>
                                         {% endif %}
                                     {% endfor %}
 
@@ -110,7 +110,7 @@
 
                                     {% for s in team.staff_english_sorted %}
                                         {% if forloop.counter0|modulo:4 == 0 %}
-                                            <div class="ui center aligend relaxed row" style="justify-content: center">
+                                    <div class="ui center aligend relaxed row" style="justify-content: center">
                                         {% endif %}
                                         <div class="ui fluid column" style="display: flex; flex-direction: column; width: 25%">
                                             <div class="ui tiny circular image">
@@ -118,17 +118,18 @@
                                             </div> 
                                             <div class="ui black label" style="max-width: 100%; margin-top: 1vh">
                                                 {% if LANGUAGE_CODE == "fa" %}
-                                                    {{ s.persian_name }}
+                                                    {{ s|name:"fa" }}
                                                 {% else %}
-                                                    {{ s.english_name }}
+                                                    {{ s|name:"en" }}
                                                 {% endif %}
                                             </div>
                                         </div>                            
                                         {% if forloop.counter0|modulo:4 == 3 %}
-                                            </div>
+                                    </div>
+                                        {% elif forloop.counter == team.staff_english_sorted|len %}
+                                    </div>
                                         {% endif %}
                                     {% endfor %}
-                                    </div>
                                 </div>
                             {% endfor %}
                         </div>
@@ -173,7 +174,7 @@
 
                                     {% for s in team.heads_persian_sorted %}
                                         {% if forloop.counter0|modulo:4 == 0 %}
-                                            <div class="ui center aligend relaxed row" style="justify-content: center">
+                                    <div class="ui center aligend relaxed row" style="justify-content: center">
                                         {% endif %}
                                         <div class="ui fluid column" style="display: flex; flex-direction: column; width: 25%">
                                             <div class="ui tiny circular image">
@@ -181,9 +182,9 @@
                                             </div> 
                                             <div class="ui black label" style="max-width: 100%; margin-top: 1vh">
                                                 {% if LANGUAGE_CODE == "fa" %}
-                                                    {{ s.persian_name }}
+                                                    {{ s|name:"fa" }}
                                                 {% else %}
-                                                    {{ s.english_name }}
+                                                    {{ s|name:"en" }}
                                                 {% endif %}
                                             </div>
                                             <div class="ui label grey" style="max-width: 100%">
@@ -196,9 +197,9 @@
                                             </div>
                                         </div>                            
                                         {% if forloop.counter0|modulo:4 == 3 %}
-                                            </div>
-                                        {% elif forloop.counter1 == team.heads|len %}
-                                            </div>
+                                    </div>
+                                        {% elif forloop.counter == team.heads_persian_sorted|len %}
+                                    </div>
                                         {% endif %}
                                     {% endfor %}
 
@@ -207,7 +208,7 @@
 
                                     {% for s in team.staff_persian_sorted %}
                                         {% if forloop.counter0|modulo:4 == 0 %}
-                                            <div class="ui center aligend relaxed row" style="justify-content: center">
+                                    <div class="ui center aligend relaxed row" style="justify-content: center">
                                         {% endif %}
                                         <div class="ui fluid column" style="display: flex; flex-direction: column; width: 25%">
                                             <div class="ui tiny circular image">
@@ -215,19 +216,18 @@
                                             </div> 
                                             <div class="ui black label" style="max-width: 100%; margin-top: 1vh">
                                                 {% if LANGUAGE_CODE == "fa" %}
-                                                    {{ s.persian_name }}
+                                                    {{ s|name:"fa" }}
                                                 {% else %}
-                                                    {{ s.english_name }}
+                                                    {{ s|name:"en" }}
                                                 {% endif %}
                                             </div>
                                         </div>                            
                                         {% if forloop.counter0|modulo:4 == 3 %}
-                                            </div>
-                                        {% elif forloop.counter1 == team.staff|len %}
-                                            </div>
+                                    </div>
+                                        {% elif forloop.counter == team.staff_persian_sorted|len %}
+                                    </div>
                                         {% endif %}
                                     {% endfor %}
-                                    </div>
                                 </div>
                             {% endfor %}
 
