@@ -7,10 +7,10 @@ from .models import FileUpload, Event, Category, SubCategory, Article
 
 
 class FileUploadAdmin(forms.ModelForm):
-    fields = ['file', 'name', 'thumbnail']
+    fields = ['file', 'name', 'thumbnail', 'language']
 
     class Meta:
-        fields = ['file', 'name', 'thumbnail']
+        fields = ['file', 'name', 'thumbnail', 'language']
         model = FileUpload
 
 

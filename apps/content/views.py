@@ -13,7 +13,8 @@ LANGUAGE_QUERY_PARAMETER = 'language'
 
 
 def event(request, event_id = None):
-    prev_ages = list(Event.objects.all().order_by('year'))
+    lang = translation.get_language()
+    prev_ages = list(Event.objects.all().order_by('year').filter(files__language=lang))
     x = []
     for p_age in prev_ages:
         x.append({
