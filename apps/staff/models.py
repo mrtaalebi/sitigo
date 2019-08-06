@@ -69,9 +69,9 @@ class AddEmAll(models.Model):
     def save(self, *args, **kwargs):
         from apps.staff.management.commands.addemall import Command
         if Command().addemall(
-                self.team_csv,
-                self.role_csv,
-                self.data_csv,
+                str(self.team_csv.file),
+                str(self.role_csv.file),
+                str(self.data_csv.file),
                 self.event.id
             ) != 0:
             return
