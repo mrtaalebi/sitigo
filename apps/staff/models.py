@@ -67,6 +67,8 @@ class AddEmAll(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
 
     def save(self, *args, **kwargs):
+        super(AddEmAll, self).save(*args, **kwargs)
+
         from apps.staff.management.commands.addemall import Command
         if Command().addemall(
                 str(self.team_csv.file),
@@ -76,4 +78,4 @@ class AddEmAll(models.Model):
             ) != 0:
             return
 
-        super(AddEmAll, self).save(*args, **kwargs)
+
