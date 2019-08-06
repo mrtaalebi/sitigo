@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from apps.staff.models import Team, Role, Staff
+from apps.staff.models import Team, Role, Staff, AddEmAll
 
 @admin.register(Team)
 class TeamAdmin(admin.ModelAdmin):
@@ -17,4 +17,8 @@ class RoleAdmin(admin.ModelAdmin):
 class StaffAdmin(admin.ModelAdmin):
     pass
 
+
+@admin.register(AddEmAll)
+class AddEmAllAdmin(admin.ModelAdmin):
+    pass
 

@@ -60,3 +60,20 @@ class Staff(models.Model):
         return img
 
 
+class AddEmAll(models.Model):
+    team_csv = models.FileField(upload_to='addemall')
+    role_csv = models.FileField(upload_to='addemall')
+    data_csv = models.FileField(upload_to='addemall')
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+
+    def save(self, *args, **kwargs):
+        from apps.staff.management.commands.addemall import Command
+        if Command().addemall(
+                self.team_csv,
+                self.role_csv,
+                self.data_csv,
+                self.event.id
+            ) != 0:
+            return
+
+        super(AddEmAll, self).save(*args, **kwargs)
