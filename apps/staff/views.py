@@ -13,7 +13,7 @@ def staff(request, event_id = None):
     elif events.count() > 0:
         active = events.last()
     else:
-        return render(reqeust, 'staff/staff.html', context={'events': events})
+        return render(request, 'staff/staff.html', context={'events': events})
 
     context = {
         'events': events,
