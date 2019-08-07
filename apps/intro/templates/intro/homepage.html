@@ -526,9 +526,12 @@ Afghanistan, Argentina, Armenia, Australia, Bangladesh, Belarus, Bolivia, Bosnia
                         {% endif %}
                     </p>
                 </div>
-<!--                {% if LANGUAGE_CODE == "fa" %}
                 <div class="column" style="height: 100%">
-                    <h3 class="faded_class">{% trans 'Sponsor' %}</h3>
+                    {% if LANGUAGE_CODE == "fa" %}
+                        <h3 class="faded_class">{% trans 'Sponsor' %}</h3>
+                    {% else %}
+                        <h3 class="faded_class">National Sponsor</h3>
+                    {% endif %}
                     <p>
 
                         <img
@@ -544,8 +547,7 @@ Afghanistan, Argentina, Armenia, Australia, Bangladesh, Belarus, Bolivia, Bosnia
                         {% endif %}
                     </p>
                 </div>
-                {% endif %}
--->
+
 
             </div>
         </div>
