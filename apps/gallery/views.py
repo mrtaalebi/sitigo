@@ -45,7 +45,10 @@ def gallery(request, event_id=None, gallery_id=None):
             'images': list(Image.objects.filter(country_event=coev)),
         } for coev in CountryEvent.objects.filter(event=event, gallery=gallery).order_by(sort_by)
     ]
-
+    
+    import random
+    for imgs in context['by_country_event_images']:
+        random.shuffle(imgs['images'])
 
     return render(request, 'gallery/gallery.html', context)
 
