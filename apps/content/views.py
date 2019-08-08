@@ -41,7 +41,7 @@ def event(request, event_id = None):
             'year': active.year,
             'persian_content': active.persian_content,
             'english_content': active.english_content,
-            'files': list(active.files.filter(language=lang)),
+            'files': list(active.files.filter(language=lang)) + list(active.files.filter(language=None)),
             'poster': active.poster,
             'english_poster': active.english_poster if active.english_poster != None else active.poster
         }

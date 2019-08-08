@@ -23,7 +23,7 @@ class FileUpload(models.Model):
     name = models.CharField(max_length=200, null=False, blank=True)
     file = models.FileField(null=False, blank=False)
     thumbnail = models.ImageField(null=True, blank=True)
-    language = models.CharField(choices= (('fa', _('fa')),('en', _('en'))),default='fa', max_length=200)
+    language = models.CharField(choices= (('fa', _('fa')),('en', _('en'))),default=None, max_length=200, null=True)
 
     def save(self, *args, **kwargs):
         if not self.thumbnail:
