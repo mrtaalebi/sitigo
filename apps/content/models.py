@@ -54,8 +54,8 @@ class FileUpload(models.Model):
 
         result = subprocess.call(params)
         print("result {}".format(result))
-        if result == 1:
-            self.thumbnail = 'default_thumbnail.png'
+        if result != 0:
+            thumb_name = 'default_thumbnail.png'
 
         return thumb_name
         
