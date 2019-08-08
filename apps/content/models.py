@@ -52,7 +52,9 @@ class FileUpload(models.Model):
         tmp_file = os.path.join(settings.MEDIA_ROOT, path)
         params = ['convert', tmp_file + "[0]", thumb_path]
 
-        print(subprocess.call(params))
+        result = subprocess.call(params)
+        if result == 1:
+            self.thumbnail = 'default_thumbnail.png'
 
         return thumb_name
         
