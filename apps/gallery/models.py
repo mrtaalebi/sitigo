@@ -103,7 +103,8 @@ class GroupImageUpload(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(self, args, kwargs)
-
+        
+        import os
         unzip_path = os.path.abspath(
                 os.path.join(
                     os.path.join(
