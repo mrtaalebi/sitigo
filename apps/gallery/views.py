@@ -32,8 +32,7 @@ def gallery(request, event_id=None, gallery_id=None):
             'g': g,
             'link': '/gallery/{}/{}'.format(event.id, g.id) 
             } for g in Gallery.objects.filter(event=event)],
-        'gallery_english_name': gallery.english_name if gallery is not None \
-                else 'World Wide'
+        'gallery_english_name': gallery.english_name if gallery is not None else 'World Wide'
     }
 
     # tof
