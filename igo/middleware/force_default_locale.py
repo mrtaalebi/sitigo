@@ -10,7 +10,7 @@ def ForceDefaultLocale(get_response):
     """
 
     def process_request(request):
-        if request.META.has_key('HTTP_ACCEPT_LANGUAGE'):
+        if 'HTTP_ACCEPT_LANGUAGE' in request.META:
             del request.META['HTTP_ACCEPT_LANGUAGE']
 
         response = get_response(request)
