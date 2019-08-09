@@ -136,5 +136,5 @@ class GroupImageUpload(models.Model):
                 )
 
     def __str__(self):
-        return str(country_event) + " - " + str(city) + " - " + str(zip_file)
+        return str(self.country_event) + " - " + str(self.city) + " - " + str(self.zip_file.name)
 
