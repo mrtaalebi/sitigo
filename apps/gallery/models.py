@@ -134,6 +134,7 @@ class GroupImageUpload(models.Model):
                     image=os.path.join(unzip_path, img)
                 )
 
+
     def __str__(self):
         return str(self.country_event) + " - " + str(self.city) + " - " + str(self.zip_file.name)
 

@@ -10,21 +10,47 @@ class Command(BaseCommand):
             team.persian_name, team.english_name, team.position_from_top
 
         role_csv format:
-            role.persian_name, role.english_name, role.team.english_name
+            role.persian_name, role.english_name, role.team.english_name, role.is_head ('1' means role is a head otherwise is not)
 
         data_csv format:
-            staff.persian_name, staff,english_name, staff.role.english_name, staff.head_title (empty means they're not head)
+            staff.persian_firstname, staff.persian_lastname, staff.english_firstname, staff.english_lastname, staff.role.english_name, staff.image_filename (optional)
 
         event_id:
             event's id!
+
+        images_zip_filepath format:
+            a zip file's path which has no subdirectories containing all staff images (optional)
+
     '''
 
-    def addemall(self, team_csv, role_csv, data_csv, event_id):
+    def addemall(self, team_csv, role_csv, data_csv, event_id, images_zip_filepath=None):
 
         if Event.objects.filter(pk=event_id).count() != 1:
             print("Event with id {} not found. exiting.")
             return 1
         event = Event.objects.filter(pk=event_id).get()
+        
+        if images_zip_filepath is not None:
+            from django.conf import settings
+            import os
+            unzip_dir = os.path.abspath(
+                os.path.join(
+                    os.path.join(settings.MEDIA_ROOT,
+                        'addemall'
+                    ),
+                    images_zip_filepath.split('.')[0].split('/')[-1]
+                )
+            )
+
+            import subprocess
+            params = ['mkdir', '-p', unzip_dir]
+            subprocess.call(params)
+            params = ['unzip', images_zip_filepath, '-d', unzip_dir]
+            if subprocess.call(params) != 0:
+                print('unzip failed. exiting')
+                return 1
+
+
 
         Team.objects.filter(event=event).delete()
 
@@ -71,7 +97,7 @@ class Command(BaseCommand):
         with open(data_csv) as f:
             for l in f:
                 w = [ll.strip().replace('\u2588', '\u200c') for ll in l.replace('\u200c', '\u2588').split(',')]
-                if len(w) != 5:
+                if len(w) != 6:
                     print("Broken line at data_csv: {}. exiting.".format(w))
                     return 1
 
@@ -80,6 +106,7 @@ class Command(BaseCommand):
                 english_firstname = w[2]
                 english_lastname = w[3]
                 role_english_name = w[4]
+                image_filename = w[5]
 
                 role_filter = Role.objects.filter(english_name=role_english_name)
                 if role_filter.count() != 1:
@@ -91,7 +118,9 @@ class Command(BaseCommand):
                         persian_lastname=persian_lastname,
                         english_firstname=english_firstname,
                         english_lastname=english_lastname,
-                        role=role_filter.get()
+                        role=role_filter.get(),
+                        image=os.path.join(unzip_dir, image_filename) \
+                                if image_name is not None else None
                     )
         return 0
     

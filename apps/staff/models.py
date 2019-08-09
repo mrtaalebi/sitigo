@@ -66,6 +66,8 @@ class AddEmAll(models.Model):
     data_csv = models.FileField(upload_to='addemall')
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
 
+    zip_file = models.FileField(upload_to='addemall_zip', null=True, blank=True)
+
     def save(self, *args, **kwargs):
         super(AddEmAll, self).save(*args, **kwargs)
 
@@ -74,7 +76,8 @@ class AddEmAll(models.Model):
                 str(self.team_csv.file),
                 str(self.role_csv.file),
                 str(self.data_csv.file),
-                self.event.id
+                self.event.id,
+                str(zip_file.file)
             ) != 0:
             return
 
