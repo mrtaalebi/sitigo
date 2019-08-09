@@ -5,6 +5,7 @@ from django.conf import settings
 
 from .forms import ContactInfoForm
 
+import pycountry
 
 def contact_us(request):
     
@@ -23,13 +24,13 @@ def contact_us(request):
 
     subject = data['subject']
 
-    message = 'name: ' + data['name'] + '\n' \
-            + 'country: ' + data['country'] + '\n' \
-            + 'school_uni: ' + data['school_uni'] + '\n' \
-            + 'study_grade: ' + data['study_grade'] + '\n' \
-            + 'phone_number: ' + data['phone_number'] + '\n' \
-            + 'email: ' + data['email'] + '\n' \
-            + '\n\n\n text: \n\n\n' + data['text']
+    message = 'Name: ' + data['name'] + '\n' \
+            + 'Country: ' + pycountry.countries.get(alpha_3=data['country']) + '\n' \
+            + 'School_uni: ' + data['school_uni'] + '\n' \
+            + 'Study_grade: ' + data['study_grade'] + '\n' \
+            + 'Phone_number: ' + data['phone_number'] + '\n' \
+            + 'Email: ' + data['email'] + '\n' \
+            + '\n Message: ' + data['text']
 
     lang = translation.get_language()
     recp = 'national.igo@gmail.com' if lang == "fa" else 'international.igo@gmail.com'
