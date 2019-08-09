@@ -94,3 +94,47 @@ class Gallery(models.Model):
     def __str__(self):
         return self.english_name
 
+
+class GroupImageUpload(models.Model):
+    country_event = models.ForiegnKey(CountryEvent, on_delete=models.CASCADE)
+    city = models.ForiegnKey(City, on_delete=models.CASCADE, null=True, blank=True)
+
+    zip_file = models.FileField(upload_to='group_image_upload/')
+
+    def save(self, *args, **kwargs):
+        import re
+        if not re.match(zip_file.name, '^.*[.]zip$'):
+            return
+        super().save(self, args, kwargs)
+
+        unzip_path = os.path.abspath(
+                os.path.join(
+                    os.path.join(
+                        settings.MEDIA_ROOT, 
+                        'group_image_upload_unzip'),
+                    zip_file.name.split('.')[0]
+                )
+            )
+        import subprocess
+        params = ['mkdir', '-p', unzip_path]
+        subprocess.call(params)
+        params = [
+                'unzip',
+                str(zip_file.file),
+                '-d',
+                unzip_path
+            ]
+        subprocess.call(params)
+
+        import os
+        imgs = os.listdir(unzip_path)
+        for img in imgs:
+            Image.objects.create(
+                    country_event=self.country_event,
+                    city=self.city,
+                    image=os.path.join(unzip_path, img)
+                )
+
+    def __str__(self):
+        return str(country_event) + " - " + str(city) + " - " + str(zip_file)
+

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Image, CountryEvent, Country, City, Gallery
+from .models import Image, CountryEvent, Country, City, Gallery, GroupImageUpload
 
 
 @admin.register(Image)
@@ -25,5 +25,9 @@ class CityAdmin(admin.ModelAdmin):
 
 @admin.register(Gallery)
 class GalleryAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(GroupImageUpload):
     pass
 
