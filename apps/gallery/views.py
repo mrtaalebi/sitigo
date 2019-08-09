@@ -24,7 +24,6 @@ def gallery(request, event_id=None, gallery_id=None):
     # tof
     if event.id == 1:
         gallery = Gallery.objects.filter(event=event).first()
-        return None
 
     context = {
         'events': list(Event.objects.order_by('year')),
