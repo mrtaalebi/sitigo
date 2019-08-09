@@ -21,6 +21,10 @@ def gallery(request, event_id=None, gallery_id=None):
     else:
         gallery = None
 
+    # tof
+    if event.id == 1:
+        gallery = Gallery.objects.filter(event=event).first()
+
     context = {
         'events': list(Event.objects.order_by('year')),
         'event': event,
@@ -32,6 +36,7 @@ def gallery(request, event_id=None, gallery_id=None):
                 else 'World Wide' if event.id != 1 else 'Iran'
     }
 
+    # tof
     if event.id != 1:
         context['gallery_links'] += [
             {'g': 
