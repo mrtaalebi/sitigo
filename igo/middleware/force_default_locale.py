@@ -1,4 +1,4 @@
-class ForceDefaultLanguageMiddleware(object):
+class ForceDefaultLocale(object):
     """
     Ignore Accept-Language HTTP headers
     

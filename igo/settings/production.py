@@ -64,7 +64,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     
-    'igo.middleware.force_default_locale',
+    'igo.middleware.force_default_locale.ForceDefaultLocale',
     
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
