@@ -190,7 +190,7 @@ msgstr "برگزار کننده"
 
 #: apps/intro/templates/intro/homepage.html:539
 msgid "Sponsor"
-msgstr "حمایت‌کننده"
+msgstr "حمایت کننده"
 
 #: igo/context_processors.py:10
 msgid "Home"
