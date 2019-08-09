@@ -33,7 +33,7 @@ def gallery(request, event_id=None, gallery_id=None):
             'link': '/gallery/{}/{}'.format(event.id, g.id) 
             } for g in Gallery.objects.filter(event=event)],
         'gallery_english_name': gallery.english_name if gallery is not None \
-                else 'World Wide' if event.id != 1 else 'Iran'
+                else 'World Wide'
     }
 
     # tof
@@ -47,6 +47,10 @@ def gallery(request, event_id=None, gallery_id=None):
             'link': '/gallery/{}/'.format(event.id)
             }
         ],
+
+    # tof
+    if event.id == 1:
+        context['gallery_english_name'] = 'Iran'
 
     if translation.get_language() == "fa":
         sort_by = "country__persian_name"
