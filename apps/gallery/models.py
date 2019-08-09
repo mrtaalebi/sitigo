@@ -103,7 +103,7 @@ class GroupImageUpload(models.Model):
 
     def save(self, *args, **kwargs):
         import re
-        if not re.match(zip_file.name, '^.*[.]zip$'):
+        if not re.match(self.zip_file.name, '^.*[.]zip$'):
             return
         super().save(self, args, kwargs)
 
@@ -112,7 +112,7 @@ class GroupImageUpload(models.Model):
                     os.path.join(
                         settings.MEDIA_ROOT, 
                         'group_image_upload_unzip'),
-                    zip_file.name.split('.')[0]
+                    self.zip_file.name.split('.')[0]
                 )
             )
         import subprocess
@@ -120,7 +120,7 @@ class GroupImageUpload(models.Model):
         subprocess.call(params)
         params = [
                 'unzip',
-                str(zip_file.file),
+                str(self.zip_file.file),
                 '-d',
                 unzip_path
             ]
