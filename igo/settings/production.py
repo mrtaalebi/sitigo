@@ -145,7 +145,7 @@ LANGUAGES = (
     ('fa', _('Persian'))
 )
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'fa'
 
 TIME_ZONE = 'Iran'
 
