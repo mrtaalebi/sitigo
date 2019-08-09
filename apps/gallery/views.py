@@ -34,7 +34,7 @@ def gallery(request, event_id=None, gallery_id=None):
                         'english_name': 'World Wide'
                     },
                 'link': '/gallery/{}/'.format(event.id)
-                }] if event.id != 1 else [],
+                } if event.id != 1 ],
         'gallery_english_name': gallery.english_name if gallery is not None \
                 else 'World Wide' if event.id != 1 else 'Iran'
     }
