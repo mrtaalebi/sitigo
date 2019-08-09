@@ -102,9 +102,6 @@ class GroupImageUpload(models.Model):
     zip_file = models.FileField(upload_to='group_image_upload/')
 
     def save(self, *args, **kwargs):
-        import re
-        if not re.match(self.zip_file.name, '^.*[.]zip$'):
-            return
         super().save(self, args, kwargs)
 
         unzip_path = os.path.abspath(
