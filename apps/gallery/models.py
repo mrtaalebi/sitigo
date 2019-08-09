@@ -4,6 +4,7 @@ from io import BytesIO
 from django.core.files.uploadedfile import InMemoryUploadedFile
 import sys
 from django.utils.translation import ugettext_lazy as _
+from django.conf import settings
 
 from apps.content.models import Event
 
