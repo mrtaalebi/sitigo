@@ -1,4 +1,4 @@
-class ForceDefaultLocale(object):
+def ForceDefaultLocale(get_response):
     """
     Ignore Accept-Language HTTP headers
     
@@ -8,7 +8,13 @@ class ForceDefaultLocale(object):
     Should be installed *before* any middleware that checks request.META['HTTP_ACCEPT_LANGUAGE'],
     namely django.middleware.locale.LocaleMiddleware
     """
-    def process_request(self, request):
+
+    def process_request(request):
         if request.META.has_key('HTTP_ACCEPT_LANGUAGE'):
             del request.META['HTTP_ACCEPT_LANGUAGE']
+
+        response = get_response(request)
+        return response
+    
+    return process_request
 
