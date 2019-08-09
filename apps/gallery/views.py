@@ -30,8 +30,9 @@ def gallery(request, event_id=None, gallery_id=None):
             } for g in Gallery.objects.filter(event=event)]
             + [{'g': {'persian_name': 'سراسر جهان',
                     'english_name': 'World Wide'},
-                'link': '/gallery/{}/'.format(event.id)}],
-        'gallery_english_name': gallery.english_name if gallery is not None else 'World Wide'
+                'link': '/gallery/{}/'.format(event.id)}] if event.id != 1 else [],
+        'gallery_english_name': gallery.english_name if gallery is not None else 'World Wide' \
+                if event.id != 1 else "Iran"
     }
 
     if translation.get_language() == "fa":
