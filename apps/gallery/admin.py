@@ -28,6 +28,7 @@ class GalleryAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(GroupImageUpload):
+@admin.register(GroupImageUpload)
+class GroupImageUploadAdmin(admin.ModelAdmin):
     pass
 

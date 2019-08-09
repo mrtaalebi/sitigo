@@ -96,8 +96,8 @@ class Gallery(models.Model):
 
 
 class GroupImageUpload(models.Model):
-    country_event = models.ForiegnKey(CountryEvent, on_delete=models.CASCADE)
-    city = models.ForiegnKey(City, on_delete=models.CASCADE, null=True, blank=True)
+    country_event = models.ForeignKey(CountryEvent, on_delete=models.CASCADE)
+    city = models.ForeignKey(City, on_delete=models.CASCADE, null=True, blank=True)
 
     zip_file = models.FileField(upload_to='group_image_upload/')
 
