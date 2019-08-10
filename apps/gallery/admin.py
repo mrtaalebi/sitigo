@@ -5,7 +5,7 @@ from .models import Image, CountryEvent, Country, City, Gallery, GroupImageUploa
 
 @admin.register(Image)
 class ImageAdmin(admin.ModelAdmin):
-    search_fields = ['image__name']
+    search_fields = ['image']
     pass
 
 
