@@ -101,7 +101,7 @@ class GroupImageUpload(models.Model):
     city = models.ForeignKey(City, on_delete=models.CASCADE, null=True, blank=True)
     zip_file = models.FileField(upload_to='group_image_upload/')
 
-    images = models.ManyToManyField(Image, related_name='group_upload')
+    images = models.ManyToManyField(Image, related_name='group_upload', on_delete=models.CASCADE)
 
     def create_images(self):
         
