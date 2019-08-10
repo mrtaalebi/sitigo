@@ -3,7 +3,6 @@ $(document).ready(function () {
     function set_image(img) {
         $('.modal-image').attr("src", $(img).attr("src"));
         $('.modal-image').attr("alt", $(img).attr("alt"));
-        $('.modal-image').css("height", "100%");
         $('.modal-caption').html($(img).attr("alt"));
     }
 
