@@ -13,14 +13,14 @@
 }
 
 .modal-image {
-    height: 100%;
-    width: auto;
+    height: 100% !important;
+    width: auto !important;
 }
 
 @media only screen and (max-width: 700px) {
     .modal-image {
-        height: auto;
-        width: 100%;
+        height: auto !important;
+        width: 100% !important;
     }
 }
 
