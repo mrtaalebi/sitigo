@@ -99,11 +99,11 @@ class Gallery(models.Model):
 class GroupImageUpload(models.Model):
     country_event = models.ForeignKey(CountryEvent, on_delete=models.CASCADE)
     city = models.ForeignKey(City, on_delete=models.CASCADE, null=True, blank=True)
-
     zip_file = models.FileField(upload_to='group_image_upload/')
 
-    def save(self, *args, **kwargs):
-        super().save(self, args, kwargs)
+    images = models.ManyToManyField(Image, related_name='group_upload')
+
+    def create_images(self):
         
         import os
         unzip_path = os.path.abspath(
@@ -119,21 +119,28 @@ class GroupImageUpload(models.Model):
         subprocess.call(params)
         params = [
                 'unzip',
+                '-j',
                 str(self.zip_file.file),
                 '-d',
                 unzip_path
             ]
         subprocess.call(params)
 
-        import os
         imgs = os.listdir(unzip_path)
         for img in imgs:
-            Image.objects.create(
+            self.images.add(
+                Image.objects.create(
                     country_event=self.country_event,
                     city=self.city,
                     image=os.path.join(unzip_path, img)
                 )
+            )
 
+    def save(self, *args, **kwargs):
+        super().save(self, args, kwargs)
+
+        import threading
+        threading.Thread(target=self.create_images).start()
 
     def __str__(self):
         return str(self.country_event) + " - " + str(self.city) + " - " + str(self.zip_file.name)
