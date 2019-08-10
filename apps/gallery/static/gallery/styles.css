@@ -12,6 +12,18 @@
     padding: 2em;
 }
 
+.modal-image {
+    height: 100%;
+    width: auto;
+}
+
+@media only screen and (max-width: 700px) {
+    .modal-image {
+        height: auto;
+        width: 100%;
+    }
+}
+
 .modal-caption {
     width: 100%;
 }
@@ -37,3 +49,4 @@
 .iii {
     margin: 0 !important;
 }
+
