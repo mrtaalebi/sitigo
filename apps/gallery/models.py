@@ -101,7 +101,7 @@ class GroupImageUpload(models.Model):
     city = models.ForeignKey(City, on_delete=models.CASCADE, null=True, blank=True)
     zip_file = models.FileField(upload_to='group_image_upload/')
 
-    images = models.ManyToManyField(Image, related_name='group_upload', on_delete=models.CASCADE)
+    images = models.ManyToManyField(Image, related_name='group_upload')
 
     def create_images(self):
         
@@ -141,6 +141,10 @@ class GroupImageUpload(models.Model):
 
         import threading
         threading.Thread(target=self.create_images).start()
+
+    def delete(self):
+        Image.objcets.filter(group_upload=self).delete()
+        super().delete()
 
     def __str__(self):
         return str(self.country_event) + " - " + str(self.city) + " - " + str(self.zip_file.name)
