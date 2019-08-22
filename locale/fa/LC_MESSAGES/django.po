@@ -150,7 +150,7 @@ msgid ""
 "&ensp;|&ensp; Karaj &ensp;|&ensp; Kerman &ensp;|&ensp; Yazd"
 msgstr ""
 "تهران &ensp;|&ensp; تبریز &ensp;|&ensp; شیراز &ensp;|&ensp; مشهد &ensp;|"
-"&ensp; کرج &ensp;|&ensp; کرمان &ensp;|&ensp یزد"
+"&ensp; کرج &ensp;|&ensp; کرمان &ensp;|&ensp; یزد"
 
 #: apps/intro/templates/intro/homepage.html:84
 msgid "23 Aug"
