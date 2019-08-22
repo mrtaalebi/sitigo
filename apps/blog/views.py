@@ -24,7 +24,7 @@ def blog_dir(request, dir_id=None):
                         'pk': post.pk,
                         'title': post.title,
                         'text': post.text,
-                        'image': post.image,
+                        'image': post.image if post.image is not None else {},
                         'date_created': post.date_created,
                         'short_text': post.text[0: 300]
                     }
