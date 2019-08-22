@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{% static 'intro/slideshow.css' %}"/>
 <style>
     .myMenu > a {
-        background-color: #1f292e !important;
+        background-color: #212121 !important;
     }
 
     .mobile_menu :hover {
@@ -29,7 +29,7 @@
                 <div class="ui inverted vertical fluid right menu myMenu">
                     {% for dir in dirs %}
                     {% if current_dir_name == dir.name %}
-                    <a class="active item" style="font-weight: bolder" href="/blog/{{ dir.pk }}/">
+                    <a class="active item" style="font-weight: bolder" href="/blog/{{ dir.pk }}">
                         <span style="color:lightseagreen "> {{ dir.name }}</span>
                     </a>
                     {% else %}
@@ -65,7 +65,7 @@
                         {% for dir in dirs %}
                         {% if dir.name == current_dir_name %}
                         {% for post in dir.posts %}
-                        <a class="ui inverted black card" style="margin:5%; background: #2d2d2d; color: white !important">
+                        <a class="ui inverted black card" style="margin:5%; background: #1a1a1a; color: white !important">
                             <div class="image">
                               <img src="{{post.image.url}}">
                             </div>
@@ -73,7 +73,7 @@
                                 <p class="header" style="color: white" href="/blog/{{ dir.id }}/{{ post.pk }}">{{post.title}}</p>
                                 <br>
                                 <div class="meta">
-                                    <span class="date" style="color: white">{{post.date_created}}</span>
+                                    <span class="date" style="color: #fafafa">{{post.date_created}}</span>
                                 </div>
                                 <br>
                                 <div class="description" style="color: white">
