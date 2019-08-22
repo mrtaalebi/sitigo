@@ -234,6 +234,11 @@ body {
 
 @media only screen and (max-width: 700px) {
 
+    .register {
+        visibility: hidden !important;
+        display: none !important;
+    }
+
     .register-mobile {
         visibility: visible !important;
         display: block !important;
