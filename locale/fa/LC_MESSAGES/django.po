@@ -153,8 +153,6 @@ msgstr ""
 "&ensp; کرجi &ensp;|&ensp; کرمان"
 
 #: apps/intro/templates/intro/homepage.html:82
-#, fuzzy
-#| msgid "17 Aug"
 msgid "23 Aug"
 msgstr "۱ شهریور"
 
