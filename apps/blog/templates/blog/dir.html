@@ -61,29 +61,29 @@
             <div class="twelve wide center aligned stretched column">
                 <div class="ui inverted segment" style="background-color: #222222dd;padding:auto" dir="rtl"
                      align="right">
-                    <div class="ui stackable grid">
+                    <div class="ui stackable cards">
                         {% for dir in dirs %}
                         {% if dir.name == current_dir_name %}
                         {% for post in dir.posts %}
-                        <div class="ui inverted card" style="margin:5%">
+                        <a class="ui inverted black card" style="margin:5%; background: #2d2d2d; color: white !important">
                             <div class="image">
                               <img src="{{post.image.url}}">
                             </div>
                             <div class="content">
-                                <a class="header" href="/blog/{{ dir.id }}/{{ post.pk }}">{{post.title}}</a>
+                                <p class="header" style="color: white" href="/blog/{{ dir.id }}/{{ post.pk }}">{{post.title}}</p>
                                 <br>
                                 <div class="meta">
-                                    <span class="date">{{post.date_created}}</span>
+                                    <span class="date" style="color: white">{{post.date_created}}</span>
                                 </div>
                                 <br>
-                                <div class="description">
+                                <div class="description" style="color: white">
                                     {{post.short_text|safe}}
                                 </div>
                             </div>
                             <div class="extra content">
                                 <!-- todo comment-->
                             </div>
-                        </div>
+                        </a>
 
                         {% endfor %}
                         {% endif %}
