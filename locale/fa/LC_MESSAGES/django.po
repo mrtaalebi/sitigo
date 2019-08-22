@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-29 14:33+0430\n"
+"POT-Creation-Date: 2019-08-22 16:23+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,7 +60,7 @@ msgid "university"
 msgstr "دانشگاه"
 
 #: apps/contact_us/templates/contact_us/contact_us.html:36
-#: igo/context_processors.py:17 templates/base/base.html:112
+#: igo/context_processors.py:17 templates/base/base.html:122
 msgid "Contact Us"
 msgstr "تماس با ما"
 
@@ -100,11 +100,27 @@ msgstr "متن"
 msgid "Your message has been sent successfully."
 msgstr "پیام شما با موفقیت ارسال شد."
 
-#: apps/content/models.py:94 apps/question/models.py:9
+#: apps/content/models.py:28
+msgid "fa"
+msgstr ""
+
+#: apps/content/models.py:29
+#, fuzzy
+#| msgid "Send"
+msgid "en"
+msgstr "ارسال"
+
+#: apps/content/models.py:30
+#, fuzzy
+#| msgid "Gallery"
+msgid "all"
+msgstr "گالری"
+
+#: apps/content/models.py:98 apps/question/models.py:9
 msgid "persian"
 msgstr "فارسی"
 
-#: apps/content/models.py:95 apps/question/models.py:10
+#: apps/content/models.py:99 apps/question/models.py:10
 msgid "english"
 msgstr "انگلیسی"
 
@@ -116,79 +132,81 @@ msgid "download"
 msgstr "دانلود"
 
 #: apps/intro/templates/intro/homepage.html:24
-#: apps/intro/templates/intro/homepage.html:60
+#: apps/intro/templates/intro/homepage.html:63
 msgid "Register now!"
 msgstr "همین حالا ثبت نام کنید"
 
-#: apps/intro/templates/intro/homepage.html:50
+#: apps/intro/templates/intro/homepage.html:52
 msgid "Coming soon..."
 msgstr "به زودی..."
 
-#: apps/intro/templates/intro/homepage.html:65
+#: apps/intro/templates/intro/homepage.html:68
 msgid " for students and graduates"
 msgstr "برای دانش‌آموزان و فارغ‌التحصیلان"
 
-#: apps/intro/templates/intro/homepage.html:69
+#: apps/intro/templates/intro/homepage.html:72
 msgid ""
-"Tehran &ensp;|&ensp; Mashhad &ensp;|&ensp; Shiraz &ensp;|&ensp; Isfahan "
-"&ensp;|&ensp; Tabriz"
+"Tehran &ensp;|&ensp; Tabriz &ensp;|&ensp; Mashhad &ensp;|&ensp; Shiraz "
+"&ensp;|&ensp; Karaj &ensp;|&ensp; Kerman"
 msgstr ""
-"تهران &ensp;|&ensp; مشهد &ensp;|&ensp; شیراز &ensp;|&ensp; اصفهان &ensp;|"
-"&ensp; تبریز"
+"تهران &ensp;|&ensp; تبریز &ensp;|&ensp; مشهد &ensp;|&ensp; شیراز &ensp;|"
+"&ensp; کرجi &ensp;|&ensp; کرمان"
 
-#: apps/intro/templates/intro/homepage.html:79
-msgid "17 Aug"
-msgstr "۲۶ مرداد"
+#: apps/intro/templates/intro/homepage.html:82
+#, fuzzy
+#| msgid "17 Aug"
+msgid "23 Aug"
+msgstr "۱ شهریور"
 
-#: apps/intro/templates/intro/homepage.html:84
+#: apps/intro/templates/intro/homepage.html:87
 msgid "13 Sep"
 msgstr "۲۲ شهریور"
 
-#: apps/intro/templates/intro/homepage.html:89
+#: apps/intro/templates/intro/homepage.html:92
 msgid "19 Sep"
 msgstr "۲۸ شهریور"
 
-#: apps/intro/templates/intro/homepage.html:96
+#: apps/intro/templates/intro/homepage.html:99
 msgid "Registration"
 msgstr "ثبت نام"
 
-#: apps/intro/templates/intro/homepage.html:99
+#: apps/intro/templates/intro/homepage.html:102
 msgid "Exam"
 msgstr "آزمون"
 
-#: apps/intro/templates/intro/homepage.html:102
+#: apps/intro/templates/intro/homepage.html:105
 msgid "Closing"
 msgstr "اختتامیه"
 
-#: apps/intro/templates/intro/homepage.html:114
+#: apps/intro/templates/intro/homepage.html:117
 msgid "Introduction"
 msgstr "معرفی"
 
-#: apps/intro/templates/intro/homepage.html:158
+#: apps/intro/templates/intro/homepage.html:161
 msgid "Goals"
 msgstr "اهداف"
 
-#: apps/intro/templates/intro/homepage.html:235
+#: apps/intro/templates/intro/homepage.html:238
 msgid "Participating of foreign countries"
 msgstr "المپیاد هندسه‌ی ایران در آن‌ سوی مرزها"
 
-#: apps/intro/templates/intro/homepage.html:263
+#: apps/intro/templates/intro/homepage.html:266
 msgid "Elementary Level"
 msgstr "سطح مقدماتی"
 
-#: apps/intro/templates/intro/homepage.html:305
+#: apps/intro/templates/intro/homepage.html:308
 msgid "Intermediate Level"
 msgstr "سطح متوسط"
 
-#: apps/intro/templates/intro/homepage.html:337
+#: apps/intro/templates/intro/homepage.html:340
 msgid "Advanced Level"
 msgstr "سطح پیشرفته"
 
-#: apps/intro/templates/intro/homepage.html:522
+#: apps/intro/templates/intro/homepage.html:514
 msgid "Organizer"
 msgstr "برگزار کننده"
 
-#: apps/intro/templates/intro/homepage.html:539
+#: apps/intro/templates/intro/homepage.html:531
 msgid "Sponsor"
 msgstr "حمایت کننده"
 
@@ -196,7 +214,7 @@ msgstr "حمایت کننده"
 msgid "Home"
 msgstr "خانه"
 
-#: igo/context_processors.py:11
+#: igo/context_processors.py:11 igo/context_processors.py:23
 msgid "Blog"
 msgstr "بلاگ"
 
@@ -208,7 +226,7 @@ msgstr "رویدادهای پیشین"
 msgid "Articles"
 msgstr "مقالات و مسئله‌ها"
 
-#: igo/context_processors.py:14 igo/context_processors.py:23
+#: igo/context_processors.py:14
 msgid "Staff"
 msgstr "دست‌اندرکاران"
 
@@ -220,27 +238,27 @@ msgstr "گالری"
 msgid "FAQ"
 msgstr "سوالات متداول"
 
-#: igo/settings/development.py:134 igo/settings/production.py:144
+#: igo/settings/development.py:134 igo/settings/production.py:147
 msgid "English"
 msgstr "انگلیسی"
 
-#: igo/settings/development.py:135 igo/settings/production.py:145
+#: igo/settings/development.py:135 igo/settings/production.py:148
 msgid "Persian"
 msgstr "فارسی"
 
-#: templates/base/base.html:128
+#: templates/base/base.html:138
 msgid "Access"
 msgstr "دسترسی"
 
-#: templates/base/base.html:138
+#: templates/base/base.html:148
 msgid "Subscribe Newsletter"
 msgstr "عضویت در خبرنامه"
 
-#: templates/base/base.html:145
+#: templates/base/base.html:155
 msgid "Enter your Email"
 msgstr "ایمیل خود را وارد کنید."
 
-#: templates/base/base.html:150
+#: templates/base/base.html:160
 msgid "Subscribe"
 msgstr "عضویت"
 
