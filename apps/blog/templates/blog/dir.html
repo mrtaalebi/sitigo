@@ -65,12 +65,12 @@
                         {% for dir in dirs %}
                         {% if dir.name == current_dir_name %}
                         {% for post in dir.posts %}
-                        <a class="ui inverted black card" style="margin:5%; background: #1a1a1a; color: white !important">
+                        <a class="ui inverted black card" style="margin:5%; background: #1a1a1a; color: white !important" href="/blog/{{ dir.id }}/{{ post.pk }}">
                             <div class="image">
                               <img src="{{post.image.url}}">
                             </div>
                             <div class="content">
-                                <p class="header" style="color: white" href="/blog/{{ dir.id }}/{{ post.pk }}">{{post.title}}</p>
+                                <p class="header" style="color: white">{{post.title}}</p>
                                 <br>
                                 <div class="meta">
                                     <span class="date" style="color: #fafafa">{{post.date_created}}</span>
