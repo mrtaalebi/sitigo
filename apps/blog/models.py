@@ -22,7 +22,7 @@ class BlogPost(models.Model):
     title = models.CharField(max_length=50, unique=True, null=False, blank=False)
     headline = models.TextField(max_length=200, null=False, blank=False)
     text = RichTextField()
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField()
     date_created = models.DateTimeField(auto_now=True)
 
     def send_subscriber_blog_post_mail(self, mail_list):
