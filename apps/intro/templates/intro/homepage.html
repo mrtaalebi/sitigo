@@ -14,15 +14,17 @@
          id="topper">
 
 
-        <div class="ui center aligned segment register
-            {% if LANGUAGE_CODE == "fa" %}
-                register-fa
-                {% else %}
-                register-en
-            {% endif %}
-                " style="visibility: hidden">
-            <h1>{% trans "Register now!" %}</h1>
-        </div>
+        <a href="https://register.igo-official.ir/fa/participants/sign_up" style="display: none; visibility: hidden">
+            <div class="ui center aligned segment register
+                {% if LANGUAGE_CODE == "fa" %}
+                    register-fa
+                    {% else %}
+                    register-en
+                {% endif %}
+                    ">
+                <h1>{% trans "Register now!" %}</h1>
+            </div>
+        </a>
         <div class="ui container">
 
 
@@ -58,7 +60,7 @@
             <div class="center aligned segments"
                  style="width: 25rem; left: 0; right: 0; max-width: 90vw; margin-left: auto; margin-right: auto; position: absolute; bottom: 2vh;">
 
-            <a href="">
+            <a href="https://register.igo-official.ir/fa/participants/sign_up" style="display: none; visibility: hidden">
             <div class="ui center aligned segment register register-mobile">
                 <h1>{% trans "Register now!" %}</h1>
             </div>
@@ -69,7 +71,7 @@
                 </div>
                 <div class="ui center aligned horizontal attached segment segments fingil">
                      {% if LANGUAGE_CODE == 'fa' %}
-                    <div class="ui center aligned attached segment fingil">{% trans "Tehran &ensp;|&ensp; Tabriz &ensp;|&ensp; Mashhad &ensp;|&ensp; Shiraz &ensp;|&ensp; Karaj &ensp;|&ensp; Kerman" %}
+                    <div class="ui center aligned attached segment fingil">{% trans "Tehran &ensp;|&ensp; Tabriz &ensp;|&ensp; Shiraz &ensp;|&ensp; Mashhad &ensp;|&ensp; Karaj &ensp;|&ensp; Kerman &ensp;|&ensp; Yazd" %}
                     </div>
                     {% else %}
                     <div class="ui center aligned attached segment">
