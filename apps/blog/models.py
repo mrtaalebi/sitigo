@@ -69,6 +69,14 @@ class BlogComment(models.Model):
     date = models.DateTimeField(auto_now=True)
 
 
+class BlogImage(models.Model):
+    image = models.ImageField(upload_to='blog/')
+
+    def __str__(self):
+        return str(image.url)
+
+
+
 class Subscriber(models.Model):
     email = models.EmailField(unique=True, null=False, blank=False)
 
