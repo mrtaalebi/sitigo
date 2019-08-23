@@ -28,6 +28,12 @@
         <div class="ui container">
 
 
+
+            <a href="https://register.igo-official.ir/fa/participants/sign_up" class="register-scroll" target="_blank" style="display: none; justify-content: center; align-items: center; position: fixed; top: 1vh; z-index: 999; max-width: 100%; width: 100%; margin: 0; padding: 0; left: 0 !important; right: 0 !important">
+            <div class="ui center aligned segment register register-mobile" style="width: 90%; max-width: 90%">
+                <h1>{% trans "Register now!" %}</h1>
+            </div>
+            </a>
             {% block navbar %}
                 {% include 'base/main_navbar.html' %}
             {% endblock %}
@@ -60,11 +66,15 @@
             <div class="center aligned segments"
                  style="width: 25rem; left: 0; right: 0; max-width: 90vw; margin-left: auto; margin-right: auto; position: absolute; bottom: 2vh;">
 
+            
+
             <a href="https://register.igo-official.ir/fa/participants/sign_up" target="_blank">
             <div class="ui center aligned segment register register-mobile">
                 <h1>{% trans "Register now!" %}</h1>
             </div>
             </a>
+
+
                <div class="ui center aligned attached segment fingil"
                      style="background-color: #E8E8E8 !important; color: black !important; border-radius: 2.5vh !important; height: 5vh !important; line-height: 0.5vh; width: 100% !important; text-align: center">
                     {% trans "For Students And Graduates" %}
@@ -557,3 +567,7 @@ Afghanistan, Argentina, Armenia, Australia, Bangladesh, Belarus, Bolivia, Bosnia
 
 {% endblock %}
 
+
+{% block extra_script %}
+    <script src="{% static 'intro/scripts/register-scroll.js' %}"></script>
+{% endblock %}
