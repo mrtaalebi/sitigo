@@ -67,11 +67,13 @@
             </a>
                <div class="ui center aligned attached segment fingil"
                      style="background-color: #E8E8E8 !important; color: black !important; border-radius: 2.5vh !important; height: 5vh !important; line-height: 0.5vh; width: 100% !important; text-align: center">
-                    {% trans " for students and graduates" %}
+                    {% trans "For Students And Graduates" %}
                 </div>
                 <div class="ui center aligned horizontal attached segment segments fingil">
-                     {% if LANGUAGE_CODE == 'fa' %}
-                    <div class="ui center aligned attached segment fingil">{% trans "Tehran &ensp;|&ensp; Tabriz &ensp;|&ensp; Shiraz &ensp;|&ensp; Mashhad &ensp;|&ensp; Karaj &ensp;|&ensp; Kerman &ensp;|&ensp; Yazd" %}
+                    {% if LANGUAGE_CODE == 'fa' %}
+                    <div class="ui center aligned attached segment fingil">{% trans "Tehran &ensp;|&ensp; Tabriz &ensp;|&ensp; Shiraz &ensp;|&ensp; Mashhad" %}
+                    </div>
+                    <div class="ui center aligned attached segment fingil">{% trans "Karaj &ensp;|&ensp; Kerman &ensp;|&ensp; Yazd" %}
                     </div>
                     {% else %}
                     <div class="ui center aligned attached segment">
