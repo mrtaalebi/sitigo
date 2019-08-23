@@ -40,11 +40,11 @@
 
             {% if LANGUAGE_CODE == "en" %}
 
-            <div class="ui left aligned huge header title" id="title" style="color: white; font-size: 10vh; font-weight: 900"><p>6th<br>Iranian<br>Geometry<br>Olympiad<br></p>
+            <div class="ui left aligned huge header title" id="title" style="color: white; font-size: 10vh; font-weight: 900; margin-top: 0;"><p>6th<br>Iranian<br>Geometry<br>Olympiad<br></p>
                 </div>
             {% else %}
                 <div class="ui right aligned huge header title" id="title"
-                                                          style="color: white; font-size: 10vh; font-weight: 900">ششمین<br>المپیاد<br>هندسهٔ<br>ایران<br>
+                                                          style="color: white; font-size: 10vh; font-weight: 900; margin-top: 0">ششمین<br>المپیاد<br>هندسهٔ<br>ایران<br>
                 </div>
 
             {% endif %}
@@ -124,6 +124,19 @@
     <div class="ui inverted vertical stripe segment">
         <div class="ui middle aligned stackable grid container">
             <div class="row">
+
+                {% if LANGUAGE_CODE == "fa" %}
+
+                <div class="eight wide inverted column" style="margin-bottom: 5vh !important">
+
+                    <a href="/blog/2/2/">
+                    <div class="ui center aligned inverted segment register register-mobile" style="background-color: #f2502c !important; color: white !important">
+                        <h1>اطلاعیهٔ ثبت‌نام</h1>
+                    </div>
+                    </a>
+                </div>
+                {% endif %}
+
                 <div class="eight wide column">
                     <h3 class="ui header faded_class" style="color:white;"><i
                             class="inverted red id card outline icon"></i>{% trans "Introduction" %}
