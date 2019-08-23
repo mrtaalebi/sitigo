@@ -213,6 +213,14 @@ body {
     padding-top: 1vh !important;
     padding-bottom: 1vh !important;
     margin: 0 !important;
+
+    transition: 0.3s ease;
+    text-shadow: 0 0 1em;
+}
+
+.register:hover {
+    background: #00accf !important;
+    color: white !important;
 }
 
 .register-mobile {
