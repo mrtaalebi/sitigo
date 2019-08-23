@@ -141,8 +141,6 @@ msgid "Coming soon..."
 msgstr "به زودی..."
 
 #: apps/intro/templates/intro/homepage.html:70
-#, fuzzy
-#| msgid " for students and graduates"
 msgid "For Students And Graduates"
 msgstr "برای دانش‌آموزان و فارغ‌التحصیلان"
 
