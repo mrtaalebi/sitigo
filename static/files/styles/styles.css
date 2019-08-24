@@ -218,6 +218,27 @@ body {
     text-shadow: 0 0 1em;
 }
 
+.guide {
+    background-color: rgba(232, 232, 232, 1) !important;
+    color: black !important;
+    border-radius: 5vh !important;
+    height: 8vh !important;
+    width: 50vh !important;
+    text-align: center !important;
+    position: absolute !important;
+    padding-top: 1vh !important;
+    padding-bottom: 1vh !important;
+    margin: 0 !important;
+
+    transition: 0.3s ease;
+    text-shadow: 0 0 1em;
+}
+
+.guide:hover {
+    background: #f2502c !important;
+    color: white !important;
+}
+
 .register:hover {
     background: #00accf !important;
     color: white !important;
