@@ -89,33 +89,41 @@
                     {% endif %}
                 </div>
                 <div class="ui horizontal attached segment segments fingil" style="margin-top: -2vh">
+                    {% if LANGUAGE_CODE == "fa" %}
                     <div class="ui center aligned attached segment fingil">
                         <div class="ui white large circular label"
                              style="color: black; height: 4vh; width: 15vh">{% trans "23 Aug" %}
                         </div>
                     </div>
+                    {% endif %}
                     <div class="ui center aligned attached segment fingil">
                         <div class="ui white large circular label"
                              style="color: black; height: 4vh; width: 15vh"> {% trans "13 Sep" %}
                         </div>
                     </div>
+                    {% if LANGUAGE_CODE == "fa" %}
                     <div class="ui center aligned attached segment fingil">
                         <div class="ui white large circular label"
                              style="color: black; height: 4vh; width: 15vh">{% trans "19 Sep" %}
                         </div>
                     </div>
+                    {% endif %}
                 </div>
 
                 <div class="ui horizontal attached segment segments fingil" style="margin-top: -3vh">
+                    {% if LANGUAGE_CODE == "fa" %}
                     <div class="ui center aligned attached segment fingil">
                         {% trans "Registration" %}
                     </div>
+                    {% endif %}
                     <div class="ui center aligned attached segment fingil">
                         {% trans "Exam" %}
                     </div>
+                    {% if LANGUAGE_CODE == "fa" %}
                     <div class="ui center aligned attached segment fingil">
                         {% trans "Closing" %}
                     </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
