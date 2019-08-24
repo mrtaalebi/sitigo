@@ -46,11 +46,14 @@
 
 
 
+            {% if LANGUAGE_CODE == "fa" %}
             <a href="https://register.igo-official.ir/fa/participants/sign_up" class="register-scroll" target="_blank" style="display: none; justify-content: center; align-items: center; position: fixed; top: 1vh; z-index: 999; max-width: 100%; width: 100%; margin: 0; padding: 0; left: 0 !important; right: 0 !important">
             <div class="ui center aligned segment register register-mobile" style="width: 90%; max-width: 90%">
                 <h1>{% trans "Register now!" %}</h1>
             </div>
             </a>
+            {% endif %}
+
             {% block navbar %}
                 {% include 'base/main_navbar.html' %}
             {% endblock %}
@@ -84,12 +87,15 @@
                  style="width: 25rem; left: 0; right: 0; max-width: 90vw; margin-left: auto; margin-right: auto; position: absolute; bottom: 2vh;">
 
             
+            {% if LANGUAGE_CODE == "fa" %}
 
             <a href="https://register.igo-official.ir/fa/participants/sign_up" target="_blank">
             <div class="ui center aligned segment register register-mobile">
                 <h1>{% trans "Register now!" %}</h1>
             </div>
             </a>
+
+            {% endif %}
 
 
                <div class="ui center aligned attached segment fingil"
