@@ -69,7 +69,7 @@ class FileUpload(models.Model):
         
 
     def __str__(self):
-        return self.name
+        return '/content/download?file={}'.format(self.file.name)
 
 
 class Event(models.Model):
