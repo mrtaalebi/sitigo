@@ -39,9 +39,9 @@ def blog_post(request, dir_id, post_id):
     if BlogPost.objects.filter(pk=dir_id).count() == 1:
         post = BlogPost.objects.get(pk=dir_id)
     else:
-        return redirect(request.path)
+        return redirect('/')
     if post.dir.lang != translation.get_language():
-        return redirect(request.path)
+        return redirect('/')
 
     context = {
         'post': post,
