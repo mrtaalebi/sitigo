@@ -11,6 +11,7 @@ import threading
 
 class BlogDir(models.Model):
     name = models.CharField(max_length=30, unique=True, null=False, blank=False)
+    lang = models.CharField(max_length=2, choices=(("en", _("en")),("fa", _("fa"))), default="fa")
 
     def __str__(self):
         return self.name

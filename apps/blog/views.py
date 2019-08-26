@@ -28,7 +28,7 @@ def blog_dir(request, dir_id=None):
                         'date_created': post.date_created,
                         'short_text': post.headline
                     }
-                    for post in BlogPost.objects.filter(dir=adir).order_by('-date_created')],
+                    for post in BlogPost.objects.filter(dir=adir, dir__lang=translation.get_language()).order_by('-date_created')],
             }
             for adir in post_dirs]
         context['current_dir_name'] = current_dir.name
