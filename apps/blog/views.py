@@ -4,7 +4,7 @@ from django.utils import translation
 from .models import *
 
 def blog_dir(request, dir_id=None):
-    post_dirs = BlogDir.objects.all()
+    post_dirs = BlogDir.objects.filter(lang=translation.get_language())
     if dir_id is not None and post_dirs.filter(pk=dir_id).count() == 1:
         current_dir = post_dirs.get(pk=dir_id)
     else:
@@ -28,7 +28,7 @@ def blog_dir(request, dir_id=None):
                         'date_created': post.date_created,
                         'short_text': post.headline
                     }
-                    for post in BlogPost.objects.filter(dir=adir, dir__lang=translation.get_language()).order_by('-date_created')],
+                    for post in BlogPost.objects.filter(dir=adir).order_by('-date_created')],
             }
             for adir in post_dirs]
         context['current_dir_name'] = current_dir.name
@@ -36,11 +36,11 @@ def blog_dir(request, dir_id=None):
 
 
 def blog_post(request, dir_id, post_id):
-    if translation.get_language() == 'en':
-        return redirect('/')
     if BlogPost.objects.filter(pk=dir_id).count() == 1:
         post = BlogPost.objects.get(pk=dir_id)
     else:
+        return redirect(request.path)
+    if post.dir.lang != translation.get_language():
         return redirect(request.path)
 
     context = {
