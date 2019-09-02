@@ -25,7 +25,7 @@ def contact_us(request):
     subject = data['subject']
 
     message = 'Name: ' + data['name'] + '\n' \
-            + 'Country: ' + pycountry.countries.get(alpha_3=data['country']) + '\n' \
+            + 'Country: ' + str(pycountry.countries.get(alpha_3=data['country'])) + '\n' \
             + 'School_uni: ' + data['school_uni'] + '\n' \
             + 'Study_grade: ' + data['study_grade'] + '\n' \
             + 'Phone_number: ' + data['phone_number'] + '\n' \
