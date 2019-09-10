@@ -15,44 +15,9 @@
 
 
 
-            {% if LANGUAGE_CODE == "fa" %}
-
-            <a href="https://register.igo-official.ir/fa/participants/sign_up" target="_blank" style="position: fixed; z-index: 999; left: -3vh; top: 0vh">
-                <div class="ui center aligned segment register
-                    {% if LANGUAGE_CODE == "fa" %}
-                        register-fa
-                        {% else %}
-                        register-en
-                    {% endif %}
-                        ">
-                    <h1>{% trans "Register now!" %}</h1>
-                </div>
-            </a>
-            <a href="/blog/2/2" target="_blank" style="position: fixed; z-index: 999; left: +12vh; top: 40vh">
-                <div class="ui center aligned segment guide
-                    {% if LANGUAGE_CODE == "fa" %}
-                        register-fa
-                        {% else %}
-                        register-en
-                    {% endif %}
-                        " style="width: 20vh !important;">
-                    <h1>{% trans "راهنما" %}</h1>
-                </div>
-            </a>
-
-            {% endif %}
-            
         <div class="ui container">
 
 
-
-            {% if LANGUAGE_CODE == "fa" %}
-            <a href="https://register.igo-official.ir/fa/participants/sign_up" class="register-scroll" target="_blank" style="display: none; justify-content: center; align-items: center; position: fixed; top: 1vh; z-index: 999; max-width: 100%; width: 100%; margin: 0; padding: 0; left: 0 !important; right: 0 !important">
-            <div class="ui center aligned segment register register-mobile" style="width: 90%; max-width: 90%">
-                <h1>{% trans "Register now!" %}</h1>
-            </div>
-            </a>
-            {% endif %}
 
             {% block navbar %}
                 {% include 'base/main_navbar.html' %}
@@ -72,32 +37,9 @@
 
 
             <div class="center aligned segments"
-                 style="width: 25rem; left: 0; right: 0; max-width: 90vw; margin-left: auto; margin-right: auto; position: absolute; bottom: 20vh; dipslay: none; visibility: hidden">
-
-                <div class="ui center aligned segment register">
-                    <div style="height: 100%; display: flex; align-items: center; justify-content: center;">
-                    
-                        <h1>{% trans "Coming soon..." %}</h1>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="center aligned segments"
                  style="width: 25rem; left: 0; right: 0; max-width: 90vw; margin-left: auto; margin-right: auto; position: absolute; bottom: 2vh;">
 
             
-            {% if LANGUAGE_CODE == "fa" %}
-
-            <a href="https://register.igo-official.ir/fa/participants/sign_up" target="_blank">
-            <div class="ui center aligned segment register register-mobile">
-                <h1>{% trans "Register now!" %}</h1>
-            </div>
-            </a>
-
-            {% endif %}
-
-
                <div class="ui center aligned attached segment fingil"
                      style="background-color: #E8E8E8 !important; color: black !important; border-radius: 2.5vh !important; height: 5vh !important; line-height: 0.5vh; width: 100% !important; text-align: center">
                     {% trans "For Students And Graduates" %}
@@ -137,11 +79,11 @@
 
                 <div class="ui horizontal attached segment segments fingil" style="margin-top: -3vh">
                     {% if LANGUAGE_CODE == "fa" %}
-                    <div class="ui center aligned attached segment fingil blink_text">
+                    <div class="ui center aligned attached segment fingil">
                         مهلت ثبت نام
                     </div>
                     {% endif %}
-                    <div class="ui center aligned attached segment fingil">
+                    <div class="ui center aligned attached segment fingil blink_text">
                         {% trans "Exam" %}
                     </div>
                     {% if LANGUAGE_CODE == "fa" %}
@@ -156,25 +98,6 @@
 
     <div class="ui inverted vertical stripe segment">
         <div class="ui middle aligned stackable grid container">
-           <div class="row">
-
-                {% if LANGUAGE_CODE == "fa" %}
-
-                <div class="four wide column"></div>
-
-                <div class="eight wide inverted column" style="margin-bottom: 5vh !important">
-
-                    <a href="/blog/2/2/">
-                    <div class="ui center aligned inverted segment register register-mobile" style="background-color: #f2502c !important; color: white !important; height: 10vh; border-radius: 5vh; line-height: 10vh">
-                        <h1>اطلاعیهٔ ثبت‌نام</h1>
-                    </div>
-                    </a>
-                </div>
-
-                <div class="four wide column"></div>
-                {% endif %}
-
-            </div>
             <div class="row">
                 <div class="eight wide column">
                     <h3 class="ui header faded_class" style="color:white;"><i
