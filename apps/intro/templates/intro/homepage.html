@@ -96,10 +96,16 @@
         </div>
     </div>
 
-    <div>
-        {{ blog_posts }}
-        {% for x in blog_posts %}
-            {{ x.title }}
+    <div class="ui stackable grid">
+        {% for post in blog_posts %}
+            <div class="ui inverted card">
+                <div class="medium image">
+                    <img src="{{ post.image.url }}">
+                </div>
+                <div class="center aligned content">
+                    {{ post.title }}
+                </div>
+            </div>
         {% endfor %}
     </div>
     <div class="ui inverted vertical stripe segment">
