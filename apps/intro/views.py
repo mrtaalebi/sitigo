@@ -14,6 +14,9 @@ from apps.intro.models import HomePage, HomePageImage
 from apps.gallery.models import Image
 import random
 
+from apps.blog.models import BlogPost
+from django.utils import translation
+
 LANGUAGE_QUERY_PARAMETER = 'language'
 
 
@@ -49,6 +52,10 @@ def homepage(request):
             } for img in images],
         'num_of_img': range(len(images)),
     })
+
+    blog_posts = BlogPost.objects.filter(dir__lang=translation.get_language()).order_by('-date_created')
+    blog_posts = blog_posts[0:min(3, len(blog_posts))]
+    context['blog_posts'] = list(blog_posts)
     return render(request, 'intro/homepage.html', context)
 
 

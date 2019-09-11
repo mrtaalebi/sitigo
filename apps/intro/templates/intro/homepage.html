@@ -96,6 +96,11 @@
         </div>
     </div>
 
+    <div>
+        {% for x in blog_posts %}
+            {{ x.title }}
+        {% endfor %}
+    </div>
     <div class="ui inverted vertical stripe segment">
         <div class="ui middle aligned stackable grid container">
             <div class="row">
