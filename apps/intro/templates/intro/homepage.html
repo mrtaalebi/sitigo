@@ -104,18 +104,18 @@
                 آخرین مطالب بلاگ
             {% endif %}
         </div>
-            <div class="ui stackable center aligned four fluid cards" style="padding: 2vh">
-                {% for post in blog_posts %}
-                    <a href="/blog/{{ post.dir.id }}/{{ post.id }}" class="ui inverted fluid card" style="max-height: 90%; margin: 2vh; padding: 0; background: #1a1a1a; color: white !important">
-                        <div class="tiny image">
-                            <img src="{{ post.image.url }}">
-                        </div>
-                        <div class="center aligned content">
-                            {{ post.title }}
-                        </div>
-                    </a>
-                {% endfor %}
-            </div>
+        <div class="ui stackable center aligned four fluid cards" style="padding: 2vh; background: #1a1a1a !important">
+            {% for post in blog_posts %}
+                <a href="/blog/{{ post.dir.id }}/{{ post.id }}" class="ui inverted fluid card" style="max-height: 90%; margin: 2vh; padding: 0; background: #1a1a1a; color: white !important">
+                    <div class="tiny image">
+                        <img src="{{ post.image.url }}">
+                    </div>
+                    <div class="center aligned content">
+                        {{ post.title }}
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
     </div>
     <div class="ui inverted vertical stripe segment">
         <div class="ui middle aligned stackable grid container">
