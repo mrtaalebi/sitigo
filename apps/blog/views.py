@@ -36,8 +36,8 @@ def blog_dir(request, dir_id=None):
 
 
 def blog_post(request, dir_id, post_id):
-    if BlogPost.objects.filter(pk=dir_id).count() == 1:
-        post = BlogPost.objects.get(pk=dir_id)
+    if BlogPost.objects.filter(id=post_id, dir__id=dir_id).count() == 1:
+        post = BlogPost.objects.get(id=post_id, dir__id=dir_id)
     else:
         return redirect('/')
     if post.dir.lang != translation.get_language():
