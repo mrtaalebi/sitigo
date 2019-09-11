@@ -96,15 +96,15 @@
         </div>
     </div>
 
-    <div class="ui inverted vertical stripe segment" style="padding: 1vh; background: #1a1a1a !important">
-        <h3 class="ui center aligned header faded_class" style="color: white;">
+    <div class="ui inverted vertical stripe segment" style="padding: 1vh; background: black !important">
+        <h3 class="ui center aligned header faded_class" style="color: white; padding: 1vh">
             {% if LANGUAGE_CODE == "en" %}
                 Latest Blog Posts
             {% else %}
                 آخرین مطالب بلاگ
             {% endif %}
         </div>
-        <div class="ui stackable center aligned four fluid cards" style="padding: 2vh; background: #1a1a1a !important">
+        <div class="ui stackable center aligned four fluid cards" style="padding: 2vh; background: black !important">
             {% for post in blog_posts %}
                 <a href="/blog/{{ post.dir.id }}/{{ post.id }}" class="ui inverted fluid card" style="max-height: 90%; margin: 2vh; padding: 0; background: #1a1a1a; color: white !important">
                     <div class="tiny image">
