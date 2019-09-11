@@ -96,18 +96,16 @@
         </div>
     </div>
 
-    <div class="ui inverted vertical stripe segment">
+    <div class="ui inverted vertical stripe segment" style="padding: 0">
         <div class="ui middle aligned stackable grid container"><div class="row"><div class="column">
             <div class="ui stackable center aligned cards" style="margin: 2vh; padding: 2vh">
                 {% for post in blog_posts %}
-                    <a href="/blog/{{ post.dir.id }}/{{ post.id }}">
-                        <div class="ui inverted card" style="max-height: 90%; margin: 2vh; padding: 0; background: #1a1a1a; color: white !important">
-                            <div class="small image">
-                                <img src="{{ post.image.url }}">
-                            </div>
-                            <div class="center aligned content">
-                                {{ post.title }}
-                            </div>
+                    <a href="/blog/{{ post.dir.id }}/{{ post.id }}" class="ui inverted card" style="max-height: 90%; margin: 2vh; padding: 0; background: #1a1a1a; color: white !important">
+                        <div class="small image">
+                            <img src="{{ post.image.url }}">
+                        </div>
+                        <div class="center aligned content">
+                            {{ post.title }}
                         </div>
                     </a>
                 {% endfor %}
