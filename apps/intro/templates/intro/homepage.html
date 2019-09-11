@@ -96,17 +96,21 @@
         </div>
     </div>
 
-    <div class="ui stackable center aligned grid" style="margin: 2vh; padding: 2vh">
-        {% for post in blog_posts %}
-            <div class="ui inverted card" style="max-height: 90%; padding: 2vh">
-                <div class="small image">
-                    <img src="{{ post.image.url }}">
-                </div>
-                <div class="center aligned content">
-                    {{ post.title }}
-                </div>
+    <div class="ui inverted vertical stripe segment">
+        <div class="ui middle aligned stackable grid container"><div class="row"><div class="column">
+            <div class="ui stackable center aligned cards" style="margin: 2vh; padding: 2vh">
+                {% for post in blog_posts %}
+                    <div class="ui inverted card" style="max-height: 90%; margin: 2vh; padding: 0">
+                        <div class="small image">
+                            <img src="{{ post.image.url }}">
+                        </div>
+                        <div class="center aligned content">
+                            {{ post.title }}
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
-        {% endfor %}
+        </div></div></div>
     </div>
     <div class="ui inverted vertical stripe segment">
         <div class="ui middle aligned stackable grid container">
