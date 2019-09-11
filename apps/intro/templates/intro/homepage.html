@@ -106,7 +106,7 @@
         </div>
         <div class="ui stackable center aligned four fcards" style="display: flex; justify-content: center; padding: 2vh; background: black !important">
             {% for post in blog_posts %}
-                <a href="/blog/{{ post.dir.id }}/{{ post.id }}" class="ui inverted fluid card" style="max-height: 90%; margin: 2vh; padding: 0; background: #1a1a1a; color: white !important">
+                <a href="/blog/{{ post.dir.id }}/{{ post.id }}" class="ui inverted card" style="max-height: 90%; max-width: 25%; margin: 2vh; padding: 0; background: #1a1a1a; color: white !important">
                     <div class="tiny image">
                         <img src="{{ post.image.url }}">
                     </div>
