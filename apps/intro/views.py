@@ -54,7 +54,7 @@ def homepage(request):
     })
 
     blog_posts = BlogPost.objects.filter(dir__lang=translation.get_language()).order_by('-date_created')
-    blog_posts = blog_posts[0:min(3, len(blog_posts))]
+    blog_posts = blog_posts[0:min(4, len(blog_posts))]
     context['blog_posts'] = list(blog_posts)
     return render(request, 'intro/homepage.html', context)
 
