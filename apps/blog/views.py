@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.utils import translation
 
 from .models import *
+from .forms import BlogCommentForm
+
 
 def blog_dir(request, dir_id=None):
     post_dirs = BlogDir.objects.filter(lang=translation.get_language())
@@ -47,7 +49,8 @@ def blog_post(request, dir_id, post_id):
         'post': post,
         'post_id': post_id,
         'dir_id': dir_id,
-        'comments': BlogComment.objects.filter(post=post)
+        'comments': BlogComment.objects.filter(post=post),
+        'form': BlogCommentForm()
     }
 
     return render(request, 'blog/post.html', context)
@@ -62,10 +65,9 @@ def subscribe(request):
 
 
 def leave_comment(request, dir_id, post_id):
+
     if request.POST:
-        b = BlogComment(post=BlogPost.objects.get(pk=post_id),
-                        author=request.POST['author'],
-                        text=request.POST['text'],
-                        )
-        b.save()
+        form = BlogCommentForm(reqeust.POST)
+        if form.is_valid():
+            form.save()
     return blog_post(request, dir_id, post_id)
