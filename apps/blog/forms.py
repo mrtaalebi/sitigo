@@ -9,5 +9,5 @@ class BlogCommentForm(forms.ModelForm):
         model = BlogComment
         fields = '__all__'
 
-    captcha = ReCaptchaField
+    captcha = ReCaptchaField()
 

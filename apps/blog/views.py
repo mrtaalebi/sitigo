@@ -71,3 +71,4 @@ def leave_comment(request, dir_id, post_id):
         if form.is_valid():
             form.save()
     return blog_post(request, dir_id, post_id)
+
