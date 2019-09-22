@@ -59,15 +59,18 @@
                 <div class="ui center aligned attached segment fingil" style="">
                     <a href="/events/6">
                         <div class="ui center aligned attached segment fluid fingil" style="">
-                            {% if LANGUAGE_CODE == "fa" %}
-                                رویداد ششم
-                            {% else %}
-                                6th IGO
-                            {% endif %}
+                            <div class="ui white large circular label">
+                                {% if LANGUAGE_CODE == "fa" %}
+                                    رویداد ششم
+                                {% else %}
+                                    6th IGO
+                                {% endif %}
+                            </div>
                         </div>
                     </a>
                 </div>
-                {#
+
+                {% comment %}
 
                 <div class="ui horizontal attached segment segments fingil" style="margin-top: -2vh">
                     {% if LANGUAGE_CODE == "fa" %}
@@ -107,7 +110,7 @@
                     {% endif %}
                 </div>
 
-                #}
+                {% endcomment %}
 
             </div>
         </div>
