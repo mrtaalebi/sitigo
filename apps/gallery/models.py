@@ -142,6 +142,9 @@ class GroupImageUpload(models.Model):
             )
 
     def save(self, *args, **kwargs):
+        if self.id:
+            return
+
         super().save(self, args, kwargs)
 
         import threading
