@@ -39,7 +39,7 @@ class Image(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.id:
-            self.image = resize(self.image, 1000, 4 / 3)
+            self.image = resize(self.image, 1000, 16 / 9)
             if self.city is not None:
                 location_persian = self.country_event.country.persian_name + " - " + self.city.persian_name
                 location_english = self.country_event.country.english_name + " - " + self.city.english_name
@@ -106,6 +106,8 @@ class GroupImageUpload(models.Model):
 
     images = models.ManyToManyField(Image, related_name='group_upload', blank=True, null=True)
 
+    re_upload = models.BooleanField(default=False)
+
     def create_images(self):
 
         import os
@@ -145,8 +147,11 @@ class GroupImageUpload(models.Model):
     def save(self, *args, **kwargs):
         super(GroupImageUpload, self).save(*args, **kwargs)
 
-        import threading
-        threading.Thread(target=self.create_images).start()
+        if self.re_upload:
+            import threading
+            threading.Thread(target=self.create_images).start()
+        self.re_upload = False
+        super(GroupImageUpload, self).save(*args, **kwargs)
 
     def delete(self):
         Image.objects.filter(group_upload=self).delete()
