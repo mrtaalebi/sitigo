@@ -31,5 +31,6 @@ class GalleryAdmin(admin.ModelAdmin):
 
 @admin.register(GroupImageUpload)
 class GroupImageUploadAdmin(admin.ModelAdmin):
+    exclude = ['images']
     pass
 
