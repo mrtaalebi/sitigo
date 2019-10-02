@@ -147,7 +147,7 @@ class GroupImageUpload(models.Model):
     def save(self, *args, **kwargs):
         super(GroupImageUpload, self).save(*args, **kwargs)
 
-        if self.re_upload:
+        if self.re_upload or self.images.all().count() == 0:
             Image.objects.filter(group_upload=self).delete()
             import threading
             threading.Thread(target=self.create_images).start()
