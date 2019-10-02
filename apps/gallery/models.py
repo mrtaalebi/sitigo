@@ -140,6 +140,7 @@ class GroupImageUpload(models.Model):
                     image=os.path.join(unzip_path, img)
                 )
             )
+        print(self.images.objcets.all())
 
     def save(self, *args, **kwargs):
         super(GroupImageUpload, self).save(*args, **kwargs)
