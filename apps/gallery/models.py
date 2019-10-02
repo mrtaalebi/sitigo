@@ -104,7 +104,7 @@ class GroupImageUpload(models.Model):
     persian_caption = models.CharField(max_length=300, default='default', blank=True)
     english_caption = models.CharField(max_length=300, default='default', blank=True)
 
-    images = models.ManyToManyField(Image, related_name='group_upload', blank=True)
+    images = models.ManyToManyField(Image, related_name='group_upload', blank=True, null=True)
 
     def create_images(self):
 
