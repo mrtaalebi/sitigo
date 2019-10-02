@@ -39,7 +39,7 @@ class Image(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.id:
-            self.image = resize(self.image, 1000, 16 / 9)
+            self.image = resize(self.image, 1000, 1e10)
             if self.city is not None:
                 location_persian = self.country_event.country.persian_name + " - " + self.city.persian_name
                 location_english = self.country_event.country.english_name + " - " + self.city.english_name
