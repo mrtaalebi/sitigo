@@ -115,7 +115,7 @@
                                     style="border-top: 0.15em white solid; margin: 0.25em";>
                                 {% for image in country_images.images %}
                                     <div class="ui center aligned column">
-                                        <div style="display: flex; justify-content: center">
+                                        <div style="display: flex; justify-content: center; align-items: center; height: 100%">
                                             <div class="ui image">
                                                     <img src="{{ image.image.url }}"
                                                         alt="{% if LANGUAGE_CODE == "fa" %}{{ image.persian_caption }}{% else %}{{ image.english_caption }}{% endif %}"
