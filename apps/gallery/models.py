@@ -149,7 +149,7 @@ class GroupImageUpload(models.Model):
         threading.Thread(target=self.create_images).start()
 
     def delete(self):
-        Image.objcets.filter(group_upload=self).delete()
+        Image.objects.filter(group_upload=self).delete()
         super().delete()
 
     def __str__(self):
