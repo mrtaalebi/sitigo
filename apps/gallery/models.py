@@ -123,6 +123,7 @@ class GroupImageUpload(models.Model):
         params = [
                 'unzip',
                 '-j',
+                '-o',
                 str(self.zip_file.file),
                 '-d',
                 unzip_path
@@ -135,12 +136,11 @@ class GroupImageUpload(models.Model):
                 Image.objects.create(
                     country_event=self.country_event,
                     city=self.city,
-                    persian_caption=persian_caption,
-                    english_caption=english_caption,
+                    persian_caption=self.persian_caption,
+                    english_caption=self.english_caption,
                     image=os.path.join(unzip_path, img)
                 )
             )
-        print(self.images.objcets.all())
 
     def save(self, *args, **kwargs):
         super(GroupImageUpload, self).save(*args, **kwargs)
