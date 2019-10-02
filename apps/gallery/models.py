@@ -54,7 +54,7 @@ class Image(models.Model):
                 self.english_caption = self.country_event.event.english_name.split()[0] + " IGO in " \
                         + location_english
         super(Image, self).save(*args, **kwargs)
-    
+
     def __str__(self):
         return str(self.english_caption) + ' - ' + str(self.country_event)
 
@@ -101,15 +101,18 @@ class GroupImageUpload(models.Model):
     city = models.ForeignKey(City, on_delete=models.CASCADE, null=True, blank=True)
     zip_file = models.FileField(upload_to='group_image_upload/')
 
-    images = models.ManyToManyField(Image, related_name='group_upload')
+    persian_caption = models.CharField(max_length=300, default='default', blank=True)
+    english_caption = models.CharField(max_length=300, default='default', blank=True)
+
+    images = models.ManyToManyField(Image, related_name='group_upload', blank=True)
 
     def create_images(self):
-        
+
         import os
         unzip_path = os.path.abspath(
                 os.path.join(
                     os.path.join(
-                        settings.MEDIA_ROOT, 
+                        settings.MEDIA_ROOT,
                         'group_image_upload_unzip'),
                     self.zip_file.name.split('.')[0]
                 )
@@ -132,6 +135,8 @@ class GroupImageUpload(models.Model):
                 Image.objects.create(
                     country_event=self.country_event,
                     city=self.city,
+                    persian_caption=persian_caption,
+                    english_caption=english_caption,
                     image=os.path.join(unzip_path, img)
                 )
             )
