@@ -11,7 +11,7 @@ def navbar(request):
             ['/blog', _('Blog')],
             ['/events', _('Events')],
             ['/articles', _('Articles')],
-            ['/staff', _('Staff')],
+            ['/staff', _('People')],
             ['/gallery', _('Gallery')],
             ['/faq', _('FAQ')],
             ['/contact_us', _('Contact Us')],
@@ -21,7 +21,7 @@ def navbar(request):
     if translation.get_language() == "en":
         context['navbar'].remove(['/articles', _('Articles')])
         context['navbar'].remove(['/faq', _('FAQ')])
-    
+
 
     page_dir = '/' + request.path.split('/')[1]
     for x in context['navbar']:

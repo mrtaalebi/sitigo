@@ -12,7 +12,7 @@ def gallery(request, event_id=None, gallery_id=None):
     elif Event.objects.count() > 0:
         event = Event.objects.order_by('-year').first()
     else:
-        return render(request, 
+        return render(request,
                 'gallery/gallery.html',
                 context={"error": "No Events Yet!"})
 
@@ -30,7 +30,7 @@ def gallery(request, event_id=None, gallery_id=None):
         'event': event,
         'gallery_links': [{
             'g': g,
-            'link': '/gallery/{}/{}'.format(event.id, g.id) 
+            'link': '/gallery/{}/{}'.format(event.id, g.id)
             } for g in Gallery.objects.filter(event=event)],
         'gallery_english_name': gallery.english_name if gallery is not None else 'World Wide'
     }
@@ -38,7 +38,7 @@ def gallery(request, event_id=None, gallery_id=None):
     # tof
     if event.id != 1:
         context['gallery_links'] += [
-            {'g': 
+            {'g':
                 {
                     'persian_name': 'سراسر جهان',
                     'english_name': 'World Wide'
@@ -62,10 +62,6 @@ def gallery(request, event_id=None, gallery_id=None):
             'images': list(Image.objects.filter(country_event=coev)),
         } for coev in CountryEvent.objects.filter(event=event, gallery=gallery).order_by(sort_by)
     ]
-    
-    import random
-    for imgs in context['by_country_event_images']:
-        random.shuffle(imgs['images'])
 
     return render(request, 'gallery/gallery.html', context)
 
