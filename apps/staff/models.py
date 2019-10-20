@@ -22,7 +22,7 @@ class Team(models.Model):
 class Role(models.Model):
     persian_name = models.CharField(max_length=300)
     english_name = models.CharField(max_length=300)
-    
+
     is_head = models.BooleanField(default=False)
 
     team = models.ForeignKey(Team, on_delete=models.CASCADE)
