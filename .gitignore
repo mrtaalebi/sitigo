@@ -16,3 +16,4 @@
 !requirements.txt
 !/static/files/**
 !/templates/**
+!/deploy/**

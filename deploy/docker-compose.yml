@@ -1,0 +1,39 @@
+version: '3.3'
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./static/:/app/static/
+      - ./media/:/app/media/
+      - /var/log/app/:/var/log/app/
+      - /var/log/app/nginx/:/var/log/nginx/
+      - ./deploy/config/nginx/sites-available/:/etc/nginx/sites-available/
+      - ./deploy/config/nginx/sites-enabled/:/etc/nginx/sites-enabled/
+      - ./deploy/config/nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - web
+  web:
+    build:
+      context: ..
+      dockerfile: ./deploy/Dockerfile
+    container_name: web
+    restart: always
+    command: bash -c "export DJANGO_SETTINGS_MODULE=sitigo.settings.production && python3 manage.py migrate && python3 manage.py compilemessages && python3 manage.py collectstatic <<< yes && gunicorn -b 0.0.0.0:8000 --workers=4 sitigo.wsgi"
+    volumes:
+      - ./static/:/app/static/
+      - ./media/:/app/media/
+      - /var/log/app/:/var/log/app/
+    depends_on:
+      - db
+    expose:
+      - 8000
+  db:
+    image: postgres:latest
+    container_name: db
+    restart: always
