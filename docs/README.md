@@ -6,9 +6,12 @@
   * [Django](https://github.com/django/django)
   * [Semantic UI](https://github.com/Semantic-Org/Semantic-UI)
 
-# Getteing Started
+# Getting Started
 1- Install virtualenv and activate venv following instruction in the link blow
   * [How to install virtualenv](https://gist.github.com/Geoyi/d9fab4f609e9f75941946be45000632b)
+2- Docker
+  * Simply run `docker-compose -f deploy/docker-compose.yml up -d`
+  * You may also run scripts under maintanence directory in order to sync database and media files
 
 2- Inside the activated venv, install projcet requirements
   * `pip install -r requirements.txt`
