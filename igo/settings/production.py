@@ -109,7 +109,7 @@ DATABASES = {
         "NAME": "sitigo",
         "USER": "sitiguser",
         "PASSWORD": "passpasspass",
-        "HOST": "localhost",
+        "HOST": "db",
         "PORT": "5432",
     }
 }
