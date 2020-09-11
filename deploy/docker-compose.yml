@@ -23,7 +23,7 @@ services:
       dockerfile: ./deploy/Dockerfile
     container_name: web
     restart: always
-    command: bash -c "export DJANGO_SETTINGS_MODULE=sitigo.settings.production && python3 manage.py migrate && python3 manage.py compilemessages && python3 manage.py collectstatic <<< yes && gunicorn -b 0.0.0.0:8000 --workers=4 sitigo.wsgi"
+    command: bash -c "export DJANGO_SETTINGS_MODULE=igo.settings.production && python3 manage.py migrate && python3 manage.py compilemessages && python3 manage.py collectstatic <<< yes && gunicorn -b 0.0.0.0:8000 --workers=4 igo.wsgi"
     volumes:
       - ./static/:/app/static/
       - ./media/:/app/media/
@@ -35,3 +35,5 @@ services:
     image: postgres:latest
     container_name: db
     restart: always
+    environment:
+      - POSTGRES_PASSWORD=wowpass
