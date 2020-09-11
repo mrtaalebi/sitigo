@@ -20,7 +20,7 @@ psycopg2==2.8.3
 pycountry==18.12.8
 python-thumbnails==0.5.1
 pytz==2019.1
-requests==2.20.0
+requests==2.6.0
 six==1.9.0
 sqlparse==0.3.0
 Unidecode==1.1.1
