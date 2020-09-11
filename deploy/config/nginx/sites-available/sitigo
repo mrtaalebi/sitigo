@@ -17,8 +17,8 @@ server {
     client_max_body_size 8M;
     keepalive_timeout    69;
 
-    ssl_certificate     /etc/letsencrypt/live/igo-official.ir/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/igo-official.ir/privkey.pem;
+    ssl_certificate     /sitigo/cert/fullchain.pem;
+    ssl_certificate_key /sitigo/cert/privkey.pem;
 
     ignore_invalid_headers on;
 
