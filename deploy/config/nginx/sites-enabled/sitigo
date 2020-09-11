@@ -1,4 +1,4 @@
-upstream sitigo_web {
+upstream web {
 	server web:8000 fail_timeout=0;
 }
 
@@ -28,7 +28,7 @@ server {
         proxy_set_header    X-Real-IP               $remote_addr;
         proxy_set_header    X-Forwarded-For         $proxy_add_x_forwarded_for;
         proxy_set_header    X-Forwarded-Proto       $scheme;
-        proxy_pass          http://igo_web;
+        proxy_pass          http://web;
     }
 
    location /static/ {
