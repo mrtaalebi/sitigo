@@ -17,8 +17,11 @@
   * `./manage.py runsever 0.0.0.0:8000`
 
 # Production
-Simply run `docker-compose -f deploy/docker-compose.yml up -d`
-  * The web service has some optional env variables which you can use to transfer media files and apply database dump from old server
+1- Simply build and run with docker
+  * `docker-compose -f deploy/docker-compose.yml up -d`
+
+2- You may also want to transfer media files and apply database dump from old server
+  (I'm not really in the mood to explain. Sorry!)
 
 # Docs
   * You can find the following under [docs](https://github.com/mrtaalebi/sitigo/tree/master/docs)
