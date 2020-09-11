@@ -9,8 +9,8 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - ./files/static/:/app/static/
-      - ./files/media/:/app/media/
+      - ./files/static/:/sitigo/static/
+      - ./files/media/:/sitigo/media/
       - ./log/nginx/:/var/log/nginx/
       - ./config/nginx/sites-available/:/etc/nginx/sites-available/
       - ./config/nginx/sites-enabled/:/etc/nginx/sites-enabled/
