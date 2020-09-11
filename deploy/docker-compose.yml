@@ -37,5 +37,7 @@ services:
     image: postgres:latest
     container_name: db
     restart: always
+    volumes:
+      - ./deploy/config/db/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/
     environment:
       - POSTGRES_PASSWORD=wowpass
