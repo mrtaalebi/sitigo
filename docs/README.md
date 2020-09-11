@@ -9,15 +9,16 @@
 # Getting Started
 1- Install virtualenv and activate venv following instruction in the link blow
   * [How to install virtualenv](https://gist.github.com/Geoyi/d9fab4f609e9f75941946be45000632b)
-2- Docker
-  * Simply run `docker-compose -f deploy/docker-compose.yml up -d`
-  * You may also run scripts under maintanence directory in order to sync database and media files
 
 2- Inside the activated venv, install projcet requirements
   * `pip install -r requirements.txt`
 
 3- Run the development server
   * `./manage.py runsever 0.0.0.0:8000`
+
+# Production
+Simply run `docker-compose -f deploy/docker-compose.yml up -d`
+  * The web service has some optional env variables which you can use to transfer media files and apply database dump from old server
 
 # Docs
   * You can find the following under [docs](https://github.com/mrtaalebi/sitigo/tree/master/docs)
