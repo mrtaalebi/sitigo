@@ -15,6 +15,7 @@ services:
       - ./config/nginx/sites-available/:/etc/nginx/sites-available/
       - ./config/nginx/sites-enabled/:/etc/nginx/sites-enabled/
       - ./config/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./cert/:/sitigo/cert/
     depends_on:
       - web
   web:
