@@ -15,10 +15,13 @@ server {
 
     server_name igo-official.ir
     client_max_body_size 8M;
-    keepalive_timeout    69;
+    keepalive_timeout    60;
 
-    ssl_certificate     /sitigo/cert/fullchain.pem;
-    ssl_certificate_key /sitigo/cert/privkey.pem;
+    ssl_certificate     /etc/letsencrypt/live/igo-official.ir/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/igo-official.ir/privkey.pem;
+
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
     ignore_invalid_headers on;
 
@@ -61,8 +64,8 @@ server {
         log_not_found   on;
     }
 
-    location /.well-known/ {
-        root            /var/www/letsencrypt/;
+    location /.well-known/acme-challenge/ {
+        root            /var/www/certbot/;
         access_log      on;
         log_not_found   on;
     }
