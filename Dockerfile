@@ -8,4 +8,4 @@ RUN apt-get update && apt-get install -yq vim curl gettext
 COPY . /sitigo/
 RUN pip3 install pip --upgrade
 RUN pip3 install -r /sitigo/requirements.txt
-
+RUN pip3 install gunicorn
