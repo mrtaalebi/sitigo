@@ -17,3 +17,6 @@
 !/static/files/**
 !/templates/**
 !/deploy/**
+!docker-compose.yml
+!Dockerfile
+!/config/**
