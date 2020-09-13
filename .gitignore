@@ -20,4 +20,3 @@
 !docker-compose.yml
 !Dockerfile
 !/config/**
-!init-letsencrypt.sh
