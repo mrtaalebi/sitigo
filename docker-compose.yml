@@ -35,7 +35,7 @@ services:
     command: bash -c "export DJANGO_SETTINGS_MODULE=igo.settings.production && python3 manage.py migrate && python3 manage.py compilemessages && python3 manage.py collectstatic <<< yes && gunicorn -b 0.0.0.0:8000 --workers=4 igo.wsgi"
     volumes:
       - ../files/static/:/sitigo/files/static/
-      - ../files/media/:/sitigo/files/files/media/
+      - ../files/media/:/sitigo/files/media/
     depends_on:
       - db
     expose:
