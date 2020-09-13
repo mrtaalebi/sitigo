@@ -106,8 +106,8 @@ WSGI_APPLICATION = 'igo.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "sitigo",
-        "USER": "sitiguser",
+        "NAME": "sitigodb",
+        "USER": "sitigouser",
         "PASSWORD": "passpasspass",
         "HOST": "db",
         "PORT": "5432",
