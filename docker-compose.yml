@@ -1,8 +1,9 @@
 version: '3.3'
 
 services:
-  cert:
+  certbot:
     image: certbot/certbot:latest
+    container_name: certbot
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
     volumes:
       - ./certbot/conf:/etc/letsencrypt
