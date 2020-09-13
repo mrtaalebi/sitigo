@@ -40,3 +40,4 @@ services:
       - ./config/db/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/
     environment:
       - POSTGRES_PASSWORD=wowpass
+      - RESTORE_DB_FROM_DUMP=false # use psql dump file to restore database
