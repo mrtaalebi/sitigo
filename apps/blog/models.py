@@ -2,8 +2,7 @@ from django.db import models
 from ckeditor.fields import RichTextField
 from django.core.mail import send_mail, EmailMessage
 from django.utils.translation import ugettext, ugettext_lazy as _
-
-from igo import settings
+from django.conf import settings
 
 import math
 import threading
