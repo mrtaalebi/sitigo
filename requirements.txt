@@ -2,7 +2,7 @@ beautifulsoup4==4.6.0
 captcha==0.3
 certifi==2019.6.16
 chardet==3.0.4
-Django==2.2.4
+Django==2.2.18
 django-ckeditor==5.7.1
 django-extensions==2.1.9
 django-js-asset==1.2.2
